@@ -14,6 +14,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'assets.cdn.filesafe.space',
       },
+      {
+        protocol: 'https',
+        hostname: 'img.youtube.com',
+      },
     ],
   },
 };
