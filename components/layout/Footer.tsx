@@ -59,6 +59,15 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
+            <Link href="/privacy-policy" className="hover:text-primary transition-colors">
+              Privacy Policy
+            </Link>
+            <span className="hidden md:inline">•</span>
+            <Link href="/terms-and-conditions" className="hover:text-primary transition-colors">
+              Terms and Conditions
+            </Link>
+          </div>
           <p>© {currentYear} Revwise. All rights reserved.</p>
         </div>
       </div>
