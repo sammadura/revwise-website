@@ -1,0 +1,323 @@
+/* ===================================
+   REVWISE CALENDAR WIDGET CUSTOM CSS
+   Copy and paste into GoHighLevel
+   =================================== */
+
+/* Main container */
+.appointment-container,
+.calendar-widget {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+/* Primary brand color for buttons and accents */
+.btn-primary,
+.submit-btn,
+.book-appointment-btn,
+.next-btn,
+.confirm-btn {
+  background-color: #349cff !important;
+  border-color: #349cff !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  padding: 12px 24px !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 2px 4px rgba(52, 156, 255, 0.2) !important;
+}
+
+.btn-primary:hover,
+.submit-btn:hover,
+.book-appointment-btn:hover {
+  background-color: #2b8ee6 !important;
+  border-color: #2b8ee6 !important;
+  box-shadow: 0 4px 8px rgba(52, 156, 255, 0.3) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Secondary/outline buttons */
+.btn-secondary,
+.back-btn,
+.cancel-btn {
+  background-color: rgba(52, 156, 255, 0.05) !important;
+  border: 1px solid rgba(52, 156, 255, 0.2) !important;
+  color: #349cff !important;
+  font-weight: 600 !important;
+  padding: 12px 24px !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-secondary:hover,
+.back-btn:hover {
+  background-color: rgba(52, 156, 255, 0.1) !important;
+  border-color: rgba(52, 156, 255, 0.3) !important;
+}
+
+/* Calendar grid */
+.calendar-grid,
+.calendar-days {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+/* Calendar day cells */
+.calendar-day,
+.day-cell {
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+.calendar-day:hover,
+.day-cell:hover {
+  background-color: rgba(52, 156, 255, 0.1) !important;
+  transform: scale(1.05) !important;
+}
+
+/* Selected date */
+.calendar-day.selected,
+.day-cell.selected,
+.selected-date {
+  background-color: #349cff !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 8px rgba(52, 156, 255, 0.3) !important;
+}
+
+/* Today indicator */
+.calendar-day.today,
+.day-cell.today {
+  border: 2px solid #349cff !important;
+  font-weight: 600 !important;
+}
+
+/* Time slot buttons */
+.time-slot,
+.time-button,
+.slot-btn {
+  background-color: #ffffff !important;
+  border: 1.5px solid #e5e7eb !important;
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+  font-weight: 500 !important;
+  color: #242424 !important;
+  transition: all 0.2s ease !important;
+}
+
+.time-slot:hover,
+.time-button:hover,
+.slot-btn:hover {
+  border-color: #349cff !important;
+  background-color: rgba(52, 156, 255, 0.05) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+.time-slot.selected,
+.time-button.selected,
+.slot-btn.selected {
+  background-color: #349cff !important;
+  border-color: #349cff !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea,
+select {
+  border: 1.5px solid #e5e7eb !important;
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+  font-size: 16px !important;
+  transition: all 0.2s ease !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #349cff !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(52, 156, 255, 0.1) !important;
+}
+
+/* Form labels */
+label {
+  font-weight: 600 !important;
+  color: #242424 !important;
+  margin-bottom: 6px !important;
+  font-size: 14px !important;
+}
+
+/* Header/Title */
+.calendar-header,
+.widget-header,
+h1, h2, h3 {
+  color: #242424 !important;
+  font-weight: 700 !important;
+}
+
+/* Description text */
+.description,
+.calendar-description,
+p {
+  color: #64646E !important;
+  line-height: 1.6 !important;
+}
+
+/* Month/Year navigation */
+.month-nav,
+.calendar-nav,
+.nav-arrow {
+  color: #349cff !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+
+.month-nav:hover,
+.nav-arrow:hover {
+  color: #2b8ee6 !important;
+  transform: scale(1.1) !important;
+}
+
+/* Loading states */
+.loading,
+.spinner {
+  border-color: rgba(52, 156, 255, 0.2) !important;
+  border-top-color: #349cff !important;
+}
+
+/* Success messages */
+.success-message,
+.confirmation-message {
+  background-color: rgba(52, 156, 255, 0.1) !important;
+  border-left: 4px solid #349cff !important;
+  border-radius: 8px !important;
+  padding: 16px !important;
+  color: #242424 !important;
+}
+
+/* Error messages */
+.error-message,
+.validation-error {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+  border-left: 4px solid #ef4444 !important;
+  border-radius: 8px !important;
+  padding: 16px !important;
+  color: #991b1b !important;
+}
+
+/* Disabled states */
+.disabled,
+.calendar-day.disabled,
+.time-slot.disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  background-color: #f5f5f5 !important;
+}
+
+/* Timezone selector */
+.timezone-selector,
+.timezone-dropdown {
+  border: 1.5px solid #e5e7eb !important;
+  border-radius: 8px !important;
+  padding: 10px 12px !important;
+  background-color: #ffffff !important;
+}
+
+/* Duration badge */
+.duration,
+.time-duration {
+  background-color: rgba(52, 156, 255, 0.1) !important;
+  color: #349cff !important;
+  padding: 4px 12px !important;
+  border-radius: 20px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+
+/* Card/Container styling */
+.appointment-card,
+.booking-card,
+.calendar-container {
+  background: #ffffff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+  padding: 24px !important;
+}
+
+/* Step indicators */
+.step-indicator {
+  background-color: #e5e7eb !important;
+  color: #6b7280 !important;
+  border-radius: 50% !important;
+  width: 32px !important;
+  height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 600 !important;
+}
+
+.step-indicator.active,
+.step-indicator.completed {
+  background-color: #349cff !important;
+  color: #ffffff !important;
+}
+
+/* Progress bar */
+.progress-bar {
+  background-color: #e5e7eb !important;
+  height: 4px !important;
+  border-radius: 2px !important;
+  overflow: hidden !important;
+}
+
+.progress-bar-fill {
+  background-color: #349cff !important;
+  height: 100% !important;
+  transition: width 0.3s ease !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5 !important;
+  border-radius: 4px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #349cff !important;
+  border-radius: 4px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2b8ee6 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .btn-primary,
+  .submit-btn,
+  .time-slot {
+    padding: 10px 16px !important;
+    font-size: 14px !important;
+  }
+
+  .appointment-card,
+  .calendar-container {
+    padding: 16px !important;
+  }
+}
+
+/* Remove any default margins/padding that might interfere */
+* {
+  box-sizing: border-box !important;
+}
