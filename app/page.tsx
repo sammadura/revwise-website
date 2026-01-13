@@ -89,7 +89,7 @@ export default function Home() {
       </section>
 
       {/* Before/After Results Section */}
-      <section className="section bg-white">
+      <section id="case-study" className="section bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
             <span className="inline-block bg-green-100 text-green-700 px-4 py-1 rounded-full text-sm font-semibold mb-4">
@@ -216,13 +216,13 @@ export default function Home() {
         <div className="container-custom">
           <div className="text-center mb-16">
             <span className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-semibold mb-4">
-              Simple Setup
+              White-Glove Setup
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               How Revwise Works
             </h2>
             <p className="text-lg text-gray-medium max-w-2xl mx-auto">
-              Get started in minutes, not hours. Three simple steps to more reviews.
+              We handle everything. You just show up to a quick onboarding call.
             </p>
           </div>
 
@@ -233,9 +233,9 @@ export default function Home() {
                 <div className="w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center text-2xl font-bold mb-6">
                   1
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Connect Your Business</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Book Your Setup Call</h3>
                 <p className="text-gray-600">
-                  Link your Google Business Profile in 2 clicks. We handle the rest.
+                  Schedule a quick onboarding call. We&apos;ll walk you through everything and connect your business.
                 </p>
               </div>
               {/* Arrow */}
@@ -252,9 +252,9 @@ export default function Home() {
                 <div className="w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center text-2xl font-bold mb-6">
                   2
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Add Your Customers</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">We Connect Everything</h3>
                 <p className="text-gray-600">
-                  Import contacts or let our automation capture them from your workflow.
+                  On the call, we link your Google Business Profile, set up automations, and customize your messaging.
                 </p>
               </div>
               {/* Arrow */}
@@ -273,10 +273,18 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">Watch Reviews Roll In</h3>
                 <p className="text-gray-600">
-                  Automated SMS requests go out. 5-star reviews come in. You focus on your business.
+                  Automated SMS requests go out. 5-star reviews come in. You focus on running your business.
                 </p>
               </div>
             </div>
+          </div>
+
+          {/* CTA under How It Works */}
+          <div className="text-center mt-12">
+            <Button href="/demo-call" variant="primary" className="text-lg px-8 py-4">
+              Book Your Free Setup Call
+            </Button>
+            <p className="text-gray-500 text-sm mt-3">Takes about 15 minutes. We do the heavy lifting.</p>
           </div>
         </div>
       </section>
