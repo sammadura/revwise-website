@@ -1,11 +1,11 @@
 # Robots.txt for Revwise
-# https://revwise-rebuild.vercel.app
+# https://getrevwise.com
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://revwise-rebuild.vercel.app/sitemap.xml
+Sitemap: https://getrevwise.com/sitemap.xml
 
 # Disallow admin or private paths (if any)
 Disallow: /api/

@@ -8,7 +8,7 @@ import Footer from '@/components/layout/Footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://revwise-rebuild.vercel.app'),
+  metadataBase: new URL('https://getrevwise.com'),
   title: 'Revwise - Get More Google Reviews & Boost Your Online Reputation',
   description: 'Turn happy customers into raving fans with automated Google review collection. Start getting the reviews you deserve and rank higher on Google.',
   keywords: 'Google reviews, review management, online reputation, customer reviews, review automation',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Revwise - Automated Google Review Management',
     description: 'Get more Google reviews automatically. Turn happy customers into 5-star reviews.',
     type: 'website',
-    url: 'https://revwise-rebuild.vercel.app',
+    url: 'https://getrevwise.com',
     siteName: 'Revwise',
     locale: 'en_US',
     images: [
@@ -58,7 +58,7 @@ const jsonLd = {
   name: 'Revwise',
   applicationCategory: 'BusinessApplication',
   description: 'Automated Google review collection and management platform for businesses',
-  url: 'https://revwise-rebuild.vercel.app',
+  url: 'https://getrevwise.com',
   operatingSystem: 'Web',
   offers: {
     '@type': 'Offer',
@@ -76,7 +76,7 @@ const jsonLd = {
   provider: {
     '@type': 'Organization',
     name: 'Revwise',
-    url: 'https://revwise-rebuild.vercel.app',
+    url: 'https://getrevwise.com',
   },
 };
 
