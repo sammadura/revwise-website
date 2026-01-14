@@ -1,58 +1,55 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 interface Message {
   id: number;
-  type: 'business' | 'customer';
+  type: 'business' | 'system';
   text: string;
   delay: number;
+  isLink?: boolean;
+  hasImage?: boolean;
 }
 
 const messages: Message[] = [
   {
     id: 1,
     type: 'business',
-    text: "Hi Sarah! Thanks for visiting Bella's Flower Shop today. We'd love to hear about your experience!",
+    text: "Hi Sarah! It's Bella's Flower Shop 💐",
     delay: 0,
+    hasImage: true,
   },
   {
     id: 2,
     type: 'business',
-    text: 'How would you rate your visit? Tap a star below:',
+    text: "Hope you loved your florals! If you did, could you do us a quick favor and leave us a review on Google? It helps us a lot and it's super fast, just click the link 👇",
     delay: 1500,
   },
   {
     id: 3,
-    type: 'customer',
-    text: '5 stars - Absolutely loved it!',
-    delay: 4000,
+    type: 'business',
+    text: '⭐ Leave a Review on Google',
+    delay: 2500,
+    isLink: true,
   },
   {
     id: 4,
-    type: 'business',
-    text: "Wonderful! We're so glad you had a great experience. Would you mind sharing a quick review on Google? It helps other flower lovers find us!",
-    delay: 5500,
-  },
-  {
-    id: 5,
-    type: 'business',
-    text: '[Leave a Review on Google]',
-    delay: 6500,
+    type: 'system',
+    text: 'Sarah clicked the link and left a 5-star review!',
+    delay: 5000,
   },
 ];
 
 export default function SMSDemo() {
   const [visibleMessages, setVisibleMessages] = useState<number[]>([]);
-  const [selectedRating, setSelectedRating] = useState<number | null>(null);
-  const [showStars, setShowStars] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
 
   const resetDemo = () => {
     setVisibleMessages([]);
-    setSelectedRating(null);
-    setShowStars(false);
+    setShowConfetti(false);
     setIsPlaying(true);
     setHasStarted(true);
   };
@@ -66,14 +63,9 @@ export default function SMSDemo() {
       const timer = setTimeout(() => {
         setVisibleMessages((prev) => [...prev, message.id]);
 
-        // Show stars after second message
-        if (message.id === 2) {
-          setTimeout(() => setShowStars(true), 500);
-        }
-
-        // Auto-select 5 stars before customer response
-        if (message.id === 2) {
-          setTimeout(() => setSelectedRating(5), 3000);
+        // Show confetti when the success message appears
+        if (message.id === 4) {
+          setShowConfetti(true);
         }
       }, message.delay);
       timers.push(timer);
@@ -82,7 +74,7 @@ export default function SMSDemo() {
     // Stop playing after all messages
     const stopTimer = setTimeout(() => {
       setIsPlaying(false);
-    }, 8000);
+    }, 7000);
     timers.push(stopTimer);
 
     return () => timers.forEach((t) => clearTimeout(t));
@@ -135,7 +127,7 @@ export default function SMSDemo() {
           </div>
 
           {/* Messages area */}
-          <div className="h-80 bg-gray-100 px-4 py-4 space-y-3 overflow-hidden">
+          <div className="h-80 bg-gray-100 px-4 py-4 space-y-3 overflow-hidden relative">
             {!hasStarted && (
               <div className="flex items-center justify-center h-full">
                 <button
@@ -150,64 +142,108 @@ export default function SMSDemo() {
               </div>
             )}
 
-            {messages.map((message) => (
-              <div
-                key={message.id}
-                className={`transition-all duration-500 ${
-                  visibleMessages.includes(message.id)
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-4 h-0 overflow-hidden'
-                }`}
-              >
-                <div
-                  className={`max-w-[85%] ${
-                    message.type === 'business'
-                      ? 'bg-white text-gray-800 rounded-2xl rounded-tl-sm'
-                      : 'bg-primary text-white rounded-2xl rounded-tr-sm ml-auto'
-                  } px-4 py-2.5 shadow-sm`}
-                >
-                  {message.id === 5 ? (
-                    <span className="text-primary font-semibold underline text-sm">
-                      Leave a Review on Google
-                    </span>
-                  ) : (
-                    <p className="text-sm leading-relaxed">{message.text}</p>
-                  )}
-                </div>
-              </div>
-            ))}
-
-            {/* Star rating UI */}
-            {showStars && visibleMessages.includes(2) && (
-              <div className={`transition-all duration-500 ${showStars ? 'opacity-100' : 'opacity-0'}`}>
-                <div className="bg-white rounded-2xl rounded-tl-sm px-4 py-3 shadow-sm max-w-[85%]">
-                  <div className="flex gap-1 justify-center">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <button
-                        key={star}
-                        className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 ${
-                          selectedRating && star <= selectedRating
-                            ? 'bg-yellow-400 scale-110'
-                            : 'bg-gray-100 hover:bg-gray-200'
-                        }`}
-                        aria-label={`Rate ${star} stars`}
-                      >
-                        <svg
-                          className={`w-6 h-6 ${
-                            selectedRating && star <= selectedRating
-                              ? 'text-white'
-                              : 'text-gray-400'
-                          }`}
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          aria-hidden="true"
-                        >
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                      </button>
-                    ))}
+            {/* Flower image - shown with first message */}
+            {visibleMessages.includes(1) && (
+              <div className="transition-all duration-500 opacity-100">
+                <div className="bg-white rounded-2xl rounded-tl-sm p-2 shadow-sm max-w-[75%]">
+                  <div className="relative w-full h-32 rounded-lg overflow-hidden bg-pink-100">
+                    <Image
+                      src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_400/u_https://assets.cdn.filesafe.space/C6x7wJOrgkTTDc0htJ2D/media/67860d7d9d12d0e17da74f0d.jpeg"
+                      alt="Beautiful flower arrangement"
+                      fill
+                      className="object-cover"
+                      sizes="200px"
+                    />
+                    <div className="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-semibold text-gray-700">
+                      Sarah!
+                    </div>
                   </div>
                 </div>
+              </div>
+            )}
+
+            {messages.map((message) => {
+              if (message.hasImage) {
+                // First message text (after image)
+                return (
+                  <div
+                    key={message.id}
+                    className={`transition-all duration-500 ${
+                      visibleMessages.includes(message.id)
+                        ? 'opacity-100 translate-y-0'
+                        : 'opacity-0 translate-y-4 h-0 overflow-hidden'
+                    }`}
+                  >
+                    <div className="bg-white rounded-2xl rounded-tl-sm px-4 py-2.5 shadow-sm max-w-[85%]">
+                      <p className="text-sm leading-relaxed text-gray-800">{message.text}</p>
+                    </div>
+                  </div>
+                );
+              }
+
+              if (message.type === 'system') {
+                return (
+                  <div
+                    key={message.id}
+                    className={`transition-all duration-500 ${
+                      visibleMessages.includes(message.id)
+                        ? 'opacity-100 translate-y-0'
+                        : 'opacity-0 translate-y-4 h-0 overflow-hidden'
+                    }`}
+                  >
+                    <div className="flex justify-center">
+                      <div className="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                        {message.text}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
+              return (
+                <div
+                  key={message.id}
+                  className={`transition-all duration-500 ${
+                    visibleMessages.includes(message.id)
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-4 h-0 overflow-hidden'
+                  }`}
+                >
+                  <div className="bg-white rounded-2xl rounded-tl-sm px-4 py-2.5 shadow-sm max-w-[85%]">
+                    {message.isLink ? (
+                      <span className="text-primary font-semibold text-sm underline">
+                        {message.text}
+                      </span>
+                    ) : (
+                      <p className="text-sm leading-relaxed text-gray-800">{message.text}</p>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+
+            {/* Confetti effect */}
+            {showConfetti && (
+              <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                {[...Array(12)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="absolute animate-bounce"
+                    style={{
+                      left: `${10 + (i * 7)}%`,
+                      top: `${20 + (i % 3) * 10}%`,
+                      animationDelay: `${i * 0.1}s`,
+                      animationDuration: '1s',
+                    }}
+                  >
+                    <span className="text-lg">
+                      {['⭐', '🎉', '✨', '💐'][i % 4]}
+                    </span>
+                  </div>
+                ))}
               </div>
             )}
           </div>
