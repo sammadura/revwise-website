@@ -14,27 +14,27 @@ const messages: Message[] = [
   {
     id: 1,
     type: 'business',
-    text: "Hi Sarah! It's Bella's Flower Shop 💐 Hope you loved your flowers!",
+    text: "Hi Sarah! It's Bella's Flower Shop 💐",
     delay: 0,
   },
   {
     id: 2,
     type: 'business',
-    text: "Could you leave us a quick Google review? It really helps! 👇",
-    delay: 1500,
+    text: "Hope you loved your florals! Mind leaving us a quick Google review? It means a lot 🙏",
+    delay: 1200,
   },
   {
     id: 3,
     type: 'business',
-    text: 'go.revwise.com/review',
-    delay: 2500,
+    text: 'g.page/bellas-flowers/review',
+    delay: 2200,
     isLink: true,
   },
   {
     id: 4,
     type: 'system',
-    text: '5-star review received!',
-    delay: 4500,
+    text: '⭐ New 5-star review!',
+    delay: 4200,
   },
 ];
 
