@@ -31,7 +31,7 @@ export default function Home() {
 
               {/* Main headline with stats */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                <span className="text-yellow-400">84 New 5-Star Reviews</span>
+                <span className="text-yellow-400">70 New 5-Star Reviews</span>
                 <br />
                 in Just 74 Days
               </h1>
