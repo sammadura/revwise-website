@@ -87,6 +87,11 @@ export default function Header() {
                 </li>
               ))}
             </ul>
+            <div className="mt-6 pt-4 border-t border-gray-border">
+              <Button href="/demo-call" variant="primary" className="w-full justify-center">
+                Start Free Trial
+              </Button>
+            </div>
           </div>
         )}
       </nav>
