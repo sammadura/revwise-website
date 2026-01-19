@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Revwise</h3>
+            <h3 className="font-bold text-lg mb-4">RevWise</h3>
             <p className="text-gray-300 text-sm leading-relaxed">
               Turn happy customers into raving fans with automated Google review collection.
             </p>
@@ -68,7 +68,7 @@ export default function Footer() {
               Terms and Conditions
             </Link>
           </div>
-          <p>© {currentYear} Revwise. All rights reserved.</p>
+          <p>© {currentYear} RevWise. All rights reserved.</p>
         </div>
       </div>
     </footer>
