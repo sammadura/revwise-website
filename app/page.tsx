@@ -38,7 +38,7 @@ export default function Home() {
                   Start Free Trial
                 </Button>
                 <a
-                  href="#video"
+                  href="#how-it-works"
                   className="inline-flex items-center justify-center gap-2 text-white border-2 border-white/30 px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-colors"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -206,7 +206,7 @@ export default function Home() {
       {/* How It Works */}
       <section id="how-it-works" className="section bg-gray-50">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <span className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-semibold mb-4">
               White-Glove Setup
             </span>
@@ -218,6 +218,18 @@ export default function Home() {
             </p>
           </div>
 
+          {/* Video */}
+          <div className="max-w-4xl mx-auto mb-16">
+            <div className="bg-white p-4 md:p-8 rounded-2xl border border-gray-200 shadow-lg">
+              <div className="aspect-video bg-gradient-to-br from-primary to-blue-700 rounded-lg overflow-hidden relative">
+                <YouTubeEmbed
+                  videoId="GGNqGZ0AUo4"
+                  title="Revwise Demo - See how we help businesses get more Google reviews"
+                />
+              </div>
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {/* Step 1 */}
             <div className="relative">
@@ -225,9 +237,9 @@ export default function Home() {
                 <div className="w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center text-2xl font-bold mb-6">
                   1
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">Book Your Setup Call</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">Book a Demo</h3>
                 <p className="text-gray-600">
-                  Schedule a quick onboarding call. We&apos;ll walk you through everything and connect your business.
+                  Schedule a quick demo to see how RevWise can help your business get more reviews.
                 </p>
               </div>
               {/* Arrow */}
@@ -244,9 +256,9 @@ export default function Home() {
                 <div className="w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center text-2xl font-bold mb-6">
                   2
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">We Connect Everything</h3>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">45-Min Onboarding Call</h3>
                 <p className="text-gray-600">
-                  On the call, we link your Google Business Profile, set up automations, and customize your messaging.
+                  We take care of everything — linking your Google Business Profile, setting up automations, and customizing your messaging.
                 </p>
               </div>
               {/* Arrow */}
@@ -274,33 +286,9 @@ export default function Home() {
           {/* CTA under How It Works */}
           <div className="text-center mt-12">
             <Button href="/demo-call" variant="primary" className="text-lg px-8 py-4">
-              Book Your Free Setup Call
+              Book Your Free Demo
             </Button>
-            <p className="text-gray-500 text-sm mt-3">Takes about 15 minutes. We do the heavy lifting.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Video Section */}
-      <section id="video" className="section bg-white">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                See Revwise in Action
-              </h2>
-              <p className="text-lg text-gray-medium">
-                Watch a quick demo of how we help businesses get more reviews
-              </p>
-            </div>
-            <div className="bg-gray-light p-4 md:p-8 rounded-2xl border border-gray-border">
-              <div className="aspect-video bg-gradient-to-br from-primary to-blue-700 rounded-lg overflow-hidden relative">
-                <YouTubeEmbed
-                  videoId="GGNqGZ0AUo4"
-                  title="Revwise Demo - See how we help businesses get more Google reviews"
-                />
-              </div>
-            </div>
+            <p className="text-gray-500 text-sm mt-3">We take care of the rest.</p>
           </div>
         </div>
       </section>
