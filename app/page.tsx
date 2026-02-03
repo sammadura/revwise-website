@@ -46,7 +46,7 @@ export default function Home() {
                   Start Free Trial
                 </Button>
                 <a
-                  href="#how-it-works"
+                  href="#video"
                   className="inline-flex items-center justify-center gap-2 text-white border-2 border-white/30 px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-colors"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -290,7 +290,7 @@ export default function Home() {
       </section>
 
       {/* Video Section */}
-      <section className="section bg-white">
+      <section id="video" className="section bg-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
