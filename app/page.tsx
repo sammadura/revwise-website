@@ -17,31 +17,23 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left - Copy */}
             <div className="text-center lg:text-left">
-              {/* Social proof badge */}
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-full mb-6">
-                <div className="flex -space-x-2">
-                  <div className="w-6 h-6 bg-yellow-400 rounded-full border-2 border-white flex items-center justify-center">
-                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  </div>
-                </div>
-                <span className="text-sm font-medium">Trusted by Local Businesses</span>
-              </div>
+              {/* Category tagline */}
+              <p className="text-sm font-semibold tracking-wide text-white/80 uppercase mb-4">
+                Local Reputation & Google Maps Growth for Service Businesses
+              </p>
 
-              {/* Main headline with stats */}
+              {/* Main headline */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                <span className="text-yellow-400">70 New 5-Star Reviews</span>
-                <br />
-                in Just 74 Days
+                Get More 5-Star Google Reviews and{' '}
+                <span className="text-yellow-400">Rank Higher on Google Maps.</span>
               </h1>
 
               <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl">
-                See how Bella&apos;s Flower Shop went from #2 to #1 on Google with automated review collection. No extra work. Just results.
+                RevWise helps plumbers, HVAC, roofers, florists and other local service businesses turn happy customers into 5-star reviews, rank higher on Google Maps, and drive more calls—without adding more software for your team to manage.
               </p>
 
               {/* CTA buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Button href="/demo-call" variant="secondary" className="bg-white text-primary hover:bg-gray-100 text-lg px-8 py-4 font-bold shadow-xl">
                   Start Free Trial
                 </Button>
@@ -54,22 +46,6 @@ export default function Home() {
                   </svg>
                   See How It Works
                 </a>
-              </div>
-
-              {/* Quick stats */}
-              <div className="grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0">
-                <div className="text-center lg:text-left">
-                  <p className="text-2xl md:text-3xl font-bold text-yellow-400">70+</p>
-                  <p className="text-sm text-white/70">Hours Saved</p>
-                </div>
-                <div className="text-center lg:text-left">
-                  <p className="text-2xl md:text-3xl font-bold text-yellow-400">$1,400</p>
-                  <p className="text-sm text-white/70">Labor Saved</p>
-                </div>
-                <div className="text-center lg:text-left">
-                  <p className="text-2xl md:text-3xl font-bold text-yellow-400">#1</p>
-                  <p className="text-sm text-white/70">Google Rank</p>
-                </div>
               </div>
             </div>
 
@@ -95,12 +71,28 @@ export default function Home() {
             <span className="inline-block bg-green-100 text-green-700 px-4 py-1 rounded-full text-sm font-semibold mb-4">
               Real Results
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              From Good to <span className="text-primary">Unstoppable</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-2">
+              70 New 5-Star Reviews in Just 74 Days
             </h2>
-            <p className="text-lg text-gray-medium max-w-2xl mx-auto">
-              See the transformation that happened in just 74 days
+            <p className="text-lg text-gray-medium max-w-2xl mx-auto mb-6">
+              See how Bella&apos;s Flower Shop went from #2 to #1 on Google
             </p>
+
+            {/* Quick stats */}
+            <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+              <div className="text-center">
+                <p className="text-2xl md:text-3xl font-bold text-primary">70+</p>
+                <p className="text-sm text-gray-500">Hours Saved</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl md:text-3xl font-bold text-primary">$1,400</p>
+                <p className="text-sm text-gray-500">Labor Saved</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl md:text-3xl font-bold text-primary">#1</p>
+                <p className="text-sm text-gray-500">Google Rank</p>
+              </div>
+            </div>
           </div>
 
           {/* Before/After Cards */}
