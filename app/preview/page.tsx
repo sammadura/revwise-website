@@ -1,6 +1,15 @@
+'use client';
+
 import Button from '@/components/ui/Button';
 import SMSDemoV2 from '@/components/ui/SMSDemoV2';
 import YouTubeEmbed from '@/components/ui/YouTubeEmbed';
+import FloatingStars3D from '@/components/ui/FloatingStars3D';
+import {
+  ScrollReveal,
+  StaggerContainer,
+  StaggerItem,
+  ParallaxSection,
+} from '@/components/ui/ScrollAnimations';
 
 export default function PreviewPage() {
   return (
@@ -17,6 +26,11 @@ export default function PreviewPage() {
         </div>
 
         <div className="container-custom relative z-10 py-20 md:py-28">
+          {/* Floating 3D Stars - decorative background element */}
+          <div className="absolute top-10 right-0 w-64 h-64 opacity-30 hidden xl:block pointer-events-none">
+            <FloatingStars3D />
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left - Copy */}
             <div className="text-center lg:text-left">
@@ -75,12 +89,12 @@ export default function PreviewPage() {
       </section>
 
       {/* Results Section - V2 */}
-      <section id="case-study" className="section bg-white relative overflow-hidden">
+      <ParallaxSection className="section bg-white relative overflow-hidden" id="case-study">
         {/* Background decoration */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
         <div className="container-custom relative">
-          <div className="text-center mb-16">
+          <ScrollReveal className="text-center mb-16">
             <span className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-5 py-2 rounded-full text-sm font-semibold mb-6">
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -93,16 +107,16 @@ export default function PreviewPage() {
             <p className="text-xl text-gray-medium max-w-2xl mx-auto">
               See how Bella&apos;s Flower Shop went from #2 to #1 on Google
             </p>
-          </div>
+          </ScrollReveal>
 
           {/* Stats with animated appearance */}
-          <div className="flex flex-wrap justify-center gap-6 md:gap-4 mb-16">
+          <StaggerContainer className="flex flex-wrap justify-center gap-6 md:gap-4 mb-16">
             {[
               { value: '70+', label: 'Hours Saved', color: 'from-primary to-blue-600' },
               { value: '$1,400', label: 'Labor Saved', color: 'from-green-500 to-emerald-500' },
               { value: '#1', label: 'Google Rank', color: 'from-yellow-500 to-orange-500' },
-            ].map((stat, index) => (
-              <div
+            ].map((stat) => (
+              <StaggerItem
                 key={stat.label}
                 className="glass-card rounded-2xl p-6 md:p-8 text-center min-w-[140px] card-hover"
               >
@@ -110,12 +124,12 @@ export default function PreviewPage() {
                   {stat.value}
                 </p>
                 <p className="text-sm text-gray-500 mt-1 font-medium">{stat.label}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
 
           {/* Before/After Cards - Upgraded */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+          <ScrollReveal className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
             {/* Before */}
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 rounded-3xl blur-xl opacity-50 group-hover:opacity-70 transition-opacity" />
@@ -199,10 +213,10 @@ export default function PreviewPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Quote - Upgraded */}
-          <div className="max-w-3xl mx-auto relative">
+          <ScrollReveal delay={0.2} className="max-w-3xl mx-auto relative">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-purple-500/5 to-primary/5 rounded-3xl blur-2xl" />
             <div className="relative glass-card rounded-3xl p-10 text-center">
               <svg className="w-16 h-16 text-primary/20 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -221,14 +235,14 @@ export default function PreviewPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
-      </section>
+      </ParallaxSection>
 
       {/* How It Works - V2 */}
       <section id="how-it-works" className="section bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <ScrollReveal className="text-center mb-16">
             <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-sm font-semibold mb-6">
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -241,10 +255,10 @@ export default function PreviewPage() {
             <p className="text-xl text-gray-medium max-w-2xl mx-auto">
               We handle everything. You just show up to a quick onboarding call.
             </p>
-          </div>
+          </ScrollReveal>
 
           {/* Video - Enhanced */}
-          <div className="max-w-4xl mx-auto mb-20 relative">
+          <ScrollReveal className="max-w-4xl mx-auto mb-20 relative">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-purple-500/20 to-primary/20 rounded-3xl blur-2xl" />
             <div className="relative bg-white p-3 md:p-4 rounded-3xl border border-gray-200 shadow-2xl">
               <div className="aspect-video bg-gradient-to-br from-primary to-blue-700 rounded-2xl overflow-hidden">
@@ -254,14 +268,14 @@ export default function PreviewPage() {
                 />
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Steps - Upgraded with connecting line */}
           <div className="relative max-w-5xl mx-auto">
             {/* Connecting line */}
             <div className="hidden md:block absolute top-24 left-[16.5%] right-[16.5%] h-0.5 bg-gradient-to-r from-primary via-purple-500 to-green-500" />
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <StaggerContainer className="grid md:grid-cols-3 gap-8">
               {[
                 {
                   num: '1',
@@ -283,7 +297,7 @@ export default function PreviewPage() {
                   isLast: true,
                 },
               ].map((step) => (
-                <div key={step.num} className="relative group">
+                <StaggerItem key={step.num} className="relative group">
                   <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 h-full card-hover relative overflow-hidden">
                     {/* Gradient overlay on hover */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
@@ -294,9 +308,9 @@ export default function PreviewPage() {
                     <h3 className="relative z-10 text-xl font-bold mb-3 text-gray-900">{step.title}</h3>
                     <p className="relative z-10 text-gray-600 leading-relaxed">{step.desc}</p>
                   </div>
-                </div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
 
           {/* CTA */}
@@ -320,7 +334,7 @@ export default function PreviewPage() {
         <div className="absolute top-1/2 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
         <div className="container-custom relative">
-          <div className="text-center mb-16">
+          <ScrollReveal className="text-center mb-16">
             <span className="inline-flex items-center gap-2 bg-yellow-100 text-yellow-700 px-5 py-2 rounded-full text-sm font-semibold mb-6">
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -333,9 +347,9 @@ export default function PreviewPage() {
             <p className="text-xl text-gray-medium max-w-2xl mx-auto">
               No hidden fees. No complicated tiers. Just results.
             </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="max-w-lg mx-auto relative">
+          <ScrollReveal delay={0.1} className="max-w-lg mx-auto relative">
             {/* Glow effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-primary via-purple-500 to-primary rounded-[2.5rem] blur-2xl opacity-20" />
 
@@ -397,24 +411,24 @@ export default function PreviewPage() {
                 <span className="text-green-700">RevWise pays for itself 14x over.</span>
               </p>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Features Grid - V2 Bento Style */}
       <section className="section bg-gray-50">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <ScrollReveal className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
               Everything You Need to <span className="text-primary">Dominate</span> Local Search
             </h2>
             <p className="text-xl text-gray-medium max-w-2xl mx-auto">
               Powerful features designed to boost your online reputation automatically
             </p>
-          </div>
+          </ScrollReveal>
 
           {/* Bento Grid */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <StaggerContainer className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               {
                 title: 'SMS Review Requests',
@@ -465,7 +479,7 @@ export default function PreviewPage() {
                 gradient: 'from-indigo-500 to-purple-500',
               },
             ].map((feature) => (
-              <div
+              <StaggerItem
                 key={feature.title}
                 className="group bg-white rounded-2xl p-8 shadow-lg border border-gray-100 card-hover"
               >
@@ -476,9 +490,9 @@ export default function PreviewPage() {
                 </div>
                 <h3 className="font-bold text-xl mb-3 text-gray-900">{feature.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -491,7 +505,7 @@ export default function PreviewPage() {
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBtLTEgMGExIDEgMCAxIDAgMiAwIDEgMSAwIDEgMCAtMiAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIi8+PC9nPjwvc3ZnPg==')] opacity-50" />
         </div>
 
-        <div className="container-custom text-center relative z-10">
+        <ScrollReveal className="container-custom text-center relative z-10">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
             Ready to Be <span className="gradient-text">#1</span> in Your Area?
           </h2>
@@ -510,7 +524,7 @@ export default function PreviewPage() {
           <p className="text-white/60 text-sm">
             14-day free trial. No credit card required. Cancel anytime.
           </p>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* Preview badge */}
