@@ -41,12 +41,10 @@ const messages: Message[] = [
 export default function SMSDemoV2() {
   const [visibleMessages, setVisibleMessages] = useState<number[]>([]);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [hasStarted, setHasStarted] = useState(false);
 
   const resetDemo = () => {
     setVisibleMessages([]);
     setIsPlaying(true);
-    setHasStarted(true);
   };
 
   useEffect(() => {
@@ -69,11 +67,11 @@ export default function SMSDemoV2() {
     return () => timers.forEach((t) => clearTimeout(t));
   }, [isPlaying]);
 
-  // Auto-start on mount
+  // Auto-start on mount with longer delay
   useEffect(() => {
     const timer = setTimeout(() => {
       resetDemo();
-    }, 800);
+    }, 2000); // Longer wait before demo starts
     return () => clearTimeout(timer);
   }, []);
 
@@ -124,101 +122,68 @@ export default function SMSDemoV2() {
 
           {/* Messages area - FIXED HEIGHT */}
           <div className="h-80 bg-gradient-to-b from-gray-50 to-gray-100 px-4 py-4 flex flex-col">
-            {!hasStarted && (
-              <div className="flex items-center justify-center h-full">
-                <button
-                  onClick={resetDemo}
-                  className="group bg-gradient-to-r from-primary to-blue-600 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-3"
-                >
-                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  Watch Demo
-                </button>
-              </div>
-            )}
-
-            {hasStarted && (
-              <div className="space-y-3 flex-1">
-                {/* Message 1 */}
-                <div
-                  className={`transition-opacity duration-300 ${
-                    visibleMessages.includes(1) ? 'opacity-100' : 'opacity-0'
-                  }`}
-                >
-                  <div className="bg-white rounded-2xl rounded-tl-md px-4 py-3 shadow-sm max-w-[85%] border border-gray-100">
-                    <p className="text-sm leading-relaxed text-gray-800">Hi Sarah! It&apos;s Bella&apos;s Flower Shop 💐</p>
-                  </div>
-                </div>
-
-                {/* Message 2 */}
-                <div
-                  className={`transition-opacity duration-300 ${
-                    visibleMessages.includes(2) ? 'opacity-100' : 'opacity-0'
-                  }`}
-                >
-                  <div className="bg-white rounded-2xl rounded-tl-md px-4 py-3 shadow-sm max-w-[85%] border border-gray-100">
-                    <p className="text-sm leading-relaxed text-gray-800">Hope you loved your florals! Mind leaving us a quick Google review? It means a lot 🙏</p>
-                  </div>
-                </div>
-
-                {/* Message 3 - Link */}
-                <div
-                  className={`transition-opacity duration-300 ${
-                    visibleMessages.includes(3) ? 'opacity-100' : 'opacity-0'
-                  }`}
-                >
-                  <div className="bg-white rounded-2xl rounded-tl-md px-4 py-3 shadow-sm max-w-[85%] border border-gray-100">
-                    <span className="text-primary font-medium text-sm underline decoration-2 underline-offset-2">
-                      g.page/bellas-flowers/review
-                    </span>
-                  </div>
-                </div>
-
-                {/* Typing indicator */}
-                {hasStarted && !visibleMessages.includes(4) && visibleMessages.length > 0 && visibleMessages.length < 4 && (
-                  <div className="flex gap-1 px-2">
-                    <div className="w-2 h-2 bg-gray-300 rounded-full animate-pulse" />
-                    <div className="w-2 h-2 bg-gray-300 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
-                    <div className="w-2 h-2 bg-gray-300 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }} />
-                  </div>
-                )}
-
-                {/* Success message - positioned at bottom */}
-                <div
-                  className={`transition-all duration-500 ${
-                    visibleMessages.includes(4) ? 'opacity-100' : 'opacity-0'
-                  }`}
-                >
-                  <div className="flex justify-center pt-2">
-                    <div className="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 shadow-md">
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                      New 5-star review!
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Bottom bar / Replay */}
-          {hasStarted && !isPlaying && (
-            <div className="bg-white px-4 py-3 border-t border-gray-100">
-              <button
-                onClick={resetDemo}
-                className="w-full bg-gradient-to-r from-gray-100 to-gray-50 text-gray-600 py-2.5 rounded-xl text-sm font-medium hover:from-gray-200 hover:to-gray-100 transition-all duration-200 flex items-center justify-center gap-2 border border-gray-200"
+            <div className="space-y-3 flex-1">
+              {/* Message 1 */}
+              <div
+                className={`transition-opacity duration-300 ${
+                  visibleMessages.includes(1) ? 'opacity-100' : 'opacity-0'
+                }`}
               >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                </svg>
-                Replay Demo
-              </button>
+                <div className="bg-white rounded-2xl rounded-tl-md px-4 py-3 shadow-sm max-w-[85%] border border-gray-100">
+                  <p className="text-sm leading-relaxed text-gray-800">Hi Sarah! It&apos;s Bella&apos;s Flower Shop 💐</p>
+                </div>
+              </div>
+
+              {/* Message 2 */}
+              <div
+                className={`transition-opacity duration-300 ${
+                  visibleMessages.includes(2) ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                <div className="bg-white rounded-2xl rounded-tl-md px-4 py-3 shadow-sm max-w-[85%] border border-gray-100">
+                  <p className="text-sm leading-relaxed text-gray-800">Hope you loved your florals! Mind leaving us a quick Google review? It means a lot 🙏</p>
+                </div>
+              </div>
+
+              {/* Message 3 - Link */}
+              <div
+                className={`transition-opacity duration-300 ${
+                  visibleMessages.includes(3) ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                <div className="bg-white rounded-2xl rounded-tl-md px-4 py-3 shadow-sm max-w-[85%] border border-gray-100">
+                  <span className="text-primary font-medium text-sm underline decoration-2 underline-offset-2">
+                    Click to leave Google review
+                  </span>
+                </div>
+              </div>
+
+              {/* Typing indicator */}
+              {!visibleMessages.includes(4) && visibleMessages.length > 0 && visibleMessages.length < 4 && (
+                <div className="flex gap-1 px-2">
+                  <div className="w-2 h-2 bg-gray-300 rounded-full animate-pulse" />
+                  <div className="w-2 h-2 bg-gray-300 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
+                  <div className="w-2 h-2 bg-gray-300 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }} />
+                </div>
+              )}
+
+              {/* Success message - positioned at bottom */}
+              <div
+                className={`transition-all duration-500 ${
+                  visibleMessages.includes(4) ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                <div className="flex justify-center pt-2">
+                  <div className="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 shadow-md">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    New 5-star review!
+                  </div>
+                </div>
+              </div>
             </div>
-          )}
+          </div>
         </div>
       </div>
 

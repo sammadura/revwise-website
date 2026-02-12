@@ -35,23 +35,23 @@ export default function PreviewPage() {
             {/* Left - Copy */}
             <div className="text-center lg:text-left">
               {/* Category tagline */}
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-full mb-8 animate-fade-in-up">
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-full mb-8">
                 <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                 <span className="text-sm font-medium tracking-wide">Local Reputation & Google Maps Growth for Service Businesses</span>
               </div>
 
               {/* Main headline */}
-              <h1 className="heading-xl mb-8 animate-fade-in-up animation-delay-200">
+              <h1 className="heading-xl mb-8">
                 Get More 5-Star Google Reviews and{' '}
                 <span className="gradient-text">Rank Higher on Google Maps.</span>
               </h1>
 
-              <p className="text-lg md:text-xl text-white/80 mb-10 max-w-xl leading-relaxed animate-fade-in-up animation-delay-400">
+              <p className="text-lg md:text-xl text-white/80 mb-10 max-w-xl leading-relaxed">
                 RevWise helps plumbers, HVAC, roofers, florists and other local service businesses turn happy customers into 5-star reviews, rank higher on Google Maps, and drive more calls—without adding more software for your team to manage.
               </p>
 
               {/* CTA buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up animation-delay-600">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Button
                   href="/demo-call"
                   variant="secondary"
