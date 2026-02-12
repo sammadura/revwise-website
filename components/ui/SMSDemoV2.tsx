@@ -80,7 +80,7 @@ export default function SMSDemoV2() {
   return (
     <div className="relative max-w-sm mx-auto">
       {/* Glow effect behind phone */}
-      <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 via-purple-500/20 to-primary/30 rounded-[4rem] blur-2xl opacity-60 animate-pulse-glow" />
+      <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 via-purple-500/20 to-primary/30 rounded-[4rem] blur-2xl opacity-60" />
 
       {/* Phone frame */}
       <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] p-3 shadow-2xl ring-1 ring-white/10">
@@ -116,14 +116,14 @@ export default function SMSDemoV2() {
             <div>
               <p className="font-semibold text-sm text-gray-900">Bella&apos;s Flowers</p>
               <p className="text-xs text-green-500 font-medium flex items-center gap-1">
-                <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
                 Active now
               </p>
             </div>
           </div>
 
-          {/* Messages area */}
-          <div className="h-64 bg-gradient-to-b from-gray-50 to-gray-100 px-4 py-4 space-y-3">
+          {/* Messages area - FIXED HEIGHT */}
+          <div className="h-80 bg-gradient-to-b from-gray-50 to-gray-100 px-4 py-4 flex flex-col">
             {!hasStarted && (
               <div className="flex items-center justify-center h-full">
                 <button
@@ -140,61 +140,69 @@ export default function SMSDemoV2() {
               </div>
             )}
 
-            {hasStarted && messages.map((message, index) => {
-              if (message.type === 'system') {
-                return (
-                  <div
-                    key={message.id}
-                    className={`transition-all duration-700 ease-out ${
-                      visibleMessages.includes(message.id)
-                        ? 'opacity-100 translate-y-0 scale-100'
-                        : 'opacity-0 translate-y-8 scale-95 h-0 overflow-hidden'
-                    }`}
-                  >
-                    <div className="flex justify-center mt-3">
-                      <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-5 py-2.5 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg shadow-green-500/30 animate-bounce-subtle">
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                        {message.text}
-                      </div>
-                    </div>
-                  </div>
-                );
-              }
-
-              return (
+            {hasStarted && (
+              <div className="space-y-3 flex-1">
+                {/* Message 1 */}
                 <div
-                  key={message.id}
-                  className={`transition-all duration-500 ease-out ${
-                    visibleMessages.includes(message.id)
-                      ? 'opacity-100 translate-x-0'
-                      : 'opacity-0 -translate-x-4 h-0 overflow-hidden'
+                  className={`transition-opacity duration-300 ${
+                    visibleMessages.includes(1) ? 'opacity-100' : 'opacity-0'
                   }`}
-                  style={{ transitionDelay: `${index * 50}ms` }}
                 >
-                  <div className="bg-white rounded-2xl rounded-tl-md px-4 py-3 shadow-md max-w-[85%] border border-gray-100">
-                    {message.isLink ? (
-                      <span className="text-primary font-medium text-sm underline decoration-2 underline-offset-2 hover:text-blue-700 cursor-pointer">
-                        {message.text}
-                      </span>
-                    ) : (
-                      <p className="text-sm leading-relaxed text-gray-800">{message.text}</p>
-                    )}
+                  <div className="bg-white rounded-2xl rounded-tl-md px-4 py-3 shadow-sm max-w-[85%] border border-gray-100">
+                    <p className="text-sm leading-relaxed text-gray-800">Hi Sarah! It&apos;s Bella&apos;s Flower Shop 💐</p>
                   </div>
-                  {/* Typing indicator for next message */}
-                  {visibleMessages.includes(message.id) &&
-                   !visibleMessages.includes(message.id + 1) &&
-                   message.id < 3 && (
-                    <div className="mt-2 flex gap-1 px-4 animate-pulse">
-                      <div className="w-2 h-2 bg-gray-300 rounded-full" />
-                      <div className="w-2 h-2 bg-gray-300 rounded-full animation-delay-200" />
-                      <div className="w-2 h-2 bg-gray-300 rounded-full animation-delay-400" />
-                    </div>
-                  )}
                 </div>
-              );
-            })}
+
+                {/* Message 2 */}
+                <div
+                  className={`transition-opacity duration-300 ${
+                    visibleMessages.includes(2) ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  <div className="bg-white rounded-2xl rounded-tl-md px-4 py-3 shadow-sm max-w-[85%] border border-gray-100">
+                    <p className="text-sm leading-relaxed text-gray-800">Hope you loved your florals! Mind leaving us a quick Google review? It means a lot 🙏</p>
+                  </div>
+                </div>
+
+                {/* Message 3 - Link */}
+                <div
+                  className={`transition-opacity duration-300 ${
+                    visibleMessages.includes(3) ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  <div className="bg-white rounded-2xl rounded-tl-md px-4 py-3 shadow-sm max-w-[85%] border border-gray-100">
+                    <span className="text-primary font-medium text-sm underline decoration-2 underline-offset-2">
+                      g.page/bellas-flowers/review
+                    </span>
+                  </div>
+                </div>
+
+                {/* Typing indicator */}
+                {hasStarted && !visibleMessages.includes(4) && visibleMessages.length > 0 && visibleMessages.length < 4 && (
+                  <div className="flex gap-1 px-2">
+                    <div className="w-2 h-2 bg-gray-300 rounded-full animate-pulse" />
+                    <div className="w-2 h-2 bg-gray-300 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
+                    <div className="w-2 h-2 bg-gray-300 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }} />
+                  </div>
+                )}
+
+                {/* Success message - positioned at bottom */}
+                <div
+                  className={`transition-all duration-500 ${
+                    visibleMessages.includes(4) ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  <div className="flex justify-center pt-2">
+                    <div className="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 shadow-md">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      New 5-star review!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Bottom bar / Replay */}
@@ -214,15 +222,15 @@ export default function SMSDemoV2() {
         </div>
       </div>
 
-      {/* Floating badge */}
-      <div className="absolute -top-2 -right-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg shadow-green-500/30 flex items-center gap-1.5">
+      {/* Floating badge - moved up and left so it doesn't cover status bar */}
+      <div className="absolute -top-4 right-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg shadow-green-500/30 flex items-center gap-1.5">
         <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
         Live Demo
       </div>
 
       {/* Decorative elements */}
       <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-yellow-400/20 rounded-full blur-xl" />
-      <div className="absolute -top-6 -right-6 w-16 h-16 bg-primary/20 rounded-full blur-xl" />
+      <div className="absolute -top-8 -right-8 w-16 h-16 bg-primary/20 rounded-full blur-xl" />
     </div>
   );
 }
