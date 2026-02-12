@@ -172,7 +172,7 @@ export default function SMSDemoV2() {
                 >
                   <div className="bg-white rounded-2xl rounded-tl-md px-4 py-3 shadow-sm max-w-[85%] border border-gray-100">
                     <span className="text-primary font-medium text-sm underline decoration-2 underline-offset-2">
-                      g.page/bellas-flowers/review
+                      Click to leave Google review
                     </span>
                   </div>
                 </div>
