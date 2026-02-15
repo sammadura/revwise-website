@@ -442,11 +442,11 @@ export default function HomeContent() {
                   <p className="text-gray-600 leading-relaxed mb-4">Personalized text messages that get responses. Your customers are on their phones — meet them there.</p>
                   <div className="flex gap-8">
                     <div>
-                      <p className="text-2xl font-bold text-blue-600">98%</p>
-                      <p className="text-xs text-gray-500 font-medium">SMS open rate</p>
+                      <p className="text-2xl font-bold text-blue-600">10%</p>
+                      <p className="text-xs text-gray-500 font-medium">Click-through rate</p>
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-gray-400">20%</p>
+                      <p className="text-2xl font-bold text-cyan-600">52%</p>
                       <p className="text-xs text-gray-500 font-medium">Email open rate</p>
                     </div>
                   </div>
@@ -506,21 +506,24 @@ export default function HomeContent() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl mb-2 text-gray-900">Live Dashboard</h3>
+                  <h3 className="font-bold text-xl mb-2 text-gray-900">
+                    Live Dashboard
+                    <span className="ml-2 text-xs font-medium text-orange-600 bg-orange-100 px-2 py-0.5 rounded-full align-middle">Coming soon</span>
+                  </h3>
                   <p className="text-gray-600 leading-relaxed">Real-time analytics. Track reviews, responses, and your ranking progress — all in one place.</p>
                 </div>
               </div>
             </StaggerItem>
 
-            {/* One-Click Setup */}
+            {/* White-Glove Onboarding */}
             <StaggerItem className="group bg-white rounded-2xl p-8 shadow-lg border border-gray-100 card-hover">
               <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="font-bold text-xl mb-3 text-gray-900">One-Click Setup</h3>
-              <p className="text-gray-600 leading-relaxed">Connect your Google Business Profile in minutes. No technical skills needed.</p>
+              <h3 className="font-bold text-xl mb-3 text-gray-900">White-Glove Onboarding</h3>
+              <p className="text-gray-600 leading-relaxed">One 45-minute call and we handle everything. No technical skills needed.</p>
             </StaggerItem>
           </StaggerContainer>
         </div>
@@ -558,14 +561,14 @@ export default function HomeContent() {
               },
               {
                 quote: "We used to beg customers for reviews. Now they come in automatically. Best $99 we spend every month.",
-                name: "Marcus Johnson",
+                name: "Marcus Johnson*",
                 role: "Owner, Johnson HVAC",
                 initials: "MJ",
                 gradient: "from-green-500 to-emerald-600",
               },
               {
                 quote: "The smart routing feature is genius. Unhappy customers reach us directly instead of blasting us on Google.",
-                name: "Rachel Kim",
+                name: "Rachel Kim*",
                 role: "Manager, Elite Plumbing Co.",
                 initials: "RK",
                 gradient: "from-purple-500 to-indigo-600",
@@ -594,6 +597,9 @@ export default function HomeContent() {
               </StaggerItem>
             ))}
           </StaggerContainer>
+          <p className="text-center text-xs text-gray-400 mt-8">
+            * Representative example based on typical results.
+          </p>
         </div>
       </section>
 

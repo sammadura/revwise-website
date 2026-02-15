@@ -102,7 +102,7 @@ export default function DemoCallPage() {
                 <div className="space-y-4">
                   {[
                     { value: '70+', label: 'Reviews in 74 days', color: 'text-primary' },
-                    { value: '98%', label: 'SMS open rate', color: 'text-green-600' },
+                    { value: '10%', label: 'Click-through rate', color: 'text-green-600' },
                     { value: '14x', label: 'ROI for clients', color: 'text-purple-600' },
                   ].map((stat) => (
                     <div key={stat.label} className="flex items-baseline gap-3">
