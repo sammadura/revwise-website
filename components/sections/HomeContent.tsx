@@ -429,67 +429,168 @@ export default function HomeContent() {
 
           {/* Bento Grid */}
           <StaggerContainer className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {[
-              {
-                title: 'SMS Review Requests',
-                desc: 'Personalized text messages that get responses. 98% open rate vs 20% for email.',
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                ),
-                gradient: 'from-blue-500 to-cyan-500',
-              },
-              {
-                title: 'AI Response Writer',
-                desc: "Every review gets a personalized response. Positive or negative, we've got you covered 24/7.",
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                ),
-                gradient: 'from-purple-500 to-pink-500',
-              },
-              {
-                title: 'Smart Routing',
-                desc: 'Happy customers go to Google. Unhappy ones come to you first, privately.',
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                ),
-                gradient: 'from-green-500 to-teal-500',
-              },
-              {
-                title: 'Live Dashboard',
-                desc: 'Real-time analytics. Track reviews, responses, and your ranking progress.',
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                ),
-                gradient: 'from-orange-500 to-red-500',
-              },
-              {
-                title: 'Perfect Timing',
-                desc: 'Send requests at the optimal moment when customers are happiest with your service.',
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                ),
-                gradient: 'from-yellow-500 to-orange-500',
-              },
-              {
-                title: 'One-Click Setup',
-                desc: 'Connect your Google Business Profile in minutes. No technical skills needed.',
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                ),
-                gradient: 'from-indigo-500 to-purple-500',
-              },
-            ].map((feature) => (
-              <StaggerItem
-                key={feature.title}
-                className="group bg-white rounded-2xl p-8 shadow-lg border border-gray-100 card-hover"
-              >
-                <div className={`w-14 h-14 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+            {/* SMS Review Requests - Featured wide card */}
+            <StaggerItem className="md:col-span-2 group bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 shadow-lg border border-blue-100 card-hover">
+              <div className="flex flex-col sm:flex-row items-start gap-6">
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                   <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    {feature.icon}
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h3 className="font-bold text-xl mb-3 text-gray-900">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
+                <div className="flex-1">
+                  <h3 className="font-bold text-xl mb-2 text-gray-900">SMS Review Requests</h3>
+                  <p className="text-gray-600 leading-relaxed mb-4">Personalized text messages that get responses. Your customers are on their phones — meet them there.</p>
+                  <div className="flex gap-8">
+                    <div>
+                      <p className="text-2xl font-bold text-blue-600">98%</p>
+                      <p className="text-xs text-gray-500 font-medium">SMS open rate</p>
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold text-gray-400">20%</p>
+                      <p className="text-xs text-gray-500 font-medium">Email open rate</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </StaggerItem>
+
+            {/* AI Response Writer - Tall card */}
+            <StaggerItem className="md:row-span-2 group bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 shadow-lg border border-purple-100 card-hover flex flex-col">
+              <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="font-bold text-xl mb-3 text-gray-900">AI Response Writer</h3>
+              <p className="text-gray-600 leading-relaxed mb-6">Every review gets a thoughtful, personalized response — positive or negative. 24/7 coverage.</p>
+              <div className="mt-auto space-y-3">
+                <div className="bg-white/80 rounded-xl p-3 border border-purple-100 shadow-sm">
+                  <p className="text-xs text-purple-400 mb-1 font-medium">5-star response</p>
+                  <p className="text-sm text-gray-600 italic">&quot;Thank you so much, Sarah! We loved working on your arrangements...&quot;</p>
+                </div>
+                <div className="bg-white/80 rounded-xl p-3 border border-purple-100 shadow-sm">
+                  <p className="text-xs text-purple-400 mb-1 font-medium">Recovery response</p>
+                  <p className="text-sm text-gray-600 italic">&quot;We&apos;re sorry to hear that, Mike. We&apos;d love to make this right...&quot;</p>
+                </div>
+              </div>
+            </StaggerItem>
+
+            {/* Smart Routing */}
+            <StaggerItem className="group bg-white rounded-2xl p-8 shadow-lg border border-gray-100 card-hover">
+              <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 className="font-bold text-xl mb-3 text-gray-900">Smart Routing</h3>
+              <p className="text-gray-600 leading-relaxed">Happy customers go to Google. Unhappy ones come to you first, privately.</p>
+            </StaggerItem>
+
+            {/* Perfect Timing */}
+            <StaggerItem className="group bg-white rounded-2xl p-8 shadow-lg border border-gray-100 card-hover">
+              <div className="w-14 h-14 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="font-bold text-xl mb-3 text-gray-900">Perfect Timing</h3>
+              <p className="text-gray-600 leading-relaxed">Send requests at the optimal moment when customers are happiest with your service.</p>
+            </StaggerItem>
+
+            {/* Live Dashboard - Featured wide card */}
+            <StaggerItem className="md:col-span-2 group bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-8 shadow-lg border border-orange-100 card-hover">
+              <div className="flex flex-col sm:flex-row items-start gap-6">
+                <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                  <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-bold text-xl mb-2 text-gray-900">Live Dashboard</h3>
+                  <p className="text-gray-600 leading-relaxed">Real-time analytics. Track reviews, responses, and your ranking progress — all in one place.</p>
+                </div>
+              </div>
+            </StaggerItem>
+
+            {/* One-Click Setup */}
+            <StaggerItem className="group bg-white rounded-2xl p-8 shadow-lg border border-gray-100 card-hover">
+              <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="font-bold text-xl mb-3 text-gray-900">One-Click Setup</h3>
+              <p className="text-gray-600 leading-relaxed">Connect your Google Business Profile in minutes. No technical skills needed.</p>
+            </StaggerItem>
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="section bg-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-purple-100/50 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-amber-100/50 rounded-full blur-3xl translate-y-1/2 translate-x-1/2" />
+
+        <div className="container-custom relative">
+          <ScrollReveal className="text-center mb-16">
+            <span className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-5 py-2 rounded-full text-sm font-semibold mb-6">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clipRule="evenodd" />
+              </svg>
+              Trusted by Local Businesses
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+              Businesses Love RevWise
+            </h2>
+            <p className="text-xl text-gray-medium max-w-2xl mx-auto">
+              Here&apos;s what our clients say about their experience
+            </p>
+          </ScrollReveal>
+
+          <StaggerContainer className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {[
+              {
+                quote: "RevWise made collecting reviews effortless. We went from #2 to #1 in our area without lifting a finger!",
+                name: "Lea Davis",
+                role: "Owner, Bella's Flower Shop",
+                initials: "LD",
+                gradient: "from-primary to-blue-600",
+              },
+              {
+                quote: "We used to beg customers for reviews. Now they come in automatically. Best $99 we spend every month.",
+                name: "Marcus Johnson",
+                role: "Owner, Johnson HVAC",
+                initials: "MJ",
+                gradient: "from-green-500 to-emerald-600",
+              },
+              {
+                quote: "The smart routing feature is genius. Unhappy customers reach us directly instead of blasting us on Google.",
+                name: "Rachel Kim",
+                role: "Manager, Elite Plumbing Co.",
+                initials: "RK",
+                gradient: "from-purple-500 to-indigo-600",
+              },
+            ].map((testimonial) => (
+              <StaggerItem key={testimonial.name} className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 card-hover">
+                <div className="flex items-center gap-1 mb-4">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <svg key={star} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <p className="text-gray-700 italic leading-relaxed mb-6">
+                  &quot;{testimonial.quote}&quot;
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className={`w-11 h-11 bg-gradient-to-br ${testimonial.gradient} rounded-full flex items-center justify-center shadow-md`}>
+                    <span className="text-white font-bold text-sm">{testimonial.initials}</span>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">{testimonial.name}</p>
+                    <p className="text-sm text-gray-500">{testimonial.role}</p>
+                  </div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -500,11 +601,12 @@ export default function HomeContent() {
       <FAQ />
 
       {/* Final CTA - V2 */}
-      <section className="section bg-gradient-to-br from-primary via-blue-600 to-indigo-700 text-white relative overflow-hidden">
+      <section className="section bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 text-white relative overflow-hidden">
         {/* Animated background */}
         <div className="absolute inset-0">
-          <div className="absolute top-10 right-10 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-10 left-10 w-[500px] h-[500px] bg-yellow-400/20 rounded-full blur-3xl animate-float-slow" />
+          <div className="absolute top-10 right-10 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-10 left-10 w-[500px] h-[500px] bg-secondary/15 rounded-full blur-3xl animate-float-slow" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBtLTEgMGExIDEgMCAxIDAgMiAwIDEgMSAwIDEgMCAtMiAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIi8+PC9nPjwvc3ZnPg==')] opacity-50" />
         </div>
 
