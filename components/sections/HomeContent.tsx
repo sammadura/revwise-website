@@ -506,7 +506,10 @@ export default function HomeContent() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl mb-2 text-gray-900">Live Dashboard</h3>
+                  <h3 className="font-bold text-xl mb-2 text-gray-900">
+                    Live Dashboard
+                    <span className="ml-2 text-xs font-medium text-orange-600 bg-orange-100 px-2 py-0.5 rounded-full align-middle">Coming soon</span>
+                  </h3>
                   <p className="text-gray-600 leading-relaxed">Real-time analytics. Track reviews, responses, and your ranking progress — all in one place.</p>
                 </div>
               </div>
