@@ -12,7 +12,7 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     question: 'How quickly will I start seeing new reviews?',
-    answer: 'Most businesses see their first new reviews within the first week after onboarding. Our automated SMS system has a 98% open rate, and customers typically leave reviews within 24-48 hours of receiving the request.',
+    answer: 'Most businesses see their first new reviews within the first week after onboarding. Our automated SMS system has a 98% open rate (and our emails hit 52%), so your requests actually get seen. Customers typically leave reviews within 24-48 hours of receiving the request.',
   },
   {
     question: 'What happens if a customer leaves a negative review?',

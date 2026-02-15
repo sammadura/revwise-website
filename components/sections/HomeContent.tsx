@@ -446,7 +446,7 @@ export default function HomeContent() {
                       <p className="text-xs text-gray-500 font-medium">SMS open rate</p>
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-gray-400">20%</p>
+                      <p className="text-2xl font-bold text-cyan-600">52%</p>
                       <p className="text-xs text-gray-500 font-medium">Email open rate</p>
                     </div>
                   </div>
@@ -594,6 +594,9 @@ export default function HomeContent() {
               </StaggerItem>
             ))}
           </StaggerContainer>
+          <p className="text-center text-xs text-gray-400 mt-8">
+            * Some testimonials are representative examples based on typical client results.
+          </p>
         </div>
       </section>
 
