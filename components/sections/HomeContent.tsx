@@ -442,8 +442,8 @@ export default function HomeContent() {
                   <p className="text-gray-600 leading-relaxed mb-4">Personalized text messages that get responses. Your customers are on their phones — meet them there.</p>
                   <div className="flex gap-8">
                     <div>
-                      <p className="text-2xl font-bold text-blue-600">98%</p>
-                      <p className="text-xs text-gray-500 font-medium">SMS open rate</p>
+                      <p className="text-2xl font-bold text-blue-600">10%</p>
+                      <p className="text-xs text-gray-500 font-medium">Click-through rate</p>
                     </div>
                     <div>
                       <p className="text-2xl font-bold text-cyan-600">52%</p>
@@ -558,14 +558,14 @@ export default function HomeContent() {
               },
               {
                 quote: "We used to beg customers for reviews. Now they come in automatically. Best $99 we spend every month.",
-                name: "Marcus Johnson",
+                name: "Marcus Johnson*",
                 role: "Owner, Johnson HVAC",
                 initials: "MJ",
                 gradient: "from-green-500 to-emerald-600",
               },
               {
                 quote: "The smart routing feature is genius. Unhappy customers reach us directly instead of blasting us on Google.",
-                name: "Rachel Kim",
+                name: "Rachel Kim*",
                 role: "Manager, Elite Plumbing Co.",
                 initials: "RK",
                 gradient: "from-purple-500 to-indigo-600",
@@ -595,7 +595,7 @@ export default function HomeContent() {
             ))}
           </StaggerContainer>
           <p className="text-center text-xs text-gray-400 mt-8">
-            * Some testimonials are representative examples based on typical client results.
+            * Representative example based on typical results.
           </p>
         </div>
       </section>
