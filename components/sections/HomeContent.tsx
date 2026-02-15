@@ -10,6 +10,7 @@ import {
   StaggerItem,
   ParallaxSection,
 } from '@/components/ui/ScrollAnimations';
+import FAQ from '@/components/sections/FAQ';
 
 export default function HomeContent() {
   return (
@@ -494,6 +495,9 @@ export default function HomeContent() {
           </StaggerContainer>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQ />
 
       {/* Final CTA - V2 */}
       <section className="section bg-gradient-to-br from-primary via-blue-600 to-indigo-700 text-white relative overflow-hidden">

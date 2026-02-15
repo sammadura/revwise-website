@@ -1,12 +1,22 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 import Button from '../ui/Button';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navItems = [
     { label: 'Home', href: '/' },
@@ -17,9 +27,15 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-gray-light/95 backdrop-blur-sm border-b border-gray-border">
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-white/98 backdrop-blur-md shadow-lg shadow-black/5 border-b border-transparent'
+          : 'bg-gray-light/95 backdrop-blur-sm border-b border-gray-border'
+      }`}
+    >
       <nav className="container-custom">
-        <div className="flex items-center justify-between h-20">
+        <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? 'h-16' : 'h-20'}`}>
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
@@ -27,7 +43,7 @@ export default function Header() {
               alt="Revwise Logo"
               width={260}
               height={60}
-              className="h-12 w-auto"
+              className={`w-auto transition-all duration-300 ${scrolled ? 'h-10' : 'h-12'}`}
               priority
             />
           </Link>
@@ -71,29 +87,43 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div id="mobile-menu" className="md:hidden py-4 border-t border-gray-border">
-            <ul className="space-y-4">
-              {navItems.map((item) => (
-                <li key={item.label}>
-                  <Link
-                    href={item.href}
-                    className="block text-dark hover:text-primary transition-colors font-medium"
-                    onClick={() => setMobileMenuOpen(false)}
+        {/* Mobile Menu - Animated */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              id="mobile-menu"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.25, ease: 'easeInOut' }}
+              className="md:hidden overflow-hidden border-t border-gray-border"
+            >
+              <ul className="space-y-4 py-4">
+                {navItems.map((item, i) => (
+                  <motion.li
+                    key={item.label}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
                   >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-6 pt-4 border-t border-gray-border">
-              <Button href="/demo-call" variant="primary" className="w-full justify-center">
-                Start Free Trial
-              </Button>
-            </div>
-          </div>
-        )}
+                    <Link
+                      href={item.href}
+                      className="block text-dark hover:text-primary transition-colors font-medium"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+              <div className="pb-4 pt-2 border-t border-gray-border">
+                <Button href="/demo-call" variant="primary" className="w-full justify-center">
+                  Start Free Trial
+                </Button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </header>
   );
