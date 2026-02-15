@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev)",
+      "Bash(npm run build)",
+      "Bash(npm run lint)",
+      "Bash(npm run start)",
+      "Bash(npx next lint*)",
+      "Bash(npx tsc --noEmit*)",
+      "Bash(git *)",
+      "Bash(npm install*)",
+      "Bash(npx playwright*)"
+    ],
+    "deny": [
+      "Bash(rm -rf /)",
+      "Bash(npm publish*)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "bash .claude/hooks/session-start.sh"
+      }
+    ]
+  }
+}
