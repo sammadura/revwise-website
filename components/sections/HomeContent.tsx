@@ -217,25 +217,46 @@ export default function HomeContent() {
           </ScrollReveal>
 
           {/* Video Testimonial */}
-          <ScrollReveal delay={0.2} className="max-w-3xl mx-auto relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-purple-500/10 to-primary/10 rounded-3xl blur-2xl" />
-            <div className="relative bg-white p-3 md:p-4 rounded-3xl border border-gray-200 shadow-2xl">
-              <div className="aspect-video bg-gradient-to-br from-primary to-blue-700 rounded-2xl overflow-hidden">
-                <YouTubeEmbed
-                  videoId="ikorkXepRnk"
-                  title="Lea Davis testimonial - Bella's Flower Shop RevWise review"
-                  overlayHeading="Hear It From Our Client"
-                  overlaySubtext="Lea Davis, Owner of Bella's Flower Shop"
-                  duration="0:35 Testimonial"
-                />
-              </div>
-              <div className="flex items-center justify-center gap-3 mt-4 mb-2">
-                <div className="w-11 h-11 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center shadow-md">
-                  <span className="text-white font-bold text-sm">LD</span>
+          <ScrollReveal delay={0.2} className="max-w-4xl mx-auto relative">
+            {/* Ambient glow */}
+            <div className="absolute -inset-8 bg-gradient-to-br from-primary/15 via-purple-400/10 to-amber-300/10 rounded-[3rem] blur-3xl" />
+
+            <div className="relative">
+              {/* Video container */}
+              <div className="relative bg-gradient-to-br from-gray-900 to-slate-800 p-2 md:p-3 rounded-2xl md:rounded-3xl shadow-2xl shadow-black/20">
+                <div className="aspect-video bg-gradient-to-br from-primary to-blue-700 rounded-xl md:rounded-2xl overflow-hidden relative">
+                  <YouTubeEmbed
+                    videoId="ikorkXepRnk"
+                    title="Lea Davis testimonial - Bella's Flower Shop RevWise review"
+                    overlayHeading="Hear From Our Client"
+                    overlaySubtext="Lea Davis, Owner of Bella's Flower Shop"
+                    duration="0:35 Testimonial"
+                  />
                 </div>
-                <div className="text-left">
-                  <p className="font-bold text-gray-900">Lea Davis</p>
-                  <p className="text-sm text-gray-500">Owner, Bella&apos;s Flower Shop</p>
+              </div>
+
+              {/* Overlapping quote card - breaks grid intentionally */}
+              <div className="relative md:absolute md:-bottom-8 md:-right-6 lg:-right-10 mt-4 md:mt-0 md:max-w-xs lg:max-w-sm z-10">
+                <div className="bg-white rounded-2xl p-5 md:p-6 shadow-xl border border-gray-100">
+                  <div className="flex items-center gap-1 mb-3">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <svg key={star} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <p className="text-gray-700 text-sm italic leading-relaxed mb-4">
+                    &quot;We went from #2 to #1 in our area without lifting a finger!&quot;
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center shadow-md">
+                      <span className="text-white font-bold text-xs">LD</span>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900 text-sm">Lea Davis</p>
+                      <p className="text-xs text-gray-500">Owner, Bella&apos;s Flower Shop</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

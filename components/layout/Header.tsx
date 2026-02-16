@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from '../ui/Button';
 
@@ -37,11 +38,13 @@ export default function Header() {
         <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? 'h-16' : 'h-20'}`}>
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/logo.svg"
-              alt="RevWise Logo"
+            <Image
+              src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/C6x7wJOrgkTTDc0htJ2D/media/6918edf1608ee7fc3674c9b9.png"
+              alt="Revwise Logo"
+              width={260}
+              height={60}
               className={`w-auto transition-all duration-300 ${scrolled ? 'h-10' : 'h-12'}`}
+              priority
             />
           </Link>
 
