@@ -284,9 +284,11 @@ export default function HomeContent() {
 
           {/* Video - Enhanced */}
           <ScrollReveal className="max-w-4xl mx-auto mb-20 relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-purple-500/20 to-primary/20 rounded-3xl blur-2xl" />
-            <div className="relative bg-white p-3 md:p-4 rounded-3xl border border-gray-200 shadow-2xl">
-              <div className="aspect-video bg-gradient-to-br from-primary to-blue-700 rounded-2xl overflow-hidden">
+            {/* Ambient glow */}
+            <div className="absolute -inset-8 bg-gradient-to-br from-primary/15 via-purple-400/10 to-indigo-400/10 rounded-[3rem] blur-3xl" />
+
+            <div className="relative bg-gradient-to-br from-gray-900 to-slate-800 p-2 md:p-3 rounded-2xl md:rounded-3xl shadow-2xl shadow-black/20">
+              <div className="aspect-video bg-gradient-to-br from-primary to-blue-700 rounded-xl md:rounded-2xl overflow-hidden relative">
                 <YouTubeEmbed
                   videoId="GGNqGZ0AUo4"
                   title="RevWise Demo - See how we help businesses get more Google reviews"
