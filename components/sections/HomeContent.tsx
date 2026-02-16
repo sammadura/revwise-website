@@ -519,33 +519,19 @@ export default function HomeContent() {
               <p className="text-gray-600 leading-relaxed">Send requests at the optimal moment when customers are happiest with your service.</p>
             </StaggerItem>
 
-            {/* Live Dashboard - Featured wide card */}
-            <StaggerItem className="md:col-span-2 group bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-8 shadow-lg border border-orange-100">
+            {/* White-Glove Onboarding - wide card to fill the row */}
+            <StaggerItem className="md:col-span-2 group bg-gradient-to-br from-blue-50 to-sky-50 rounded-2xl p-8 shadow-lg border border-blue-100">
               <div className="flex flex-col sm:flex-row items-start gap-6">
-                <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
+                <div className="w-14 h-14 bg-gradient-to-br from-sky-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
                   <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <div>
-                  <h3 className="font-bold text-xl mb-2 text-gray-900">
-                    Live Dashboard
-                    <span className="ml-2 text-xs font-medium text-orange-600 bg-orange-100 px-2 py-0.5 rounded-full align-middle">Coming soon</span>
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">Real-time analytics. Track reviews, responses, and your ranking progress — all in one place.</p>
+                <div className="flex-1">
+                  <h3 className="font-bold text-xl mb-2 text-gray-900">White-Glove Onboarding</h3>
+                  <p className="text-gray-600 leading-relaxed">One 45-minute call and we handle everything — connecting your Google Business Profile, configuring automations, and customizing your messaging. No technical skills needed.</p>
                 </div>
               </div>
-            </StaggerItem>
-
-            {/* White-Glove Onboarding */}
-            <StaggerItem className="group bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              <div className="w-14 h-14 bg-gradient-to-br from-sky-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="font-bold text-xl mb-3 text-gray-900">White-Glove Onboarding</h3>
-              <p className="text-gray-600 leading-relaxed">One 45-minute call and we handle everything. No technical skills needed.</p>
             </StaggerItem>
           </StaggerContainer>
         </div>
