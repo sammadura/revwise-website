@@ -246,7 +246,7 @@ export default function HomeContent() {
                     ))}
                   </div>
                   <p className="text-gray-700 text-sm italic leading-relaxed mb-4">
-                    &quot;We went from #2 to #1 in our area without lifting a finger!&quot;
+                    &quot;Before using RevWise, gathering reviews was time-consuming and inconsistent. But after RevWise, we&apos;ve seen a real increase in both the number and quality of our reviews, and it&apos;s helped strengthen our online presence.&quot;
                   </p>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center shadow-md">
