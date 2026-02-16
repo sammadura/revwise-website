@@ -6,9 +6,12 @@ import Image from 'next/image';
 interface YouTubeEmbedProps {
   videoId: string;
   title: string;
+  overlayHeading?: string;
+  overlaySubtext?: string;
+  duration?: string;
 }
 
-export default function YouTubeEmbed({ videoId, title }: YouTubeEmbedProps) {
+export default function YouTubeEmbed({ videoId, title, overlayHeading, overlaySubtext, duration }: YouTubeEmbedProps) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
@@ -75,15 +78,15 @@ export default function YouTubeEmbed({ videoId, title }: YouTubeEmbedProps) {
 
         {/* Text */}
         <h3 className="text-white text-2xl md:text-3xl font-bold mb-2 text-center px-4">
-          See Revwise in Action
+          {overlayHeading || 'See Revwise in Action'}
         </h3>
         <p className="text-white/90 text-base md:text-lg text-center px-4">
-          Watch how we help businesses get 10x more reviews
+          {overlaySubtext || 'Watch how we help businesses get 10x more reviews'}
         </p>
 
         {/* Duration Badge */}
         <div className="mt-6 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-          <span className="text-white font-semibold">2:30 Demo Video</span>
+          <span className="text-white font-semibold">{duration || '2:30 Demo Video'}</span>
         </div>
 
         {/* Click hint */}

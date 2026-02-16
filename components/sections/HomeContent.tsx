@@ -216,23 +216,26 @@ export default function HomeContent() {
             </div>
           </ScrollReveal>
 
-          {/* Quote - Upgraded */}
+          {/* Video Testimonial */}
           <ScrollReveal delay={0.2} className="max-w-3xl mx-auto relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-purple-500/5 to-primary/5 rounded-3xl blur-2xl" />
-            <div className="relative glass-card rounded-3xl p-10 text-center">
-              <svg className="w-16 h-16 text-primary/20 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-              </svg>
-              <p className="text-2xl text-gray-700 italic mb-8 leading-relaxed">
-                &quot;RevWise made collecting reviews effortless. We went from #2 to #1 in our area without lifting a finger. Now we&apos;re the most-reviewed florist in the Bronx!&quot;
-              </p>
-              <div className="flex items-center justify-center gap-4">
-                <div className="w-14 h-14 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center shadow-lg">
-                  <span className="text-white font-bold text-lg">LD</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-purple-500/10 to-primary/10 rounded-3xl blur-2xl" />
+            <div className="relative bg-white p-3 md:p-4 rounded-3xl border border-gray-200 shadow-2xl">
+              <div className="aspect-video bg-gradient-to-br from-primary to-blue-700 rounded-2xl overflow-hidden">
+                <YouTubeEmbed
+                  videoId="ikorkXepRnk"
+                  title="Lea Davis testimonial - Bella's Flower Shop RevWise review"
+                  overlayHeading="Hear It From Our Client"
+                  overlaySubtext="Lea Davis, Owner of Bella's Flower Shop"
+                  duration="0:35 Testimonial"
+                />
+              </div>
+              <div className="flex items-center justify-center gap-3 mt-4 mb-2">
+                <div className="w-11 h-11 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center shadow-md">
+                  <span className="text-white font-bold text-sm">LD</span>
                 </div>
                 <div className="text-left">
-                  <p className="font-bold text-gray-900 text-lg">Lea Davis</p>
-                  <p className="text-gray-500">Owner, Bella&apos;s Flower Shop</p>
+                  <p className="font-bold text-gray-900">Lea Davis</p>
+                  <p className="text-sm text-gray-500">Owner, Bella&apos;s Flower Shop</p>
                 </div>
               </div>
             </div>
