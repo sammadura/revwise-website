@@ -90,9 +90,10 @@ export default function HomeContent() {
       </section>
 
       {/* Results Section - V2 */}
-      <ParallaxSection className="section bg-white relative overflow-hidden" id="case-study">
+      <ParallaxSection className="section bg-gradient-to-b from-amber-50/40 to-white relative overflow-hidden" id="case-study">
         {/* Background decoration */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/15 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-300/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3" />
 
         <div className="container-custom relative">
           <ScrollReveal className="text-center mb-16">
@@ -281,7 +282,7 @@ export default function HomeContent() {
           {/* Video - Enhanced */}
           <ScrollReveal className="max-w-4xl mx-auto mb-20 relative">
             {/* Ambient glow */}
-            <div className="absolute -inset-8 bg-gradient-to-br from-primary/15 via-amber-300/10 to-blue-400/10 rounded-[3rem] blur-3xl" />
+            <div className="absolute -inset-8 bg-gradient-to-br from-primary/20 via-amber-300/15 to-blue-400/15 rounded-[3rem] blur-3xl" />
 
             <div className="relative bg-gradient-to-br from-gray-900 to-slate-800 p-2 md:p-3 rounded-2xl md:rounded-3xl shadow-2xl shadow-black/20">
               <div className="aspect-video bg-gradient-to-br from-primary to-blue-700 rounded-xl md:rounded-2xl overflow-hidden relative">
@@ -352,8 +353,8 @@ export default function HomeContent() {
       {/* Pricing Section - V2 */}
       <section id="pricing" className="section bg-white relative overflow-hidden">
         {/* Background elements */}
-        <div className="absolute top-1/2 left-0 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2" />
-        <div className="absolute top-1/2 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute top-1/2 left-0 w-96 h-96 bg-yellow-400/20 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2" />
+        <div className="absolute top-1/2 right-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
         <div className="container-custom relative">
           <ScrollReveal className="text-center mb-16">
@@ -373,7 +374,7 @@ export default function HomeContent() {
 
           <ScrollReveal delay={0.1} className="max-w-lg mx-auto relative">
             {/* Glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary via-amber-500 to-primary rounded-[2.5rem] blur-2xl opacity-20" />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary via-amber-500 to-primary rounded-[2.5rem] blur-2xl opacity-30" />
 
             <div className="relative bg-white rounded-[2rem] shadow-2xl border border-gray-200 overflow-hidden">
               {/* Price header */}
@@ -438,8 +439,12 @@ export default function HomeContent() {
       </section>
 
       {/* Features Grid - V2 Bento Style */}
-      <section className="section bg-gray-50">
-        <div className="container-custom">
+      <section className="section bg-gradient-to-b from-gray-50 to-blue-50/30 relative overflow-hidden">
+        {/* Subtle color wash */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-200/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" />
+
+        <div className="container-custom relative">
           <ScrollReveal className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
               Everything You Need to <span className="text-primary">Dominate</span> Local Search
@@ -538,9 +543,9 @@ export default function HomeContent() {
       </section>
 
       {/* Testimonials */}
-      <section className="section bg-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-amber-100/50 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-amber-100/50 rounded-full blur-3xl translate-y-1/2 translate-x-1/2" />
+      <section className="section bg-gradient-to-b from-white to-amber-50/40 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-amber-200/40 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl translate-y-1/2 translate-x-1/2" />
 
         <div className="container-custom relative">
           <ScrollReveal className="text-center mb-16">
