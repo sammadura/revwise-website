@@ -71,14 +71,24 @@ export default function SMSDemoV2() {
   useEffect(() => {
     const timer = setTimeout(() => {
       resetDemo();
-    }, 2000); // Longer wait before demo starts
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
+
+  // Auto-replay loop: restart 3s after demo completes
+  useEffect(() => {
+    if (!isPlaying && visibleMessages.length === 4) {
+      const timer = setTimeout(() => {
+        resetDemo();
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [isPlaying, visibleMessages.length]);
 
   return (
     <div className="relative max-w-sm mx-auto">
       {/* Glow effect behind phone */}
-      <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 via-purple-500/20 to-primary/30 rounded-[4rem] blur-2xl opacity-60" />
+      <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 via-blue-400/20 to-primary/30 rounded-[4rem] blur-2xl opacity-60" />
 
       {/* Phone frame */}
       <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] p-3 shadow-2xl ring-1 ring-white/10">

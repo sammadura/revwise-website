@@ -103,7 +103,7 @@ export default function DemoCallPage() {
                   {[
                     { value: '70+', label: 'Reviews in 74 days', color: 'text-primary' },
                     { value: '10%', label: 'Click-through rate', color: 'text-green-600' },
-                    { value: '14x', label: 'ROI for clients', color: 'text-purple-600' },
+                    { value: '14x', label: 'ROI for clients', color: 'text-amber-600' },
                   ].map((stat) => (
                     <div key={stat.label} className="flex items-baseline gap-3">
                       <span className={`text-2xl font-bold ${stat.color}`}>{stat.value}</span>
