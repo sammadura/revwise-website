@@ -3,7 +3,6 @@
 import Button from '@/components/ui/Button';
 import SMSDemoV2 from '@/components/ui/SMSDemoV2';
 import YouTubeEmbed from '@/components/ui/YouTubeEmbed';
-import FloatingStars3D from '@/components/ui/FloatingStars3D';
 import {
   ScrollReveal,
   StaggerContainer,
@@ -27,11 +26,6 @@ export default function HomeContent() {
         </div>
 
         <div className="container-custom relative z-10 py-20 md:py-28">
-          {/* Floating 3D Stars - decorative background element */}
-          <div className="absolute top-10 right-0 w-64 h-64 opacity-30 hidden xl:block pointer-events-none">
-            <FloatingStars3D />
-          </div>
-
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left - Copy */}
             <div className="text-center lg:text-left">
@@ -227,9 +221,7 @@ export default function HomeContent() {
                     <YouTubeEmbed
                       videoId="ikorkXepRnk"
                       title="Lea Davis testimonial - Bella's Flower Shop RevWise review"
-                      overlayHeading="Watch Testimonial"
-                      overlaySubtext="Lea Davis"
-                      duration="0:35"
+                      thumbnailOnly
                     />
                   </div>
                 </div>
