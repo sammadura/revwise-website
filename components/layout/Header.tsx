@@ -63,7 +63,7 @@ export default function Header() {
               ))}
             </ul>
             <Button href="/demo-call" variant="primary">
-              Start Free Trial
+              Book a Demo
             </Button>
           </div>
 
@@ -118,7 +118,7 @@ export default function Header() {
               </ul>
               <div className="pb-4 pt-2 border-t border-gray-border">
                 <Button href="/demo-call" variant="primary" className="w-full justify-center">
-                  Start Free Trial
+                  Book a Demo
                 </Button>
               </div>
             </motion.div>

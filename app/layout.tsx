@@ -1,15 +1,22 @@
 import type { Metadata } from 'next';
-import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
+import localFont from 'next/font/local';
 import Script from 'next/script';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  variable: '--font-heading',
-  weight: ['600', '700', '800'],
+const satoshi = localFont({
+  src: '../public/fonts/Satoshi-Variable.woff2',
+  variable: '--font-satoshi',
+  display: 'swap',
+  weight: '300 900',
+});
+
+const clashDisplay = localFont({
+  src: '../public/fonts/ClashDisplay-Variable.woff2',
+  variable: '--font-clash-display',
+  display: 'swap',
+  weight: '200 700',
 });
 
 export const metadata: Metadata = {
@@ -103,7 +110,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://img.youtube.com" />
         <link rel="dns-prefetch" href="https://images.leadconnectorhq.com" />
       </head>
-      <body className={`${inter.variable} ${plusJakarta.variable} font-sans`}>
+      <body className={`${satoshi.variable} ${clashDisplay.variable} font-sans`}>
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-71HEG90NPH"

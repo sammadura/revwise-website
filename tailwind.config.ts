@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         primary: "#349cff",
-        secondary: "#604BEA",
+        secondary: "#F59E0B",
         dark: "#242424",
         gray: {
           light: "#fafafa",
@@ -19,8 +19,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "Inter", "sans-serif"],
-        heading: ["var(--font-heading)", "Plus Jakarta Sans", "sans-serif"],
+        sans: ["var(--font-satoshi)", "Satoshi", "sans-serif"],
+        heading: ["var(--font-clash-display)", "Clash Display", "sans-serif"],
       },
       animation: {
         "scroll": "scroll 30s linear infinite",

@@ -34,6 +34,14 @@ const faqs: FAQItem[] = [
     question: 'Will this work for my industry?',
     answer: 'RevWise works for any local service business that depends on Google reviews. Our clients span home services (plumbing, HVAC, roofing, landscaping), retail (florists, salons, auto shops), and professional services (dentists, lawyers, accountants). If your customers find you on Google, RevWise will help.',
   },
+  {
+    question: 'How much time will RevWise save me?',
+    answer: 'Most business owners spend 15-20 hours per month manually asking for reviews, monitoring listings, and crafting responses. RevWise automates all of it — Bella\'s Flower Shop went from 20+ hours of manual review management to essentially zero, saving over 70 hours in their first few months and roughly $1,400 in labor costs every month.',
+  },
+  {
+    question: 'Do you have a dashboard to track my reviews?',
+    answer: 'We\'re building a live dashboard that will give you real-time analytics — track new reviews, AI responses, and your Google ranking progress all in one place. It\'s coming soon. In the meantime, you\'ll receive regular email reports and can always reach your dedicated support contact for updates.',
+  },
 ];
 
 function FAQAccordionItem({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boolean; onToggle: () => void }) {
