@@ -83,6 +83,95 @@ export default function HomeContent() {
         </div>
       </section>
 
+      {/* How It Works - V2 */}
+      <section id="how-it-works" className="section bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+        <div className="container-custom">
+          <ScrollReveal className="text-center mb-16">
+            <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-sm font-semibold mb-6">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              White-Glove Setup
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+              How RevWise Works
+            </h2>
+            <p className="text-xl text-gray-medium max-w-2xl mx-auto">
+              We handle everything. You just show up to a quick onboarding call.
+            </p>
+          </ScrollReveal>
+
+          {/* Video - Enhanced */}
+          <ScrollReveal className="max-w-4xl mx-auto mb-20 relative">
+            {/* Ambient glow */}
+            <div className="absolute -inset-8 bg-gradient-to-br from-primary/20 via-amber-300/15 to-blue-400/15 rounded-[3rem] blur-3xl" />
+
+            <div className="relative bg-gradient-to-br from-gray-900 to-slate-800 p-2 md:p-3 rounded-2xl md:rounded-3xl shadow-2xl shadow-black/20">
+              <div className="aspect-video bg-gradient-to-br from-primary to-blue-700 rounded-xl md:rounded-2xl overflow-hidden relative">
+                <YouTubeEmbed
+                  videoId="GGNqGZ0AUo4"
+                  title="RevWise Demo - See how we help businesses get more Google reviews"
+                />
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Steps - Upgraded with connecting line */}
+          <div className="relative max-w-5xl mx-auto">
+            {/* Connecting line */}
+            <div className="hidden md:block absolute top-24 left-[16.5%] right-[16.5%] h-0.5 bg-gradient-to-r from-primary via-amber-500 to-green-500" />
+
+            <StaggerContainer className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  num: '1',
+                  title: 'Book a Demo',
+                  desc: 'Schedule a quick demo to see how RevWise can help your business get more reviews.',
+                  color: 'from-primary to-blue-600',
+                  offset: '',
+                },
+                {
+                  num: '2',
+                  title: '45-Min Onboarding Call',
+                  desc: 'We take care of everything — linking your Google Business Profile, setting up automations, and customizing your messaging.',
+                  color: 'from-amber-500 to-yellow-600',
+                  offset: 'md:mt-12',
+                },
+                {
+                  num: '3',
+                  title: 'Watch Reviews Roll In',
+                  desc: 'Automated SMS requests go out. 5-star reviews come in. You focus on running your business.',
+                  color: 'from-green-500 to-emerald-600',
+                  offset: 'md:mt-6',
+                },
+              ].map((step) => (
+                <StaggerItem key={step.num} className={`relative group ${step.offset}`}>
+                  <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 h-full hover:border-primary/30 transition-colors duration-300 relative overflow-hidden">
+                    <div className={`relative z-10 w-16 h-16 bg-gradient-to-br ${step.color} text-white rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 shadow-lg`}>
+                      {step.num}
+                    </div>
+                    <h3 className="relative z-10 text-xl font-bold mb-3 text-gray-900">{step.title}</h3>
+                    <p className="relative z-10 text-gray-600 leading-relaxed">{step.desc}</p>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-16">
+            <Button
+              href="/demo-call"
+              variant="primary"
+              className="text-lg px-10 py-5 shadow-xl shadow-primary/30 hover:shadow-primary/50 transition-all duration-300"
+            >
+              Book Your Free Demo
+            </Button>
+            <p className="text-gray-500 mt-4">We take care of the rest.</p>
+          </div>
+        </div>
+      </section>
+
       {/* Results Section - V2 */}
       <ParallaxSection className="section bg-gradient-to-b from-amber-50/40 to-white relative overflow-hidden" id="case-study">
         {/* Background decoration */}
@@ -252,95 +341,6 @@ export default function HomeContent() {
           </ScrollReveal>
         </div>
       </ParallaxSection>
-
-      {/* How It Works - V2 */}
-      <section id="how-it-works" className="section bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-        <div className="container-custom">
-          <ScrollReveal className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-sm font-semibold mb-6">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              White-Glove Setup
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-              How RevWise Works
-            </h2>
-            <p className="text-xl text-gray-medium max-w-2xl mx-auto">
-              We handle everything. You just show up to a quick onboarding call.
-            </p>
-          </ScrollReveal>
-
-          {/* Video - Enhanced */}
-          <ScrollReveal className="max-w-4xl mx-auto mb-20 relative">
-            {/* Ambient glow */}
-            <div className="absolute -inset-8 bg-gradient-to-br from-primary/20 via-amber-300/15 to-blue-400/15 rounded-[3rem] blur-3xl" />
-
-            <div className="relative bg-gradient-to-br from-gray-900 to-slate-800 p-2 md:p-3 rounded-2xl md:rounded-3xl shadow-2xl shadow-black/20">
-              <div className="aspect-video bg-gradient-to-br from-primary to-blue-700 rounded-xl md:rounded-2xl overflow-hidden relative">
-                <YouTubeEmbed
-                  videoId="GGNqGZ0AUo4"
-                  title="RevWise Demo - See how we help businesses get more Google reviews"
-                />
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* Steps - Upgraded with connecting line */}
-          <div className="relative max-w-5xl mx-auto">
-            {/* Connecting line */}
-            <div className="hidden md:block absolute top-24 left-[16.5%] right-[16.5%] h-0.5 bg-gradient-to-r from-primary via-amber-500 to-green-500" />
-
-            <StaggerContainer className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  num: '1',
-                  title: 'Book a Demo',
-                  desc: 'Schedule a quick demo to see how RevWise can help your business get more reviews.',
-                  color: 'from-primary to-blue-600',
-                  offset: '',
-                },
-                {
-                  num: '2',
-                  title: '45-Min Onboarding Call',
-                  desc: 'We take care of everything — linking your Google Business Profile, setting up automations, and customizing your messaging.',
-                  color: 'from-amber-500 to-yellow-600',
-                  offset: 'md:mt-12',
-                },
-                {
-                  num: '3',
-                  title: 'Watch Reviews Roll In',
-                  desc: 'Automated SMS requests go out. 5-star reviews come in. You focus on running your business.',
-                  color: 'from-green-500 to-emerald-600',
-                  offset: 'md:mt-6',
-                },
-              ].map((step) => (
-                <StaggerItem key={step.num} className={`relative group ${step.offset}`}>
-                  <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 h-full hover:border-primary/30 transition-colors duration-300 relative overflow-hidden">
-                    <div className={`relative z-10 w-16 h-16 bg-gradient-to-br ${step.color} text-white rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 shadow-lg`}>
-                      {step.num}
-                    </div>
-                    <h3 className="relative z-10 text-xl font-bold mb-3 text-gray-900">{step.title}</h3>
-                    <p className="relative z-10 text-gray-600 leading-relaxed">{step.desc}</p>
-                  </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          </div>
-
-          {/* CTA */}
-          <div className="text-center mt-16">
-            <Button
-              href="/demo-call"
-              variant="primary"
-              className="text-lg px-10 py-5 shadow-xl shadow-primary/30 hover:shadow-primary/50 transition-all duration-300"
-            >
-              Book Your Free Demo
-            </Button>
-            <p className="text-gray-500 mt-4">We take care of the rest.</p>
-          </div>
-        </div>
-      </section>
 
       {/* Pricing Section - V2 */}
       <section id="pricing" className="section bg-white relative overflow-hidden">
