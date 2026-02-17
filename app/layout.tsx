@@ -1,15 +1,28 @@
 import type { Metadata } from 'next';
-import { DM_Sans, Plus_Jakarta_Sans } from 'next/font/google';
+import localFont from 'next/font/local';
 import Script from 'next/script';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
-const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-dm-sans' });
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  variable: '--font-heading',
-  weight: ['600', '700', '800'],
+const satoshi = localFont({
+  src: [
+    { path: '../public/fonts/Satoshi-Regular.woff2', weight: '400', style: 'normal' },
+    { path: '../public/fonts/Satoshi-Medium.woff2', weight: '500', style: 'normal' },
+    { path: '../public/fonts/Satoshi-Bold.woff2', weight: '700', style: 'normal' },
+  ],
+  variable: '--font-satoshi',
+  display: 'swap',
+});
+
+const clashDisplay = localFont({
+  src: [
+    { path: '../public/fonts/ClashDisplay-Medium.woff2', weight: '500', style: 'normal' },
+    { path: '../public/fonts/ClashDisplay-Semibold.woff2', weight: '600', style: 'normal' },
+    { path: '../public/fonts/ClashDisplay-Bold.woff2', weight: '700', style: 'normal' },
+  ],
+  variable: '--font-clash-display',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -103,7 +116,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://img.youtube.com" />
         <link rel="dns-prefetch" href="https://images.leadconnectorhq.com" />
       </head>
-      <body className={`${dmSans.variable} ${plusJakarta.variable} font-sans`}>
+      <body className={`${satoshi.variable} ${clashDisplay.variable} font-sans`}>
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-71HEG90NPH"

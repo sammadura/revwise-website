@@ -91,7 +91,7 @@
   }
 
   .heading-xl {
-    @apply text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold tracking-tight leading-[1.1];
+    @apply text-5xl md:text-6xl lg:text-7xl font-heading font-bold tracking-tight leading-[1.1];
   }
 }
 

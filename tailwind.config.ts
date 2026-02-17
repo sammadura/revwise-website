@@ -19,8 +19,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-dm-sans)", "DM Sans", "sans-serif"],
-        heading: ["var(--font-heading)", "Plus Jakarta Sans", "sans-serif"],
+        sans: ["var(--font-satoshi)", "Satoshi", "sans-serif"],
+        heading: ["var(--font-clash-display)", "Clash Display", "sans-serif"],
       },
       animation: {
         "scroll": "scroll 30s linear infinite",
