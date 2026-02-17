@@ -227,9 +227,7 @@ export default function HomeContent() {
                     <YouTubeEmbed
                       videoId="ikorkXepRnk"
                       title="Lea Davis testimonial - Bella's Flower Shop RevWise review"
-                      overlayHeading="Watch Testimonial"
-                      overlaySubtext="Lea Davis"
-                      duration="0:35"
+                      thumbnailOnly
                     />
                   </div>
                 </div>
