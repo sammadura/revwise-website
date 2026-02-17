@@ -9,7 +9,8 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="font-bold text-lg mb-4">RevWise</h3>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo-dark.svg" alt="RevWise Logo" className="h-8 w-auto mb-4" />
             <p className="text-gray-300 text-sm leading-relaxed">
               Turn happy customers into raving fans with automated Google review collection.
             </p>
