@@ -6,23 +6,17 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
 const satoshi = localFont({
-  src: [
-    { path: '../public/fonts/Satoshi-Regular.woff2', weight: '400', style: 'normal' },
-    { path: '../public/fonts/Satoshi-Medium.woff2', weight: '500', style: 'normal' },
-    { path: '../public/fonts/Satoshi-Bold.woff2', weight: '700', style: 'normal' },
-  ],
+  src: '../public/fonts/Satoshi-Variable.woff2',
   variable: '--font-satoshi',
   display: 'swap',
+  weight: '300 900',
 });
 
 const clashDisplay = localFont({
-  src: [
-    { path: '../public/fonts/ClashDisplay-Medium.woff2', weight: '500', style: 'normal' },
-    { path: '../public/fonts/ClashDisplay-Semibold.woff2', weight: '600', style: 'normal' },
-    { path: '../public/fonts/ClashDisplay-Bold.woff2', weight: '700', style: 'normal' },
-  ],
+  src: '../public/fonts/ClashDisplay-Variable.woff2',
   variable: '--font-clash-display',
   display: 'swap',
+  weight: '200 700',
 });
 
 export const metadata: Metadata = {
