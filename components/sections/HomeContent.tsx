@@ -109,8 +109,8 @@ export default function HomeContent() {
             <div className="relative bg-gradient-to-br from-gray-900 to-slate-800 p-2 md:p-3 rounded-2xl md:rounded-3xl shadow-2xl shadow-black/20">
               <div className="aspect-video bg-gradient-to-br from-primary to-blue-700 rounded-xl md:rounded-2xl overflow-hidden relative">
                 <YouTubeEmbed
-                  videoId="GGNqGZ0AUo4"
-                  title="RevWise Demo - See how we help businesses get more Google reviews"
+                  videoId="ChWjVA0TIBk"
+                  title="How RevWise Works — Get More 5-Star Google Reviews on Autopilot"
                 />
               </div>
             </div>
