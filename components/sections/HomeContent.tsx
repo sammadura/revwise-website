@@ -111,6 +111,7 @@ export default function HomeContent() {
                 <YouTubeEmbed
                   videoId="ChWjVA0TIBk"
                   title="How RevWise Works — Get More 5-Star Google Reviews on Autopilot"
+                  thumbnailOnly
                 />
               </div>
             </div>
