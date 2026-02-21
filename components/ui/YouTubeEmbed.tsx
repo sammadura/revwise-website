@@ -96,13 +96,15 @@ export default function YouTubeEmbed({ videoId, title, overlayHeading, overlaySu
           <h3 className="text-white text-base md:text-2xl lg:text-3xl font-bold mb-1 md:mb-2 text-center leading-tight">
             {overlayHeading || 'See Revwise in Action'}
           </h3>
-          <p className="text-white/90 text-xs md:text-base lg:text-lg text-center leading-tight">
-            {overlaySubtext || 'Watch how we help businesses get 10x more reviews'}
-          </p>
+          {overlaySubtext && (
+            <p className="text-white/90 text-xs md:text-base lg:text-lg text-center leading-tight">
+              {overlaySubtext}
+            </p>
+          )}
 
           {/* Duration Badge */}
           <div className="mt-2 md:mt-6 bg-white/20 backdrop-blur-sm px-3 py-1 md:px-4 md:py-2 rounded-full">
-            <span className="text-white font-semibold text-xs md:text-base">{duration || '2:30 Demo Video'}</span>
+            <span className="text-white font-semibold text-xs md:text-base">{duration || '0:45 Demo Video'}</span>
           </div>
 
           {/* Click hint - hidden on mobile */}
