@@ -4,6 +4,7 @@ import Script from 'next/script';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { Analytics } from '@vercel/analytics/next';
 
 const satoshi = localFont({
   src: '../public/fonts/Satoshi-Variable.woff2',
@@ -135,6 +136,7 @@ export default function RootLayout({
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
