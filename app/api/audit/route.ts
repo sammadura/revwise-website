@@ -549,6 +549,8 @@ async function fetchRealAuditDataByPlaceId(placeId: string) {
     const dedupedCompetitors = deduplicateByName(filtered);
 
     const filteredCompetitors = dedupedCompetitors
+      .filter((place) => (place.userRatingCount ?? 0) >= 10)
+      .sort((a, b) => (b.userRatingCount ?? 0) - (a.userRatingCount ?? 0))
       .slice(0, 5)
       .map((place) => ({
         name: place.displayName?.text ?? 'Unknown',
@@ -560,8 +562,6 @@ async function fetchRealAuditDataByPlaceId(placeId: string) {
       console.warn(`[AUDIT] No competitors found for "${label} companies in ${city}"`);
       return null;
     }
-
-    filteredCompetitors.sort((a, b) => b.reviewCount - a.reviewCount);
 
     return calculateAuditResults(
       userBusinessName,
@@ -612,6 +612,8 @@ async function fetchRealAuditData(businessName: string, city: string, category: 
           && !placeName.includes(inputNameLower) && !inputNameLower.includes(placeName);
       });
     const filteredCompetitors = deduplicateByName(selfFiltered)
+      .filter((place) => (place.userRatingCount ?? 0) >= 10)
+      .sort((a, b) => (b.userRatingCount ?? 0) - (a.userRatingCount ?? 0))
       .slice(0, 5)
       .map((place) => ({
         name: place.displayName?.text ?? 'Unknown',
@@ -623,8 +625,6 @@ async function fetchRealAuditData(businessName: string, city: string, category: 
       console.warn(`[AUDIT] No competitors found for "${label} companies in ${city}"`);
       return null;
     }
-
-    filteredCompetitors.sort((a, b) => b.reviewCount - a.reviewCount);
 
     return calculateAuditResults(
       userBusinessName,
