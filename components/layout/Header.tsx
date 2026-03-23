@@ -20,9 +20,9 @@ export default function Header() {
 
   const navItems = [
     { label: 'Home', href: '/' },
-    { label: 'How It Works', href: '#how-it-works' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'Case Study', href: '#case-study' },
+    { label: 'How It Works', href: '/#how-it-works' },
+    { label: 'Pricing', href: '/#pricing' },
+    { label: 'Case Study', href: '/#case-study' },
     { label: 'Contact', href: '/contact' },
   ];
 
@@ -59,7 +59,7 @@ export default function Header() {
                 </li>
               ))}
             </ul>
-            <Button href="/demo-call" variant="primary">
+            <Button href="/audit" variant="primary">
               Get Your Free Review Audit
             </Button>
           </div>
@@ -114,7 +114,7 @@ export default function Header() {
                 ))}
               </ul>
               <div className="pb-4 pt-2 border-t border-gray-border">
-                <Button href="/demo-call" variant="primary" className="w-full justify-center">
+                <Button href="/audit" variant="primary" className="w-full justify-center">
                   Get Your Free Review Audit
                 </Button>
               </div>
