@@ -79,13 +79,7 @@ const jsonLd = {
     priceCurrency: 'USD',
     description: '14-day free trial',
   },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5',
-    ratingCount: '100',
-    bestRating: '5',
-    worstRating: '1',
-  },
+
   provider: {
     '@type': 'Organization',
     name: 'Revwise',

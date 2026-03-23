@@ -37,13 +37,20 @@ export default function HomeContent() {
 
               {/* Main headline */}
               <h1 className="heading-xl mb-8">
-                Get More 5-Star Google Reviews and{' '}
-                <span className="gradient-text">Rank Higher on Google Maps.</span>
+                Your Competitors Have More Reviews.{' '}
+                <span className="gradient-text">That&apos;s Why They&apos;re Getting Your Calls.</span>
               </h1>
 
               <p className="text-lg md:text-xl text-white/80 mb-10 max-w-xl leading-relaxed">
-                RevWise helps plumbers, HVAC, roofers, florists and other local service businesses turn happy customers into 5-star reviews, rank higher on Google Maps, and drive more calls—without adding more software for your team to manage.
+                RevWise automatically texts your customers after every job and turns them into 5-star Google reviews. No software to learn — we handle everything.
               </p>
+
+              {/* Pricing callout */}
+              <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 px-5 py-2.5 rounded-full mb-8">
+                <span className="text-white font-bold text-lg">$99/mo</span>
+                <span className="text-white/70">·</span>
+                <span className="text-white/80 text-sm">Everything included · 14-day free trial</span>
+              </div>
 
               {/* CTA buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -52,7 +59,7 @@ export default function HomeContent() {
                   variant="secondary"
                   className="bg-white text-primary hover:bg-gray-50 text-lg px-8 py-4 font-bold shadow-2xl shadow-black/20 hover:shadow-white/20 transition-all duration-300"
                 >
-                  Book a Demo
+                  Get Your Free Review Audit
                 </Button>
                 <a
                   href="#how-it-works"
@@ -126,22 +133,22 @@ export default function HomeContent() {
               {[
                 {
                   num: '1',
-                  title: 'Book a Demo',
-                  desc: 'Schedule a quick demo to see how RevWise can help your business get more reviews.',
+                  title: 'We Connect to Your Customers',
+                  desc: 'Link your CRM or customer list. Takes 5 minutes on our onboarding call.',
                   color: 'from-primary to-blue-600',
                   offset: '',
                 },
                 {
                   num: '2',
-                  title: '45-Min Onboarding Call',
-                  desc: 'We take care of everything — linking your Google Business Profile, setting up automations, and customizing your messaging.',
+                  title: 'Customers Get a Friendly Text',
+                  desc: 'After every job, a personalized review request goes out via SMS and email.',
                   color: 'from-amber-500 to-yellow-600',
                   offset: 'md:mt-12',
                 },
                 {
                   num: '3',
-                  title: 'Watch Reviews Roll In',
-                  desc: 'Automated SMS requests go out. 5-star reviews come in. You focus on running your business.',
+                  title: 'Reviews Roll In Automatically',
+                  desc: 'Happy customers go to Google. Unhappy ones reach you first, privately.',
                   color: 'from-green-500 to-emerald-600',
                   offset: 'md:mt-6',
                 },
@@ -166,7 +173,7 @@ export default function HomeContent() {
               variant="primary"
               className="text-lg px-10 py-5 shadow-xl shadow-primary/30 hover:shadow-primary/50 transition-all duration-300"
             >
-              Book Your Free Demo
+              Get Your Free Review Audit
             </Button>
             <p className="text-gray-500 mt-4">We take care of the rest.</p>
           </div>
@@ -410,7 +417,7 @@ export default function HomeContent() {
                     variant="primary"
                     className="w-full text-lg py-5 font-bold shadow-xl shadow-primary/30 hover:shadow-primary/50 transition-all duration-300"
                   >
-                    Book a Demo
+                    Get Your Free Review Audit
                   </Button>
                   <p className="text-center text-sm text-gray-500 mt-4">
                     No credit card required
@@ -549,63 +556,54 @@ export default function HomeContent() {
               Trusted by Local Businesses
             </span>
             <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-              Businesses Love RevWise
+              Don&apos;t Take Our Word For It
             </h2>
             <p className="text-xl text-gray-medium max-w-2xl mx-auto">
-              Here&apos;s what our clients say about their experience
+              Hear directly from a business owner using RevWise
             </p>
           </ScrollReveal>
 
-          <StaggerContainer className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {[
-              {
-                quote: "RevWise made collecting reviews effortless. We went from #2 to #1 in our area without lifting a finger!",
-                name: "Lea Davis",
-                role: "Owner, Bella's Flower Shop",
-                initials: "LD",
-                gradient: "from-primary to-blue-600",
-              },
-              {
-                quote: "We used to beg customers for reviews. Now they come in automatically. Best $99 we spend every month.",
-                name: "Marcus Johnson*",
-                role: "Owner, Johnson HVAC",
-                initials: "MJ",
-                gradient: "from-green-500 to-emerald-600",
-              },
-              {
-                quote: "The smart routing feature is genius. Unhappy customers reach us directly instead of blasting us on Google.",
-                name: "Rachel Kim*",
-                role: "Manager, Elite Plumbing Co.",
-                initials: "RK",
-                gradient: "from-amber-500 to-orange-600",
-              },
-            ].map((testimonial) => (
-              <StaggerItem key={testimonial.name} className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                <div className="flex items-center gap-1 mb-4">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <svg key={star} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-gray-700 italic leading-relaxed mb-6">
-                  &quot;{testimonial.quote}&quot;
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className={`w-11 h-11 bg-gradient-to-br ${testimonial.gradient} rounded-full flex items-center justify-center shadow-md`}>
-                    <span className="text-white font-bold text-sm">{testimonial.initials}</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                    <p className="text-sm text-gray-500">{testimonial.role}</p>
+          <ScrollReveal className="max-w-3xl mx-auto">
+            <div className="bg-white rounded-3xl p-10 md:p-12 shadow-2xl border border-gray-100 text-center">
+              {/* Stars */}
+              <div className="flex items-center justify-center gap-1 mb-6">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <svg key={star} className="w-7 h-7 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+
+              {/* Quote */}
+              <blockquote className="text-xl md:text-2xl text-gray-700 italic leading-relaxed mb-8">
+                &quot;RevWise made collecting reviews effortless. We went from #2 to #1 in our area without lifting a finger!&quot;
+              </blockquote>
+
+              {/* Video testimonial */}
+              <div className="max-w-md mx-auto mb-8">
+                <div className="relative bg-gray-900 p-1.5 rounded-xl shadow-lg">
+                  <div className="aspect-video bg-gradient-to-br from-primary to-blue-700 rounded-lg overflow-hidden relative">
+                    <YouTubeEmbed
+                      videoId="ikorkXepRnk"
+                      title="Lea Davis testimonial - Bella's Flower Shop RevWise review"
+                      thumbnailOnly
+                    />
                   </div>
                 </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-          <p className="text-center text-xs text-gray-400 mt-8">
-            * Representative example based on typical results.
-          </p>
+              </div>
+
+              {/* Attribution */}
+              <div className="flex items-center justify-center gap-4">
+                <div className="w-14 h-14 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center shadow-md">
+                  <span className="text-white font-bold text-lg">LD</span>
+                </div>
+                <div className="text-left">
+                  <p className="font-bold text-lg text-gray-900">Lea Davis</p>
+                  <p className="text-gray-500">Owner, Bella&apos;s Flower Shop</p>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -635,7 +633,7 @@ export default function HomeContent() {
               variant="secondary"
               className="bg-white text-primary hover:bg-gray-50 text-lg px-10 py-5 font-bold shadow-2xl shadow-black/20 hover:shadow-white/20 transition-all duration-300"
             >
-              Book a Demo
+              Get Your Free Review Audit
             </Button>
           </div>
           <p className="text-white/60 text-sm">
