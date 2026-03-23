@@ -70,6 +70,7 @@ interface PlaceResult {
   primaryType?: string;
   primaryTypeDisplayName?: { text: string };
   types?: string[];
+  location?: { latitude: number; longitude: number };
 }
 
 interface PlacesSearchResponse {
@@ -78,7 +79,7 @@ interface PlacesSearchResponse {
 
 const PLACES_API_URL = 'https://places.googleapis.com/v1/places:searchText';
 const SEARCH_FIELD_MASK = 'places.id,places.displayName,places.rating,places.userRatingCount,places.formattedAddress,places.websiteUri,places.currentOpeningHours,places.photos,places.googleMapsUri';
-const DETAIL_FIELD_MASK = 'displayName,rating,userRatingCount,formattedAddress,types,websiteUri,currentOpeningHours,photos,primaryType,primaryTypeDisplayName';
+const DETAIL_FIELD_MASK = 'displayName,rating,userRatingCount,formattedAddress,types,websiteUri,currentOpeningHours,photos,primaryType,primaryTypeDisplayName,location';
 
 async function searchPlaces(textQuery: string, apiKey: string): Promise<PlaceResult[]> {
   const response = await fetch(PLACES_API_URL, {
@@ -93,6 +94,41 @@ async function searchPlaces(textQuery: string, apiKey: string): Promise<PlaceRes
 
   if (!response.ok) {
     console.error(`[PLACES API] Error ${response.status}: ${await response.text()}`);
+    return [];
+  }
+
+  const data: PlacesSearchResponse = await response.json();
+  return data.places ?? [];
+}
+
+async function searchNearbyPlaces(
+  latitude: number,
+  longitude: number,
+  primaryType: string,
+  apiKey: string,
+  radius = 4828,
+): Promise<PlaceResult[]> {
+  const response = await fetch('https://places.googleapis.com/v1/places:searchNearby', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Goog-Api-Key': apiKey,
+      'X-Goog-FieldMask': `${SEARCH_FIELD_MASK},places.location`,
+    },
+    body: JSON.stringify({
+      includedPrimaryTypes: [primaryType],
+      locationRestriction: {
+        circle: {
+          center: { latitude, longitude },
+          radius,
+        },
+      },
+      maxResultCount: 10,
+    }),
+  });
+
+  if (!response.ok) {
+    console.error(`[NEARBY SEARCH] Error ${response.status}: ${await response.text()}`);
     return [];
   }
 
@@ -464,19 +500,40 @@ async function fetchRealAuditDataByPlaceId(placeId: string) {
     const category = mapPrimaryTypeToCategory(userBusiness.primaryType, userBusiness.types);
     const city = extractCity(userBusiness.formattedAddress);
 
-    // Step 2: Find competitors using the business's type and location
+    // Step 2: Find competitors using Nearby Search (3-mile radius)
     const label = categoryLabels[category] || 'service';
-    const searchLabel = userBusiness.primaryTypeDisplayName?.text || label;
-    const competitorResults = await searchPlaces(`${searchLabel} near ${city}`, apiKey);
-
-    // Filter out the user's business from competitors
     const userNameLower = userBusinessName.toLowerCase();
-    const filteredCompetitors = competitorResults
-      .filter((place) => {
+
+    let competitorResults: PlaceResult[] = [];
+    if (userBusiness.location && userBusiness.primaryType) {
+      competitorResults = await searchNearbyPlaces(
+        userBusiness.location.latitude,
+        userBusiness.location.longitude,
+        userBusiness.primaryType,
+        apiKey,
+        4828, // 3 miles in meters
+      );
+    }
+
+    // Filter out the user's own business
+    const filterSelf = (places: PlaceResult[]) =>
+      places.filter((place) => {
         const placeName = (place.displayName?.text ?? '').toLowerCase();
         return placeName !== userNameLower
           && !placeName.includes(userNameLower) && !userNameLower.includes(placeName);
-      })
+      });
+
+    let filtered = filterSelf(competitorResults);
+
+    // Fall back to Text Search if Nearby Search returned fewer than 3 competitors
+    if (filtered.length < 3) {
+      console.log(`[AUDIT] Nearby Search returned ${filtered.length} competitors, falling back to Text Search`);
+      const searchLabel = userBusiness.primaryTypeDisplayName?.text || label;
+      const textResults = await searchPlaces(`${searchLabel} near ${city}`, apiKey);
+      filtered = filterSelf(textResults);
+    }
+
+    const filteredCompetitors = filtered
       .slice(0, 5)
       .map((place) => ({
         name: place.displayName?.text ?? 'Unknown',
