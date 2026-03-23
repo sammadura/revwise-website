@@ -153,6 +153,19 @@ async function getPlaceDetails(placeId: string, apiKey: string): Promise<PlaceRe
   return await response.json();
 }
 
+// Deduplicate places by business name (case-insensitive), keeping the one with the most reviews
+function deduplicateByName(places: PlaceResult[]): PlaceResult[] {
+  const seen = new Map<string, PlaceResult>();
+  for (const place of places) {
+    const name = (place.displayName?.text ?? '').toLowerCase();
+    const existing = seen.get(name);
+    if (!existing || (place.userRatingCount ?? 0) > (existing.userRatingCount ?? 0)) {
+      seen.set(name, place);
+    }
+  }
+  return Array.from(seen.values());
+}
+
 // Map Google primaryType to our category keys
 function mapPrimaryTypeToCategory(primaryType?: string, types?: string[]): string {
   const typeStr = (primaryType ?? '').toLowerCase();
@@ -533,7 +546,9 @@ async function fetchRealAuditDataByPlaceId(placeId: string) {
       filtered = filterSelf(textResults);
     }
 
-    const filteredCompetitors = filtered
+    const dedupedCompetitors = deduplicateByName(filtered);
+
+    const filteredCompetitors = dedupedCompetitors
       .slice(0, 5)
       .map((place) => ({
         name: place.displayName?.text ?? 'Unknown',
@@ -590,12 +605,13 @@ async function fetchRealAuditData(businessName: string, city: string, category: 
     // Filter out the user's business from competitors
     const userNameLower = userBusinessName.toLowerCase();
     const inputNameLower = businessName.toLowerCase();
-    const filteredCompetitors = competitorResults
+    const selfFiltered = competitorResults
       .filter((place) => {
         const placeName = (place.displayName?.text ?? '').toLowerCase();
         return placeName !== userNameLower && placeName !== inputNameLower
           && !placeName.includes(inputNameLower) && !inputNameLower.includes(placeName);
-      })
+      });
+    const filteredCompetitors = deduplicateByName(selfFiltered)
       .slice(0, 5)
       .map((place) => ({
         name: place.displayName?.text ?? 'Unknown',
