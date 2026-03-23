@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 
 interface AuditResult {
@@ -93,34 +93,84 @@ function ProfileCheckBadge({ present, label }: { present: boolean; label: string
   );
 }
 
+interface PlaceSuggestion {
+  placeId: string;
+  name: string;
+  address: string;
+  fullText: string;
+}
+
 export default function AuditPage() {
   const [step, setStep] = useState<'form' | 'email' | 'loading' | 'results'>('form');
-  const [businessName, setBusinessName] = useState('');
-  const [city, setCity] = useState('');
-  const [category, setCategory] = useState('hvac');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [suggestions, setSuggestions] = useState<PlaceSuggestion[]>([]);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [selectedPlace, setSelectedPlace] = useState<PlaceSuggestion | null>(null);
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [result, setResult] = useState<AuditResult | null>(null);
   const [error, setError] = useState('');
+  const [isSearching, setIsSearching] = useState(false);
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const categories = [
-    { value: 'hvac', label: 'HVAC' },
-    { value: 'plumbing', label: 'Plumbing' },
-    { value: 'roofing', label: 'Roofing' },
-    { value: 'landscaping', label: 'Landscaping' },
-    { value: 'pest_control', label: 'Pest Control' },
-    { value: 'electrical', label: 'Electrical' },
-    { value: 'flooring', label: 'Flooring' },
-    { value: 'painting', label: 'Painting' },
-    { value: 'cleaning', label: 'Cleaning' },
-    { value: 'florist', label: 'Florist' },
-    { value: 'other', label: 'Other' },
-  ];
+  const fetchSuggestions = useCallback(async (input: string) => {
+    if (input.trim().length < 2) {
+      setSuggestions([]);
+      setShowDropdown(false);
+      return;
+    }
+
+    setIsSearching(true);
+    try {
+      const res = await fetch('/api/audit/autocomplete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ input }),
+      });
+      const data = await res.json();
+      setSuggestions(data.suggestions ?? []);
+      setShowDropdown((data.suggestions ?? []).length > 0);
+    } catch {
+      setSuggestions([]);
+    } finally {
+      setIsSearching(false);
+    }
+  }, []);
+
+  const handleSearchChange = (value: string) => {
+    setSearchQuery(value);
+    setSelectedPlace(null);
+    setError('');
+
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(() => {
+      fetchSuggestions(value);
+    }, 300);
+  };
+
+  const handleSelectPlace = (place: PlaceSuggestion) => {
+    setSelectedPlace(place);
+    setSearchQuery(place.fullText);
+    setShowDropdown(false);
+    setSuggestions([]);
+  };
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setShowDropdown(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const handleSubmitBusiness = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!businessName.trim() || !city.trim()) {
-      setError('Please fill in all fields');
+    if (!selectedPlace) {
+      setError('Please select a business from the dropdown');
       return;
     }
     setError('');
@@ -140,7 +190,13 @@ export default function AuditPage() {
       const res = await fetch('/api/audit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ businessName, city, category, email, firstName }),
+        body: JSON.stringify({
+          placeId: selectedPlace?.placeId,
+          businessName: selectedPlace?.name,
+          city: selectedPlace?.address,
+          email,
+          firstName,
+        }),
       });
       const data = await res.json();
       setResult(data);
@@ -179,45 +235,66 @@ export default function AuditPage() {
             </div>
           )}
 
-          {/* Step 1: Business Info */}
+          {/* Step 1: Business Search */}
           {step === 'form' && (
             <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-10">
-              <h2 className="text-2xl font-bold mb-6">Tell us about your business</h2>
+              <h2 className="text-2xl font-bold mb-6">Find your business</h2>
               <form onSubmit={handleSubmitBusiness} className="space-y-5">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Business Name</label>
-                  <input
-                    type="text"
-                    value={businessName}
-                    onChange={(e) => setBusinessName(e.target.value)}
-                    placeholder="e.g. Johnson's HVAC Services"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">City</label>
-                  <input
-                    type="text"
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
-                    placeholder="e.g. Dallas, TX"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Industry</label>
-                  <select
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white"
-                  >
-                    {categories.map((cat) => (
-                      <option key={cat.value} value={cat.value}>{cat.label}</option>
-                    ))}
-                  </select>
+                <div ref={dropdownRef} className="relative">
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Search for your business on Google</label>
+                  <div className="relative">
+                    <input
+                      type="text"
+                      value={searchQuery}
+                      onChange={(e) => handleSearchChange(e.target.value)}
+                      onFocus={() => suggestions.length > 0 && setShowDropdown(true)}
+                      placeholder="e.g. Johnson's HVAC Services Dallas"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all pr-10"
+                      autoComplete="off"
+                    />
+                    {isSearching && (
+                      <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                        <div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Autocomplete dropdown */}
+                  {showDropdown && suggestions.length > 0 && (
+                    <div className="absolute z-50 w-full mt-1 bg-white rounded-lg border border-gray-200 shadow-lg overflow-hidden">
+                      {suggestions.map((suggestion) => (
+                        <button
+                          key={suggestion.placeId}
+                          type="button"
+                          onClick={() => handleSelectPlace(suggestion)}
+                          className="w-full px-4 py-3 text-left hover:bg-blue-50 transition-colors border-b border-gray-50 last:border-b-0"
+                        >
+                          <p className="font-medium text-gray-900 text-sm">{suggestion.name}</p>
+                          <p className="text-xs text-gray-500 mt-0.5">{suggestion.address}</p>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Selected place confirmation */}
+                  {selectedPlace && (
+                    <div className="mt-3 flex items-center gap-2 bg-green-50 border border-green-200 rounded-lg px-4 py-2.5">
+                      <svg className="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      <div className="min-w-0">
+                        <p className="text-sm font-medium text-green-800 truncate">{selectedPlace.name}</p>
+                        <p className="text-xs text-green-600 truncate">{selectedPlace.address}</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
                 {error && <p className="text-red-500 text-sm">{error}</p>}
-                <button type="submit" className="btn-primary w-full text-lg py-4">
+                <button
+                  type="submit"
+                  disabled={!selectedPlace}
+                  className="btn-primary w-full text-lg py-4 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
                   See My Review Score →
                 </button>
               </form>
@@ -264,7 +341,7 @@ export default function AuditPage() {
             <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-12 text-center">
               <div className="animate-spin w-12 h-12 border-4 border-primary border-t-transparent rounded-full mx-auto mb-6" />
               <h2 className="text-2xl font-bold mb-2">Analyzing your reviews...</h2>
-              <p className="text-gray-medium">Scanning Google reviews for {businessName} and competitors in {city}</p>
+              <p className="text-gray-medium">Scanning Google reviews for {selectedPlace?.name ?? 'your business'} and local competitors</p>
             </div>
           )}
 
