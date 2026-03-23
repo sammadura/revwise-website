@@ -23,6 +23,7 @@ export default function Header() {
     { label: 'How It Works', href: '/#how-it-works' },
     { label: 'Pricing', href: '/#pricing' },
     { label: 'Case Study', href: '/#case-study' },
+    { label: 'Blog', href: '/blog' },
     { label: 'Contact', href: '/contact' },
   ];
 
