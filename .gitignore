@@ -36,3 +36,6 @@ next-env.d.ts
 # Git worktrees (superpowers convention)
 .worktrees/
 worktrees/
+
+# Lead capture data
+leads.json
