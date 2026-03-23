@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
 
 // Industry-specific review count ranges based on typical Google Business profiles
 const industryRanges: Record<string, { min: number; max: number; avgRating: number }> = {
@@ -700,43 +699,6 @@ export async function POST(request: NextRequest) {
             `Gap: ${auditData.gap}`,
           ].join('\n'),
         }),
-      }).catch(() => { /* don't block response */ });
-    }
-
-    // Fire-and-forget email notification via Gmail SMTP
-    const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
-    if (gmailAppPassword) {
-      const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 587,
-        secure: false,
-        auth: {
-          user: 'cal@getrevwise.net',
-          pass: gmailAppPassword,
-        },
-      });
-
-      const auditUrl = `https://getrevwise.com/preview?business=${encodeURIComponent(auditData.business.name)}&city=${encodeURIComponent(auditData.business.city)}`;
-
-      transporter.sendMail({
-        from: 'cal@getrevwise.net',
-        to: 'sammadura@gmail.com',
-        subject: `🔔 New Audit Lead: ${auditData.business.name} (${auditData.business.city})`,
-        html: `
-          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #349cff;">New Audit Lead</h2>
-            <table style="border-collapse: collapse; width: 100%;">
-              <tr><td style="padding: 8px 12px; font-weight: bold; color: #64646E;">Name</td><td style="padding: 8px 12px;">${firstName}</td></tr>
-              <tr style="background: #fafafa;"><td style="padding: 8px 12px; font-weight: bold; color: #64646E;">Email</td><td style="padding: 8px 12px;"><a href="mailto:${email}">${email}</a></td></tr>
-              <tr><td style="padding: 8px 12px; font-weight: bold; color: #64646E;">Business</td><td style="padding: 8px 12px;">${auditData.business.name}</td></tr>
-              <tr style="background: #fafafa;"><td style="padding: 8px 12px; font-weight: bold; color: #64646E;">City</td><td style="padding: 8px 12px;">${auditData.business.city}</td></tr>
-              <tr><td style="padding: 8px 12px; font-weight: bold; color: #64646E;">Reviews</td><td style="padding: 8px 12px;">${auditData.business.reviewCount} (competitor avg: ${auditData.competitorAvg})</td></tr>
-              <tr style="background: #fafafa;"><td style="padding: 8px 12px; font-weight: bold; color: #64646E;">Gap</td><td style="padding: 8px 12px; color: ${auditData.gap > 0 ? '#e74c3c' : '#27ae60'}; font-weight: bold;">${auditData.gap > 0 ? `-${auditData.gap} behind` : 'Ahead of competitors'}</td></tr>
-              <tr><td style="padding: 8px 12px; font-weight: bold; color: #64646E;">Health Score</td><td style="padding: 8px 12px;">${auditData.reviewHealthScore}/100</td></tr>
-            </table>
-            <p style="margin-top: 20px;"><a href="${auditUrl}" style="background: #349cff; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; display: inline-block;">View Audit</a></p>
-          </div>
-        `,
       }).catch(() => { /* don't block response */ });
     }
 
