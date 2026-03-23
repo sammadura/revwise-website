@@ -1,44 +1,39 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
 
 // For MVP: Generate realistic audit data based on the business category and city
 // TODO: Replace with real Google Places API integration
 function generateAuditData(businessName: string, city: string, category: string) {
-  // Simulate a realistic review count for the business (lower end — these are our prospects)
-  const businessReviewCount = Math.floor(Math.random() * 35) + 8; // 8-42 reviews
-  const businessRating = Number((4.0 + Math.random() * 0.9).toFixed(1)); // 4.0-4.9
+  const businessReviewCount = Math.floor(Math.random() * 35) + 8;
+  const businessRating = Number((4.0 + Math.random() * 0.9).toFixed(1));
 
-  // Category-specific competitor data (higher review counts)
   const competitorPrefixes: Record<string, string[]> = {
-    hvac: ['Premium Air', 'Elite Climate', 'Metro Heating', 'City Comfort', 'ProTemp'],
-    plumbing: ['AllFlow', 'Metro Plumbing', 'City Pipes', 'ProDrain', 'Elite Plumbing'],
-    roofing: ['TopShield', 'Metro Roofing', 'City Roof Pros', 'Summit Roofing', 'ProRoof'],
-    landscaping: ['GreenScape', 'Metro Lawn', 'City Gardens', 'ProYard', 'Elite Landscape'],
-    pest_control: ['BugShield', 'Metro Pest', 'City Exterminators', 'ProPest', 'Elite Pest'],
-    electrical: ['PowerPro', 'Metro Electric', 'City Wiring', 'ProVolt', 'Elite Electric'],
-    flooring: ['FloorCraft', 'Metro Floors', 'City Flooring', 'ProFloor', 'Elite Floors'],
-    painting: ['ColorPro', 'Metro Painters', 'City Paint Co', 'ProCoat', 'Elite Painting'],
-    cleaning: ['SparkleClean', 'Metro Maids', 'City Cleaners', 'ProClean', 'Elite Cleaning'],
-    florist: ['Bloom & Co', 'Metro Flowers', 'City Blooms', 'ProFloral', 'Elite Flowers'],
-    other: ['ProService', 'Metro Services', 'City Pros', 'Elite Service', 'TopChoice'],
+    hvac: ['Premium Air', 'Elite Climate', 'Metro Heating', 'City Comfort'],
+    plumbing: ['AllFlow', 'Metro Plumbing', 'City Pipes', 'ProDrain'],
+    roofing: ['TopShield', 'Metro Roofing', 'City Roof Pros', 'Summit Roofing'],
+    landscaping: ['GreenScape', 'Metro Lawn', 'City Gardens', 'ProYard'],
+    pest_control: ['BugShield', 'Metro Pest', 'City Exterminators', 'ProPest'],
+    electrical: ['PowerPro', 'Metro Electric', 'City Wiring', 'ProVolt'],
+    flooring: ['FloorCraft', 'Metro Floors', 'City Flooring', 'ProFloor'],
+    painting: ['ColorPro', 'Metro Painters', 'City Paint Co', 'ProCoat'],
+    cleaning: ['SparkleClean', 'Metro Maids', 'City Cleaners', 'ProClean'],
+    florist: ['Bloom & Co', 'Metro Flowers', 'City Blooms', 'ProFloral'],
+    other: ['ProService', 'Metro Services', 'City Pros', 'Elite Service'],
   };
 
   const prefixes = competitorPrefixes[category] || competitorPrefixes.other;
   const cityShort = city.split(',')[0].trim();
 
-  const competitors = prefixes.slice(0, 4).map((prefix, i) => ({
+  const competitors = prefixes.map((prefix, i) => ({
     name: `${prefix} ${cityShort}`,
-    reviewCount: Math.floor(Math.random() * 150) + 50 + (i === 0 ? 80 : 0), // First competitor has the most
+    reviewCount: Math.floor(Math.random() * 150) + 50 + (i === 0 ? 80 : 0),
     rating: Number((4.2 + Math.random() * 0.7).toFixed(1)),
   }));
 
-  // Sort competitors by review count descending
   competitors.sort((a, b) => b.reviewCount - a.reviewCount);
 
   const competitorAvg = Math.round(competitors.reduce((sum, c) => sum + c.reviewCount, 0) / competitors.length);
   const gap = competitorAvg - businessReviewCount;
-  const estimatedMissedCalls = Math.max(0, Math.round(gap * 0.8)); // ~0.8 calls per review gap
+  const estimatedMissedCalls = Math.max(0, Math.round(gap * 0.8));
 
   return {
     business: {
@@ -62,32 +57,21 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    // Log the lead
-    const lead = {
+    // Log the lead to console (Vercel captures this in function logs)
+    // TODO: Replace with GHL API integration to push leads into CRM
+    console.log('[LEAD CAPTURED]', JSON.stringify({
       timestamp: new Date().toISOString(),
       firstName,
       email,
       businessName,
       city,
       category,
-    };
-
-    // Store leads in a JSON file (MVP — replace with GHL integration later)
-    const leadsPath = path.join(process.cwd(), 'leads.json');
-    let leads = [];
-    try {
-      const existing = await fs.readFile(leadsPath, 'utf-8');
-      leads = JSON.parse(existing);
-    } catch {
-      // File doesn't exist yet, start fresh
-    }
-    leads.push(lead);
-    await fs.writeFile(leadsPath, JSON.stringify(leads, null, 2));
+    }));
 
     // Generate audit data
     const auditData = generateAuditData(businessName, city, category);
 
-    // Simulate a brief delay for realism
+    // Brief delay for realism
     await new Promise(resolve => setTimeout(resolve, 1500));
 
     return NextResponse.json(auditData);
