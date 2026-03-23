@@ -29,6 +29,21 @@ const categoryLabels: Record<string, string> = {
   other: 'service',
 };
 
+// Average service ticket values by industry
+const avgTicketValues: Record<string, number> = {
+  hvac: 350,
+  plumbing: 275,
+  roofing: 8500,
+  landscaping: 200,
+  pest_control: 175,
+  electrical: 300,
+  flooring: 3000,
+  painting: 2500,
+  cleaning: 150,
+  florist: 75,
+  other: 250,
+};
+
 // Seeded random from string for consistent results per business
 function seededRandom(seed: string): () => number {
   let hash = 0;
@@ -48,6 +63,10 @@ interface PlaceResult {
   rating?: number;
   userRatingCount?: number;
   formattedAddress?: string;
+  websiteUri?: string;
+  currentOpeningHours?: { openNow?: boolean; periods?: unknown[] };
+  photos?: { name: string }[];
+  googleMapsUri?: string;
 }
 
 interface PlacesSearchResponse {
@@ -55,7 +74,7 @@ interface PlacesSearchResponse {
 }
 
 const PLACES_API_URL = 'https://places.googleapis.com/v1/places:searchText';
-const FIELD_MASK = 'places.displayName,places.rating,places.userRatingCount,places.formattedAddress';
+const FIELD_MASK = 'places.displayName,places.rating,places.userRatingCount,places.formattedAddress,places.websiteUri,places.currentOpeningHours,places.photos,places.googleMapsUri';
 
 async function searchPlaces(textQuery: string, apiKey: string): Promise<PlaceResult[]> {
   const response = await fetch(PLACES_API_URL, {
@@ -77,6 +96,186 @@ async function searchPlaces(textQuery: string, apiKey: string): Promise<PlaceRes
   return data.places ?? [];
 }
 
+function generateVelocityInsight(
+  businessReviewCount: number,
+  competitorAvg: number,
+  competitors: { name: string; reviewCount: number; rating: number }[],
+  label: string,
+): string {
+  // Estimate monthly review velocity assuming ~3 years of business presence on Google
+  const assumedMonths = 36;
+  const userVelocity = Math.round((businessReviewCount / assumedMonths) * 10) / 10;
+  const topCompetitor = competitors[0];
+  const topVelocity = topCompetitor
+    ? Math.round((topCompetitor.reviewCount / assumedMonths) * 10) / 10
+    : userVelocity;
+  const avgVelocity = Math.round((competitorAvg / assumedMonths) * 10) / 10;
+
+  const gap = competitorAvg - businessReviewCount;
+  const sixMonthGrowth = Math.round(avgVelocity * 6 - userVelocity * 6);
+
+  if (gap <= 0) {
+    return `You're averaging ~${userVelocity} reviews/month — ahead of the local ${label} average of ~${avgVelocity}/month. Maintain this pace to keep your lead. At current rates, you'll gain ~${Math.round(userVelocity * 6 - avgVelocity * 6)} more reviews than competitors over the next 6 months.`;
+  }
+
+  return `Your competitors are averaging ~${avgVelocity} new reviews/month, while you're at ~${userVelocity}/month. At this pace, the gap will widen by ~${Math.max(1, sixMonthGrowth)} reviews over the next 6 months. The top performer (${topCompetitor?.name ?? 'unknown'}) is pulling in ~${topVelocity} reviews/month.`;
+}
+
+function generateRatingImpact(
+  businessRating: number,
+  competitors: { name: string; reviewCount: number; rating: number }[],
+  category: string,
+  label: string,
+): {
+  ratingGap: number;
+  topCompetitorRating: number;
+  topCompetitorName: string;
+  revenueImpactPercent: number;
+  estimatedMonthlyLoss: number;
+  insight: string;
+} {
+  const topByRating = [...competitors].sort((a, b) => b.rating - a.rating)[0];
+  const topRating = topByRating?.rating ?? businessRating;
+  const topName = topByRating?.name ?? 'top competitor';
+  const ratingGap = Math.round((topRating - businessRating) * 10) / 10;
+
+  // Each star = 5-9% revenue increase (Harvard Business School / Yelp studies)
+  const revenueImpactPercent = Math.round(ratingGap * 7 * 10) / 10; // 7% midpoint per star
+  const ticketValue = avgTicketValues[category] || 250;
+  // Estimate ~30 jobs/month for a typical local service business
+  const monthlyJobs = 30;
+  const monthlyRevenue = monthlyJobs * ticketValue;
+  const estimatedMonthlyLoss = Math.round(monthlyRevenue * (revenueImpactPercent / 100));
+
+  let insight: string;
+  if (ratingGap <= 0) {
+    insight = `Your ${businessRating}-star rating is the highest among your local competitors. This gives you a significant advantage — consumers are 2.5x more likely to click on the highest-rated ${label} business in search results.`;
+  } else {
+    insight = `The ${ratingGap}-star gap between you (${businessRating}) and ${topName} (${topRating}) could mean ${revenueImpactPercent}% fewer clicks and an estimated $${estimatedMonthlyLoss.toLocaleString()}/month in lost revenue. Each star increase drives 5-9% more revenue according to Harvard Business School research.`;
+  }
+
+  return {
+    ratingGap: Math.max(0, ratingGap),
+    topCompetitorRating: topRating,
+    topCompetitorName: topName,
+    revenueImpactPercent,
+    estimatedMonthlyLoss: Math.max(0, estimatedMonthlyLoss),
+    insight,
+  };
+}
+
+function generateRankingEstimate(
+  businessName: string,
+  businessReviewCount: number,
+  businessRating: number,
+  competitors: { name: string; reviewCount: number; rating: number }[],
+  city: string,
+  label: string,
+): {
+  estimatedPosition: number;
+  totalCompared: number;
+  rankings: { name: string; score: number; position: number }[];
+  insight: string;
+} {
+  const allBusinesses = [
+    { name: businessName, reviewCount: businessReviewCount, rating: businessRating },
+    ...competitors,
+  ];
+
+  const maxReviews = Math.max(...allBusinesses.map(b => b.reviewCount), 1);
+
+  const scored = allBusinesses.map(b => {
+    const reviewCountScore = (b.reviewCount / maxReviews) * 40;
+    const ratingScore = (b.rating / 5.0) * 30;
+    const relativeScore = (b.reviewCount / maxReviews) * 30;
+    return {
+      name: b.name,
+      score: Math.round((reviewCountScore + ratingScore + relativeScore) * 10) / 10,
+      position: 0,
+    };
+  });
+
+  scored.sort((a, b) => b.score - a.score);
+  scored.forEach((s, i) => { s.position = i + 1; });
+
+  const userRanking = scored.find(s => s.name === businessName);
+  const estimatedPosition = userRanking?.position ?? scored.length;
+
+  let insight: string;
+  if (estimatedPosition <= 3) {
+    insight = `Based on your reviews, you likely appear in the top 3 Google Maps results for "${label}" in ${city}. The local 3-pack gets 44% of all clicks — you're in a strong position.`;
+  } else {
+    insight = `Based on your reviews, you likely appear in position #${estimatedPosition} of ${scored.length} in Google Maps results for "${label}" in ${city}. Only the top 3 appear in Google's local 3-pack, which captures 44% of all clicks.`;
+  }
+
+  return {
+    estimatedPosition,
+    totalCompared: scored.length,
+    rankings: scored.slice(0, Math.max(5, estimatedPosition + 1)),
+    insight,
+  };
+}
+
+interface ProfileCompleteness {
+  hasWebsite: boolean;
+  websiteUrl: string | null;
+  hasPhotos: boolean;
+  photoCount: number;
+  hasHours: boolean;
+  missingFields: string[];
+  completenessScore: number;
+  insight: string;
+}
+
+function generateProfileCheck(place: PlaceResult | null): ProfileCompleteness {
+  if (!place) {
+    return {
+      hasWebsite: false,
+      websiteUrl: null,
+      hasPhotos: false,
+      photoCount: 0,
+      hasHours: false,
+      missingFields: ['website', 'photos', 'business hours'],
+      completenessScore: 30,
+      insight: 'We couldn\'t verify your Google Business Profile details. Complete profiles with photos, hours, and a website get 7x more clicks than incomplete ones.',
+    };
+  }
+
+  const hasWebsite = !!place.websiteUri;
+  const hasPhotos = !!place.photos && place.photos.length > 0;
+  const photoCount = place.photos?.length ?? 0;
+  const hasHours = !!place.currentOpeningHours;
+
+  const missingFields: string[] = [];
+  if (!hasWebsite) missingFields.push('website');
+  if (!hasPhotos) missingFields.push('photos');
+  if (!hasHours) missingFields.push('business hours');
+
+  // Score: base 40 + 20 per field present
+  const completenessScore = 40 + (hasWebsite ? 20 : 0) + (hasPhotos ? 20 : 0) + (hasHours ? 20 : 0);
+
+  let insight: string;
+  if (missingFields.length === 0) {
+    insight = `Your Google Business Profile looks complete with a website${hasPhotos ? `, ${photoCount} photo${photoCount > 1 ? 's' : ''}` : ''}, and business hours listed. Complete profiles get 7x more clicks — you're set up well.`;
+    if (photoCount < 10) {
+      insight += ` Consider adding more photos — businesses with 100+ photos get 520% more calls than average.`;
+    }
+  } else {
+    insight = `Your Google Business Profile is missing ${missingFields.join(', ')}. Complete profiles get 7x more clicks than incomplete ones. ${!hasPhotos ? 'Businesses with photos get 42% more direction requests on Google Maps.' : ''} ${!hasHours ? 'Missing hours makes customers unsure if you\'re open — many will skip to a competitor.' : ''}`.trim();
+  }
+
+  return {
+    hasWebsite,
+    websiteUrl: place.websiteUri ?? null,
+    hasPhotos,
+    photoCount,
+    hasHours,
+    missingFields,
+    completenessScore,
+    insight,
+  };
+}
+
 function calculateAuditResults(
   businessName: string,
   city: string,
@@ -84,6 +283,7 @@ function calculateAuditResults(
   businessReviewCount: number,
   businessRating: number,
   competitors: { name: string; reviewCount: number; rating: number }[],
+  businessPlace: PlaceResult | null = null,
 ) {
   const label = categoryLabels[category] || 'service';
 
@@ -122,6 +322,12 @@ function calculateAuditResults(
     `76% of consumers read online reviews before choosing a local ${label} company. Your current review count may signal less experience compared to competitors with ${competitorAvg}+ reviews.`,
   ];
 
+  // New analysis sections
+  const velocityInsight = generateVelocityInsight(businessReviewCount, competitorAvg, competitors, label);
+  const ratingImpact = generateRatingImpact(businessRating, competitors, category, label);
+  const rankingEstimate = generateRankingEstimate(businessName, businessReviewCount, businessRating, competitors, city, label);
+  const profileCheck = generateProfileCheck(businessPlace);
+
   return {
     business: {
       name: businessName,
@@ -136,6 +342,10 @@ function calculateAuditResults(
     reviewHealthScore,
     quickWins,
     insights,
+    velocityInsight,
+    ratingImpact,
+    rankingEstimate,
+    profileCheck,
   };
 }
 
@@ -179,7 +389,7 @@ function generateMockAuditData(businessName: string, city: string, category: str
 
   competitors.sort((a, b) => b.reviewCount - a.reviewCount);
 
-  return calculateAuditResults(businessName, city, category, businessReviewCount, businessRating, competitors);
+  return calculateAuditResults(businessName, city, category, businessReviewCount, businessRating, competitors, null);
 }
 
 async function fetchRealAuditData(businessName: string, city: string, category: string) {
@@ -236,6 +446,7 @@ async function fetchRealAuditData(businessName: string, city: string, category: 
       businessReviewCount,
       businessRating,
       filteredCompetitors,
+      userBusiness,
     );
   } catch (error) {
     console.error('[AUDIT] Google Places API error:', error);

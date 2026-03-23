@@ -112,3 +112,78 @@
     animation-delay: 1000ms;
   }
 }
+
+/* Print styles for audit report PDF export */
+@media print {
+  /* Hide site chrome */
+  header,
+  footer,
+  nav {
+    display: none !important;
+  }
+
+  body {
+    font-size: 11pt;
+    color: #1a1a1a;
+    background: white;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Clean up report layout */
+  #audit-report {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #audit-report > * {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 16pt;
+  }
+
+  /* Ensure colored backgrounds print */
+  .bg-blue-50,
+  .bg-amber-50,
+  .bg-red-50,
+  .bg-green-50,
+  .bg-purple-50 {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Report header gradient prints as solid */
+  .bg-gradient-to-r.from-gray-900 {
+    background: #1e293b !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Table styling for print */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid #e5e7eb;
+    padding: 6pt 10pt;
+  }
+
+  /* Remove shadows and unnecessary decorations */
+  .shadow-xl,
+  .shadow-2xl {
+    box-shadow: none !important;
+  }
+
+  .rounded-2xl {
+    border-radius: 8pt;
+  }
+
+  /* Page setup */
+  @page {
+    margin: 0.75in;
+    size: letter;
+  }
+}
