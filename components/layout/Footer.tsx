@@ -58,7 +58,7 @@ export default function Footer() {
               href="/demo-call"
               className="inline-block bg-primary hover:bg-blue-600 text-white px-6 py-2 rounded-lg text-sm font-semibold transition-colors"
             >
-              Book a Demo
+              Get Your Free Review Audit
             </Link>
           </div>
         </div>
