@@ -678,6 +678,30 @@ export async function POST(request: NextRequest) {
         ?? generateMockAuditData(businessName, city, category);
     }
 
+    // Fire-and-forget Telegram notification for new leads
+    const telegramToken = process.env.TELEGRAM_BOT_TOKEN;
+    const telegramChatId = process.env.TELEGRAM_NOTIFY_CHAT_ID;
+    if (telegramToken && telegramChatId) {
+      fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: telegramChatId,
+          text: [
+            '\u{1F514} New Audit Lead!',
+            '',
+            `Name: ${firstName}`,
+            `Email: ${email}`,
+            `Business: ${auditData.business.name}`,
+            `City: ${auditData.business.city}`,
+            `Reviews: ${auditData.business.reviewCount}`,
+            `Competitor Avg: ${auditData.competitorAvg}`,
+            `Gap: ${auditData.gap}`,
+          ].join('\n'),
+        }),
+      }).catch(() => { /* don't block response */ });
+    }
+
     return NextResponse.json(auditData);
   } catch {
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
