@@ -43,57 +43,61 @@ function seededRandom(seed: string): () => number {
   };
 }
 
-function generateAuditData(businessName: string, city: string, category: string) {
-  const rand = seededRandom(`${businessName}-${city}-${category}`);
-  const range = industryRanges[category] || industryRanges.other;
-  const label = categoryLabels[category] || 'service';
+interface PlaceResult {
+  displayName?: { text: string };
+  rating?: number;
+  userRatingCount?: number;
+  formattedAddress?: string;
+}
 
-  // User's business: always in the lower third of industry range
-  const userMax = range.min + Math.floor((range.max - range.min) * 0.35);
-  const businessReviewCount = range.min + Math.floor(rand() * (userMax - range.min));
-  const businessRating = Number((3.8 + rand() * 1.0).toFixed(1));
+interface PlacesSearchResponse {
+  places?: PlaceResult[];
+}
 
-  const competitorPrefixes: Record<string, string[]> = {
-    hvac: ['Premium Air', 'Elite Climate', 'Metro Heating', 'City Comfort'],
-    plumbing: ['AllFlow', 'Metro Plumbing', 'City Pipes', 'ProDrain'],
-    roofing: ['TopShield', 'Metro Roofing', 'City Roof Pros', 'Summit Roofing'],
-    landscaping: ['GreenScape', 'Metro Lawn', 'City Gardens', 'ProYard'],
-    pest_control: ['BugShield', 'Metro Pest', 'City Exterminators', 'ProPest'],
-    electrical: ['PowerPro', 'Metro Electric', 'City Wiring', 'ProVolt'],
-    flooring: ['FloorCraft', 'Metro Floors', 'City Flooring', 'ProFloor'],
-    painting: ['ColorPro', 'Metro Painters', 'City Paint Co', 'ProCoat'],
-    cleaning: ['SparkleClean', 'Metro Maids', 'City Cleaners', 'ProClean'],
-    florist: ['Bloom & Co', 'Metro Flowers', 'City Blooms', 'ProFloral'],
-    other: ['ProService', 'Metro Services', 'City Pros', 'Elite Service'],
-  };
+const PLACES_API_URL = 'https://places.googleapis.com/v1/places:searchText';
+const FIELD_MASK = 'places.displayName,places.rating,places.userRatingCount,places.formattedAddress';
 
-  const prefixes = competitorPrefixes[category] || competitorPrefixes.other;
-  const cityShort = city.split(',')[0].trim();
-
-  // Competitors: spread across middle-to-upper range, always above user
-  const competitors = prefixes.map((prefix) => {
-    const compMin = Math.max(businessReviewCount + 15, Math.floor(range.min + (range.max - range.min) * 0.3));
-    const compMax = range.max;
-    const reviewCount = compMin + Math.floor(rand() * (compMax - compMin));
-    const rating = Number((range.avgRating - 0.2 + rand() * 0.6).toFixed(1));
-    return {
-      name: `${prefix} ${cityShort}`,
-      reviewCount,
-      rating: Math.min(rating, 5.0),
-    };
+async function searchPlaces(textQuery: string, apiKey: string): Promise<PlaceResult[]> {
+  const response = await fetch(PLACES_API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Goog-Api-Key': apiKey,
+      'X-Goog-FieldMask': FIELD_MASK,
+    },
+    body: JSON.stringify({ textQuery }),
   });
 
-  competitors.sort((a, b) => b.reviewCount - a.reviewCount);
+  if (!response.ok) {
+    console.error(`[PLACES API] Error ${response.status}: ${await response.text()}`);
+    return [];
+  }
 
-  const competitorAvg = Math.round(competitors.reduce((sum, c) => sum + c.reviewCount, 0) / competitors.length);
+  const data: PlacesSearchResponse = await response.json();
+  return data.places ?? [];
+}
+
+function calculateAuditResults(
+  businessName: string,
+  city: string,
+  category: string,
+  businessReviewCount: number,
+  businessRating: number,
+  competitors: { name: string; reviewCount: number; rating: number }[],
+) {
+  const label = categoryLabels[category] || 'service';
+
+  const competitorAvg = competitors.length > 0
+    ? Math.round(competitors.reduce((sum, c) => sum + c.reviewCount, 0) / competitors.length)
+    : businessReviewCount;
   const gap = Math.max(0, competitorAvg - businessReviewCount);
   const estimatedMissedCalls = Math.max(0, Math.round(gap * 0.8));
 
   // Review Health Score (0-100)
-  // Factors: review count vs competitors (50%), rating (30%), gap severity (20%)
-  const countScore = Math.min(100, (businessReviewCount / competitorAvg) * 100);
+  const effectiveCompAvg = competitorAvg || 1;
+  const countScore = Math.min(100, (businessReviewCount / effectiveCompAvg) * 100);
   const ratingScore = Math.min(100, (businessRating / 5.0) * 100);
-  const gapScore = Math.max(0, 100 - (gap / competitorAvg) * 100);
+  const gapScore = Math.max(0, 100 - (gap / effectiveCompAvg) * 100);
   const reviewHealthScore = Math.round(countScore * 0.5 + ratingScore * 0.3 + gapScore * 0.2);
 
   // Personalized quick wins
@@ -135,6 +139,110 @@ function generateAuditData(businessName: string, city: string, category: string)
   };
 }
 
+function generateMockAuditData(businessName: string, city: string, category: string) {
+  const rand = seededRandom(`${businessName}-${city}-${category}`);
+  const range = industryRanges[category] || industryRanges.other;
+
+  // User's business: always in the lower third of industry range
+  const userMax = range.min + Math.floor((range.max - range.min) * 0.35);
+  const businessReviewCount = range.min + Math.floor(rand() * (userMax - range.min));
+  const businessRating = Number((3.8 + rand() * 1.0).toFixed(1));
+
+  const competitorPrefixes: Record<string, string[]> = {
+    hvac: ['Premium Air', 'Elite Climate', 'Metro Heating', 'City Comfort'],
+    plumbing: ['AllFlow', 'Metro Plumbing', 'City Pipes', 'ProDrain'],
+    roofing: ['TopShield', 'Metro Roofing', 'City Roof Pros', 'Summit Roofing'],
+    landscaping: ['GreenScape', 'Metro Lawn', 'City Gardens', 'ProYard'],
+    pest_control: ['BugShield', 'Metro Pest', 'City Exterminators', 'ProPest'],
+    electrical: ['PowerPro', 'Metro Electric', 'City Wiring', 'ProVolt'],
+    flooring: ['FloorCraft', 'Metro Floors', 'City Flooring', 'ProFloor'],
+    painting: ['ColorPro', 'Metro Painters', 'City Paint Co', 'ProCoat'],
+    cleaning: ['SparkleClean', 'Metro Maids', 'City Cleaners', 'ProClean'],
+    florist: ['Bloom & Co', 'Metro Flowers', 'City Blooms', 'ProFloral'],
+    other: ['ProService', 'Metro Services', 'City Pros', 'Elite Service'],
+  };
+
+  const prefixes = competitorPrefixes[category] || competitorPrefixes.other;
+  const cityShort = city.split(',')[0].trim();
+
+  const competitors = prefixes.map((prefix) => {
+    const compMin = Math.max(businessReviewCount + 15, Math.floor(range.min + (range.max - range.min) * 0.3));
+    const compMax = range.max;
+    const reviewCount = compMin + Math.floor(rand() * (compMax - compMin));
+    const rating = Number((range.avgRating - 0.2 + rand() * 0.6).toFixed(1));
+    return {
+      name: `${prefix} ${cityShort}`,
+      reviewCount,
+      rating: Math.min(rating, 5.0),
+    };
+  });
+
+  competitors.sort((a, b) => b.reviewCount - a.reviewCount);
+
+  return calculateAuditResults(businessName, city, category, businessReviewCount, businessRating, competitors);
+}
+
+async function fetchRealAuditData(businessName: string, city: string, category: string) {
+  const apiKey = process.env.GOOGLE_PLACES_API_KEY;
+  if (!apiKey) {
+    console.warn('[AUDIT] GOOGLE_PLACES_API_KEY not set, falling back to mock data');
+    return null;
+  }
+
+  try {
+    // Step 1: Find the user's business
+    const businessResults = await searchPlaces(`${businessName} ${city}`, apiKey);
+    if (businessResults.length === 0) {
+      console.warn(`[AUDIT] No results found for "${businessName} ${city}"`);
+      return null;
+    }
+
+    const userBusiness = businessResults[0];
+    const businessReviewCount = userBusiness.userRatingCount ?? 0;
+    const businessRating = userBusiness.rating ?? 0;
+    const userBusinessName = userBusiness.displayName?.text ?? businessName;
+
+    // Step 2: Find competitors
+    const label = categoryLabels[category] || 'service';
+    const competitorResults = await searchPlaces(`${label} companies in ${city}`, apiKey);
+
+    // Filter out the user's business from competitors
+    const userNameLower = userBusinessName.toLowerCase();
+    const inputNameLower = businessName.toLowerCase();
+    const filteredCompetitors = competitorResults
+      .filter((place) => {
+        const placeName = (place.displayName?.text ?? '').toLowerCase();
+        return placeName !== userNameLower && placeName !== inputNameLower
+          && !placeName.includes(inputNameLower) && !inputNameLower.includes(placeName);
+      })
+      .slice(0, 5)
+      .map((place) => ({
+        name: place.displayName?.text ?? 'Unknown',
+        reviewCount: place.userRatingCount ?? 0,
+        rating: place.rating ?? 0,
+      }));
+
+    if (filteredCompetitors.length === 0) {
+      console.warn(`[AUDIT] No competitors found for "${label} companies in ${city}"`);
+      return null;
+    }
+
+    filteredCompetitors.sort((a, b) => b.reviewCount - a.reviewCount);
+
+    return calculateAuditResults(
+      userBusinessName,
+      city,
+      category,
+      businessReviewCount,
+      businessRating,
+      filteredCompetitors,
+    );
+  } catch (error) {
+    console.error('[AUDIT] Google Places API error:', error);
+    return null;
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { businessName, city, category, email, firstName } = await request.json();
@@ -154,11 +262,9 @@ export async function POST(request: NextRequest) {
       category,
     }));
 
-    // Generate audit data
-    const auditData = generateAuditData(businessName, city, category);
-
-    // Brief delay for realism
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    // Try real Google Places API data first, fall back to mock data
+    const auditData = await fetchRealAuditData(businessName, city, category)
+      ?? generateMockAuditData(businessName, city, category);
 
     return NextResponse.json(auditData);
   } catch {
