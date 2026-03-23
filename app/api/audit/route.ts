@@ -67,6 +67,9 @@ interface PlaceResult {
   currentOpeningHours?: { openNow?: boolean; periods?: unknown[] };
   photos?: { name: string }[];
   googleMapsUri?: string;
+  primaryType?: string;
+  primaryTypeDisplayName?: { text: string };
+  types?: string[];
 }
 
 interface PlacesSearchResponse {
@@ -74,7 +77,8 @@ interface PlacesSearchResponse {
 }
 
 const PLACES_API_URL = 'https://places.googleapis.com/v1/places:searchText';
-const FIELD_MASK = 'places.displayName,places.rating,places.userRatingCount,places.formattedAddress,places.websiteUri,places.currentOpeningHours,places.photos,places.googleMapsUri';
+const SEARCH_FIELD_MASK = 'places.displayName,places.rating,places.userRatingCount,places.formattedAddress,places.websiteUri,places.currentOpeningHours,places.photos,places.googleMapsUri';
+const DETAIL_FIELD_MASK = 'displayName,rating,userRatingCount,formattedAddress,types,websiteUri,currentOpeningHours,photos,primaryType,primaryTypeDisplayName';
 
 async function searchPlaces(textQuery: string, apiKey: string): Promise<PlaceResult[]> {
   const response = await fetch(PLACES_API_URL, {
@@ -82,7 +86,7 @@ async function searchPlaces(textQuery: string, apiKey: string): Promise<PlaceRes
     headers: {
       'Content-Type': 'application/json',
       'X-Goog-Api-Key': apiKey,
-      'X-Goog-FieldMask': FIELD_MASK,
+      'X-Goog-FieldMask': SEARCH_FIELD_MASK,
     },
     body: JSON.stringify({ textQuery }),
   });
@@ -94,6 +98,53 @@ async function searchPlaces(textQuery: string, apiKey: string): Promise<PlaceRes
 
   const data: PlacesSearchResponse = await response.json();
   return data.places ?? [];
+}
+
+async function getPlaceDetails(placeId: string, apiKey: string): Promise<PlaceResult | null> {
+  const response = await fetch(`https://places.googleapis.com/v1/places/${placeId}`, {
+    method: 'GET',
+    headers: {
+      'X-Goog-Api-Key': apiKey,
+      'X-Goog-FieldMask': DETAIL_FIELD_MASK,
+    },
+  });
+
+  if (!response.ok) {
+    console.error(`[PLACE DETAILS] Error ${response.status}: ${await response.text()}`);
+    return null;
+  }
+
+  return await response.json();
+}
+
+// Map Google primaryType to our category keys
+function mapPrimaryTypeToCategory(primaryType?: string, types?: string[]): string {
+  const typeStr = (primaryType ?? '').toLowerCase();
+  const allTypes = (types ?? []).map(t => t.toLowerCase()).join(' ');
+  const combined = `${typeStr} ${allTypes}`;
+
+  if (combined.includes('hvac') || combined.includes('heating') || combined.includes('air_conditioning')) return 'hvac';
+  if (combined.includes('plumb')) return 'plumbing';
+  if (combined.includes('roof')) return 'roofing';
+  if (combined.includes('landscap') || combined.includes('lawn') || combined.includes('garden')) return 'landscaping';
+  if (combined.includes('pest') || combined.includes('exterminator')) return 'pest_control';
+  if (combined.includes('electric')) return 'electrical';
+  if (combined.includes('floor')) return 'flooring';
+  if (combined.includes('paint')) return 'painting';
+  if (combined.includes('clean') || combined.includes('maid') || combined.includes('janitor')) return 'cleaning';
+  if (combined.includes('florist') || combined.includes('flower')) return 'florist';
+  return 'other';
+}
+
+// Extract city from formatted address (e.g. "123 Main St, Dallas, TX 75201, USA" -> "Dallas, TX")
+function extractCity(formattedAddress?: string): string {
+  if (!formattedAddress) return 'your area';
+  const parts = formattedAddress.split(',').map(p => p.trim());
+  // Typical format: street, city, state zip, country
+  if (parts.length >= 3) {
+    return `${parts[parts.length - 3]}, ${parts[parts.length - 2].replace(/\s*\d{5}(-\d{4})?/, '')}`.trim();
+  }
+  return parts.slice(1).join(', ') || 'your area';
 }
 
 function generateVelocityInsight(
@@ -392,6 +443,68 @@ function generateMockAuditData(businessName: string, city: string, category: str
   return calculateAuditResults(businessName, city, category, businessReviewCount, businessRating, competitors, null);
 }
 
+async function fetchRealAuditDataByPlaceId(placeId: string) {
+  const apiKey = process.env.GOOGLE_PLACES_API_KEY;
+  if (!apiKey) {
+    console.warn('[AUDIT] GOOGLE_PLACES_API_KEY not set, falling back to mock data');
+    return null;
+  }
+
+  try {
+    // Step 1: Get the selected business details
+    const userBusiness = await getPlaceDetails(placeId, apiKey);
+    if (!userBusiness) {
+      console.warn(`[AUDIT] No details found for placeId "${placeId}"`);
+      return null;
+    }
+
+    const businessReviewCount = userBusiness.userRatingCount ?? 0;
+    const businessRating = userBusiness.rating ?? 0;
+    const userBusinessName = userBusiness.displayName?.text ?? 'Your Business';
+    const category = mapPrimaryTypeToCategory(userBusiness.primaryType, userBusiness.types);
+    const city = extractCity(userBusiness.formattedAddress);
+
+    // Step 2: Find competitors using the business's type and location
+    const label = categoryLabels[category] || userBusiness.primaryTypeDisplayName?.text || 'service';
+    const competitorResults = await searchPlaces(`${label} companies in ${city}`, apiKey);
+
+    // Filter out the user's business from competitors
+    const userNameLower = userBusinessName.toLowerCase();
+    const filteredCompetitors = competitorResults
+      .filter((place) => {
+        const placeName = (place.displayName?.text ?? '').toLowerCase();
+        return placeName !== userNameLower
+          && !placeName.includes(userNameLower) && !userNameLower.includes(placeName);
+      })
+      .slice(0, 5)
+      .map((place) => ({
+        name: place.displayName?.text ?? 'Unknown',
+        reviewCount: place.userRatingCount ?? 0,
+        rating: place.rating ?? 0,
+      }));
+
+    if (filteredCompetitors.length === 0) {
+      console.warn(`[AUDIT] No competitors found for "${label} companies in ${city}"`);
+      return null;
+    }
+
+    filteredCompetitors.sort((a, b) => b.reviewCount - a.reviewCount);
+
+    return calculateAuditResults(
+      userBusinessName,
+      city,
+      category,
+      businessReviewCount,
+      businessRating,
+      filteredCompetitors,
+      userBusiness,
+    );
+  } catch (error) {
+    console.error('[AUDIT] Google Places API error:', error);
+    return null;
+  }
+}
+
 async function fetchRealAuditData(businessName: string, city: string, category: string) {
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
   if (!apiKey) {
@@ -456,10 +569,15 @@ async function fetchRealAuditData(businessName: string, city: string, category: 
 
 export async function POST(request: NextRequest) {
   try {
-    const { businessName, city, category, email, firstName } = await request.json();
+    const { placeId, businessName, city, category, email, firstName } = await request.json();
 
-    if (!businessName || !city || !email || !firstName) {
+    if (!email || !firstName) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+    }
+
+    // Need either placeId or legacy businessName+city
+    if (!placeId && (!businessName || !city)) {
+      return NextResponse.json({ error: 'Missing business identification' }, { status: 400 });
     }
 
     // Log the lead to console (Vercel captures this in function logs)
@@ -468,14 +586,23 @@ export async function POST(request: NextRequest) {
       timestamp: new Date().toISOString(),
       firstName,
       email,
-      businessName,
-      city,
-      category,
+      placeId: placeId ?? null,
+      businessName: businessName ?? null,
+      city: city ?? null,
+      category: category ?? null,
     }));
 
-    // Try real Google Places API data first, fall back to mock data
-    const auditData = await fetchRealAuditData(businessName, city, category)
-      ?? generateMockAuditData(businessName, city, category);
+    let auditData;
+
+    if (placeId) {
+      // New flow: use Place Details API with exact placeId
+      auditData = await fetchRealAuditDataByPlaceId(placeId)
+        ?? generateMockAuditData(businessName || 'Your Business', city || 'your area', category || 'other');
+    } else {
+      // Legacy fallback: text search
+      auditData = await fetchRealAuditData(businessName, city, category)
+        ?? generateMockAuditData(businessName, city, category);
+    }
 
     return NextResponse.json(auditData);
   } catch {
