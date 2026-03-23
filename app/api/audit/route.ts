@@ -77,7 +77,7 @@ interface PlacesSearchResponse {
 }
 
 const PLACES_API_URL = 'https://places.googleapis.com/v1/places:searchText';
-const SEARCH_FIELD_MASK = 'places.displayName,places.rating,places.userRatingCount,places.formattedAddress,places.websiteUri,places.currentOpeningHours,places.photos,places.googleMapsUri';
+const SEARCH_FIELD_MASK = 'places.id,places.displayName,places.rating,places.userRatingCount,places.formattedAddress,places.websiteUri,places.currentOpeningHours,places.photos,places.googleMapsUri';
 const DETAIL_FIELD_MASK = 'displayName,rating,userRatingCount,formattedAddress,types,websiteUri,currentOpeningHours,photos,primaryType,primaryTypeDisplayName';
 
 async function searchPlaces(textQuery: string, apiKey: string): Promise<PlaceResult[]> {
@@ -465,8 +465,9 @@ async function fetchRealAuditDataByPlaceId(placeId: string) {
     const city = extractCity(userBusiness.formattedAddress);
 
     // Step 2: Find competitors using the business's type and location
-    const label = categoryLabels[category] || userBusiness.primaryTypeDisplayName?.text || 'service';
-    const competitorResults = await searchPlaces(`${label} companies in ${city}`, apiKey);
+    const label = categoryLabels[category] || 'service';
+    const searchLabel = userBusiness.primaryTypeDisplayName?.text || label;
+    const competitorResults = await searchPlaces(`${searchLabel} near ${city}`, apiKey);
 
     // Filter out the user's business from competitors
     const userNameLower = userBusinessName.toLowerCase();
@@ -527,7 +528,7 @@ async function fetchRealAuditData(businessName: string, city: string, category: 
 
     // Step 2: Find competitors
     const label = categoryLabels[category] || 'service';
-    const competitorResults = await searchPlaces(`${label} companies in ${city}`, apiKey);
+    const competitorResults = await searchPlaces(`${label} near ${city}`, apiKey);
 
     // Filter out the user's business from competitors
     const userNameLower = userBusinessName.toLowerCase();
