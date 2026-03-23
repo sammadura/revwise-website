@@ -55,7 +55,7 @@ export default function HomeContent() {
               {/* CTA buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Button
-                  href="/demo-call"
+                  href="/audit"
                   variant="secondary"
                   className="bg-white text-primary hover:bg-gray-50 text-lg px-8 py-4 font-bold shadow-2xl shadow-black/20 hover:shadow-white/20 transition-all duration-300"
                 >
@@ -169,7 +169,7 @@ export default function HomeContent() {
           {/* CTA */}
           <div className="text-center mt-16">
             <Button
-              href="/demo-call"
+              href="/audit"
               variant="primary"
               className="text-lg px-10 py-5 shadow-xl shadow-primary/30 hover:shadow-primary/50 transition-all duration-300"
             >
@@ -413,7 +413,7 @@ export default function HomeContent() {
 
                 <div className="mt-10">
                   <Button
-                    href="/demo-call"
+                    href="/audit"
                     variant="primary"
                     className="w-full text-lg py-5 font-bold shadow-xl shadow-primary/30 hover:shadow-primary/50 transition-all duration-300"
                   >
@@ -566,7 +566,7 @@ export default function HomeContent() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Button
-              href="/demo-call"
+              href="/audit"
               variant="secondary"
               className="bg-white text-primary hover:bg-gray-50 text-lg px-10 py-5 font-bold shadow-2xl shadow-black/20 hover:shadow-white/20 transition-all duration-300"
             >
