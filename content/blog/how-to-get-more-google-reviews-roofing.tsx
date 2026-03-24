@@ -186,17 +186,17 @@ function Content() {
         You&rsquo;re making it easy for people who already want to help you.
       </p>
       <p>
-        The key is automation. If your review requests depend on someone remembering to send them,
-        they won&rsquo;t get sent consistently. Connect your CRM or job management software to an
-        automated review request workflow so it happens every time without anyone thinking about it.
+        The key is automation. If someone has to remember to send review requests, they won&rsquo;t
+        happen every time. Connect your CRM to an automated workflow so it triggers after every job,
+        no thinking required.
       </p>
 
       <h3>6. Respond to Every Single Review</h3>
       <p>
-        This does double duty. First, Google&rsquo;s algorithm favors businesses that actively
-        engage with reviews &mdash; responding signals that you&rsquo;re an active, legitimate
-        business. Second, when prospective customers see you responding thoughtfully to both
-        positive and negative reviews, it builds trust before they ever call you.
+        This matters in two ways. First, Google&rsquo;s algorithm favors businesses that engage with
+        reviews. A response signals you&rsquo;re active and legitimate. Second, when prospective
+        customers see you handling both praise and complaints professionally, they trust you before
+        they ever call.
       </p>
       <p>
         <strong>For positive reviews:</strong> Thank them by name, mention something specific about
@@ -315,17 +315,16 @@ function Content() {
 
       <h2>Stop Leaving Reviews to Chance</h2>
       <p>
-        You didn&rsquo;t build your roofing business by hoping jobs would come in. You hustled,
-        built relationships, and earned your reputation one roof at a time.
+        You didn&rsquo;t build your roofing business by hoping jobs would come in. You hustled.
       </p>
       <p>
-        Your review strategy should work the same way &mdash; except it shouldn&rsquo;t require
-        hustle. It should run automatically, behind the scenes, turning every completed job into a
-        potential five-star review without you or your crew lifting a finger.
+        Your review strategy should work the same way &mdash; except automated. No manual asks.
+        Just a system that turns every completed job into a five-star review opportunity while
+        you&rsquo;re moving on to the next one.
       </p>
       <p>
-        The contractors winning in 2026 aren&rsquo;t better roofers. They&rsquo;re better at making
-        sure the world <em>knows</em> they&rsquo;re good roofers.
+        The roofing contractors winning in 2026 aren&rsquo;t better at the work. They&rsquo;re
+        better at letting the world know they&rsquo;re good at the work.
       </p>
       <p>
         <strong>Want to see how many reviews you&rsquo;re leaving on the table?</strong>{' '}

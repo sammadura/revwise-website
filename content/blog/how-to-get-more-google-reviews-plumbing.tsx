@@ -332,6 +332,9 @@ function Content() {
         forget to ask is the week your competitor picks up the reviews (and the customers) you left
         on the table.
       </p>
+
+      <hr />
+
       <p>
         <em>Want to see how many reviews you&rsquo;re leaving on the table each month?{' '}
         <a href="https://getrevwise.com/audit">Get a free review audit for your plumbing
