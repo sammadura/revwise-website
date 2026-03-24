@@ -166,6 +166,36 @@ function deduplicateByName(places: PlaceResult[]): PlaceResult[] {
   return Array.from(seen.values());
 }
 
+// Valid Google Places Table A types for Nearby Search includedPrimaryTypes.
+// primaryType from Place Details can return Table B types (e.g. "general_contractor")
+// or subtypes that aren't valid for Nearby Search filtering.
+// This function maps a primaryType to the best Table A type for competitor search.
+function getSearchableType(primaryType: string, types?: string[]): string | null {
+  const pt = primaryType.toLowerCase();
+  const allTypes = (types ?? []).map(t => t.toLowerCase()).join(' ');
+  const combined = `${pt} ${allTypes}`;
+
+  // Direct Table A types — pass through
+  const tableAPassthrough = [
+    'plumber', 'electrician', 'roofing_contractor', 'painter', 'florist',
+    'locksmith', 'moving_company', 'car_repair', 'car_wash', 'car_dealer',
+  ];
+  if (tableAPassthrough.includes(pt)) return pt;
+
+  // Map common primaryType values to their Table A equivalent
+  if (combined.includes('plumb')) return 'plumber';
+  if (combined.includes('roof')) return 'roofing_contractor';
+  if (combined.includes('electric') && !combined.includes('vehicle')) return 'electrician';
+  if (combined.includes('paint')) return 'painter';
+  if (combined.includes('florist') || combined.includes('flower_shop')) return 'florist';
+  if (combined.includes('locksmith')) return 'locksmith';
+  if (combined.includes('moving')) return 'moving_company';
+
+  // These categories have NO Table A type — return null to trigger text search fallback
+  // HVAC, landscaping, pest control, cleaning, flooring, general_contractor, etc.
+  return null;
+}
+
 // Map Google primaryType to our category keys
 function mapPrimaryTypeToCategory(primaryType?: string, types?: string[]): string {
   const typeStr = (primaryType ?? '').toLowerCase();
@@ -517,17 +547,6 @@ async function fetchRealAuditDataByPlaceId(placeId: string) {
     const label = categoryLabels[category] || 'service';
     const userNameLower = userBusinessName.toLowerCase();
 
-    let competitorResults: PlaceResult[] = [];
-    if (userBusiness.location && userBusiness.primaryType) {
-      competitorResults = await searchNearbyPlaces(
-        userBusiness.location.latitude,
-        userBusiness.location.longitude,
-        userBusiness.primaryType,
-        apiKey,
-        4828, // 3 miles in meters
-      );
-    }
-
     // Filter out the user's own business
     const filterSelf = (places: PlaceResult[]) =>
       places.filter((place) => {
@@ -536,9 +555,32 @@ async function fetchRealAuditDataByPlaceId(placeId: string) {
           && !placeName.includes(userNameLower) && !userNameLower.includes(placeName);
       });
 
+    let competitorResults: PlaceResult[] = [];
+
+    // Map primaryType to a valid Table A type for Nearby Search.
+    // Many home service types (HVAC, landscaping, pest control, etc.) have no
+    // Table A equivalent, so getSearchableType returns null for those.
+    const searchableType = userBusiness.primaryType
+      ? getSearchableType(userBusiness.primaryType, userBusiness.types)
+      : null;
+
+    if (userBusiness.location && searchableType) {
+      console.log(`[AUDIT] Nearby Search using type "${searchableType}" (primaryType: "${userBusiness.primaryType}")`);
+      competitorResults = await searchNearbyPlaces(
+        userBusiness.location.latitude,
+        userBusiness.location.longitude,
+        searchableType,
+        apiKey,
+        4828, // 3 miles in meters
+      );
+    } else if (userBusiness.primaryType) {
+      console.log(`[AUDIT] No Table A type for "${userBusiness.primaryType}", skipping Nearby Search`);
+    }
+
     let filtered = filterSelf(competitorResults);
 
     // Fall back to Text Search if Nearby Search returned fewer than 3 competitors
+    // (or was skipped because the type has no Table A equivalent)
     if (filtered.length < 3) {
       console.log(`[AUDIT] Nearby Search returned ${filtered.length} competitors, falling back to Text Search`);
       const searchLabel = userBusiness.primaryTypeDisplayName?.text || label;
