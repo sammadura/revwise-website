@@ -87,9 +87,11 @@ function Content() {
         something easy:
       </p>
       <blockquote>
-        &ldquo;Really glad we could get this taken care of for you. If you have a minute,
-        it&rsquo;d mean a lot to us if you could leave a quick Google review. It helps other
-        homeowners find us. I can text you the link right now if you&rsquo;d like.&rdquo;
+        <em>
+          &ldquo;Really glad we could get this taken care of for you. If you have a minute,
+          it&rsquo;d mean a lot to us if you could leave a quick Google review. It helps other
+          homeowners find us. I can text you the link right now if you&rsquo;d like.&rdquo;
+        </em>
       </blockquote>
       <p>
         That&rsquo;s it. Friendly, low-pressure, and it gives the customer an easy way to say
@@ -308,6 +310,13 @@ function Content() {
         But whatever tool you use, the important thing is to start. Every job you complete
         without asking for a review is a missed opportunity. Set up a system this week, and six
         months from now, your Google listing will look completely different.
+      </p>
+
+      <hr />
+
+      <p>
+        <em>Have questions about getting more Google reviews for your HVAC business? Drop us a
+        line at <a href="https://getrevwise.com">getrevwise.com</a>.</em>
       </p>
     </>
   );

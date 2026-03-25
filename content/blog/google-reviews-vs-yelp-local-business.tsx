@@ -63,13 +63,12 @@ function Content() {
         and higher ratings push you higher in search results.
       </p>
       <p>
-        Yelp reviews? They have zero direct impact on your Google search ranking. None. A plumber
-        with 200 Google reviews and a 4.7 rating will outrank a competitor with 5 Google reviews and
-        500 Yelp reviews almost every time &mdash; all else being equal.
+        Yelp reviews? Zero impact on Google rankings. A plumber with 200 Google reviews at 4.7
+        stars beats someone with 5 Google reviews and 500 Yelp reviews almost every time.
       </p>
       <p>
-        For local service businesses that depend on &ldquo;near me&rdquo; searches and Map Pack
-        visibility, this alone makes the Google Reviews vs Yelp debate pretty one-sided.
+        For businesses that live and die on &ldquo;near me&rdquo; searches and Map Pack visibility,
+        this settles it.
       </p>
 
       <h2>The Trust Factor: Where Homeowners Actually Look Before Hiring</h2>
@@ -100,21 +99,16 @@ function Content() {
       </p>
       <p>
         This is especially true for urgent services. Nobody with a burst pipe is browsing Yelp
-        &mdash; they&rsquo;re Googling &ldquo;emergency plumber near me&rdquo; and calling the first
-        highly-rated result they see.
+        &mdash; they&rsquo;re Googling &ldquo;emergency plumber near me&rdquo; and calling the
+        first highly-rated result they see.
       </p>
 
       <h2>Yelp&rsquo;s Review Filter: A Frustration for Small Businesses</h2>
       <p>
-        One of the biggest complaints local service businesses have about Yelp is its aggressive
-        review filtering algorithm. Yelp&rsquo;s filter regularly hides legitimate positive reviews
-        &mdash; sometimes 30&ndash;50% of them &mdash; deeming them &ldquo;not currently
-        recommended.&rdquo;
-      </p>
-      <p>
-        For a small business with 20 total reviews, losing 8 of them to the filter is devastating.
-        Those are real customers who took time to write genuine feedback, and Yelp decided they
-        didn&rsquo;t count.
+        Yelp&rsquo;s review filter is brutal for small businesses. It hides 30&ndash;50% of
+        legitimate positive reviews, marking them &ldquo;not currently recommended.&rdquo; If you
+        have 20 reviews, you just lost 8. Real customers, real feedback &mdash; but Yelp decided
+        they don&rsquo;t count.
       </p>
       <p>
         Google&rsquo;s review system isn&rsquo;t perfect either &mdash; spam and fake reviews exist
@@ -138,8 +132,8 @@ function Content() {
       <p>
         <strong>Google Maps</strong> is pre-installed on every Android device and widely used on
         iPhones. When someone searches for a service on their phone, Google Maps results &mdash;
-        complete with star ratings, review counts, and click-to-call buttons &mdash; appear front and
-        center.
+        complete with star ratings, review counts, and click-to-call buttons &mdash; appear front
+        and center.
       </p>
       <p>
         Yelp requires a separate app download or a deliberate visit to yelp.com. While Yelp still
@@ -178,8 +172,8 @@ function Content() {
 
       <h3>Auto Repair and Body Shops</h3>
       <p>
-        Google is dominant for discovery. Yelp maintains a secondary presence but doesn&rsquo;t drive
-        the majority of new leads.
+        Google is dominant for discovery. Yelp maintains a secondary presence but doesn&rsquo;t
+        drive the majority of new leads.
       </p>
 
       <h3>General Contractors and Remodeling</h3>
@@ -194,8 +188,8 @@ function Content() {
 
       <h2>What About Yelp Advertising? Is It Worth It for Service Businesses?</h2>
       <p>
-        Yelp&rsquo;s advertising program is another factor to consider. Yelp aggressively sells paid
-        placements to local businesses, and the cost can be significant &mdash; often
+        Yelp&rsquo;s advertising program is another factor to consider. Yelp aggressively sells
+        paid placements to local businesses, and the cost can be significant &mdash; often
         $300&ndash;$1,000+ per month for service businesses.
       </p>
       <p>
@@ -236,9 +230,9 @@ function Content() {
 
       <h3>Automate the Process</h3>
       <p>
-        Manual review requests are inconsistent. Someone forgets, gets busy, or feels awkward asking.
-        An automated system that triggers a review request after every completed job ensures no
-        customer falls through the cracks.
+        Manual review requests are inconsistent. Someone forgets, gets busy, or feels awkward
+        asking. An automated system that triggers a review request after every completed job ensures
+        no customer falls through the cracks.
       </p>
 
       <h3>Respond to Every Review</h3>
@@ -257,21 +251,21 @@ function Content() {
 
       <h2>The Bottom Line: Focus Where It Counts</h2>
       <p>
-        The Google Reviews vs Yelp debate for local service businesses isn&rsquo;t really a debate at
-        all. Google is where your customers search, where your visibility is determined, and where
-        your reputation has the most direct impact on revenue.
+        For local service businesses, the Google vs Yelp debate isn&rsquo;t close. Google is where
+        customers search, where you&rsquo;re ranked, and where revenue gets made.
       </p>
       <p>
-        That doesn&rsquo;t mean Yelp is worthless &mdash; it&rsquo;s a fine secondary platform. But
-        if you&rsquo;re a local service business with limited time and resources, every hour you
-        spend optimizing for Yelp is an hour you could spend building a Google review engine that
-        drives real, measurable growth.
+        That doesn&rsquo;t mean Yelp is useless &mdash; claim your profile, keep it updated. But if
+        you&rsquo;ve got limited time? Every hour spent optimizing Yelp is an hour not spent
+        building a Google machine that drives real growth.
       </p>
       <p>
-        The businesses that win in local search aren&rsquo;t the ones spread thin across every
-        platform. They&rsquo;re the ones that dominate Google &mdash; with strong profiles,
-        consistent reviews, and a system that keeps the momentum going month after month.
+        The winners in local search aren&rsquo;t scattered across every platform. They dominate
+        Google &mdash; strong profile, consistent reviews, a system that keeps working month after
+        month.
       </p>
+
+      <hr />
 
       <p>
         <em>

@@ -32,22 +32,12 @@ function Content() {
         Think about that. Nearly half of potential customers are watching how you handle criticism,
         not just whether you got it.
       </p>
-      <p>Here&rsquo;s what a good response signals to future customers:</p>
+      <p>Here&rsquo;s what a good response signals:</p>
       <ul>
-        <li>
-          <strong>You care.</strong> You&rsquo;re paying attention and you take feedback seriously.
-        </li>
-        <li>
-          <strong>You&rsquo;re professional.</strong> You don&rsquo;t lose your cool when things go
-          wrong.
-        </li>
-        <li>
-          <strong>You fix problems.</strong> If something went sideways, you&rsquo;ll make it right.
-        </li>
-        <li>
-          <strong>You&rsquo;re a real person.</strong> Not some faceless company that ignores
-          complaints.
-        </li>
+        <li>You&rsquo;re listening.</li>
+        <li>You don&rsquo;t get defensive when something goes wrong.</li>
+        <li>You actually fix things.</li>
+        <li>You&rsquo;re real &mdash; not hiding behind a corporate wall.</li>
       </ul>
       <p>
         A negative review with a thoughtful response underneath it can be more powerful than five
@@ -224,26 +214,23 @@ function Content() {
       </ul>
 
       <h2>How to Get Fewer Negative Reviews in the First Place</h2>
-      <p>The best strategy for negative reviews? Prevent them.</p>
+      <p>The best strategy for negative reviews? Bury them in positive ones.</p>
       <p>
-        Most unhappy customers don&rsquo;t leave negative reviews if they have an easy way to give
-        feedback directly. The businesses that get buried by one-star reviews are usually the ones
-        that never asked for reviews at all &mdash; so the only people motivated enough to write one
-        are the angry ones.
+        Most unhappy customers won&rsquo;t bother with a negative review if they know how to reach
+        you directly. The businesses that get destroyed by one-stars are the ones that never ask for
+        reviews. So only angry people write them.
       </p>
       <p>
-        When you <strong>proactively ask every customer for a review</strong> right after a
-        completed job, you flood your profile with positive, genuine feedback. The occasional
-        negative review gets buried under dozens of happy ones.
+        When you ask every customer for a review after a completed job, you flood your profile with
+        genuinely happy feedback. One negative review disappears under dozens of five-stars.
       </p>
       <p>
-        That&rsquo;s the math: if you have 200 five-star reviews and 3 one-star reviews, nobody
-        cares about the three. If you have 4 five-star reviews and 3 one-star reviews, you&rsquo;ve
-        got a problem.
+        The math is simple: 200 five-stars and 3 one-stars? Nobody notices the three. But 4
+        five-stars and 3 one-stars? That&rsquo;s a problem.
       </p>
       <p>
-        The solution isn&rsquo;t to avoid negative reviews &mdash; it&rsquo;s to{' '}
-        <strong>generate so many positive reviews that the negative ones barely register.</strong>
+        Don&rsquo;t try to avoid negative reviews. Just generate enough positive ones that they
+        stop mattering.
       </p>
 
       <h2>Turn Your Reviews Into Your Strongest Sales Tool</h2>
@@ -257,9 +244,14 @@ function Content() {
       </p>
       <p>
         <strong>Want to see how many reviews your business could be generating?</strong>{' '}
-        <a href="https://getrevwise.com/audit">Get a free review audit at getrevwise.com/audit</a>
-        {' '}&mdash; we&rsquo;ll show you exactly where you stand and what&rsquo;s possible.
+        <a href="https://getrevwise.com/audit">
+          Get a free review audit at getrevwise.com/audit
+        </a>{' '}
+        &mdash; we&rsquo;ll show you exactly where you stand and what&rsquo;s possible.
       </p>
+
+      <hr />
+
       <p>
         <em>RevWise helps home service businesses generate more Google reviews on autopilot. No
         chasing customers, no awkward asks &mdash; just a steady stream of five-star reviews from
