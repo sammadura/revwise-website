@@ -81,15 +81,29 @@ const PLACES_API_URL = 'https://places.googleapis.com/v1/places:searchText';
 const SEARCH_FIELD_MASK = 'places.id,places.displayName,places.rating,places.userRatingCount,places.formattedAddress,places.websiteUri,places.currentOpeningHours,places.photos,places.googleMapsUri';
 const DETAIL_FIELD_MASK = 'displayName,rating,userRatingCount,formattedAddress,types,websiteUri,currentOpeningHours,photos,primaryType,primaryTypeDisplayName,location';
 
-async function searchPlaces(textQuery: string, apiKey: string): Promise<PlaceResult[]> {
+async function searchPlaces(
+  textQuery: string,
+  apiKey: string,
+  locationBias?: { latitude: number; longitude: number; radius?: number },
+): Promise<PlaceResult[]> {
+  const body: Record<string, unknown> = { textQuery };
+  if (locationBias) {
+    body.locationBias = {
+      circle: {
+        center: { latitude: locationBias.latitude, longitude: locationBias.longitude },
+        radius: locationBias.radius ?? 8000, // ~5 miles default
+      },
+    };
+  }
+
   const response = await fetch(PLACES_API_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'X-Goog-Api-Key': apiKey,
-      'X-Goog-FieldMask': SEARCH_FIELD_MASK,
+      'X-Goog-FieldMask': `${SEARCH_FIELD_MASK},places.primaryType,places.types,places.location`,
     },
-    body: JSON.stringify({ textQuery }),
+    body: JSON.stringify(body),
   });
 
   if (!response.ok) {
@@ -151,6 +165,16 @@ async function getPlaceDetails(placeId: string, apiKey: string): Promise<PlaceRe
   }
 
   return await response.json();
+}
+
+// Check if a place matches the target business category
+function placeMatchesCategory(place: PlaceResult, targetCategory: string): boolean {
+  const placeCategory = mapPrimaryTypeToCategory(place.primaryType, place.types);
+  // Direct category match
+  if (placeCategory === targetCategory) return true;
+  // Both are "other" — check if types overlap at all with the user's types
+  if (placeCategory === 'other' && targetCategory === 'other') return true;
+  return false;
 }
 
 // Deduplicate places by business name (case-insensitive), keeping the one with the most reviews
@@ -574,18 +598,27 @@ async function fetchRealAuditDataByPlaceId(placeId: string) {
         4828, // 3 miles in meters
       );
     } else if (userBusiness.primaryType) {
-      console.log(`[AUDIT] No Table A type for "${userBusiness.primaryType}", skipping Nearby Search`);
+      console.log(`[AUDIT] No Table A type for "${userBusiness.primaryType}", using Text Search with location bias`);
     }
 
     let filtered = filterSelf(competitorResults);
 
     // Fall back to Text Search if Nearby Search returned fewer than 3 competitors
-    // (or was skipped because the type has no Table A equivalent)
+    // (or was skipped because the type has no Table A equivalent).
+    // Use location bias (lat/lng) for relevance and filter by category match.
     if (filtered.length < 3) {
       console.log(`[AUDIT] Nearby Search returned ${filtered.length} competitors, falling back to Text Search`);
       const searchLabel = userBusiness.primaryTypeDisplayName?.text || label;
-      const textResults = await searchPlaces(`${searchLabel} near ${city}`, apiKey);
-      filtered = filterSelf(textResults);
+      const locationBias = userBusiness.location
+        ? { latitude: userBusiness.location.latitude, longitude: userBusiness.location.longitude, radius: 8000 }
+        : undefined;
+      const textResults = await searchPlaces(`${searchLabel} companies`, apiKey, locationBias);
+      // Filter by category to avoid wrong business types in results
+      const categoryFiltered = textResults.filter(p => placeMatchesCategory(p, category));
+      console.log(`[AUDIT] Text Search returned ${textResults.length} results, ${categoryFiltered.length} match category "${category}"`);
+      // If category filtering is too aggressive (< 3 matches), use all text results
+      const usable = categoryFiltered.length >= 3 ? categoryFiltered : textResults;
+      filtered = [...filtered, ...filterSelf(usable)];
     }
 
     const dedupedCompetitors = deduplicateByName(filtered);
@@ -640,9 +673,12 @@ async function fetchRealAuditData(businessName: string, city: string, category: 
     const businessRating = userBusiness.rating ?? 0;
     const userBusinessName = userBusiness.displayName?.text ?? businessName;
 
-    // Step 2: Find competitors
+    // Step 2: Find competitors using location-biased Text Search
     const label = categoryLabels[category] || 'service';
-    const competitorResults = await searchPlaces(`${label} near ${city}`, apiKey);
+    const locationBias = userBusiness.location
+      ? { latitude: userBusiness.location.latitude, longitude: userBusiness.location.longitude, radius: 8000 }
+      : undefined;
+    const competitorResults = await searchPlaces(`${label} companies`, apiKey, locationBias);
 
     // Filter out the user's business from competitors
     const userNameLower = userBusinessName.toLowerCase();
@@ -652,8 +688,13 @@ async function fetchRealAuditData(businessName: string, city: string, category: 
         const placeName = (place.displayName?.text ?? '').toLowerCase();
         return placeName !== userNameLower && placeName !== inputNameLower
           && !placeName.includes(inputNameLower) && !inputNameLower.includes(placeName);
-      });
-    const filteredCompetitors = deduplicateByName(selfFiltered)
+      })
+      .filter(p => placeMatchesCategory(p, category));
+    const filteredCompetitors = deduplicateByName(selfFiltered.length >= 3 ? selfFiltered : competitorResults.filter((place) => {
+        const placeName = (place.displayName?.text ?? '').toLowerCase();
+        return placeName !== userNameLower && placeName !== inputNameLower
+          && !placeName.includes(inputNameLower) && !inputNameLower.includes(placeName);
+      }))
       .filter((place) => (place.userRatingCount ?? 0) >= 10)
       .sort((a, b) => (b.userRatingCount ?? 0) - (a.userRatingCount ?? 0))
       .slice(0, 5)
