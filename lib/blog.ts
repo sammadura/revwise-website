@@ -19,8 +19,9 @@ import { post as plumbingPost } from '@/content/blog/how-to-get-more-google-revi
 import { post as roofingPost } from '@/content/blog/how-to-get-more-google-reviews-roofing';
 import { post as googleVsYelpPost } from '@/content/blog/google-reviews-vs-yelp-local-business';
 import { post as negativeReviewsPost } from '@/content/blog/how-to-respond-negative-google-reviews';
+import { post as landscapingPost } from '@/content/blog/how-to-get-more-google-reviews-landscaping';
 
-const posts: BlogPost[] = [hvacPost, plumbingPost, roofingPost, googleVsYelpPost, negativeReviewsPost];
+const posts: BlogPost[] = [hvacPost, plumbingPost, roofingPost, googleVsYelpPost, negativeReviewsPost, landscapingPost];
 
 // Sorted newest first
 export function getAllPosts(): BlogPost[] {
