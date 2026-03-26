@@ -720,28 +720,34 @@ export async function POST(request: NextRequest) {
         ?? generateMockAuditData(businessName, city, category);
     }
 
-    // Fire-and-forget Telegram notification for new leads
+    // Send Telegram notification for new leads (must await on Vercel serverless)
     const telegramToken = process.env.TELEGRAM_BOT_TOKEN;
     const telegramChatId = process.env.TELEGRAM_NOTIFY_CHAT_ID;
     if (telegramToken && telegramChatId) {
-      fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: telegramChatId,
-          text: [
-            '\u{1F514} New Audit Lead!',
-            '',
-            `Name: ${firstName}`,
-            `Email: ${email}`,
-            `Business: ${auditData.business.name}`,
-            `City: ${auditData.business.city}`,
-            `Reviews: ${auditData.business.reviewCount}`,
-            `Competitor Avg: ${auditData.competitorAvg}`,
-            `Gap: ${auditData.gap}`,
-          ].join('\n'),
-        }),
-      }).catch(() => { /* don't block response */ });
+      try {
+        await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: telegramChatId,
+            text: [
+              '🔔 New Audit Lead!',
+              '',
+              `Name: ${firstName}`,
+              `Email: ${email}`,
+              `Business: ${auditData.business.name}`,
+              `City: ${auditData.business.city}`,
+              `Reviews: ${auditData.business.reviewCount}`,
+              `Competitor Avg: ${auditData.competitorAvg}`,
+              `Gap: ${auditData.gap}`,
+            ].join('\n'),
+          }),
+        });
+      } catch (e) {
+        console.error('[TELEGRAM] Notification failed:', e);
+      }
+    } else {
+      console.warn('[TELEGRAM] Missing env vars:', { hasToken: !!telegramToken, hasChatId: !!telegramChatId });
     }
 
     return NextResponse.json(auditData);
