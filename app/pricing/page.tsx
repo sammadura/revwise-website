@@ -175,19 +175,22 @@ export default function PricingPage() {
                   </ul>
 
                   <div className="mt-10 space-y-4">
+                    <button
+                      onClick={async () => {
+                        const res = await fetch('/api/checkout', { method: 'POST' });
+                        const data = await res.json();
+                        if (data.url) window.location.href = data.url;
+                      }}
+                      className="w-full text-lg py-5 font-bold shadow-xl shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 bg-blue-600 hover:bg-blue-700 text-white rounded-xl"
+                    >
+                      Start 14-Day Free Trial
+                    </button>
                     <Button
                       href="/audit"
-                      variant="primary"
-                      className="w-full text-lg py-5 font-bold shadow-xl shadow-primary/30 hover:shadow-primary/50 transition-all duration-300"
-                    >
-                      Get Your Free Review Audit
-                    </Button>
-                    <Button
-                      href="/demo-call"
                       variant="secondary"
                       className="w-full text-lg py-5 font-bold"
                     >
-                      Book a Demo Call
+                      Get Your Free Review Audit First
                     </Button>
                   </div>
                 </div>
@@ -350,13 +353,16 @@ export default function PricingPage() {
               >
                 Get Your Free Review Audit
               </Button>
-              <Button
-                href="/demo-call"
-                variant="secondary"
-                className="border-2 border-white/30 text-white hover:bg-white/10 text-lg px-10 py-5 font-bold"
+              <button
+                onClick={async () => {
+                  const res = await fetch('/api/checkout', { method: 'POST' });
+                  const data = await res.json();
+                  if (data.url) window.location.href = data.url;
+                }}
+                className="border-2 border-white/30 text-white hover:bg-white/10 text-lg px-10 py-5 font-bold rounded-xl"
               >
-                Book a Demo Call
-              </Button>
+                Start 14-Day Free Trial
+              </button>
             </div>
           </ScrollReveal>
         </div>
