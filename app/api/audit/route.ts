@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
 // Industry-specific review count ranges based on typical Google Business profiles
 const industryRanges: Record<string, { min: number; max: number; avgRating: number }> = {
@@ -789,6 +790,65 @@ export async function POST(request: NextRequest) {
       }
     } else {
       console.warn('[TELEGRAM] Missing env vars:', { hasToken: !!telegramToken, hasChatId: !!telegramChatId });
+    }
+
+    // Send personalized audit results email (immediate follow-up)
+    const gmailUser = process.env.GMAIL_USER;
+    const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
+    const ccEmail = process.env.AUDIT_CC_EMAIL || 'sammadura@gmail.com';
+
+    if (gmailUser && gmailAppPassword) {
+      try {
+        const transporter = nodemailer.createTransport({
+          host: 'smtp.gmail.com',
+          port: 465,
+          secure: true,
+          auth: { user: gmailUser, pass: gmailAppPassword },
+        });
+
+        const bizName = auditData.business.name;
+        const bizCity = auditData.business.city;
+        const reviews = auditData.business.reviewCount;
+        const rating = auditData.business.rating;
+        const compAvg = auditData.competitorAvg;
+        const gap = auditData.gap;
+        const topComp = auditData.competitors?.[0]?.name || 'your top competitor';
+        const topCompReviews = auditData.competitors?.[0]?.reviewCount || compAvg;
+
+        await transporter.sendMail({
+          from: `"Cal at RevWise" <${gmailUser}>`,
+          to: email,
+          cc: ccEmail,
+          subject: `Your Google Review Audit Results — ${bizName}`,
+          text: [
+            `Hey ${firstName},`,
+            ``,
+            `Thanks for running the audit for ${bizName}. Here are your numbers:`,
+            ``,
+            `Your reviews: ${reviews} (${rating} stars)`,
+            `Competitor average: ${compAvg} reviews`,
+            `Top competitor: ${topComp} (${topCompReviews} reviews)`,
+            `Gap: ${gap > 0 ? gap + ' reviews behind' : 'You\'re ahead!'}`,
+            ``,
+            gap > 0
+              ? `Right now, Google is likely ranking ${topComp} above ${bizName} in the Map Pack — and that means they're getting calls that could be going to you.`
+              : `You're in a strong position. The key now is staying ahead — your competitors are actively collecting reviews too.`,
+            ``,
+            `The good news: closing a review gap is a systems problem, not a service problem. Businesses that automate review requests typically add 50-80 new reviews in 60-90 days.`,
+            ``,
+            `Want to talk about what that would look like for ${bizName}? Just reply to this email — happy to walk through it.`,
+            ``,
+            `You can also revisit your audit anytime: https://getrevwise.com/audit`,
+            ``,
+            `Cal`,
+            `RevWise`,
+            `https://getrevwise.com`,
+          ].join('\n'),
+        });
+        console.log('[EMAIL] Audit results sent to', email);
+      } catch (e) {
+        console.error('[EMAIL] Failed to send audit results:', e);
+      }
     }
 
     return NextResponse.json(auditData);
