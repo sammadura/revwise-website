@@ -341,6 +341,25 @@ function Content() {
         fast.
       </p>
 
+      <h3>Related Reading</h3>
+      <p>
+        More guides for home service businesses looking to grow their Google reviews:
+      </p>
+      <ul>
+        <li>
+          <a href="/blog/how-to-get-more-google-reviews-painting">Review strategies for painting companies</a> &mdash; another visual trade where before/after photos drive results
+        </li>
+        <li>
+          <a href="/blog/how-to-get-more-google-reviews-pest-control">Getting more Google reviews for pest control</a>
+        </li>
+        <li>
+          <a href="/blog/google-reviews-vs-yelp-local-business">Google Reviews vs Yelp: which platform matters more?</a>
+        </li>
+        <li>
+          <a href="/audit">Run a free review audit</a> to benchmark your landscaping business
+        </li>
+      </ul>
+
       <h2>Your Yard Sells Itself &mdash; But Only If People Can Find You</h2>
       <p>
         You already do great work. Your customers already love you. The only missing piece is a

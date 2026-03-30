@@ -129,6 +129,25 @@ function Content() {
         positive reviews.
       </p>
 
+      <h3>Related Reading</h3>
+      <p>
+        More guides for home service businesses looking to grow their reviews:
+      </p>
+      <ul>
+        <li>
+          <a href="/blog/how-to-get-more-google-reviews-roofing">Google review strategies for roofing contractors</a> &mdash; another high-ticket trade with similar dynamics
+        </li>
+        <li>
+          <a href="/blog/how-to-get-more-google-reviews-landscaping">Getting more reviews for landscaping businesses</a> &mdash; visual trades share the before/after advantage
+        </li>
+        <li>
+          <a href="/blog/how-to-respond-negative-google-reviews">How to handle negative Google reviews (with templates)</a>
+        </li>
+        <li>
+          <a href="/audit">Get a free review audit</a> to benchmark your painting business
+        </li>
+      </ul>
+
       <h2>The Long Game</h2>
       <p>
         Painting companies live and die by reputation. The difference between a painter booked

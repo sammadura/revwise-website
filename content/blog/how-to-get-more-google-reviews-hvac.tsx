@@ -278,6 +278,25 @@ function Content() {
         stream. Reviews need a process, just like scheduling or invoicing.
       </p>
 
+      <h3>Related Reading</h3>
+      <p>
+        If you want to go deeper on review strategy for home services, check out these guides:
+      </p>
+      <ul>
+        <li>
+          <a href="/blog/how-to-get-more-google-reviews-plumbing">How to get more Google reviews for plumbing businesses</a> &mdash; similar strategies, tailored to plumbers
+        </li>
+        <li>
+          <a href="/blog/how-to-get-more-google-reviews-roofing">Google review strategies for roofing contractors</a>
+        </li>
+        <li>
+          <a href="/blog/how-to-respond-negative-google-reviews">How to respond to negative Google reviews</a> &mdash; templates you can copy and paste
+        </li>
+        <li>
+          <a href="/audit">Get a free review audit</a> to see where your HVAC business stands right now
+        </li>
+      </ul>
+
       <h2>Start Building Your Review Engine Today</h2>
       <p>
         Getting more Google reviews for your HVAC business isn&rsquo;t complicated. It comes

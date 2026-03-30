@@ -249,6 +249,25 @@ function Content() {
         trusted business.
       </p>
 
+      <h3>Related Reading</h3>
+      <p>
+        Want industry-specific review strategies? These guides break it down by trade:
+      </p>
+      <ul>
+        <li>
+          <a href="/blog/how-to-get-more-google-reviews-hvac">How to get more Google reviews for HVAC businesses</a>
+        </li>
+        <li>
+          <a href="/blog/how-to-get-more-google-reviews-plumbing">Google review guide for plumbing companies</a>
+        </li>
+        <li>
+          <a href="/blog/how-to-get-more-google-reviews-roofing">Getting more reviews as a roofing contractor</a>
+        </li>
+        <li>
+          <a href="/audit">Run a free review audit</a> to see where you stand against local competitors
+        </li>
+      </ul>
+
       <h2>The Bottom Line: Focus Where It Counts</h2>
       <p>
         For local service businesses, the Google vs Yelp debate isn&rsquo;t close. Google is where

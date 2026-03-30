@@ -123,6 +123,25 @@ function Content() {
         optional.
       </p>
 
+      <h3>Related Reading</h3>
+      <p>
+        More Google review guides for home service businesses:
+      </p>
+      <ul>
+        <li>
+          <a href="/blog/how-to-get-more-google-reviews-hvac">Review strategies for HVAC companies</a> &mdash; another emergency service with similar review dynamics
+        </li>
+        <li>
+          <a href="/blog/how-to-get-more-google-reviews-electricians">Getting more Google reviews as an electrician</a>
+        </li>
+        <li>
+          <a href="/blog/google-reviews-vs-yelp-local-business">Google Reviews vs Yelp: which matters more for local businesses?</a>
+        </li>
+        <li>
+          <a href="/audit">Run a free review audit</a> to see where your garage door business stands
+        </li>
+      </ul>
+
       <h2>The Math That Matters</h2>
       <p>
         Every new Google review increases your visibility in local search. More visibility means

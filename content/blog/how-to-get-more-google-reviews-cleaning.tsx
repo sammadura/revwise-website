@@ -107,6 +107,25 @@ function Content() {
         with a direct link.
       </p>
 
+      <h3>Related Reading</h3>
+      <p>
+        More guides for service businesses growing their Google review profiles:
+      </p>
+      <ul>
+        <li>
+          <a href="/blog/how-to-get-more-google-reviews-pest-control">Google review strategies for pest control companies</a> &mdash; another trust-dependent service
+        </li>
+        <li>
+          <a href="/blog/how-to-get-more-google-reviews-landscaping">Getting more Google reviews for landscaping businesses</a>
+        </li>
+        <li>
+          <a href="/blog/how-to-respond-negative-google-reviews">How to respond to negative Google reviews (with templates)</a>
+        </li>
+        <li>
+          <a href="/audit">Get a free review audit</a> to see how your cleaning business stacks up
+        </li>
+      </ul>
+
       <h2>The Bottom Line</h2>
       <p>
         Google reviews are the most cost-effective marketing a cleaning business can do.

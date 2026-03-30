@@ -313,6 +313,25 @@ function Content() {
         &rarr; more jobs &rarr; more reviews. Once the flywheel starts spinning, it accelerates.
       </p>
 
+      <h3>Related Reading</h3>
+      <p>
+        More review strategies for contractors and home service businesses:
+      </p>
+      <ul>
+        <li>
+          <a href="/blog/how-to-get-more-google-reviews-hvac">How HVAC businesses get more Google reviews</a> &mdash; overlapping strategies for a fellow trade
+        </li>
+        <li>
+          <a href="/blog/how-to-get-more-google-reviews-painting">Google reviews for painting companies</a> &mdash; another visual trade with similar review dynamics
+        </li>
+        <li>
+          <a href="/blog/how-to-respond-negative-google-reviews">How to respond to negative reviews (with templates)</a>
+        </li>
+        <li>
+          <a href="/audit">Get a free review audit</a> for your roofing business
+        </li>
+      </ul>
+
       <h2>Stop Leaving Reviews to Chance</h2>
       <p>
         You didn&rsquo;t build your roofing business by hoping jobs would come in. You hustled.

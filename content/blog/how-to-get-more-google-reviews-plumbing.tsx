@@ -316,6 +316,25 @@ function Content() {
         they chose you in 2023.
       </p>
 
+      <h3>Related Reading</h3>
+      <p>
+        Want more review strategies for home service businesses? These guides cover related ground:
+      </p>
+      <ul>
+        <li>
+          <a href="/blog/how-to-get-more-google-reviews-hvac">Google review guide for HVAC businesses</a> &mdash; same principles, adapted for heating and cooling
+        </li>
+        <li>
+          <a href="/blog/how-to-get-more-google-reviews-electricians">Getting more Google reviews as an electrician</a>
+        </li>
+        <li>
+          <a href="/blog/google-reviews-vs-yelp-local-business">Google Reviews vs Yelp: which matters more for local businesses?</a>
+        </li>
+        <li>
+          <a href="/audit">Run a free review audit</a> and see exactly where your plumbing business stands
+        </li>
+      </ul>
+
       <h2>The Bottom Line: Systems Beat Willpower</h2>
       <p>
         You already do great work. Your customers are already happy. The only thing standing between

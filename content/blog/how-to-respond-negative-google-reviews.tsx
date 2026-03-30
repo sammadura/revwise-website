@@ -233,6 +233,25 @@ function Content() {
         stop mattering.
       </p>
 
+      <h3>Related Reading</h3>
+      <p>
+        Looking for strategies to get more positive reviews rolling in? These guides are built for specific trades:
+      </p>
+      <ul>
+        <li>
+          <a href="/blog/how-to-get-more-google-reviews-hvac">How to get more Google reviews for HVAC businesses</a>
+        </li>
+        <li>
+          <a href="/blog/how-to-get-more-google-reviews-plumbing">Google review strategies for plumbing companies</a>
+        </li>
+        <li>
+          <a href="/blog/how-to-get-more-google-reviews-cleaning">Getting more reviews for cleaning businesses</a>
+        </li>
+        <li>
+          <a href="/audit">Get a free review audit</a> and see how your business stacks up
+        </li>
+      </ul>
+
       <h2>Turn Your Reviews Into Your Strongest Sales Tool</h2>
       <p>
         Negative reviews aren&rsquo;t the end of the world. Handled well, they show potential
