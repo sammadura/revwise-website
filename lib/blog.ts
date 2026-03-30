@@ -25,8 +25,9 @@ import { post as electriciansPost } from '@/content/blog/how-to-get-more-google-
 import { post as cleaningPost } from '@/content/blog/how-to-get-more-google-reviews-cleaning';
 import { post as garageDoorsPost } from '@/content/blog/how-to-get-more-google-reviews-garage-doors';
 import { post as paintingPost } from '@/content/blog/how-to-get-more-google-reviews-painting';
+import { post as askForReviewsPost } from '@/content/blog/how-to-ask-customers-for-reviews';
 
-const posts: BlogPost[] = [hvacPost, plumbingPost, roofingPost, googleVsYelpPost, negativeReviewsPost, landscapingPost, pestControlPost, electriciansPost, cleaningPost, garageDoorsPost, paintingPost];
+const posts: BlogPost[] = [hvacPost, plumbingPost, roofingPost, googleVsYelpPost, negativeReviewsPost, landscapingPost, pestControlPost, electriciansPost, cleaningPost, garageDoorsPost, paintingPost, askForReviewsPost];
 
 // Sorted newest first
 export function getAllPosts(): BlogPost[] {
