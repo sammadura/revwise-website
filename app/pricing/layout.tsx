@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Pricing - RevWise | $99/mo Automated Google Review Generation',
-  description: 'One plan, everything included. Automated SMS & email review requests, real-time dashboard, done-for-you setup in 48 hours. No contracts. 14-day free trial.',
+  description: 'One plan, everything included. Automated SMS & email review requests, done-for-you setup in 48 hours. No contracts. 14-day free trial.',
   alternates: {
     canonical: '/pricing',
   },
