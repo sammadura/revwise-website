@@ -148,7 +148,7 @@ export default function HomeContent() {
                 {
                   num: '3',
                   title: 'Reviews Roll In Automatically',
-                  desc: 'Happy customers go to Google. Unhappy ones reach you first, privately.',
+                  desc: 'Every customer gets a one-tap link to your Google review page. Friendly follow-ups catch the ones who miss it.',
                   color: 'from-green-500 to-emerald-600',
                   offset: 'md:mt-6',
                 },
@@ -394,9 +394,9 @@ export default function HomeContent() {
                   {[
                     'Unlimited review requests',
                     'Automated SMS & email campaigns',
-                    'AI-powered review responses',
-                    'Smart review routing',
-                    'Real-time dashboard & analytics',
+                    'Smart timing & friendly follow-ups',
+                    'One-tap Google review links',
+                    'Regular performance reports',
                     'Google Business Profile integration',
                     'Dedicated support',
                   ].map((feature, index) => (
@@ -469,7 +469,7 @@ export default function HomeContent() {
                   <p className="text-gray-600 leading-relaxed mb-4">Personalized text messages that get responses. Your customers are on their phones — meet them there.</p>
                   <div className="flex gap-8">
                     <div>
-                      <p className="text-2xl font-bold text-blue-600">10%</p>
+                      <p className="text-2xl font-bold text-blue-600">8-12%</p>
                       <p className="text-xs text-gray-500 font-medium">Click-through rate</p>
                     </div>
                     <div>
@@ -481,36 +481,36 @@ export default function HomeContent() {
               </div>
             </StaggerItem>
 
-            {/* AI Response Writer - Tall card */}
+            {/* Requests In Your Voice - Tall card */}
             <StaggerItem className="md:row-span-2 group bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-8 shadow-lg border border-amber-200 flex flex-col">
               <div className="w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
                 <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h3 className="font-bold text-xl mb-3 text-gray-900">AI Response Writer</h3>
-              <p className="text-gray-600 leading-relaxed mb-6">Every review gets a thoughtful, personalized response — positive or negative. 24/7 coverage.</p>
+              <h3 className="font-bold text-xl mb-3 text-gray-900">Requests In Your Voice</h3>
+              <p className="text-gray-600 leading-relaxed mb-6">Every message is personalized — your customer&apos;s name, your business, one tap to Google. If they don&apos;t respond, a friendly follow-up goes out a few days later.</p>
               <div className="mt-auto space-y-3">
                 <div className="bg-white/80 rounded-xl p-3 border border-amber-200 shadow-sm">
-                  <p className="text-xs text-amber-600 mb-1 font-medium">5-star response</p>
-                  <p className="text-sm text-gray-600 italic">&quot;Thank you so much, Sarah! We loved working on your arrangements...&quot;</p>
+                  <p className="text-xs text-amber-600 mb-1 font-medium">First request</p>
+                  <p className="text-sm text-gray-600 italic">&quot;Hi Sarah! This is Maria from Bella&apos;s — if you loved your arrangement, would you mind leaving us a review?&quot;</p>
                 </div>
                 <div className="bg-white/80 rounded-xl p-3 border border-amber-200 shadow-sm">
-                  <p className="text-xs text-amber-600 mb-1 font-medium">Recovery response</p>
-                  <p className="text-sm text-gray-600 italic">&quot;We&apos;re sorry to hear that, Mike. We&apos;d love to make this right...&quot;</p>
+                  <p className="text-xs text-amber-600 mb-1 font-medium">Friendly follow-up</p>
+                  <p className="text-sm text-gray-600 italic">&quot;Hi Sarah! Just a quick nudge — it takes about 30 seconds and helps neighbors find us.&quot;</p>
                 </div>
               </div>
             </StaggerItem>
 
-            {/* Smart Routing */}
+            {/* Policy-Safe by Design */}
             <StaggerItem className="group bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
               <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
                 <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="font-bold text-xl mb-3 text-gray-900">Smart Routing</h3>
-              <p className="text-gray-600 leading-relaxed">Happy customers go to Google. Unhappy ones come to you first, privately.</p>
+              <h3 className="font-bold text-xl mb-3 text-gray-900">Policy-Safe by Design</h3>
+              <p className="text-gray-600 leading-relaxed">Every eligible customer gets the same ask. No gating, no filtering — fully compliant with Google&apos;s review policies.</p>
             </StaggerItem>
 
             {/* Perfect Timing */}

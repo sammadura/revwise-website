@@ -12,15 +12,15 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     question: 'How quickly will I start seeing new reviews?',
-    answer: 'Most businesses see their first new reviews within the first week after onboarding. We reach customers via SMS and email (52% email open rate), and about 10% click through to leave a review. Most reviews come in within 24-48 hours of the request.',
+    answer: 'Most businesses see their first new reviews within the first week after onboarding. We reach customers via SMS and email (52% email open rate), and 8-12% click through to leave a review. Most reviews come in within 24-48 hours of the request.',
   },
   {
     question: 'What happens if a customer leaves a negative review?',
-    answer: 'Our smart routing system detects unhappy customers before they reach Google. They\'re directed to a private feedback form instead, giving you a chance to resolve the issue. If a negative review does appear on Google, our AI response writer crafts a professional, empathetic reply within minutes.',
+    answer: 'Every eligible customer gets the same review request — we don\'t filter who gets asked, because review gating violates Google\'s policies and the businesses that get caught lose trust fast. The honest strategy works better anyway: a steady stream of genuine 5-star reviews means the occasional negative one disappears under dozens of positives. When a negative review does appear, respond professionally and take the conversation offline — future customers judge you more by how you handle a complaint than by the complaint itself.',
   },
   {
     question: 'Do I need any technical skills to set up RevWise?',
-    answer: 'None at all. We handle everything during a 45-minute onboarding call — connecting your Google Business Profile, configuring automations, and customizing your messaging. You just show up.',
+    answer: 'None at all. We handle everything during a 45-minute onboarding call — connecting your Google Business Profile, configuring automations, and customizing your messaging. You just show up, and you\'re live within 48 hours.',
   },
   {
     question: 'Can I cancel anytime?',
@@ -28,7 +28,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: 'How is RevWise different from other review tools?',
-    answer: 'RevWise is built specifically for local service businesses — plumbers, HVAC, roofers, florists, and more. We combine automated SMS outreach (not just email), AI-powered review responses, smart routing to protect your rating, and a white-glove setup so you never have to figure it out alone.',
+    answer: 'RevWise is built specifically for local service businesses — plumbers, HVAC, roofers, florists, and more. We combine automated SMS outreach (not just email), smart timing with friendly follow-ups, and a white-glove setup so you never have to figure it out alone. And every request is policy-safe: no gating, no filtering, fully compliant with Google\'s review policies.',
   },
   {
     question: 'Will this work for my industry?',
@@ -36,11 +36,11 @@ const faqs: FAQItem[] = [
   },
   {
     question: 'How much time will RevWise save me?',
-    answer: 'Most business owners spend 15-20 hours per month manually asking for reviews, monitoring listings, and crafting responses. RevWise automates all of it — Bella\'s Flower Shop went from 20+ hours of manual review management to essentially zero, saving over 70 hours in their first few months and roughly $1,400 in labor costs every month.',
+    answer: 'Most business owners spend 15-20 hours per month manually asking for reviews and chasing follow-ups. RevWise automates all of it — Bella\'s Flower Shop went from 20+ hours of manual review management to essentially zero, saving over 70 hours in their first few months and roughly $1,400 in labor costs every month.',
   },
   {
     question: 'Do you have a dashboard to track my reviews?',
-    answer: 'We\'re building a live dashboard that will give you real-time analytics — track new reviews, AI responses, and your Google ranking progress all in one place. It\'s coming soon. In the meantime, you\'ll receive regular email reports and can always reach your dedicated support contact for updates.',
+    answer: 'We\'re building a live dashboard that will give you real-time analytics — track new reviews, response rates, and your Google ranking progress all in one place. It\'s coming soon. In the meantime, you\'ll receive regular email reports and can always reach your dedicated support contact for updates.',
   },
 ];
 
