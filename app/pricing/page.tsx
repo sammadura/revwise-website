@@ -7,7 +7,7 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/ui/Scr
 const features = [
   {
     name: 'Automated Text & Email Review Requests',
-    description: 'After every order, your customer gets a personalized text and email asking for a Google review. One tap, done.',
+    description: 'A personalized text and email after every order. One tap, done.',
     icon: (
       <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
@@ -16,7 +16,7 @@ const features = [
   },
   {
     name: 'Direct Google Review Links',
-    description: 'No friction. Your customers tap one link and go straight to your Google review page. No searching, no confusion.',
+    description: 'One link, straight to your Google review page.',
     icon: (
       <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
@@ -25,7 +25,7 @@ const features = [
   },
   {
     name: 'Tuned Timing & Follow-ups',
-    description: 'The send delay is set to fit your shop during onboarding. If a customer doesn\'t respond, a gentle follow-up goes out a few days later.',
+    description: 'Delay set to fit your shop. No response? A gentle follow-up.',
     icon: (
       <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -34,7 +34,7 @@ const features = [
   },
   {
     name: 'Review Tracking & Reports',
-    description: 'Regular email reports show exactly how many reviews you\'re getting and your response rates. Live dashboard coming soon.',
+    description: 'Email reports on every new review. Live dashboard coming soon.',
     icon: (
       <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -43,7 +43,7 @@ const features = [
   },
   {
     name: 'Weekly Performance Digest',
-    description: 'Every week, you get a summary of new reviews, review velocity, and how your online reputation is trending.',
+    description: 'A weekly summary of new reviews and how you\'re trending.',
     icon: (
       <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -52,7 +52,7 @@ const features = [
   },
   {
     name: 'Done-For-You Setup',
-    description: 'We connect your customer list, write the messages in your shop\'s voice, and get you live within 48 hours. You don\'t touch a thing.',
+    description: 'We set everything up — live within 48 hours. You don\'t touch a thing.',
     icon: (
       <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
@@ -127,8 +127,7 @@ export default function PricingPage() {
               One Plan. Everything Included.
             </h1>
             <p className="text-xl md:text-2xl text-gray-medium max-w-2xl mx-auto">
-              No hidden fees. No complicated tiers. Just more Google reviews for
-              your flower shop.
+              No hidden fees. No tiers. Just more reviews for your flower shop.
             </p>
           </ScrollReveal>
         </div>
@@ -212,7 +211,7 @@ export default function PricingPage() {
               Here&apos;s Exactly What You Get
             </h2>
             <p className="text-xl text-gray-medium max-w-2xl mx-auto">
-              No surprises. No add-ons. Everything below is included in your $99/month.
+              Everything below is included in your $99/month.
             </p>
           </ScrollReveal>
 
@@ -276,7 +275,7 @@ export default function PricingPage() {
               </tbody>
             </table>
             <p className="text-sm text-gray-medium mt-4 text-center">
-              All three send review requests by text and email. Prices are published starting prices.
+              Published starting prices.
             </p>
           </ScrollReveal>
         </div>
@@ -323,8 +322,8 @@ export default function PricingPage() {
               Ready to Get More Reviews?
             </h2>
             <p className="text-xl text-moss/90 max-w-2xl mx-auto mb-10">
-              Fifteen minutes with Sam, the founder. If RevWise isn&apos;t right for
-              your shop, he&apos;ll tell you.
+              Fifteen minutes with Sam. If it&apos;s not right for your shop,
+              he&apos;ll tell you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button
