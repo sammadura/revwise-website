@@ -23,16 +23,16 @@ export default function HomeContent() {
           <Petals />
         </div>
 
-        <div className="container-custom relative pt-20 pb-24 md:pt-28 md:pb-32">
+        <div className="container-custom relative pt-16 pb-14 sm:pt-24 sm:pb-24 md:pt-32 md:pb-36">
           <div className="max-w-3xl">
             <ScrollReveal>
-              <h1 className="heading-xl mb-10">
+              <h1 className="heading-xl mb-10 md:mb-12">
                 You arrange the flowers.
                 <br className="hidden sm:block" />{' '}
                 <em className="italic font-normal text-primary">We ask for the review.</em>
               </h1>
 
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-10">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                 <Button href="/contact" variant="primary" className="text-lg px-8 py-4">
                   Book a call with Sam
                 </Button>
@@ -46,16 +46,14 @@ export default function HomeContent() {
                   </svg>
                 </a>
               </div>
-
-              <div className="w-16 h-[3px] bg-secondary mb-5" />
-              <p className="text-sm text-gray-medium tracking-wide">
-                <span className="font-semibold text-dark">$99/mo</span>
-                <span className="mx-2 text-sage">·</span>
-                everything included
-                <span className="mx-2 text-sage">·</span>
-                14-day free trial
-              </p>
             </ScrollReveal>
+          </div>
+
+          {/* Mobile flower — in flow so it never overlaps the headline */}
+          <div className="sm:hidden mt-10 flex justify-end pr-4 text-sage opacity-80 pointer-events-none" aria-hidden="true">
+            <div className="w-36">
+              <Stem />
+            </div>
           </div>
         </div>
       </section>
