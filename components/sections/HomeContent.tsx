@@ -35,16 +35,10 @@ export default function HomeContent() {
                   Review automation for flower shops
                 </span>
 
-                <h1 className="heading-xl mb-6">
-                  The shop with the{' '}
-                  <em className="italic font-normal text-primary">most reviews</em>{' '}
-                  gets the order.
+                <h1 className="heading-xl mb-8">
+                  You arrange the flowers.{' '}
+                  <em className="italic font-normal text-primary">We ask for the review.</em>
                 </h1>
-
-                <p className="text-xl text-gray-medium leading-relaxed mb-8 max-w-xl">
-                  Automatic review texts after every order. One Bronx flower shop:
-                  431 to 501 Google reviews in 74 days.
-                </p>
 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
                   <Button href="/contact" variant="primary" className="text-lg px-8 py-4">
@@ -92,29 +86,13 @@ export default function HomeContent() {
               <h2 className="text-3xl md:text-5xl font-semibold mt-3 mb-8 tracking-tight leading-[1.1]">
                 Your busiest weeks are exactly when nobody asks for reviews.
               </h2>
-              <div className="space-y-5 text-lg text-gray-medium leading-relaxed">
-                <p>
-                  Valentine&apos;s week. Mother&apos;s Day. A three-wedding
-                  Saturday.{' '}
-                  <strong className="text-dark font-semibold">
-                    RevWise asks every customer — even when the shop is slammed.
-                  </strong>
-                </p>
-                <p>
-                  Every review pushes your shop up Google, where orders come
-                  direct and nobody takes a cut.
-                </p>
-              </div>
-
-              <a
-                href="/audit"
-                className="inline-flex items-center gap-2 mt-8 text-primary font-semibold hover:text-secondary transition-colors"
-              >
-                Compare your shop to florists near you — free audit
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
+              <p className="text-lg text-gray-medium leading-relaxed">
+                Valentine&apos;s week. Mother&apos;s Day. A three-wedding
+                Saturday.{' '}
+                <strong className="text-dark font-semibold">
+                  RevWise asks every customer — even when the shop is slammed.
+                </strong>
+              </p>
             </ScrollReveal>
           </div>
         </div>
@@ -125,12 +103,6 @@ export default function HomeContent() {
         <div className="container-custom">
           <ScrollReveal className="text-center mb-16">
             <span className="accent-text text-lg">How it works</span>
-            <h2 className="text-3xl md:text-5xl font-semibold mt-3 mb-4 tracking-tight">
-              You arrange the flowers. We ask for the review.
-            </h2>
-            <p className="text-xl text-gray-medium max-w-2xl mx-auto">
-              One setup call. Then it runs itself.
-            </p>
           </ScrollReveal>
 
           <StaggerContainer className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
