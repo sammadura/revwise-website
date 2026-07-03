@@ -28,13 +28,6 @@ export default function HomeContent() {
             {/* Copy */}
             <div>
               <ScrollReveal>
-                <span className="inline-flex items-center gap-2 border border-sage/40 bg-moss/50 text-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-8">
-                  <svg className="w-3.5 h-3.5 text-sage" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                    <path d="M10 2c1.8 2.2 1.8 4.8 0 7-1.8-2.2-1.8-4.8 0-7zM4 8c2.8.4 4.6 2.2 5.2 5C6.4 12.6 4.6 10.8 4 8zm12 0c-.6 2.8-2.4 4.6-5.2 5 .6-2.8 2.4-4.6 5.2-5zM9 14h2v4H9v-4z" />
-                  </svg>
-                  Review automation for flower shops
-                </span>
-
                 <h1 className="heading-xl mb-8">
                   You arrange the flowers.{' '}
                   <em className="italic font-normal text-primary">We ask for the review.</em>
