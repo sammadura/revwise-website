@@ -58,10 +58,10 @@ function ScoreGauge({ score }: { score: number }) {
 
   return (
     <div className={`${bgColor} border-2 rounded-2xl p-8 text-center`}>
-      <p className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Review Health Score</p>
+      <p className="text-sm font-semibold text-gray-medium uppercase tracking-wide mb-3">Review Health Score</p>
       <div className="relative inline-flex items-center justify-center">
         <svg className="w-32 h-32 -rotate-90" viewBox="0 0 120 120">
-          <circle cx="60" cy="60" r="50" fill="none" stroke="#e5e7eb" strokeWidth="10" />
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#E8E0D2" strokeWidth="10" />
           <circle
             cx="60" cy="60" r="50" fill="none"
             stroke="currentColor"
@@ -196,13 +196,13 @@ export default function AuditPage() {
   const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-light to-white py-16 print:bg-white print:py-0">
+    <div className="min-h-screen bg-cream py-16 print:bg-white print:py-0">
       <div className="container-custom">
         <div className="max-w-3xl mx-auto">
           {/* Header - shown on form/email/loading steps */}
           {step !== 'results' && (
             <div className="text-center mb-12">
-              <span className="inline-flex items-center gap-2 bg-blue-100 text-primary px-5 py-2 rounded-full text-sm font-semibold mb-6">
+              <span className="inline-flex items-center gap-2 bg-moss/60 text-primary px-5 py-2 rounded-full text-sm font-semibold mb-6">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                 </svg>
@@ -219,7 +219,7 @@ export default function AuditPage() {
 
           {/* Step 1: Business Search */}
           {step === 'form' && (
-            <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-10">
+            <div className="bg-white rounded-2xl shadow-xl border border-gray-border p-8 md:p-10">
               <h2 className="text-2xl font-bold mb-6">Find your business</h2>
               <form onSubmit={handleSubmitBusiness} className="space-y-5">
                 <div ref={dropdownRef} className="relative">
@@ -230,8 +230,8 @@ export default function AuditPage() {
                       value={searchQuery}
                       onChange={(e) => handleSearchChange(e.target.value)}
                       onFocus={() => suggestions.length > 0 && setShowDropdown(true)}
-                      placeholder="e.g. Johnson's HVAC Services Dallas"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all pr-10"
+                      placeholder="e.g. Petal & Stem Flowers Brooklyn"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all pr-10"
                       autoComplete="off"
                     />
                     {isSearching && (
@@ -243,13 +243,13 @@ export default function AuditPage() {
 
                   {/* Autocomplete dropdown */}
                   {showDropdown && suggestions.length > 0 && (
-                    <div className="absolute z-50 w-full mt-1 bg-white rounded-lg border border-gray-200 shadow-lg overflow-hidden">
+                    <div className="absolute z-50 w-full mt-1 bg-white rounded-lg border border-gray-border shadow-lg overflow-hidden">
                       {suggestions.map((suggestion) => (
                         <button
                           key={suggestion.placeId}
                           type="button"
                           onClick={() => handleSelectPlace(suggestion)}
-                          className="w-full px-4 py-3 text-left hover:bg-blue-50 transition-colors border-b border-gray-50 last:border-b-0"
+                          className="w-full px-4 py-3 text-left hover:bg-cream transition-colors border-b border-gray-border/50 last:border-b-0"
                         >
                           <p className="font-medium text-gray-900 text-sm">{suggestion.name}</p>
                           <p className="text-xs text-gray-500 mt-0.5">{suggestion.address}</p>
@@ -285,7 +285,7 @@ export default function AuditPage() {
 
           {/* Step 2: Email Capture */}
           {step === 'email' && (
-            <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-10">
+            <div className="bg-white rounded-2xl shadow-xl border border-gray-border p-8 md:p-10">
               <h2 className="text-2xl font-bold mb-2">Almost there!</h2>
               <p className="text-gray-medium mb-6">Enter your details and we&apos;ll generate your personalized review audit.</p>
               <form onSubmit={handleSubmitEmail} className="space-y-5">
@@ -296,7 +296,7 @@ export default function AuditPage() {
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                     placeholder="Your first name"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                   />
                 </div>
                 <div>
@@ -306,7 +306,7 @@ export default function AuditPage() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@yourbusiness.com"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                   />
                 </div>
                 {error && <p className="text-red-500 text-sm">{error}</p>}
@@ -320,7 +320,7 @@ export default function AuditPage() {
 
           {/* Loading */}
           {step === 'loading' && (
-            <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-12 text-center">
+            <div className="bg-white rounded-2xl shadow-xl border border-gray-border p-12 text-center">
               <div className="animate-spin w-12 h-12 border-4 border-primary border-t-transparent rounded-full mx-auto mb-6" />
               <h2 className="text-2xl font-bold mb-2">Analyzing your reviews...</h2>
               <p className="text-gray-medium">Scanning Google reviews for {selectedPlace?.name ?? 'your business'} and local competitors</p>
@@ -331,16 +331,16 @@ export default function AuditPage() {
           {step === 'results' && result && (
             <div className="space-y-6" id="audit-report">
               {/* Report Header */}
-              <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden print:shadow-none print:border-0">
-                <div className="bg-gradient-to-r from-gray-900 to-slate-800 px-8 py-6 md:px-10 md:py-8 print:bg-gray-900">
+              <div className="bg-white rounded-2xl shadow-xl border border-gray-border overflow-hidden print:shadow-none print:border-0">
+                <div className="bg-footer-green px-8 py-6 md:px-10 md:py-8 print:bg-footer-green">
                   <div className="flex items-center justify-between flex-wrap gap-4">
                     <div>
-                      <p className="text-blue-300 text-sm font-semibold uppercase tracking-wider mb-1">Google Review Audit Report</p>
+                      <p className="text-moss/80 text-sm font-semibold uppercase tracking-wider mb-1">Google Review Audit Report</p>
                       <h1 className="text-2xl md:text-3xl font-bold text-white">{result.business.name}</h1>
-                      <p className="text-gray-400 mt-1">{result.business.city}</p>
+                      <p className="text-moss/70 mt-1">{result.business.city}</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-gray-400 text-sm">Report generated</p>
+                      <p className="text-moss/70 text-sm">Report generated</p>
                       <p className="text-white font-medium">{today}</p>
                     </div>
                   </div>
@@ -351,7 +351,7 @@ export default function AuditPage() {
                   <div className="grid md:grid-cols-2 gap-8 mb-10">
                     <ScoreGauge score={result.reviewHealthScore} />
                     <div className="grid grid-cols-3 gap-4 content-center">
-                      <div className="bg-blue-50 rounded-xl p-5 text-center">
+                      <div className="bg-moss rounded-xl p-5 text-center">
                         <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Your Reviews</p>
                         <p className="text-3xl font-bold text-primary">{result.business.reviewCount}</p>
                         <div className="flex items-center justify-center gap-0.5 mt-2">
@@ -363,9 +363,9 @@ export default function AuditPage() {
                           <span className="text-xs text-gray-500 ml-1">{result.business.rating}</span>
                         </div>
                       </div>
-                      <div className="bg-amber-50 rounded-xl p-5 text-center">
+                      <div className="bg-petal rounded-xl p-5 text-center">
                         <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Competitor Avg</p>
-                        <p className="text-3xl font-bold text-amber-600">{result.competitorAvg}</p>
+                        <p className="text-3xl font-bold text-secondary">{result.competitorAvg}</p>
                         <p className="text-xs text-gray-500 mt-2">reviews</p>
                       </div>
                       <div className={`${result.gap > 0 ? 'bg-red-50' : 'bg-green-50'} rounded-xl p-5 text-center`}>
@@ -386,10 +386,10 @@ export default function AuditPage() {
                       </svg>
                       Competitor Comparison
                     </h2>
-                    <div className="border border-gray-200 rounded-xl overflow-hidden">
+                    <div className="border border-gray-border rounded-xl overflow-hidden">
                       <table className="w-full">
                         <thead>
-                          <tr className="bg-gray-50 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                          <tr className="bg-paper text-left text-xs font-semibold text-gray-medium uppercase tracking-wider">
                             <th className="px-5 py-3">Business</th>
                             <th className="px-5 py-3 text-right">Reviews</th>
                             <th className="px-5 py-3 text-right">Rating</th>
@@ -398,7 +398,7 @@ export default function AuditPage() {
                         </thead>
                         <tbody className="divide-y divide-gray-100">
                           {/* User's business row */}
-                          <tr className="bg-blue-50/50">
+                          <tr className="bg-moss/40">
                             <td className="px-5 py-3.5">
                               <div className="flex items-center gap-2">
                                 <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
@@ -415,7 +415,7 @@ export default function AuditPage() {
                           {result.competitors.slice(0, 3).map((comp, i) => {
                             const diff = comp.reviewCount - result.business.reviewCount;
                             return (
-                              <tr key={i} className="hover:bg-gray-50/50">
+                              <tr key={i} className="hover:bg-cream">
                                 <td className="px-5 py-3.5">
                                   <span className="font-medium text-gray-700">{comp.name}</span>
                                 </td>
@@ -453,7 +453,7 @@ export default function AuditPage() {
 
               {/* Review Velocity */}
               {(result.monthlyVelocity > 0 || result.competitorVelocity > 0) && (
-                <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-10 print:shadow-none print:border-0">
+                <div className="bg-white rounded-2xl shadow-xl border border-gray-border p-8 md:p-10 print:shadow-none print:border-0">
                   <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
                     <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -465,7 +465,7 @@ export default function AuditPage() {
                     Your competitors average <span className="font-bold text-gray-900">~{result.competitorVelocity}/month</span>.
                   </p>
                   {result.competitorVelocity > result.monthlyVelocity && (
-                    <p className="text-amber-600 text-sm font-medium mt-3">
+                    <p className="text-secondary text-sm font-medium mt-3">
                       At this pace, the gap will keep widening.
                     </p>
                   )}
@@ -474,7 +474,7 @@ export default function AuditPage() {
 
               {/* Revenue Impact */}
               {result.estimatedMissedCalls > 0 && result.ratingImpact && (
-                <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-10 print:shadow-none print:border-0">
+                <div className="bg-white rounded-2xl shadow-xl border border-gray-border p-8 md:p-10 print:shadow-none print:border-0">
                   <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
                     <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -495,7 +495,7 @@ export default function AuditPage() {
 
               {/* Quick Wins */}
               {result.quickWins && result.quickWins.length > 0 && (
-                <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-10 print:shadow-none print:border-0">
+                <div className="bg-white rounded-2xl shadow-xl border border-gray-border p-8 md:p-10 print:shadow-none print:border-0">
                   <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
                     <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -516,15 +516,15 @@ export default function AuditPage() {
               )}
 
               {/* CTA */}
-              <div className="bg-gradient-to-br from-gray-900 to-slate-800 rounded-2xl p-8 md:p-10 text-white text-center print:hidden">
+              <div className="bg-footer-green rounded-2xl p-8 md:p-10 text-white text-center print:hidden">
                 <h3 className="text-2xl md:text-3xl font-bold mb-3">Close the Gap — Automatically</h3>
-                <p className="text-gray-300 mb-8 max-w-xl mx-auto">
+                <p className="text-moss/90 mb-8 max-w-xl mx-auto">
                   RevWise sends review requests after every job — no extra work for you or your team. One Bronx flower shop added 70 new Google reviews in 74 days.
                 </p>
-                <Link href="/contact" className="inline-block btn bg-primary text-white hover:bg-blue-600 px-10 py-4 text-lg rounded-xl font-semibold">
+                <Link href="/contact" className="btn-primary inline-block px-10 py-4 text-lg rounded-xl font-semibold">
                   Book a call with Sam
                 </Link>
-                <p className="text-gray-400 text-sm mt-4">No credit card required. 15-minute call.</p>
+                <p className="text-moss/70 text-sm mt-4">No credit card required. 15-minute call.</p>
               </div>
             </div>
           )}

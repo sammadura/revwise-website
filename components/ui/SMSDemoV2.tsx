@@ -88,7 +88,7 @@ export default function SMSDemoV2() {
   return (
     <div className="relative max-w-sm mx-auto">
       {/* Glow effect behind phone */}
-      <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 via-blue-400/20 to-primary/30 rounded-[4rem] blur-2xl opacity-60" />
+      <div className="absolute -inset-4 bg-gradient-to-r from-sage/40 via-petal/60 to-sage/40 rounded-[4rem] blur-2xl opacity-70" />
 
       {/* Phone frame */}
       <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] p-3 shadow-2xl ring-1 ring-white/10">
@@ -118,7 +118,7 @@ export default function SMSDemoV2() {
 
           {/* Chat header */}
           <div className="bg-white px-4 py-3 border-b border-gray-100 flex items-center gap-3 shadow-sm">
-            <div className="w-11 h-11 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center shadow-lg ring-2 ring-white">
+            <div className="w-11 h-11 bg-gradient-to-br from-sage to-primary rounded-full flex items-center justify-center shadow-lg ring-2 ring-white">
               <span className="text-white font-bold text-sm">PS</span>
             </div>
             <div>
@@ -204,8 +204,8 @@ export default function SMSDemoV2() {
       </div>
 
       {/* Decorative elements */}
-      <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-yellow-400/20 rounded-full blur-xl" />
-      <div className="absolute -top-8 -right-8 w-16 h-16 bg-primary/20 rounded-full blur-xl" />
+      <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-petal rounded-full blur-xl" />
+      <div className="absolute -top-8 -right-8 w-16 h-16 bg-moss rounded-full blur-xl" />
     </div>
   );
 }

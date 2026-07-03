@@ -12,7 +12,7 @@
   }
 
   body {
-    @apply font-sans text-dark antialiased;
+    @apply font-sans text-dark antialiased bg-cream;
   }
 
   h1, h2, h3 {
@@ -30,7 +30,7 @@
   }
 
   .btn-primary {
-    @apply btn bg-primary text-white hover:bg-blue-600 focus:ring-primary;
+    @apply btn bg-primary text-white hover:bg-primary-dark focus:ring-primary;
   }
 
   .btn-secondary {
@@ -41,75 +41,19 @@
     @apply py-16 md:py-24;
   }
 
-  /* V2 Design System */
-  .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400;
-    background-size: 200% auto;
-  }
-
-  .glass-card {
-    @apply bg-white/80 backdrop-blur-xl border border-white/20 shadow-xl;
-  }
-
-  .glass-card-dark {
-    @apply bg-white/10 backdrop-blur-xl border border-white/20;
+  /* Botanical design system (florist rebrand) */
+  .accent-text {
+    @apply font-heading italic text-secondary;
   }
 
   .card-hover {
     @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl;
   }
 
-  .gradient-border {
-    @apply relative;
-  }
-
-  .gradient-border::before {
-    content: '';
-    @apply absolute inset-0 rounded-2xl p-[2px];
-    background: linear-gradient(135deg, #349cff, #F59E0B, #349cff);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-  }
-
-  .btn-v2 {
-    @apply relative overflow-hidden transition-all duration-300;
-  }
-
-  .btn-v2::before {
-    content: '';
-    @apply absolute inset-0 bg-white/20 translate-y-full transition-transform duration-300;
-  }
-
-  .btn-v2:hover::before {
-    @apply translate-y-0;
-  }
-
-  .text-shadow {
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-
+  /* Retuned for the Fraunces serif: it renders optically larger and heavier
+     than the old sans, so sizes step down and weight eases to semibold. */
   .heading-xl {
-    @apply text-5xl md:text-6xl lg:text-7xl font-heading font-bold tracking-tight leading-[1.1];
-  }
-}
-
-@layer utilities {
-  .animation-delay-200 {
-    animation-delay: 200ms;
-  }
-  .animation-delay-400 {
-    animation-delay: 400ms;
-  }
-  .animation-delay-600 {
-    animation-delay: 600ms;
-  }
-  .animation-delay-800 {
-    animation-delay: 800ms;
-  }
-  .animation-delay-1000 {
-    animation-delay: 1000ms;
+    @apply text-4xl md:text-5xl lg:text-6xl font-heading font-semibold tracking-tight leading-[1.05];
   }
 }
 
@@ -144,18 +88,18 @@
   }
 
   /* Ensure colored backgrounds print */
-  .bg-blue-50,
+  .bg-moss,
+  .bg-petal,
   .bg-amber-50,
   .bg-red-50,
-  .bg-green-50,
-  .bg-purple-50 {
+  .bg-green-50 {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
-  /* Report header gradient prints as solid */
-  .bg-gradient-to-r.from-gray-900 {
-    background: #1e293b !important;
+  /* Report header prints as solid green */
+  .bg-footer-green {
+    background: #25301F !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }

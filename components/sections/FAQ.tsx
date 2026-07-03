@@ -11,42 +11,46 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
+    question: 'Will this run itself during Valentine\'s and Mother\'s Day week?',
+    answer: 'Yes — that\'s the point. The rushes are exactly when review requests matter most and when you have the least time to send them. RevWise is set up once, then keeps asking after every order, whether it\'s a quiet Tuesday or the Saturday before Mother\'s Day. You never touch it during a rush.',
+  },
+  {
+    question: 'What about wedding and sympathy orders?',
+    answer: 'Every eligible customer gets the same friendly request — that\'s what keeps it compliant with Google\'s policies. But you stay in control of who\'s eligible: if there are customers you\'d rather we never text, sympathy orders for example, we can mark them do-not-contact during setup or any time after.',
+  },
+  {
     question: 'How quickly will I start seeing new reviews?',
-    answer: 'Most businesses see their first new reviews within the first week after onboarding. We reach customers via SMS and email (52% email open rate), and 8-12% click through to leave a review. Most reviews come in within 24-48 hours of the request.',
+    answer: 'Most shops see their first new reviews within the first week after onboarding. We reach customers via text and email (52% email open rate), and 8-12% click through to leave a review. Most reviews come in within 24-48 hours of the request.',
   },
   {
     question: 'What happens if a customer leaves a negative review?',
-    answer: 'Every eligible customer gets the same review request — we don\'t filter who gets asked, because review gating violates Google\'s policies and the businesses that get caught lose trust fast. The honest strategy works better anyway: a steady stream of genuine 5-star reviews means the occasional negative one disappears under dozens of positives. When a negative review does appear, respond professionally and take the conversation offline — future customers judge you more by how you handle a complaint than by the complaint itself.',
+    answer: 'Every eligible customer gets the same review request — we don\'t filter who gets asked, because review gating violates Google\'s policies and the businesses that get caught lose trust fast. The honest strategy works better anyway: a steady stream of genuine reviews means the occasional negative one disappears under dozens of positives. When a negative review does appear, respond professionally and take the conversation offline — future customers judge you more by how you handle a complaint than by the complaint itself.',
   },
   {
     question: 'Do I need any technical skills to set up RevWise?',
-    answer: 'None at all. We handle everything during a 45-minute onboarding call — connecting your Google Business Profile, configuring automations, and customizing your messaging. You just show up, and you\'re live within 48 hours.',
+    answer: 'None at all. We handle everything during a 45-minute onboarding call — connecting your Google Business Profile, configuring automations, and writing the messages in your shop\'s voice. You just show up, and you\'re live within 48 hours.',
+  },
+  {
+    question: 'How is RevWise different from other review tools?',
+    answer: 'It\'s built for flower shops, and it\'s done for you. Texts, not just email — your customers are on their phones. Friendly follow-ups that catch busy people a few days later. A white-glove setup so you never have to figure software out alone. And every request is policy-safe: no gating, no filtering, fully compliant with Google\'s review policies.',
+  },
+  {
+    question: 'How much time will RevWise save me?',
+    answer: 'Manually asking for reviews and chasing follow-ups eats hours every month — and it\'s the first thing that gets dropped when you\'re busy. RevWise automates all of it: the first request, the friendly follow-up, and the timing. Review collection runs itself while you run the shop.',
   },
   {
     question: 'Can I cancel anytime?',
     answer: 'Yes. There are no long-term contracts. You can cancel your subscription at any time with no penalties or hidden fees. We also offer a 14-day free trial so you can see the results before committing.',
   },
   {
-    question: 'How is RevWise different from other review tools?',
-    answer: 'RevWise is built specifically for local service businesses — plumbers, HVAC, roofers, florists, and more. We combine automated SMS outreach (not just email), smart timing with friendly follow-ups, and a white-glove setup so you never have to figure it out alone. And every request is policy-safe: no gating, no filtering, fully compliant with Google\'s review policies.',
-  },
-  {
-    question: 'Will this work for my industry?',
-    answer: 'RevWise works for any local service business that depends on Google reviews. Our clients span home services (plumbing, HVAC, roofing, landscaping), retail (florists, salons, auto shops), and professional services (dentists, lawyers, accountants). If your customers find you on Google, RevWise will help.',
-  },
-  {
-    question: 'How much time will RevWise save me?',
-    answer: 'Manually asking for reviews and chasing follow-ups eats hours every month — and it\'s the first thing that gets dropped when you\'re busy. RevWise automates all of it: the first request, the friendly follow-up, and the timing. Review collection runs itself while you run the business.',
-  },
-  {
     question: 'Do you have a dashboard to track my reviews?',
-    answer: 'We\'re building a live dashboard that will give you real-time analytics — track new reviews, response rates, and your Google ranking progress all in one place. It\'s coming soon. In the meantime, you\'ll receive regular email reports and can always reach your dedicated support contact for updates.',
+    answer: 'We\'re building a live dashboard that will give you real-time analytics — track new reviews, response rates, and your Google ranking progress all in one place. It\'s coming soon. In the meantime, you\'ll receive regular email reports and can always reach Sam directly for updates.',
   },
 ];
 
 function FAQAccordionItem({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boolean; onToggle: () => void }) {
   return (
-    <div className="border-b border-gray-200 last:border-0">
+    <div className="border-b border-gray-border last:border-0">
       <button
         onClick={onToggle}
         className="w-full flex items-center justify-between py-6 text-left group"
@@ -58,7 +62,7 @@ function FAQAccordionItem({ item, isOpen, onToggle }: { item: FAQItem; isOpen: b
         <motion.div
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.2 }}
-          className="flex-shrink-0 w-8 h-8 bg-gray-100 group-hover:bg-primary/10 rounded-full flex items-center justify-center transition-colors"
+          className="flex-shrink-0 w-8 h-8 bg-paper group-hover:bg-moss rounded-full flex items-center justify-center transition-colors"
         >
           <svg className="w-4 h-4 text-gray-600 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v12M6 12h12" />
@@ -88,25 +92,20 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="section bg-white">
+    <section id="faq" className="section bg-cream">
       <div className="container-custom">
         <ScrollReveal className="text-center mb-16">
-          <span className="inline-flex items-center gap-2 bg-blue-50 text-primary px-5 py-2 rounded-full text-sm font-semibold mb-6">
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
-            </svg>
-            Common Questions
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+          <span className="accent-text text-lg">Common questions</span>
+          <h2 className="text-3xl md:text-5xl font-semibold mt-3 mb-4 tracking-tight">
             Frequently Asked Questions
           </h2>
           <p className="text-xl text-gray-medium max-w-2xl mx-auto">
-            Everything you need to know about getting started with RevWise.
+            What flower-shop owners ask before getting started.
           </p>
         </ScrollReveal>
 
         <ScrollReveal className="max-w-3xl mx-auto">
-          <div className="bg-white rounded-2xl border border-gray-200 shadow-lg px-8">
+          <div className="bg-white rounded-2xl border border-gray-border shadow-lg px-8">
             {faqs.map((faq, index) => (
               <FAQAccordionItem
                 key={index}

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+import { Fraunces } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
 import Header from '@/components/layout/Header';
@@ -13,19 +14,20 @@ const satoshi = localFont({
   weight: '300 900',
 });
 
-const clashDisplay = localFont({
-  src: '../public/fonts/ClashDisplay-Variable.woff2',
-  variable: '--font-clash-display',
+// Display serif for headings — self-hosted at build time by next/font.
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-fraunces',
   display: 'swap',
-  weight: '200 700',
+  axes: ['opsz'],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://getrevwise.com'),
-  title: 'Revwise - Get More Google Reviews & Boost Your Online Reputation',
-  description: 'Turn happy customers into raving fans with automated Google review collection. Start getting the reviews you deserve and rank higher on Google.',
-  keywords: 'Google reviews, review management, online reputation, customer reviews, review automation',
-  authors: [{ name: 'Revwise' }],
+  title: 'RevWise — Google Review Automation for Flower Shops | $99/mo',
+  description: 'RevWise texts your customers after every order and turns them into Google reviews. Built for florists. Done-for-you setup, $99/mo, 14-day free trial.',
+  keywords: 'florist Google reviews, flower shop reviews, review automation for florists, florist marketing, Google reviews for flower shops',
+  authors: [{ name: 'RevWise' }],
   alternates: {
     canonical: '/',
   },
@@ -41,25 +43,25 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Revwise - Automated Google Review Management',
-    description: 'Get more Google reviews automatically. Turn happy customers into 5-star reviews.',
+    title: 'RevWise — Google Review Automation for Flower Shops',
+    description: 'RevWise texts your customers after every order and turns them into Google reviews. Built for florists. $99/mo, everything included.',
     type: 'website',
     url: 'https://getrevwise.com',
-    siteName: 'Revwise',
+    siteName: 'RevWise',
     locale: 'en_US',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Revwise - Get More Google Reviews',
+        alt: 'RevWise — Google review automation for flower shops',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Revwise - Get More Google Reviews',
-    description: 'Automated review collection for businesses',
+    title: 'RevWise — Google Review Automation for Flower Shops',
+    description: 'Automatic Google review requests for florists. $99/mo, done for you.',
     images: ['/og-image.png'],
   },
 };
@@ -68,21 +70,24 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'Revwise',
+  name: 'RevWise',
   applicationCategory: 'BusinessApplication',
-  description: 'Automated Google review collection and management platform for businesses',
+  description: 'Automatic Google review requests for flower shops — texts customers after every order and turns them into Google reviews.',
   url: 'https://getrevwise.com',
   operatingSystem: 'Web',
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Florists',
+  },
   offers: {
     '@type': 'Offer',
-    price: '0',
+    price: '99',
     priceCurrency: 'USD',
-    description: '14-day free trial',
+    description: '$99/month, everything included, 14-day free trial',
   },
-
   provider: {
     '@type': 'Organization',
-    name: 'Revwise',
+    name: 'RevWise',
     url: 'https://getrevwise.com',
   },
 };
@@ -103,9 +108,8 @@ export default function RootLayout({
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://www.youtube.com" />
         <link rel="preconnect" href="https://img.youtube.com" />
-        <link rel="dns-prefetch" href="https://images.leadconnectorhq.com" />
       </head>
-      <body className={`${satoshi.variable} ${clashDisplay.variable} font-sans`}>
+      <body className={`${satoshi.variable} ${fraunces.variable} font-sans`}>
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-71HEG90NPH"

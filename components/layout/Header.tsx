@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-/* eslint-disable @next/next/no-img-element */
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from '../ui/Button';
+import Logo from '../ui/Logo';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -21,28 +21,26 @@ export default function Header() {
   const navItems = [
     { label: 'Home', href: '/' },
     { label: 'How It Works', href: '/#how-it-works' },
+    { label: 'Results', href: '/#results' },
     { label: 'Pricing', href: '/pricing' },
-    { label: 'Case Study', href: '/#case-study' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'Free Audit', href: '/audit' },
   ];
 
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/98 backdrop-blur-md shadow-lg shadow-black/5 border-b border-transparent'
-          : 'bg-gray-light/95 backdrop-blur-sm border-b border-gray-border'
+          ? 'bg-cream/95 backdrop-blur-md shadow-lg shadow-dark/5 border-b border-transparent'
+          : 'bg-cream/90 backdrop-blur-sm border-b border-gray-border'
       }`}
     >
       <nav className="container-custom">
         <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? 'h-16' : 'h-20'}`}>
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <img
-              src="/logo.svg"
-              alt="RevWise Logo"
-              className={`w-auto transition-all duration-300 ${scrolled ? 'h-8' : 'h-10'}`}
+          <Link href="/" className="flex items-center" aria-label="RevWise home">
+            <Logo
+              markClassName={`w-auto transition-all duration-300 ${scrolled ? 'h-8' : 'h-10'}`}
+              textClassName={`transition-all duration-300 ${scrolled ? 'text-xl' : 'text-2xl'}`}
             />
           </Link>
 
@@ -60,8 +58,8 @@ export default function Header() {
                 </li>
               ))}
             </ul>
-            <Button href="/audit" variant="primary">
-              Get Your Free Review Audit
+            <Button href="/contact" variant="primary">
+              Book a call with Sam
             </Button>
           </div>
 
@@ -115,8 +113,8 @@ export default function Header() {
                 ))}
               </ul>
               <div className="pb-4 pt-2 border-t border-gray-border">
-                <Button href="/audit" variant="primary" className="w-full justify-center">
-                  Get Your Free Review Audit
+                <Button href="/contact" variant="primary" className="w-full justify-center">
+                  Book a call with Sam
                 </Button>
               </div>
             </motion.div>
