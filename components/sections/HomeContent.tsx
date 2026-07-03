@@ -36,17 +36,14 @@ export default function HomeContent() {
                 </span>
 
                 <h1 className="heading-xl mb-6">
-                  When someone searches{' '}
-                  <em className="italic font-normal text-primary">
-                    &lsquo;florist near me,&rsquo;
-                  </em>{' '}
-                  the shop with the most reviews gets the order.
+                  The shop with the{' '}
+                  <em className="italic font-normal text-primary">most reviews</em>{' '}
+                  gets the order.
                 </h1>
 
                 <p className="text-xl text-gray-medium leading-relaxed mb-8 max-w-xl">
-                  RevWise texts your customers after every order and turns them
-                  into Google reviews — automatically. One Bronx flower shop went
-                  from 431 Google reviews to 501 in 74 days.
+                  Automatic review texts after every order. One Bronx flower shop:
+                  431 to 501 Google reviews in 74 days.
                 </p>
 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
@@ -98,19 +95,14 @@ export default function HomeContent() {
               <div className="space-y-5 text-lg text-gray-medium leading-relaxed">
                 <p>
                   Valentine&apos;s week. Mother&apos;s Day. A three-wedding
-                  Saturday. The orders that would earn your best reviews are the
-                  ones you never follow up on — because you&apos;re elbow-deep in
-                  roses at 11pm. <strong className="text-dark font-semibold">RevWise asks every
-                  customer, every time, even when the shop is slammed.</strong>
+                  Saturday.{' '}
+                  <strong className="text-dark font-semibold">
+                    RevWise asks every customer — even when the shop is slammed.
+                  </strong>
                 </p>
                 <p>
-                  And every review pushes your own Google profile up the page —
-                  where orders come to you direct, and nobody takes a cut.
-                </p>
-                <p className="border-l-2 border-secondary pl-5 text-dark font-heading italic text-xl">
-                  Ten years ago your best customers walked past the shop. Now they
-                  search &lsquo;florist near me&rsquo; from a couch in another
-                  borough.
+                  Every review pushes your shop up Google, where orders come
+                  direct and nobody takes a cut.
                 </p>
               </div>
 
@@ -118,7 +110,7 @@ export default function HomeContent() {
                 href="/audit"
                 className="inline-flex items-center gap-2 mt-8 text-primary font-semibold hover:text-secondary transition-colors"
               >
-                See how your shop compares to florists near you — free review audit
+                Compare your shop to florists near you — free audit
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -137,7 +129,7 @@ export default function HomeContent() {
               You arrange the flowers. We ask for the review.
             </h2>
             <p className="text-xl text-gray-medium max-w-2xl mx-auto">
-              One setup call, then it runs itself — all year, every rush.
+              One setup call. Then it runs itself.
             </p>
           </ScrollReveal>
 
@@ -146,17 +138,17 @@ export default function HomeContent() {
               {
                 step: '1',
                 title: 'One 45-minute setup call',
-                body: 'We connect your customer list, set up your Google review link, and write the messages in your shop’s voice. You’re live within 48 hours.',
+                body: 'We connect your customer list and write your messages. Live within 48 hours.',
               },
               {
                 step: '2',
                 title: 'Every customer gets a friendly text',
-                body: 'After every order, a warm text goes out with a one-tap link to your Google review page — plus email, where 52% get opened.',
+                body: 'A one-tap link to your Google review page. Email too (52% open rate).',
               },
               {
                 step: '3',
                 title: 'Reviews roll in, even during the rush',
-                body: 'Gentle follow-ups catch busy customers a few days later. Every eligible customer gets the same polite ask — policy-safe by design.',
+                body: 'Friendly follow-ups catch busy customers. Same polite ask to everyone — policy-safe.',
               },
             ].map((item) => (
               <StaggerItem
@@ -186,14 +178,11 @@ export default function HomeContent() {
               <h2 className="font-heading font-semibold text-4xl md:text-6xl text-dark mb-6 tracking-tight">
                 70 new Google reviews in 74 days.
               </h2>
-              <p className="text-xl text-gray-medium leading-relaxed mb-4">
-                That&apos;s one Bronx flower shop&apos;s count — 431 to 501 — in
-                its first two and a half months on RevWise.
-              </p>
-              <p className="text-lg text-gray-medium">
-                Your numbers depend on your order volume.{' '}
+              <p className="text-xl text-gray-medium leading-relaxed">
+                One Bronx flower shop, 431 to 501. Your numbers depend on your
+                volume —{' '}
                 <a href="/contact" className="text-primary font-semibold hover:text-secondary transition-colors">
-                  That&apos;s part of what the call is for.
+                  that&apos;s what the call is for.
                 </a>
               </p>
             </ScrollReveal>
@@ -223,7 +212,7 @@ export default function HomeContent() {
                 <div className="flex-1">
                   <h3 className="font-semibold text-xl mb-2 text-dark">Texts that actually get read</h3>
                   <p className="text-gray-medium leading-relaxed mb-4">
-                    Your customers live on their phones. The ask lands there — short, warm, one tap to Google.
+                    Short, warm, one tap to Google — right on their phone.
                   </p>
                   <div className="flex gap-8">
                     <div>
@@ -248,9 +237,8 @@ export default function HomeContent() {
               </div>
               <h3 className="font-semibold text-xl mb-3 text-dark">In your shop&apos;s voice</h3>
               <p className="text-gray-medium leading-relaxed mb-6">
-                Every message is personalized — your customer&apos;s name, your shop&apos;s
-                name, one tap to Google. If they don&apos;t respond, a friendly follow-up
-                goes out a few days later.
+                Your customer&apos;s name, your shop&apos;s voice. No response? A friendly
+                follow-up goes out a few days later.
               </p>
               <div className="mt-auto space-y-3">
                 <div className="bg-white rounded-xl p-3 border border-gray-border shadow-sm">
@@ -279,8 +267,7 @@ export default function HomeContent() {
               </div>
               <h3 className="font-semibold text-xl mb-3 text-dark">Policy-safe by design</h3>
               <p className="text-gray-medium leading-relaxed">
-                Every eligible customer gets the same request. No gating, no filtering —
-                fully compliant with Google&apos;s review policies.
+                Every eligible customer gets the same request. No gating, no filtering.
               </p>
             </StaggerItem>
 
@@ -293,8 +280,7 @@ export default function HomeContent() {
               </div>
               <h3 className="font-semibold text-xl mb-3 text-dark">Timed to land right</h3>
               <p className="text-gray-medium leading-relaxed">
-                The send delay is tuned to your shop during setup — soon enough that
-                the delight is fresh, late enough that the flowers have arrived.
+                Tuned at setup, so the ask lands while the delight is fresh.
               </p>
             </StaggerItem>
 
@@ -312,8 +298,7 @@ export default function HomeContent() {
                 <div>
                   <h3 className="font-semibold text-xl mb-2">White-glove onboarding</h3>
                   <p className="text-moss/90 leading-relaxed">
-                    One 45-minute call and we handle everything — setup, connection, message
-                    writing. No software to learn, nothing to maintain. Live within 48 hours.
+                    One 45-minute call. We handle everything — live within 48 hours.
                   </p>
                 </div>
               </div>
@@ -342,10 +327,10 @@ export default function HomeContent() {
               <div className="bg-white rounded-2xl border border-gray-border shadow-lg p-8">
                 <ul className="space-y-4 mb-8">
                   {[
-                    'Automatic review requests after every order — text and email',
-                    'Messages written in your shop’s voice',
-                    'Friendly follow-ups that catch busy customers',
-                    'White-glove setup: one 45-minute call, live in 48 hours',
+                    'Texts + emails after every order',
+                    'Messages in your shop’s voice',
+                    'Friendly follow-ups',
+                    'Done-for-you setup — live in 48 hours',
                     'No contract. Cancel anytime. 14-day free trial.',
                   ].map((feature) => (
                     <li key={feature} className="flex items-start gap-3 text-gray-medium">
@@ -363,12 +348,6 @@ export default function HomeContent() {
                   <a href="/pricing" className="text-sm text-gray-medium underline underline-offset-4 hover:text-primary transition-colors">
                     See full pricing
                   </a>
-                </p>
-              </div>
-
-              <div className="mt-6 bg-moss/60 border border-sage/30 rounded-2xl p-5 text-center">
-                <p className="text-primary font-semibold">
-                  70 new Google reviews in 74 days — one Bronx flower shop&apos;s real count.
                 </p>
               </div>
             </ScrollReveal>
@@ -394,9 +373,7 @@ export default function HomeContent() {
             <em className="italic font-normal text-petal">no pitch deck.</em>
           </h2>
           <p className="text-xl md:text-2xl mb-10 text-moss/90 max-w-2xl mx-auto leading-relaxed">
-            Fifteen minutes with Sam, the founder. If RevWise isn&apos;t right for
-            your shop, he&apos;ll tell you. If it is, one 45-minute setup call gets
-            you live within 48 hours.
+            If RevWise isn&apos;t right for your shop, he&apos;ll tell you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <Button
