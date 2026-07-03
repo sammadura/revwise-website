@@ -21,7 +21,7 @@ export default function Header() {
   const navItems = [
     { label: 'Home', href: '/' },
     { label: 'How It Works', href: '/#how-it-works' },
-    { label: 'Results', href: '/#case-study' },
+    { label: 'Results', href: '/#results' },
     { label: 'Pricing', href: '/pricing' },
     { label: 'Free Audit', href: '/audit' },
   ];

@@ -2,411 +2,319 @@
 
 import Button from '@/components/ui/Button';
 import SMSDemoV2 from '@/components/ui/SMSDemoV2';
-import YouTubeEmbed from '@/components/ui/YouTubeEmbed';
+import FAQ from '@/components/sections/FAQ';
+import { Stem, Sprig, Petals } from '@/components/ui/BotanicalAccents';
 import {
   ScrollReveal,
   StaggerContainer,
   StaggerItem,
-  ParallaxSection,
 } from '@/components/ui/ScrollAnimations';
-import FAQ from '@/components/sections/FAQ';
 
 export default function HomeContent() {
   return (
     <>
-      {/* Hero Section - V2 Design */}
-      <section className="relative bg-gradient-to-br from-primary via-blue-600 to-indigo-700 text-white overflow-hidden min-h-[90vh] flex items-center">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-yellow-400/20 rounded-full blur-3xl animate-float-slow" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-amber-400/10 rounded-full blur-3xl animate-float-delayed" />
-          {/* Grid pattern overlay */}
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBtLTEgMGExIDEgMCAxIDAgMiAwIDEgMSAwIDEgMCAtMiAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiLz48L2c+PC9zdmc+')] opacity-30" />
+      {/* S1 — Hero */}
+      <section className="relative overflow-hidden bg-cream">
+        {/* Botanical accents */}
+        <div className="absolute top-8 right-[4%] w-24 md:w-32 text-sage opacity-60 pointer-events-none hidden sm:block">
+          <Stem />
+        </div>
+        <div className="absolute bottom-4 left-[2%] w-40 text-petal opacity-70 pointer-events-none hidden lg:block">
+          <Petals />
         </div>
 
-        <div className="container-custom relative z-10 py-20 md:py-28">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left - Copy */}
-            <div className="text-center lg:text-left">
-              {/* Category tagline */}
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-full mb-8">
-                <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                <span className="text-sm font-medium tracking-wide">Local Reputation & Google Maps Growth for Service Businesses</span>
-              </div>
+        <div className="container-custom relative pt-16 pb-20 md:pt-24 md:pb-28">
+          <div className="grid lg:grid-cols-2 gap-14 lg:gap-10 items-center">
+            {/* Copy */}
+            <div>
+              <ScrollReveal>
+                <span className="inline-flex items-center gap-2 border border-sage/40 bg-moss/50 text-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-8">
+                  <svg className="w-3.5 h-3.5 text-sage" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M10 2c1.8 2.2 1.8 4.8 0 7-1.8-2.2-1.8-4.8 0-7zM4 8c2.8.4 4.6 2.2 5.2 5C6.4 12.6 4.6 10.8 4 8zm12 0c-.6 2.8-2.4 4.6-5.2 5 .6-2.8 2.4-4.6 5.2-5zM9 14h2v4H9v-4z" />
+                  </svg>
+                  Review automation for flower shops
+                </span>
 
-              {/* Main headline */}
-              <h1 className="heading-xl mb-8">
-                Your Competitors Have More Reviews.{' '}
-                <span className="gradient-text">That&apos;s Why They&apos;re Getting Your Calls.</span>
-              </h1>
+                <h1 className="heading-xl mb-6">
+                  When someone searches{' '}
+                  <em className="italic font-normal text-primary">
+                    &lsquo;florist near me,&rsquo;
+                  </em>{' '}
+                  the shop with the most reviews gets the order.
+                </h1>
 
-              <p className="text-lg md:text-xl text-white/80 mb-10 max-w-xl leading-relaxed">
-                RevWise automatically texts your customers after every job and turns them into 5-star Google reviews. No software to learn — we handle everything.
-              </p>
+                <p className="text-xl text-gray-medium leading-relaxed mb-8 max-w-xl">
+                  RevWise texts your customers after every order and turns them
+                  into Google reviews — automatically. One Bronx flower shop went
+                  from 431 Google reviews to 501 in 74 days.
+                </p>
 
-              {/* Pricing callout */}
-              <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 px-5 py-2.5 rounded-full mb-8">
-                <span className="text-white font-bold text-lg">$99/mo</span>
-                <span className="text-white/70">·</span>
-                <span className="text-white/80 text-sm">Everything included · 14-day free trial</span>
-              </div>
-
-              {/* CTA buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button
-                  href="/audit"
-                  variant="secondary"
-                  className="bg-white text-primary hover:bg-gray-50 text-lg px-8 py-4 font-bold shadow-2xl shadow-black/20 hover:shadow-white/20 transition-all duration-300"
-                >
-                  Get Your Free Review Audit
-                </Button>
-                <a
-                  href="#how-it-works"
-                  className="group inline-flex items-center justify-center gap-2 text-white border-2 border-white/30 px-8 py-4 rounded-lg font-semibold hover:bg-white/10 hover:border-white/50 transition-all duration-300"
-                >
-                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
+                  <Button href="/contact" variant="primary" className="text-lg px-8 py-4">
+                    Book a call with Sam
+                  </Button>
+                  <a
+                    href="#how-it-works"
+                    className="inline-flex items-center justify-center gap-2 text-primary font-semibold text-lg hover:text-secondary transition-colors px-2 py-4"
+                  >
+                    See how it works
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                     </svg>
-                  </div>
-                  See How It Works
-                </a>
-              </div>
+                  </a>
+                </div>
+
+                <p className="text-sm text-gray-medium tracking-wide">
+                  <span className="font-semibold text-dark">$99/mo</span>
+                  <span className="mx-2 text-sage">·</span>
+                  everything included
+                  <span className="mx-2 text-sage">·</span>
+                  14-day free trial
+                </p>
+              </ScrollReveal>
             </div>
 
-            {/* Right - Interactive SMS Demo */}
-            <div className="relative">
+            {/* Phone demo */}
+            <ScrollReveal delay={0.15} className="relative">
               <SMSDemoV2 />
-            </div>
-          </div>
-        </div>
-
-        {/* Wave divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-            <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
-          </svg>
-        </div>
-      </section>
-
-      {/* How It Works - V2 */}
-      <section id="how-it-works" className="section bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-        <div className="container-custom">
-          <ScrollReveal className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-5 py-2 rounded-full text-sm font-semibold mb-6">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              White-Glove Setup
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-              How RevWise Works
-            </h2>
-            <p className="text-xl text-gray-medium max-w-2xl mx-auto">
-              We handle everything. You just show up to a quick onboarding call.
-            </p>
-          </ScrollReveal>
-
-          {/* Video - Enhanced */}
-          <ScrollReveal className="max-w-4xl mx-auto mb-20 relative">
-            {/* Ambient glow */}
-            <div className="absolute -inset-8 bg-gradient-to-br from-primary/20 via-amber-300/15 to-blue-400/15 rounded-[3rem] blur-3xl" />
-
-            <div className="relative bg-gradient-to-br from-gray-900 to-slate-800 p-2 md:p-3 rounded-2xl md:rounded-3xl shadow-2xl shadow-black/20">
-              <div className="aspect-video bg-gradient-to-br from-primary to-blue-700 rounded-xl md:rounded-2xl overflow-hidden relative">
-                <YouTubeEmbed
-                  videoId="ChWjVA0TIBk"
-                  title="How RevWise Works — Get More 5-Star Google Reviews on Autopilot"
-                  thumbnailOnly
-                />
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* Steps - Upgraded with connecting line */}
-          <div className="relative max-w-5xl mx-auto">
-            {/* Connecting line */}
-            <div className="hidden md:block absolute top-24 left-[16.5%] right-[16.5%] h-0.5 bg-gradient-to-r from-primary via-amber-500 to-green-500" />
-
-            <StaggerContainer className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  num: '1',
-                  title: 'We Connect to Your Customers',
-                  desc: 'Link your CRM or customer list. Takes 5 minutes on our onboarding call.',
-                  color: 'from-primary to-blue-600',
-                  offset: '',
-                },
-                {
-                  num: '2',
-                  title: 'Customers Get a Friendly Text',
-                  desc: 'After every job, a personalized review request goes out via SMS and email.',
-                  color: 'from-amber-500 to-yellow-600',
-                  offset: 'md:mt-12',
-                },
-                {
-                  num: '3',
-                  title: 'Reviews Roll In Automatically',
-                  desc: 'Every customer gets a one-tap link to your Google review page. Friendly follow-ups catch the ones who miss it.',
-                  color: 'from-green-500 to-emerald-600',
-                  offset: 'md:mt-6',
-                },
-              ].map((step) => (
-                <StaggerItem key={step.num} className={`relative group ${step.offset}`}>
-                  <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 h-full hover:border-primary/30 transition-colors duration-300 relative overflow-hidden">
-                    <div className={`relative z-10 w-16 h-16 bg-gradient-to-br ${step.color} text-white rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 shadow-lg`}>
-                      {step.num}
-                    </div>
-                    <h3 className="relative z-10 text-xl font-bold mb-3 text-gray-900">{step.title}</h3>
-                    <p className="relative z-10 text-gray-600 leading-relaxed">{step.desc}</p>
-                  </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          </div>
-
-          {/* CTA */}
-          <div className="text-center mt-16">
-            <Button
-              href="/audit"
-              variant="primary"
-              className="text-lg px-10 py-5 shadow-xl shadow-primary/30 hover:shadow-primary/50 transition-all duration-300"
-            >
-              Get Your Free Review Audit
-            </Button>
-            <p className="text-gray-500 mt-4">We take care of the rest.</p>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* Results Section - factual band (full florist rebuild replaces this in the redesign) */}
-      <ParallaxSection className="section bg-gradient-to-b from-amber-50/40 to-white relative overflow-hidden" id="case-study">
-        {/* Background decoration */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/15 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-300/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3" />
+      {/* S2 — The florist pain */}
+      <section className="section bg-paper relative overflow-hidden">
+        <div className="absolute -top-6 right-[6%] w-36 text-sage opacity-30 pointer-events-none rotate-180 hidden md:block">
+          <Sprig />
+        </div>
 
         <div className="container-custom relative">
+          <div className="max-w-3xl">
+            <ScrollReveal>
+              <span className="accent-text text-lg">The rush problem</span>
+              <h2 className="text-3xl md:text-5xl font-semibold mt-3 mb-8 tracking-tight leading-[1.1]">
+                Your busiest weeks are exactly when nobody asks for reviews.
+              </h2>
+              <div className="space-y-5 text-lg text-gray-medium leading-relaxed">
+                <p>
+                  Valentine&apos;s week. Mother&apos;s Day. A three-wedding
+                  Saturday. The orders that would earn your best reviews are the
+                  ones you never follow up on — because you&apos;re elbow-deep in
+                  roses at 11pm. <strong className="text-dark font-semibold">RevWise asks every
+                  customer, every time, even when the shop is slammed.</strong>
+                </p>
+                <p>
+                  And every review pushes your own Google profile up the page —
+                  where orders come to you direct, and nobody takes a cut.
+                </p>
+                <p className="border-l-2 border-secondary pl-5 text-dark font-heading italic text-xl">
+                  Ten years ago your best customers walked past the shop. Now they
+                  search &lsquo;florist near me&rsquo; from a couch in another
+                  borough.
+                </p>
+              </div>
+
+              <a
+                href="/audit"
+                className="inline-flex items-center gap-2 mt-8 text-primary font-semibold hover:text-secondary transition-colors"
+              >
+                See how your shop compares to florists near you — free review audit
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* S3 — How it works */}
+      <section id="how-it-works" className="section bg-cream relative overflow-hidden">
+        <div className="container-custom">
           <ScrollReveal className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-5 py-2 rounded-full text-sm font-semibold mb-6">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              Real Results
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-              70 New Google Reviews in <span className="text-primary">74 Days</span>
+            <span className="accent-text text-lg">How it works</span>
+            <h2 className="text-3xl md:text-5xl font-semibold mt-3 mb-4 tracking-tight">
+              You arrange the flowers. We ask for the review.
             </h2>
             <p className="text-xl text-gray-medium max-w-2xl mx-auto">
-              One Bronx flower shop went from 431 Google reviews to 501 in its first two
-              and a half months on RevWise. Your numbers depend on your order volume.
+              One setup call, then it runs itself — all year, every rush.
             </p>
           </ScrollReveal>
 
-          {/* Stats with animated appearance */}
-          <StaggerContainer className="flex flex-wrap justify-center gap-6 md:gap-4">
+          <StaggerContainer className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
-              { value: '70', label: 'New Reviews', color: 'from-primary to-blue-600' },
-              { value: '74', label: 'Days', color: 'from-green-500 to-emerald-500' },
-              { value: '431 → 501', label: 'Total Google Reviews', color: 'from-yellow-500 to-orange-500' },
-            ].map((stat) => (
+              {
+                step: '1',
+                title: 'One 45-minute setup call',
+                body: 'We connect your customer list, set up your Google review link, and write the messages in your shop’s voice. You’re live within 48 hours.',
+              },
+              {
+                step: '2',
+                title: 'Every customer gets a friendly text',
+                body: 'After every order, a warm text goes out with a one-tap link to your Google review page — plus email, where 52% get opened.',
+              },
+              {
+                step: '3',
+                title: 'Reviews roll in, even during the rush',
+                body: 'Gentle follow-ups catch busy customers a few days later. Every eligible customer gets the same polite ask — policy-safe by design.',
+              },
+            ].map((item) => (
               <StaggerItem
-                key={stat.label}
-                className="glass-card rounded-2xl p-6 md:p-8 text-center min-w-[140px]"
+                key={item.step}
+                className="bg-white rounded-2xl border border-gray-border p-8 shadow-sm card-hover"
               >
-                <p className={`text-3xl md:text-4xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}>
-                  {stat.value}
-                </p>
-                <p className="text-sm text-gray-500 mt-1 font-medium">{stat.label}</p>
+                <div className="w-12 h-12 rounded-full bg-moss text-primary font-heading font-semibold text-xl flex items-center justify-center mb-6">
+                  {item.step}
+                </div>
+                <h3 className="font-semibold text-xl mb-3 text-dark">{item.title}</h3>
+                <p className="text-gray-medium leading-relaxed">{item.body}</p>
               </StaggerItem>
             ))}
           </StaggerContainer>
         </div>
-      </ParallaxSection>
+      </section>
 
-      {/* Pricing Section - V2 */}
-      <section id="pricing" className="section bg-white relative overflow-hidden">
-        {/* Background elements */}
-        <div className="absolute top-1/2 left-0 w-96 h-96 bg-yellow-400/20 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2" />
-        <div className="absolute top-1/2 right-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+      {/* S4 — Proof strip (unnamed, factual) */}
+      <section id="results" className="section bg-petal/60 relative overflow-hidden">
+        <div className="absolute -bottom-10 left-[4%] w-32 text-secondary opacity-15 pointer-events-none hidden md:block">
+          <Stem />
+        </div>
 
         <div className="container-custom relative">
-          <ScrollReveal className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 bg-yellow-100 text-yellow-700 px-5 py-2 rounded-full text-sm font-semibold mb-6">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              Simple Pricing
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-              One Plan. Everything Included.
-            </h2>
-            <p className="text-xl text-gray-medium max-w-2xl mx-auto">
-              No hidden fees. No complicated tiers. Just results.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.1} className="max-w-lg mx-auto relative">
-            {/* Glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary via-amber-500 to-primary rounded-[2.5rem] blur-2xl opacity-30" />
-
-            <div className="relative bg-white rounded-[2rem] shadow-2xl border border-gray-200 overflow-hidden">
-              {/* Price header */}
-              <div className="bg-gradient-to-r from-primary via-blue-600 to-blue-700 text-white p-10 text-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBtLTEgMGExIDEgMCAxIDAgMiAwIDEgMSAwIDEgMCAtMiAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiLz48L2c+PC9zdmc+')] opacity-30" />
-                <p className="relative text-sm font-medium uppercase tracking-widest mb-2 text-white/80">Everything You Need</p>
-                <div className="relative flex items-baseline justify-center gap-1">
-                  <span className="text-6xl md:text-7xl font-bold">$99</span>
-                  <span className="text-2xl text-white/80">/month</span>
-                </div>
-                <p className="relative mt-4 text-white/70">14-day free trial. Cancel anytime.</p>
-              </div>
-
-              {/* Features list */}
-              <div className="p-10">
-                <ul className="space-y-5">
-                  {[
-                    'Unlimited review requests',
-                    'Automated SMS & email campaigns',
-                    'Smart timing & friendly follow-ups',
-                    'One-tap Google review links',
-                    'Regular performance reports',
-                    'Google Business Profile integration',
-                    'Dedicated support',
-                  ].map((feature, index) => (
-                    <li key={index} className="flex items-center gap-4">
-                      <div className="w-7 h-7 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                        <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                      <span className="text-gray-700 font-medium">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-10">
-                  <Button
-                    href="/audit"
-                    variant="primary"
-                    className="w-full text-lg py-5 font-bold shadow-xl shadow-primary/30 hover:shadow-primary/50 transition-all duration-300"
-                  >
-                    Get Your Free Review Audit
-                  </Button>
-                  <p className="text-center text-sm text-gray-500 mt-4">
-                    No credit card required
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Proof callout */}
-            <div className="mt-8 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-2xl p-6 text-center">
-              <p className="text-green-800 font-semibold text-lg">
-                <span className="text-green-600">70 new Google reviews in 74 days</span> — one Bronx flower shop&apos;s real count on RevWise.
+          <div className="max-w-3xl mx-auto text-center">
+            <ScrollReveal>
+              <h2 className="font-heading font-semibold text-4xl md:text-6xl text-dark mb-6 tracking-tight">
+                70 new Google reviews in 74 days.
+              </h2>
+              <p className="text-xl text-gray-medium leading-relaxed mb-4">
+                That&apos;s one Bronx flower shop&apos;s count — 431 to 501 — in
+                its first two and a half months on RevWise.
               </p>
-            </div>
-          </ScrollReveal>
+              <p className="text-lg text-gray-medium">
+                Your numbers depend on your order volume.{' '}
+                <a href="/contact" className="text-primary font-semibold hover:text-secondary transition-colors">
+                  That&apos;s part of what the call is for.
+                </a>
+              </p>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
-      {/* Features Grid - V2 Bento Style */}
-      <section className="section bg-gradient-to-b from-gray-50 to-blue-50/30 relative overflow-hidden">
-        {/* Subtle color wash */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-200/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" />
-
-        <div className="container-custom relative">
+      {/* S5 — Features bento */}
+      <section className="section bg-cream relative overflow-hidden">
+        <div className="container-custom">
           <ScrollReveal className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-              Everything You Need to <span className="text-primary">Dominate</span> Local Search
+            <span className="accent-text text-lg">What you get</span>
+            <h2 className="text-3xl md:text-5xl font-semibold mt-3 mb-4 tracking-tight">
+              Built to run while you&apos;re building arrangements
             </h2>
-            <p className="text-xl text-gray-medium max-w-2xl mx-auto">
-              Powerful features designed to boost your online reputation automatically
-            </p>
           </ScrollReveal>
 
-          {/* Bento Grid */}
           <StaggerContainer className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {/* SMS Review Requests - Featured wide card */}
-            <StaggerItem className="md:col-span-2 group bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 shadow-lg border border-blue-100">
+            {/* Texts that get read — wide */}
+            <StaggerItem className="md:col-span-2 bg-white rounded-2xl border border-gray-border p-8 shadow-sm">
               <div className="flex flex-col sm:flex-row items-start gap-6">
-                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
-                  <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <div className="w-14 h-14 bg-moss rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <svg className="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-bold text-xl mb-2 text-gray-900">SMS Review Requests</h3>
-                  <p className="text-gray-600 leading-relaxed mb-4">Personalized text messages that get responses. Your customers are on their phones — meet them there.</p>
+                  <h3 className="font-semibold text-xl mb-2 text-dark">Texts that actually get read</h3>
+                  <p className="text-gray-medium leading-relaxed mb-4">
+                    Your customers live on their phones. The ask lands there — short, warm, one tap to Google.
+                  </p>
                   <div className="flex gap-8">
                     <div>
-                      <p className="text-2xl font-bold text-blue-600">8-12%</p>
-                      <p className="text-xs text-gray-500 font-medium">Click-through rate</p>
+                      <p className="text-2xl font-heading font-semibold text-primary">8-12%</p>
+                      <p className="text-xs text-gray-medium font-medium">Click-through rate</p>
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-cyan-600">52%</p>
-                      <p className="text-xs text-gray-500 font-medium">Email open rate</p>
+                      <p className="text-2xl font-heading font-semibold text-secondary">52%</p>
+                      <p className="text-xs text-gray-medium font-medium">Email open rate</p>
                     </div>
                   </div>
                 </div>
               </div>
             </StaggerItem>
 
-            {/* Requests In Your Voice - Tall card */}
-            <StaggerItem className="md:row-span-2 group bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-8 shadow-lg border border-amber-200 flex flex-col">
-              <div className="w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            {/* In your shop's voice — tall */}
+            <StaggerItem className="md:row-span-2 bg-paper rounded-2xl border border-gray-border p-8 shadow-sm flex flex-col">
+              <div className="w-14 h-14 bg-white rounded-2xl border border-gray-border flex items-center justify-center mb-6">
+                <svg className="w-7 h-7 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
                 </svg>
               </div>
-              <h3 className="font-bold text-xl mb-3 text-gray-900">Requests In Your Voice</h3>
-              <p className="text-gray-600 leading-relaxed mb-6">Every message is personalized — your customer&apos;s name, your business, one tap to Google. If they don&apos;t respond, a friendly follow-up goes out a few days later.</p>
+              <h3 className="font-semibold text-xl mb-3 text-dark">In your shop&apos;s voice</h3>
+              <p className="text-gray-medium leading-relaxed mb-6">
+                Every message is personalized — your customer&apos;s name, your shop&apos;s
+                name, one tap to Google. If they don&apos;t respond, a friendly follow-up
+                goes out a few days later.
+              </p>
               <div className="mt-auto space-y-3">
-                <div className="bg-white/80 rounded-xl p-3 border border-amber-200 shadow-sm">
-                  <p className="text-xs text-amber-600 mb-1 font-medium">First request</p>
-                  <p className="text-sm text-gray-600 italic">&quot;Hi Sarah! This is Maria from Petal &amp; Stem — if you loved your arrangement, would you mind leaving us a review?&quot;</p>
+                <div className="bg-white rounded-xl p-3 border border-gray-border shadow-sm">
+                  <p className="text-xs text-secondary mb-1 font-medium">First request</p>
+                  <p className="text-sm text-gray-medium italic">
+                    &quot;Hi Sarah! This is Maria from Petal &amp; Stem — if you loved your
+                    arrangement, would you mind leaving us a review?&quot;
+                  </p>
                 </div>
-                <div className="bg-white/80 rounded-xl p-3 border border-amber-200 shadow-sm">
-                  <p className="text-xs text-amber-600 mb-1 font-medium">Friendly follow-up</p>
-                  <p className="text-sm text-gray-600 italic">&quot;Hi Sarah! Just a quick nudge — it takes about 30 seconds and helps neighbors find us.&quot;</p>
+                <div className="bg-white rounded-xl p-3 border border-gray-border shadow-sm">
+                  <p className="text-xs text-secondary mb-1 font-medium">Friendly follow-up</p>
+                  <p className="text-sm text-gray-medium italic">
+                    &quot;Hi Sarah! Just a quick nudge — it takes about 30 seconds and helps
+                    neighbors find us.&quot;
+                  </p>
                 </div>
               </div>
             </StaggerItem>
 
-            {/* Policy-Safe by Design */}
-            <StaggerItem className="group bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            {/* Policy-safe */}
+            <StaggerItem className="bg-white rounded-2xl border border-gray-border p-8 shadow-sm">
+              <div className="w-14 h-14 bg-moss rounded-2xl flex items-center justify-center mb-5">
+                <svg className="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="font-bold text-xl mb-3 text-gray-900">Policy-Safe by Design</h3>
-              <p className="text-gray-600 leading-relaxed">Every eligible customer gets the same ask. No gating, no filtering — fully compliant with Google&apos;s review policies.</p>
+              <h3 className="font-semibold text-xl mb-3 text-dark">Policy-safe by design</h3>
+              <p className="text-gray-medium leading-relaxed">
+                Every eligible customer gets the same request. No gating, no filtering —
+                fully compliant with Google&apos;s review policies.
+              </p>
             </StaggerItem>
 
-            {/* Perfect Timing */}
-            <StaggerItem className="group bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              <div className="w-14 h-14 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            {/* Timing */}
+            <StaggerItem className="bg-white rounded-2xl border border-gray-border p-8 shadow-sm">
+              <div className="w-14 h-14 bg-petal rounded-2xl flex items-center justify-center mb-5">
+                <svg className="w-7 h-7 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="font-bold text-xl mb-3 text-gray-900">Perfect Timing</h3>
-              <p className="text-gray-600 leading-relaxed">Send requests at the optimal moment when customers are happiest with your service.</p>
+              <h3 className="font-semibold text-xl mb-3 text-dark">Timed to land right</h3>
+              <p className="text-gray-medium leading-relaxed">
+                The send delay is tuned to your shop during setup — soon enough that
+                the delight is fresh, late enough that the flowers have arrived.
+              </p>
             </StaggerItem>
 
-            {/* White-Glove Onboarding - wide card to fill the row */}
-            <StaggerItem className="md:col-span-2 group bg-gradient-to-br from-blue-50 to-sky-50 rounded-2xl p-8 shadow-lg border border-blue-100">
-              <div className="flex flex-col sm:flex-row items-start gap-6">
-                <div className="w-14 h-14 bg-gradient-to-br from-sky-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
-                  <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            {/* White-glove — wide */}
+            <StaggerItem className="md:col-span-2 bg-footer-green rounded-2xl p-8 shadow-sm text-white relative overflow-hidden">
+              <div className="absolute -right-4 -bottom-8 w-28 text-moss opacity-20 pointer-events-none">
+                <Stem />
+              </div>
+              <div className="relative flex flex-col sm:flex-row items-start gap-6">
+                <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <svg className="w-7 h-7 text-moss" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                   </svg>
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-bold text-xl mb-2 text-gray-900">White-Glove Onboarding</h3>
-                  <p className="text-gray-600 leading-relaxed">One 45-minute call and we handle everything — connecting your Google Business Profile, configuring automations, and customizing your messaging. No technical skills needed.</p>
+                <div>
+                  <h3 className="font-semibold text-xl mb-2">White-glove onboarding</h3>
+                  <p className="text-moss/90 leading-relaxed">
+                    One 45-minute call and we handle everything — setup, connection, message
+                    writing. No software to learn, nothing to maintain. Live within 48 hours.
+                  </p>
                 </div>
               </div>
             </StaggerItem>
@@ -414,39 +322,99 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* Testimonials section removed — Lea's video testimonial already appears in the case study section above */}
+      {/* S6 — Pricing teaser */}
+      <section id="pricing" className="section bg-paper relative overflow-hidden">
+        <div className="absolute top-6 left-[5%] w-28 text-sage opacity-25 pointer-events-none hidden md:block">
+          <Sprig />
+        </div>
 
-      {/* FAQ Section */}
+        <div className="container-custom relative">
+          <div className="max-w-xl mx-auto">
+            <ScrollReveal className="text-center mb-10">
+              <span className="accent-text text-lg">Pricing</span>
+              <h2 className="text-3xl md:text-5xl font-semibold mt-3 mb-4 tracking-tight">
+                One plan. $99 a month. Everything included.
+              </h2>
+              <p className="text-xl text-gray-medium">One arrangement a month covers it.</p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.1}>
+              <div className="bg-white rounded-2xl border border-gray-border shadow-lg p-8">
+                <ul className="space-y-4 mb-8">
+                  {[
+                    'Automatic review requests after every order — text and email',
+                    'Messages written in your shop’s voice',
+                    'Friendly follow-ups that catch busy customers',
+                    'White-glove setup: one 45-minute call, live in 48 hours',
+                    'No contract. Cancel anytime. 14-day free trial.',
+                  ].map((feature) => (
+                    <li key={feature} className="flex items-start gap-3 text-gray-medium">
+                      <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Button href="/contact" variant="primary" className="w-full text-lg py-4 font-bold">
+                  Book a call with Sam
+                </Button>
+                <p className="text-center mt-4">
+                  <a href="/pricing" className="text-sm text-gray-medium underline underline-offset-4 hover:text-primary transition-colors">
+                    See full pricing
+                  </a>
+                </p>
+              </div>
+
+              <div className="mt-6 bg-moss/60 border border-sage/30 rounded-2xl p-5 text-center">
+                <p className="text-primary font-semibold">
+                  70 new Google reviews in 74 days — one Bronx flower shop&apos;s real count.
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* S7 — FAQ */}
       <FAQ />
 
-      {/* Final CTA - V2 */}
-      <section className="section bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 text-white relative overflow-hidden">
-        {/* Animated background */}
-        <div className="absolute inset-0">
-          <div className="absolute top-10 right-10 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-10 left-10 w-[500px] h-[500px] bg-amber-500/15 rounded-full blur-3xl animate-float-slow" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzAgMzBtLTEgMGExIDEgMCAxIDAgMiAwIDEgMSAwIDEgMCAtMiAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIi8+PC9nPjwvc3ZnPg==')] opacity-50" />
+      {/* S8 — Final CTA */}
+      <section className="section bg-footer-green text-white relative overflow-hidden">
+        <div className="absolute -top-10 right-[8%] w-40 text-moss opacity-15 pointer-events-none rotate-12">
+          <Stem />
+        </div>
+        <div className="absolute bottom-0 left-[3%] w-44 text-moss opacity-10 pointer-events-none">
+          <Petals />
         </div>
 
         <ScrollReveal className="container-custom text-center relative z-10">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
-            Ready to Be <span className="gradient-text">#1</span> in Your Area?
+          <h2 className="font-heading font-semibold text-4xl md:text-6xl mb-6 tracking-tight">
+            Talk to Sam. Fifteen minutes,{' '}
+            <em className="italic font-normal text-petal">no pitch deck.</em>
           </h2>
-          <p className="text-xl md:text-2xl mb-10 text-white/80 max-w-2xl mx-auto">
-            RevWise turns your happy customers into the Google reviews that get you chosen first.
+          <p className="text-xl md:text-2xl mb-10 text-moss/90 max-w-2xl mx-auto leading-relaxed">
+            Fifteen minutes with Sam, the founder. If RevWise isn&apos;t right for
+            your shop, he&apos;ll tell you. If it is, one 45-minute setup call gets
+            you live within 48 hours.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <Button
-              href="/audit"
-              variant="secondary"
-              className="bg-white text-primary hover:bg-gray-50 text-lg px-10 py-5 font-bold shadow-2xl shadow-black/20 hover:shadow-white/20 transition-all duration-300"
+              href="/contact"
+              variant="primary"
+              className="bg-secondary hover:bg-secondary-dark text-lg px-10 py-5 font-bold"
             >
-              Get Your Free Review Audit
+              Book a call with Sam
             </Button>
+            <a
+              href="mailto:sam@getrevwise.com?subject=Book%20a%20call%20about%20my%20flower%20shop"
+              className="text-moss/90 hover:text-white transition-colors font-medium underline underline-offset-4"
+            >
+              or email sam@getrevwise.com
+            </a>
           </div>
-          <p className="text-white/60 text-sm">
-            14-day free trial. No credit card required. Cancel anytime.
+          <p className="text-moss/70 text-sm">
+            14-day free trial · No contract · Cancel anytime
           </p>
         </ScrollReveal>
       </section>
