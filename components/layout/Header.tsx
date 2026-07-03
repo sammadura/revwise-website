@@ -21,18 +21,17 @@ export default function Header() {
   const navItems = [
     { label: 'Home', href: '/' },
     { label: 'How It Works', href: '/#how-it-works' },
+    { label: 'Results', href: '/#case-study' },
     { label: 'Pricing', href: '/pricing' },
-    { label: 'Case Study', href: '/#case-study' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'Free Audit', href: '/audit' },
   ];
 
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/98 backdrop-blur-md shadow-lg shadow-black/5 border-b border-transparent'
-          : 'bg-gray-light/95 backdrop-blur-sm border-b border-gray-border'
+          ? 'bg-cream/95 backdrop-blur-md shadow-lg shadow-dark/5 border-b border-transparent'
+          : 'bg-cream/90 backdrop-blur-sm border-b border-gray-border'
       }`}
     >
       <nav className="container-custom">
@@ -60,8 +59,8 @@ export default function Header() {
                 </li>
               ))}
             </ul>
-            <Button href="/audit" variant="primary">
-              Get Your Free Review Audit
+            <Button href="/contact" variant="primary">
+              Book a call with Sam
             </Button>
           </div>
 
@@ -115,8 +114,8 @@ export default function Header() {
                 ))}
               </ul>
               <div className="pb-4 pt-2 border-t border-gray-border">
-                <Button href="/audit" variant="primary" className="w-full justify-center">
-                  Get Your Free Review Audit
+                <Button href="/contact" variant="primary" className="w-full justify-center">
+                  Book a call with Sam
                 </Button>
               </div>
             </motion.div>
