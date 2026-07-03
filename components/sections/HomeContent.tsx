@@ -200,36 +200,6 @@ export default function HomeContent() {
               </div>
             </StaggerItem>
 
-            {/* In your shop's voice — tall */}
-            <StaggerItem className="md:row-span-2 bg-paper rounded-2xl border border-gray-border p-8 shadow-sm flex flex-col">
-              <div className="w-14 h-14 bg-white rounded-2xl border border-gray-border flex items-center justify-center mb-6">
-                <svg className="w-7 h-7 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-xl mb-3 text-dark">In your shop&apos;s voice</h3>
-              <p className="text-gray-medium leading-relaxed mb-6">
-                Your customer&apos;s name, your shop&apos;s voice. No response? A friendly
-                follow-up goes out a few days later.
-              </p>
-              <div className="mt-auto space-y-3">
-                <div className="bg-white rounded-xl p-3 border border-gray-border shadow-sm">
-                  <p className="text-xs text-secondary mb-1 font-medium">First request</p>
-                  <p className="text-sm text-gray-medium italic">
-                    &quot;Hi Sarah! This is Maria from Petal &amp; Stem — if you loved your
-                    arrangement, would you mind leaving us a review?&quot;
-                  </p>
-                </div>
-                <div className="bg-white rounded-xl p-3 border border-gray-border shadow-sm">
-                  <p className="text-xs text-secondary mb-1 font-medium">Friendly follow-up</p>
-                  <p className="text-sm text-gray-medium italic">
-                    &quot;Hi Sarah! Just a quick nudge — it takes about 30 seconds and helps
-                    neighbors find us.&quot;
-                  </p>
-                </div>
-              </div>
-            </StaggerItem>
-
             {/* Policy-safe */}
             <StaggerItem className="bg-white rounded-2xl border border-gray-border p-8 shadow-sm">
               <div className="w-14 h-14 bg-moss rounded-2xl flex items-center justify-center mb-5">
