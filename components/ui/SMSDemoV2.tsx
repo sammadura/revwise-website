@@ -14,7 +14,7 @@ const messages: Message[] = [
   {
     id: 1,
     type: 'business',
-    text: "Hi Sarah! It's Bella's Flower Shop 💐",
+    text: "Hi Sarah! It's Petal & Stem 💐",
     delay: 0,
   },
   {
@@ -26,7 +26,7 @@ const messages: Message[] = [
   {
     id: 3,
     type: 'business',
-    text: 'g.page/bellas-flowers/review',
+    text: 'g.page/petal-and-stem/review',
     delay: 2200,
     isLink: true,
   },
@@ -119,10 +119,10 @@ export default function SMSDemoV2() {
           {/* Chat header */}
           <div className="bg-white px-4 py-3 border-b border-gray-100 flex items-center gap-3 shadow-sm">
             <div className="w-11 h-11 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center shadow-lg ring-2 ring-white">
-              <span className="text-white font-bold text-sm">BF</span>
+              <span className="text-white font-bold text-sm">PS</span>
             </div>
             <div>
-              <p className="font-semibold text-sm text-gray-900">Bella&apos;s Flowers</p>
+              <p className="font-semibold text-sm text-gray-900">Petal &amp; Stem</p>
               <p className="text-xs text-green-500 font-medium flex items-center gap-1">
                 <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
                 Active now
@@ -140,7 +140,7 @@ export default function SMSDemoV2() {
                 }`}
               >
                 <div className="bg-white rounded-2xl rounded-tl-md px-4 py-3 shadow-sm max-w-[85%] border border-gray-100">
-                  <p className="text-sm leading-relaxed text-gray-800">Hi Sarah! It&apos;s Bella&apos;s Flower Shop 💐</p>
+                  <p className="text-sm leading-relaxed text-gray-800">Hi Sarah! It&apos;s Petal &amp; Stem 💐</p>
                 </div>
               </div>
 

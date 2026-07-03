@@ -1,6 +1,7 @@
 # Replace booking integration (GoHighLevel retirement)
 
-**Status:** stub — flesh out before implementing.
+**Status:** superseded by `2026-07-03-florist-rebrand.md` — GHL removal shipped in its PR 1
+(native contact form + `/demo-call` redirects).
 **Created:** 2026-06-08
 
 ## Why
