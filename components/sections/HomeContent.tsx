@@ -13,47 +13,73 @@ import {
 export default function HomeContent() {
   return (
     <>
-      {/* S1 — Hero */}
+      {/* S1 — Hero (matches the og card: copy left, tall stem right) */}
       <section className="relative overflow-hidden bg-cream">
         {/* Botanical accents */}
-        <div className="absolute top-8 right-[4%] w-24 md:w-32 text-sage opacity-60 pointer-events-none hidden sm:block">
+        <div className="absolute top-1/2 -translate-y-1/2 right-[5%] lg:right-[8%] w-44 md:w-60 lg:w-72 text-sage opacity-80 pointer-events-none hidden sm:block">
           <Stem />
         </div>
-        <div className="absolute bottom-4 left-[2%] w-40 text-petal opacity-70 pointer-events-none hidden lg:block">
+        <div className="absolute bottom-6 left-[40%] w-44 text-petal opacity-80 pointer-events-none hidden lg:block">
           <Petals />
         </div>
 
-        <div className="container-custom relative pt-16 pb-20 md:pt-24 md:pb-28">
+        <div className="container-custom relative pt-20 pb-24 md:pt-28 md:pb-32">
+          <div className="max-w-3xl">
+            <ScrollReveal>
+              <h1 className="heading-xl mb-10">
+                You arrange the flowers.
+                <br className="hidden sm:block" />{' '}
+                <em className="italic font-normal text-primary">We ask for the review.</em>
+              </h1>
+
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-10">
+                <Button href="/contact" variant="primary" className="text-lg px-8 py-4">
+                  Book a call with Sam
+                </Button>
+                <a
+                  href="#how-it-works"
+                  className="inline-flex items-center justify-center gap-2 text-primary font-semibold text-lg hover:text-secondary transition-colors px-2 py-4"
+                >
+                  See how it works
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                  </svg>
+                </a>
+              </div>
+
+              <div className="w-16 h-[3px] bg-secondary mb-5" />
+              <p className="text-sm text-gray-medium tracking-wide">
+                <span className="font-semibold text-dark">$99/mo</span>
+                <span className="mx-2 text-sage">·</span>
+                everything included
+                <span className="mx-2 text-sage">·</span>
+                14-day free trial
+              </p>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* S2 — The florist pain (+ the live demo, moved down from the hero) */}
+      <section className="section bg-paper relative overflow-hidden">
+        <div className="absolute -top-6 right-[6%] w-36 text-sage opacity-30 pointer-events-none rotate-180 hidden md:block">
+          <Sprig />
+        </div>
+
+        <div className="container-custom relative">
           <div className="grid lg:grid-cols-2 gap-14 lg:gap-10 items-center">
-            {/* Copy */}
             <div>
               <ScrollReveal>
-                <h1 className="heading-xl mb-8">
-                  You arrange the flowers.{' '}
-                  <em className="italic font-normal text-primary">We ask for the review.</em>
-                </h1>
-
-                <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
-                  <Button href="/contact" variant="primary" className="text-lg px-8 py-4">
-                    Book a call with Sam
-                  </Button>
-                  <a
-                    href="#how-it-works"
-                    className="inline-flex items-center justify-center gap-2 text-primary font-semibold text-lg hover:text-secondary transition-colors px-2 py-4"
-                  >
-                    See how it works
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                    </svg>
-                  </a>
-                </div>
-
-                <p className="text-sm text-gray-medium tracking-wide">
-                  <span className="font-semibold text-dark">$99/mo</span>
-                  <span className="mx-2 text-sage">·</span>
-                  everything included
-                  <span className="mx-2 text-sage">·</span>
-                  14-day free trial
+                <span className="accent-text text-lg">The rush problem</span>
+                <h2 className="text-3xl md:text-5xl font-semibold mt-3 mb-8 tracking-tight leading-[1.1]">
+                  Your busiest weeks are exactly when nobody asks for reviews.
+                </h2>
+                <p className="text-lg text-gray-medium leading-relaxed">
+                  Valentine&apos;s week. Mother&apos;s Day. A three-wedding
+                  Saturday.{' '}
+                  <strong className="text-dark font-semibold">
+                    RevWise asks every customer — even when the shop is slammed.
+                  </strong>
                 </p>
               </ScrollReveal>
             </div>
@@ -61,31 +87,6 @@ export default function HomeContent() {
             {/* Phone demo */}
             <ScrollReveal delay={0.15} className="relative">
               <SMSDemoV2 />
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* S2 — The florist pain */}
-      <section className="section bg-paper relative overflow-hidden">
-        <div className="absolute -top-6 right-[6%] w-36 text-sage opacity-30 pointer-events-none rotate-180 hidden md:block">
-          <Sprig />
-        </div>
-
-        <div className="container-custom relative">
-          <div className="max-w-3xl">
-            <ScrollReveal>
-              <span className="accent-text text-lg">The rush problem</span>
-              <h2 className="text-3xl md:text-5xl font-semibold mt-3 mb-8 tracking-tight leading-[1.1]">
-                Your busiest weeks are exactly when nobody asks for reviews.
-              </h2>
-              <p className="text-lg text-gray-medium leading-relaxed">
-                Valentine&apos;s week. Mother&apos;s Day. A three-wedding
-                Saturday.{' '}
-                <strong className="text-dark font-semibold">
-                  RevWise asks every customer — even when the shop is slammed.
-                </strong>
-              </p>
             </ScrollReveal>
           </div>
         </div>
