@@ -26,18 +26,18 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#how-it-works" className="text-gray-300 hover:text-primary transition-colors text-sm">
+                <Link href="/#how-it-works" className="text-gray-300 hover:text-primary transition-colors text-sm">
                   How It Works
                 </Link>
               </li>
               <li>
-                <Link href="#pricing" className="text-gray-300 hover:text-primary transition-colors text-sm">
+                <Link href="/pricing" className="text-gray-300 hover:text-primary transition-colors text-sm">
                   Pricing
                 </Link>
               </li>
               <li>
-                <Link href="#case-study" className="text-gray-300 hover:text-primary transition-colors text-sm">
-                  Case Study
+                <Link href="/#case-study" className="text-gray-300 hover:text-primary transition-colors text-sm">
+                  Results
                 </Link>
               </li>
               <li>
@@ -57,13 +57,13 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-4">Get Started</h3>
             <p className="text-gray-300 text-sm mb-4">
-              Ready to boost your online reputation?
+              Ready to get more Google reviews?
             </p>
             <Link
-              href="/demo-call"
+              href="/contact"
               className="inline-block bg-primary hover:bg-blue-600 text-white px-6 py-2 rounded-lg text-sm font-semibold transition-colors"
             >
-              Get Your Free Review Audit
+              Book a call with Sam
             </Link>
           </div>
         </div>

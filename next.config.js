@@ -3,7 +3,10 @@ const nextConfig = {
   async redirects() {
     return [
       // Old GHL landing page routes → new equivalents
-      { source: '/demo', destination: '/demo-call', permanent: true },
+      { source: '/demo', destination: '/contact', permanent: true },
+      // /demo-call retired 2026-07 (GHL booking widget removed) → book-a-call form
+      { source: '/demo-call', destination: '/contact', permanent: true },
+      { source: '/demo-call/thank-you', destination: '/contact/thank-you', permanent: true },
       { source: '/home-9738-792467', destination: '/', permanent: true },
       { source: '/privacy-policy-293718', destination: '/privacy-policy', permanent: true },
       { source: '/terms-and-conditions-293718', destination: '/terms-and-conditions', permanent: true },

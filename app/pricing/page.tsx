@@ -71,7 +71,7 @@ const faqs = [
   },
   {
     q: 'How long until I start seeing results?',
-    a: 'Most businesses see their first new reviews within the first week. Over 30 days, our average customer gets 15-25 new Google reviews. One of our clients, Bella\'s Flower Shop, got 70 new 5-star reviews in 74 days.',
+    a: 'Most businesses see their first new reviews within the first week. One flower shop we worked with in the Bronx added 70 new Google reviews in 74 days.',
   },
   {
     q: 'Is there a contract or commitment?',
@@ -197,13 +197,10 @@ export default function PricingPage() {
               </div>
             </div>
 
-            {/* ROI callout */}
+            {/* Proof callout */}
             <div className="mt-8 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-2xl p-6 text-center">
               <p className="text-green-800 font-semibold text-lg">
-                <span className="text-green-600">Bella&apos;s Flower Shop saved $1,400/month</span> in labor costs alone.
-              </p>
-              <p className="text-green-700 mt-1">
-                70 new 5-star reviews in 74 days. RevWise pays for itself 14x over.
+                <span className="text-green-600">70 new Google reviews in 74 days</span> — one Bronx flower shop&apos;s real count on RevWise.
               </p>
             </div>
           </ScrollReveal>

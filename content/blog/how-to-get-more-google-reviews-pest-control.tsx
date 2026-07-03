@@ -107,9 +107,8 @@ function Content() {
       <p>The goal isn&rsquo;t hitting a specific number. It&rsquo;s <strong>consistent monthly growth</strong>. A pest control company getting 10-15 new reviews every month will outrank a competitor who got 60 reviews in 2023 and stopped.</p>
       <p>Recency matters. Google wants to see that people are choosing you now, not just that they chose you two years ago.</p>
       <h2>Real Example: How Automation Drives Results</h2>
-      <p>We worked with a florist in the Bronx (Bella&rsquo;s Flower Shop) who had 15 reviews when she started. She set up an automated text system that went out after every delivery.</p>
-      <p><strong>The results:</strong> 70 new Google reviews in 74 days.</p>
-      <p>Her ranking went from page 2 to the Local Pack. Her phone started ringing more. Her revenue went up 40% in three months.</p>
+      <p>We worked with a florist in the Bronx who set up an automated text system that went out after every delivery.</p>
+      <p><strong>The results:</strong> 70 new Google reviews in 74 days &mdash; from 431 reviews to 501.</p>
       <p>She didn&rsquo;t change her product. She didn&rsquo;t run ads. She just built a system that captured what was already there, happy customers, and turned it into visible social proof.</p>
       <p>The same principle applies to pest control. You already have relieved, grateful customers. You just need a system that turns that gratitude into reviews consistently.</p>
       <h2>The Bottom Line: Systems Beat Willpower</h2>

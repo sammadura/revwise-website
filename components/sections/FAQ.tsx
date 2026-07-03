@@ -36,7 +36,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: 'How much time will RevWise save me?',
-    answer: 'Most business owners spend 15-20 hours per month manually asking for reviews and chasing follow-ups. RevWise automates all of it — Bella\'s Flower Shop went from 20+ hours of manual review management to essentially zero, saving over 70 hours in their first few months and roughly $1,400 in labor costs every month.',
+    answer: 'Manually asking for reviews and chasing follow-ups eats hours every month — and it\'s the first thing that gets dropped when you\'re busy. RevWise automates all of it: the first request, the friendly follow-up, and the timing. Review collection runs itself while you run the business.',
   },
   {
     question: 'Do you have a dashboard to track my reviews?',

@@ -519,10 +519,10 @@ export default function AuditPage() {
               <div className="bg-gradient-to-br from-gray-900 to-slate-800 rounded-2xl p-8 md:p-10 text-white text-center print:hidden">
                 <h3 className="text-2xl md:text-3xl font-bold mb-3">Close the Gap — Automatically</h3>
                 <p className="text-gray-300 mb-8 max-w-xl mx-auto">
-                  RevWise sends review requests after every job — no extra work for you or your team. Most customers see 3-5x more reviews within 60 days.
+                  RevWise sends review requests after every job — no extra work for you or your team. One Bronx flower shop added 70 new Google reviews in 74 days.
                 </p>
-                <Link href="/demo-call" className="inline-block btn bg-primary text-white hover:bg-blue-600 px-10 py-4 text-lg rounded-xl font-semibold">
-                  Book a Free Demo Call
+                <Link href="/contact" className="inline-block btn bg-primary text-white hover:bg-blue-600 px-10 py-4 text-lg rounded-xl font-semibold">
+                  Book a call with Sam
                 </Link>
                 <p className="text-gray-400 text-sm mt-4">No credit card required. 15-minute call.</p>
               </div>
