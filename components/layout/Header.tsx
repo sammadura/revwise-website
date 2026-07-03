@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-/* eslint-disable @next/next/no-img-element */
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from '../ui/Button';
+import Logo from '../ui/Logo';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -37,11 +37,10 @@ export default function Header() {
       <nav className="container-custom">
         <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? 'h-16' : 'h-20'}`}>
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <img
-              src="/logo.svg"
-              alt="RevWise Logo"
-              className={`w-auto transition-all duration-300 ${scrolled ? 'h-8' : 'h-10'}`}
+          <Link href="/" className="flex items-center" aria-label="RevWise home">
+            <Logo
+              markClassName={`w-auto transition-all duration-300 ${scrolled ? 'h-8' : 'h-10'}`}
+              textClassName={`transition-all duration-300 ${scrolled ? 'text-xl' : 'text-2xl'}`}
             />
           </Link>
 

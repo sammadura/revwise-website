@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Stem } from '../ui/BotanicalAccents';
+import Logo from '../ui/Logo';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -15,8 +16,9 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo-dark.svg" alt="RevWise Logo" className="h-8 w-auto mb-4" />
+            <div className="mb-4">
+              <Logo variant="dark" markClassName="h-8 w-8" textClassName="text-xl" />
+            </div>
             <p className="text-moss/80 text-sm leading-relaxed">
               Automatic Google review requests for flower shops. Done for you.
             </p>
