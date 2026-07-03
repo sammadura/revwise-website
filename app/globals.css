@@ -88,18 +88,18 @@
   }
 
   /* Ensure colored backgrounds print */
-  .bg-blue-50,
+  .bg-moss,
+  .bg-petal,
   .bg-amber-50,
   .bg-red-50,
-  .bg-green-50,
-  .bg-purple-50 {
+  .bg-green-50 {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
-  /* Report header gradient prints as solid */
-  .bg-gradient-to-r.from-gray-900 {
-    background: #1e293b !important;
+  /* Report header prints as solid green */
+  .bg-footer-green {
+    background: #25301F !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
