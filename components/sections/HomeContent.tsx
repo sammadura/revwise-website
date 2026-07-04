@@ -101,13 +101,13 @@ export default function HomeContent() {
             {[
               {
                 step: '1',
-                title: 'One 45-minute setup call',
-                body: 'We connect your customer list and write your messages. Live within 48 hours.',
+                title: 'First, we reach out to your past customers',
+                body: 'Live within 48 hours. Every past customer who was never asked gets a friendly review request.',
               },
               {
                 step: '2',
-                title: 'Every customer gets a friendly text',
-                body: 'A one-tap link to your Google review page. Email too (52% open rate).',
+                title: 'Every new customer, automatically',
+                body: 'After each order, a one-tap link to your Google review page. Email too (52% open rate).',
               },
               {
                 step: '3',
