@@ -67,15 +67,15 @@ export default function HomeContent() {
         <div className="container-custom relative">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
-              <span className="accent-text text-lg">The rush problem</span>
+              <span className="accent-text text-lg">The wire order problem</span>
               <h2 className="text-3xl md:text-5xl font-semibold mt-3 mb-8 tracking-tight leading-[1.1]">
-                Your busiest weeks are exactly when nobody asks for reviews.
+                You do the arranging. You do the delivery. They take the cut.
               </h2>
               <p className="text-lg text-gray-medium leading-relaxed">
-                Valentine&apos;s week. Mother&apos;s Day. A three-wedding
-                Saturday.{' '}
+                Wire orders pay you cents on the dollar.{' '}
                 <strong className="text-dark font-semibold">
-                  RevWise asks every customer — even when the shop is slammed.
+                  RevWise builds the reviews that make customers order from you
+                  directly — full price.
                 </strong>
               </p>
             </ScrollReveal>
@@ -136,10 +136,10 @@ export default function HomeContent() {
                 70 new Google reviews in 74 days.
               </h2>
               <p className="text-xl text-gray-medium leading-relaxed">
-                One Bronx flower shop, 431 to 501. Your numbers depend on your
-                volume —{' '}
+                One Bronx flower shop, 431 to 501. That&apos;s 70 customers
+                who&apos;ll order direct next time —{' '}
                 <a href="/contact" className="text-primary font-semibold hover:text-secondary transition-colors">
-                  that&apos;s what the call is for.
+                  no middleman&apos;s cut.
                 </a>
               </p>
             </ScrollReveal>
