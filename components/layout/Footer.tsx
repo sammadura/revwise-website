@@ -39,7 +39,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="text-moss/80 hover:text-white transition-colors text-sm">
+                <Link href="/#pricing" className="text-moss/80 hover:text-white transition-colors text-sm">
                   Pricing
                 </Link>
               </li>

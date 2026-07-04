@@ -218,7 +218,7 @@ export default function HomeContent() {
             <ScrollReveal className="text-center mb-10">
               <span className="accent-text text-lg">Pricing</span>
               <h2 className="text-3xl md:text-5xl font-semibold mt-3 mb-4 tracking-tight">
-                One plan. $99 a month. Everything included.
+                One plan. $25 a month. Everything included.
               </h2>
               <p className="text-xl text-gray-medium">One arrangement a month covers it.</p>
             </ScrollReveal>
@@ -245,8 +245,8 @@ export default function HomeContent() {
                   Book a call with Sam
                 </Button>
                 <p className="text-center mt-4">
-                  <a href="/pricing" className="text-sm text-gray-medium underline underline-offset-4 hover:text-primary transition-colors">
-                    See full pricing
+                  <a href="/contact" className="text-sm text-gray-medium underline underline-offset-4 hover:text-primary transition-colors">
+                    Questions? Talk to Sam first
                   </a>
                 </p>
               </div>
