@@ -58,33 +58,26 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* S2 — The florist pain (+ the live demo, moved down from the hero) */}
+      {/* S2 — The florist pain */}
       <section className="section bg-paper relative overflow-hidden">
         <div className="absolute -top-6 right-[6%] w-36 text-sage opacity-30 pointer-events-none rotate-180 hidden md:block">
           <Sprig />
         </div>
 
         <div className="container-custom relative">
-          <div className="grid lg:grid-cols-2 gap-14 lg:gap-10 items-center">
-            <div>
-              <ScrollReveal>
-                <span className="accent-text text-lg">The rush problem</span>
-                <h2 className="text-3xl md:text-5xl font-semibold mt-3 mb-8 tracking-tight leading-[1.1]">
-                  Your busiest weeks are exactly when nobody asks for reviews.
-                </h2>
-                <p className="text-lg text-gray-medium leading-relaxed">
-                  Valentine&apos;s week. Mother&apos;s Day. A three-wedding
-                  Saturday.{' '}
-                  <strong className="text-dark font-semibold">
-                    RevWise asks every customer — even when the shop is slammed.
-                  </strong>
-                </p>
-              </ScrollReveal>
-            </div>
-
-            {/* Phone demo */}
-            <ScrollReveal delay={0.15} className="relative">
-              <SMSDemoV2 />
+          <div className="max-w-3xl mx-auto text-center">
+            <ScrollReveal>
+              <span className="accent-text text-lg">The rush problem</span>
+              <h2 className="text-3xl md:text-5xl font-semibold mt-3 mb-8 tracking-tight leading-[1.1]">
+                Your busiest weeks are exactly when nobody asks for reviews.
+              </h2>
+              <p className="text-lg text-gray-medium leading-relaxed">
+                Valentine&apos;s week. Mother&apos;s Day. A three-wedding
+                Saturday.{' '}
+                <strong className="text-dark font-semibold">
+                  RevWise asks every customer — even when the shop is slammed.
+                </strong>
+              </p>
             </ScrollReveal>
           </div>
         </div>
@@ -157,85 +150,58 @@ export default function HomeContent() {
       {/* S5 — Features bento */}
       <section className="section bg-cream relative overflow-hidden">
         <div className="container-custom">
-          <ScrollReveal className="text-center mb-16">
+          <ScrollReveal className="text-center mb-10">
             <span className="accent-text text-lg">What you get</span>
             <h2 className="text-3xl md:text-5xl font-semibold mt-3 mb-4 tracking-tight">
               Built to run while you&apos;re building arrangements
             </h2>
           </ScrollReveal>
 
-          <StaggerContainer className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {/* Texts that get read — wide */}
-            <StaggerItem className="md:col-span-2 bg-white rounded-2xl border border-gray-border p-8 shadow-sm">
-              <div className="flex flex-col sm:flex-row items-start gap-6">
-                <div className="w-14 h-14 bg-moss rounded-2xl flex items-center justify-center flex-shrink-0">
-                  <svg className="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-xl mb-2 text-dark">Texts that actually get read</h3>
-                  <p className="text-gray-medium leading-relaxed mb-4">
-                    Short, warm, one tap to Google — right on their phone.
-                  </p>
-                  <div className="flex gap-8">
-                    <div>
-                      <p className="text-2xl font-heading font-semibold text-primary">8-12%</p>
-                      <p className="text-xs text-gray-medium font-medium">Click-through rate</p>
-                    </div>
-                    <div>
-                      <p className="text-2xl font-heading font-semibold text-secondary">52%</p>
-                      <p className="text-xs text-gray-medium font-medium">Email open rate</p>
-                    </div>
-                  </div>
-                </div>
+          <StaggerContainer className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            {/* Texts that get read */}
+            <StaggerItem className="flex items-center gap-4 bg-white rounded-xl border border-gray-border p-5 shadow-sm">
+              <div className="w-10 h-10 bg-moss rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg text-dark">Texts that actually get read</h3>
+                <p className="text-sm text-gray-medium">
+                  <span className="font-semibold text-primary">8-12%</span> click-through ·{' '}
+                  <span className="font-semibold text-secondary">52%</span> email opens
+                </p>
               </div>
             </StaggerItem>
 
             {/* Policy-safe */}
-            <StaggerItem className="bg-white rounded-2xl border border-gray-border p-8 shadow-sm">
-              <div className="w-14 h-14 bg-moss rounded-2xl flex items-center justify-center mb-5">
-                <svg className="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <StaggerItem className="flex items-center gap-4 bg-white rounded-xl border border-gray-border p-5 shadow-sm">
+              <div className="w-10 h-10 bg-moss rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="font-semibold text-xl mb-3 text-dark">Policy-safe by design</h3>
-              <p className="text-gray-medium leading-relaxed">
-                Every eligible customer gets the same request. No gating, no filtering.
-              </p>
+              <h3 className="font-semibold text-lg text-dark">Policy-safe by design</h3>
             </StaggerItem>
 
             {/* Timing */}
-            <StaggerItem className="bg-white rounded-2xl border border-gray-border p-8 shadow-sm">
-              <div className="w-14 h-14 bg-petal rounded-2xl flex items-center justify-center mb-5">
-                <svg className="w-7 h-7 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <StaggerItem className="flex items-center gap-4 bg-white rounded-xl border border-gray-border p-5 shadow-sm">
+              <div className="w-10 h-10 bg-petal rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg className="w-5 h-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="font-semibold text-xl mb-3 text-dark">Timed to land right</h3>
-              <p className="text-gray-medium leading-relaxed">
-                Tuned at setup, so the ask lands while the delight is fresh.
-              </p>
+              <h3 className="font-semibold text-lg text-dark">Timed to land right</h3>
             </StaggerItem>
 
-            {/* White-glove — wide */}
-            <StaggerItem className="md:col-span-2 bg-footer-green rounded-2xl p-8 shadow-sm text-white relative overflow-hidden">
-              <div className="absolute -right-4 -bottom-8 w-28 text-moss opacity-20 pointer-events-none">
-                <Stem />
+            {/* White-glove */}
+            <StaggerItem className="flex items-center gap-4 bg-white rounded-xl border border-gray-border p-5 shadow-sm">
+              <div className="w-10 h-10 bg-petal rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg className="w-5 h-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
               </div>
-              <div className="relative flex flex-col sm:flex-row items-start gap-6">
-                <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                  <svg className="w-7 h-7 text-moss" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-xl mb-2">White-glove onboarding</h3>
-                  <p className="text-moss/90 leading-relaxed">
-                    One 45-minute call. We handle everything — live within 48 hours.
-                  </p>
-                </div>
-              </div>
+              <h3 className="font-semibold text-lg text-dark">White-glove onboarding</h3>
             </StaggerItem>
           </StaggerContainer>
         </div>
@@ -289,10 +255,22 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* S7 — FAQ */}
+      {/* S7 — Live demo */}
+      <section className="section bg-white relative overflow-hidden">
+        <div className="container-custom relative">
+          <ScrollReveal className="text-center mb-10">
+            <span className="accent-text text-lg">See it in action</span>
+          </ScrollReveal>
+          <ScrollReveal delay={0.1}>
+            <SMSDemoV2 />
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* S8 — FAQ */}
       <FAQ />
 
-      {/* S8 — Final CTA */}
+      {/* S9 — Final CTA */}
       <section className="section bg-footer-green text-white relative overflow-hidden">
         <div className="absolute -top-10 right-[8%] w-40 text-moss opacity-15 pointer-events-none rotate-12">
           <Stem />
