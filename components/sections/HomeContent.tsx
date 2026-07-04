@@ -174,6 +174,19 @@ export default function HomeContent() {
               </div>
             </StaggerItem>
 
+            {/* White-glove */}
+            <StaggerItem className="flex items-center gap-4 bg-white rounded-xl border border-gray-border p-5 shadow-sm">
+              <div className="w-10 h-10 bg-petal rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg className="w-5 h-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg text-dark">White-glove onboarding</h3>
+                <p className="text-sm text-gray-medium">One 45-minute call. Live in 48 hours.</p>
+              </div>
+            </StaggerItem>
+
             {/* Policy-safe */}
             <StaggerItem className="flex items-center gap-4 bg-white rounded-xl border border-gray-border p-5 shadow-sm">
               <div className="w-10 h-10 bg-moss rounded-lg flex items-center justify-center flex-shrink-0">
@@ -181,7 +194,10 @@ export default function HomeContent() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="font-semibold text-lg text-dark">Policy-safe by design</h3>
+              <div>
+                <h3 className="font-semibold text-lg text-dark">Policy-safe by design</h3>
+                <p className="text-sm text-gray-medium">Same request to everyone. No gating.</p>
+              </div>
             </StaggerItem>
 
             {/* Timing */}
@@ -191,17 +207,10 @@ export default function HomeContent() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="font-semibold text-lg text-dark">Timed to land right</h3>
-            </StaggerItem>
-
-            {/* White-glove */}
-            <StaggerItem className="flex items-center gap-4 bg-white rounded-xl border border-gray-border p-5 shadow-sm">
-              <div className="w-10 h-10 bg-petal rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg className="w-5 h-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                </svg>
+              <div>
+                <h3 className="font-semibold text-lg text-dark">Timed to land right</h3>
+                <p className="text-sm text-gray-medium">The ask lands while the delight is fresh.</p>
               </div>
-              <h3 className="font-semibold text-lg text-dark">White-glove onboarding</h3>
             </StaggerItem>
           </StaggerContainer>
         </div>
