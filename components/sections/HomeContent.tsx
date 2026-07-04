@@ -183,7 +183,7 @@ export default function HomeContent() {
               </div>
               <div>
                 <h3 className="font-semibold text-lg text-dark">White-glove onboarding</h3>
-                <p className="text-sm text-gray-medium">One 45-minute call. Live in 48 hours.</p>
+                <p className="text-sm text-gray-medium">One setup call. Live in 48 hours.</p>
               </div>
             </StaggerItem>
 
