@@ -58,8 +58,8 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* S2 — The florist pain */}
-      <section className="section bg-paper relative overflow-hidden">
+      {/* S2 — The wire order pain (slim band: two lines only, so tighter padding than .section) */}
+      <section className="bg-paper relative overflow-hidden py-14 md:py-16">
         <div className="absolute -top-6 right-[6%] w-36 text-sage opacity-30 pointer-events-none rotate-180 hidden md:block">
           <Sprig />
         </div>
@@ -67,17 +67,12 @@ export default function HomeContent() {
         <div className="container-custom relative">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
-              <span className="accent-text text-lg">Why reviews</span>
-              <h2 className="text-3xl md:text-5xl font-semibold mt-3 mb-8 tracking-tight leading-[1.1]">
+              <h2 className="text-3xl md:text-5xl font-semibold mb-6 tracking-tight leading-[1.1]">
                 Wire orders pay you cents on the dollar.
               </h2>
               <p className="text-lg text-gray-medium leading-relaxed">
-                Direct customers pay full price - and they pick the shop with
-                the most Google reviews. The last thing on your mind during
-                Valentine&apos;s week is asking for one.{' '}
-                <strong className="text-dark font-semibold">
-                  RevWise asks every customer - even when the shop is slammed.
-                </strong>
+                RevWise builds the reviews that make customers order from you
+                directly - full price.
               </p>
             </ScrollReveal>
           </div>
@@ -214,6 +209,27 @@ export default function HomeContent() {
               </div>
             </StaggerItem>
           </StaggerContainer>
+        </div>
+      </section>
+
+      {/* S5b — The rush problem */}
+      <section className="section bg-white relative overflow-hidden">
+        <div className="container-custom relative">
+          <div className="max-w-3xl mx-auto text-center">
+            <ScrollReveal>
+              <span className="accent-text text-lg">The rush problem</span>
+              <h2 className="text-3xl md:text-5xl font-semibold mt-3 mb-8 tracking-tight leading-[1.1]">
+                Your busiest weeks are exactly when nobody asks for reviews.
+              </h2>
+              <p className="text-lg text-gray-medium leading-relaxed">
+                Valentine&apos;s week. Mother&apos;s Day. A van full of
+                deliveries.{' '}
+                <strong className="text-dark font-semibold">
+                  RevWise asks every customer - even when the shop is slammed.
+                </strong>
+              </p>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
