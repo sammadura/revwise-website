@@ -67,12 +67,17 @@ export default function HomeContent() {
         <div className="container-custom relative">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
-              <h2 className="text-3xl md:text-5xl font-semibold mb-8 tracking-tight leading-[1.1]">
+              <span className="accent-text text-lg">Why reviews</span>
+              <h2 className="text-3xl md:text-5xl font-semibold mt-3 mb-8 tracking-tight leading-[1.1]">
                 Wire orders pay you cents on the dollar.
               </h2>
               <p className="text-lg text-gray-medium leading-relaxed">
-                RevWise builds the reviews that make customers order from you
-                directly - full price.
+                Direct customers pay full price - and they pick the shop with
+                the most Google reviews. The last thing on your mind during
+                Valentine&apos;s week is asking for one.{' '}
+                <strong className="text-dark font-semibold">
+                  RevWise asks every customer - even when the shop is slammed.
+                </strong>
               </p>
             </ScrollReveal>
           </div>
