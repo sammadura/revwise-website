@@ -180,8 +180,8 @@ export default function ContactPage() {
               Give me 15 minutes.
             </h2>
             <p className="text-xl text-moss/90 max-w-xl mx-auto mb-10">
-              Happy to work around your schedule. I know your weekends belong
-              to weddings.
+              Happy to work around your schedule. I know your mornings start
+              at the flower market.
             </p>
             <Button
               href={EMAIL_CTA}
