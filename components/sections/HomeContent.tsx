@@ -250,13 +250,13 @@ export default function HomeContent() {
 
             <ScrollReveal delay={0.1}>
               <div className="bg-white rounded-2xl border border-gray-border shadow-lg p-8">
-                <ul className="space-y-4 mb-8">
+                <ul className="space-y-4 mb-6">
                   {[
                     'Texts + emails after every order',
                     'Messages in your shop’s voice',
                     'Friendly follow-ups',
-                    'Done-for-you setup — live in 48 hours',
-                    'No contract. Cancel anytime. 14-day free trial.',
+                    'Done-for-you setup - live in 48 hours',
+                    'No contract. Cancel anytime.',
                   ].map((feature) => (
                     <li key={feature} className="flex items-start gap-3 text-gray-medium">
                       <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -266,6 +266,16 @@ export default function HomeContent() {
                     </li>
                   ))}
                 </ul>
+                <div className="rounded-xl bg-moss/50 p-5 text-center mb-6">
+                  <p className="font-heading font-semibold text-2xl text-dark">
+                    14-day free trial
+                  </p>
+                  <p className="text-gray-medium leading-relaxed mt-2">
+                    Reactivating your past customers is free too - the $15 a
+                    month doesn&apos;t start until it&apos;s done. Not seeing
+                    results? Full refund.
+                  </p>
+                </div>
                 <Button href="/contact" variant="primary" className="w-full text-lg py-4 font-bold">
                   Book a call with Sam
                 </Button>
