@@ -51,34 +51,6 @@ interface AuditResult {
   };
 }
 
-function ScoreGauge({ score }: { score: number }) {
-  const color = score >= 70 ? 'text-green-500' : score >= 40 ? 'text-amber-500' : 'text-red-500';
-  const bgColor = score >= 70 ? 'bg-green-50 border-green-200' : score >= 40 ? 'bg-amber-50 border-amber-200' : 'bg-red-50 border-red-200';
-  const label = score >= 70 ? 'Good' : score >= 40 ? 'Needs Work' : 'Critical';
-
-  return (
-    <div className={`${bgColor} border-2 rounded-2xl p-8 text-center`}>
-      <p className="text-sm font-semibold text-gray-medium uppercase tracking-wide mb-3">Review Health Score</p>
-      <div className="relative inline-flex items-center justify-center">
-        <svg className="w-32 h-32 -rotate-90" viewBox="0 0 120 120">
-          <circle cx="60" cy="60" r="50" fill="none" stroke="#E8E0D2" strokeWidth="10" />
-          <circle
-            cx="60" cy="60" r="50" fill="none"
-            stroke="currentColor"
-            className={color}
-            strokeWidth="10"
-            strokeLinecap="round"
-            strokeDasharray={`${(score / 100) * 314} 314`}
-          />
-        </svg>
-        <span className={`absolute text-4xl font-bold ${color}`}>{score}</span>
-      </div>
-      <p className={`text-lg font-bold mt-3 ${color}`}>{label}</p>
-      <p className="text-sm text-gray-500 mt-1">out of 100</p>
-    </div>
-  );
-}
-
 interface PlaceSuggestion {
   placeId: string;
   name: string;
@@ -212,7 +184,7 @@ export default function AuditPage() {
                 Free Google Review Audit
               </h1>
               <p className="text-xl text-gray-medium max-w-2xl mx-auto">
-                See how your Google reviews stack up against your local competitors — and how many calls you might be losing.
+                See how your Google reviews stack up against your local competitors.
               </p>
             </div>
           )}
@@ -277,7 +249,7 @@ export default function AuditPage() {
                   disabled={!selectedPlace}
                   className="btn-primary w-full text-lg py-4 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  See My Review Score →
+                  Run My Free Audit →
                 </button>
               </form>
             </div>
@@ -346,40 +318,9 @@ export default function AuditPage() {
                   </div>
                 </div>
 
-                {/* Score + Key Metrics */}
                 <div className="p-8 md:p-10">
-                  <div className="grid md:grid-cols-2 gap-8 mb-10">
-                    <ScoreGauge score={result.reviewHealthScore} />
-                    <div className="grid grid-cols-3 gap-4 content-center">
-                      <div className="bg-moss rounded-xl p-5 text-center">
-                        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Your Reviews</p>
-                        <p className="text-3xl font-bold text-primary">{result.business.reviewCount}</p>
-                        <div className="flex items-center justify-center gap-0.5 mt-2">
-                          {[1, 2, 3, 4, 5].map((star) => (
-                            <svg key={star} className={`w-3.5 h-3.5 ${star <= Math.round(result.business.rating) ? 'text-yellow-400' : 'text-gray-200'}`} fill="currentColor" viewBox="0 0 20 20">
-                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                            </svg>
-                          ))}
-                          <span className="text-xs text-gray-500 ml-1">{result.business.rating}</span>
-                        </div>
-                      </div>
-                      <div className="bg-petal rounded-xl p-5 text-center">
-                        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Competitor Avg</p>
-                        <p className="text-3xl font-bold text-secondary">{result.competitorAvg}</p>
-                        <p className="text-xs text-gray-500 mt-2">reviews</p>
-                      </div>
-                      <div className={`${result.gap > 0 ? 'bg-red-50' : 'bg-green-50'} rounded-xl p-5 text-center`}>
-                        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Review Gap</p>
-                        <p className={`text-3xl font-bold ${result.gap > 0 ? 'text-red-600' : 'text-green-600'}`}>
-                          {result.gap > 0 ? `-${result.gap}` : `+${Math.abs(result.gap)}`}
-                        </p>
-                        <p className="text-xs text-gray-500 mt-2">{result.gap > 0 ? 'behind' : 'ahead'}</p>
-                      </div>
-                    </div>
-                  </div>
-
                   {/* Competitor Table */}
-                  <div className="mb-10">
+                  <div>
                     <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
                       <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -451,48 +392,6 @@ export default function AuditPage() {
                 </div>
               </div>
 
-              {/* Review Velocity */}
-              {(result.monthlyVelocity > 0 || result.competitorVelocity > 0) && (
-                <div className="bg-white rounded-2xl shadow-xl border border-gray-border p-8 md:p-10 print:shadow-none print:border-0">
-                  <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
-                    <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                    </svg>
-                    Review Velocity
-                  </h2>
-                  <p className="text-gray-700 text-lg leading-relaxed">
-                    You&apos;re gaining <span className="font-bold text-gray-900">~{result.monthlyVelocity} reviews/month</span>.
-                    Your competitors average <span className="font-bold text-gray-900">~{result.competitorVelocity}/month</span>.
-                  </p>
-                  {result.competitorVelocity > result.monthlyVelocity && (
-                    <p className="text-secondary text-sm font-medium mt-3">
-                      At this pace, the gap will keep widening.
-                    </p>
-                  )}
-                </div>
-              )}
-
-              {/* Revenue Impact */}
-              {result.estimatedMissedCalls > 0 && result.ratingImpact && (
-                <div className="bg-white rounded-2xl shadow-xl border border-gray-border p-8 md:p-10 print:shadow-none print:border-0">
-                  <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
-                    <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    Revenue Impact
-                  </h2>
-                  <p className="text-gray-700 text-lg leading-relaxed">
-                    Businesses with <span className="font-bold text-gray-900">{result.competitorAvg} reviews</span> receive an estimated{' '}
-                    <span className="font-bold text-gray-900">{result.ratingImpact.revenueImpactPercent}% more calls</span>.
-                    {result.category && result.business.city && (
-                      <> For a typical <span className="font-medium">{result.category}</span> in <span className="font-medium">{result.business.city}</span>, that&apos;s roughly{' '}
-                        <span className="font-bold text-red-600">${result.ratingImpact.estimatedMonthlyLoss.toLocaleString()} in missed revenue per month</span>.
-                      </>
-                    )}
-                  </p>
-                </div>
-              )}
-
               {/* Quick Wins */}
               {result.quickWins && result.quickWins.length > 0 && (
                 <div className="bg-white rounded-2xl shadow-xl border border-gray-border p-8 md:p-10 print:shadow-none print:border-0">
@@ -517,10 +416,7 @@ export default function AuditPage() {
 
               {/* CTA */}
               <div className="bg-footer-green rounded-2xl p-8 md:p-10 text-white text-center print:hidden">
-                <h3 className="text-2xl md:text-3xl font-bold mb-3">Close the Gap — Automatically</h3>
-                <p className="text-moss/90 mb-8 max-w-xl mx-auto">
-                  RevWise sends review requests after every job — no extra work for you or your team. One Bronx flower shop added 70 new Google reviews in 74 days.
-                </p>
+                <h3 className="text-2xl md:text-3xl font-bold mb-8">Close the Gap — Automatically</h3>
                 <Link href="/contact" className="btn-primary inline-block px-10 py-4 text-lg rounded-xl font-semibold">
                   Book a call with Sam
                 </Link>
