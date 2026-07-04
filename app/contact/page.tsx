@@ -7,7 +7,7 @@ import { ScrollReveal } from '@/components/ui/ScrollAnimations';
 export const metadata: Metadata = {
   title: 'Book a Call — RevWise for Flower Shops',
   description:
-    'A note from Sam: email me about your flower shop and I reply the same day. $15/mo, everything included.',
+    'A note from Sam: email me about your flower shop. $15/mo, everything included.',
 };
 
 const EMAIL_CTA =
@@ -54,14 +54,14 @@ export default function ContactPage() {
             <p className="text-xl text-gray-medium leading-relaxed mb-10">
               I run RevWise, and it&apos;s just me. No sales team, no call
               center. If you run a flower shop, I&apos;d love 15 minutes to
-              hear how reviews are going for you. And if RevWise isn&apos;t
-              right for your shop, I&apos;ll tell you that too.
+              introduce myself and hear how reviews are going for you. Shoot
+              me an email.
             </p>
             <Button href={EMAIL_CTA} variant="primary" className="text-lg px-10 py-5 font-bold">
               Email me
             </Button>
             <p className="text-sm text-gray-medium mt-4">
-              sam@getrevwise.com. I read every message and reply the same day.
+              sam@getrevwise.com. About me: sammadura.com
             </p>
           </ScrollReveal>
         </div>
@@ -83,7 +83,6 @@ export default function ContactPage() {
                   <span className="text-6xl md:text-7xl font-heading font-semibold">$15</span>
                   <span className="text-2xl text-moss/80">/month</span>
                 </div>
-                <p className="relative mt-4 text-moss/80">One arrangement a month covers it.</p>
               </div>
 
               <div className="p-10">

@@ -220,7 +220,6 @@ export default function HomeContent() {
               <h2 className="text-3xl md:text-5xl font-semibold mt-3 mb-4 tracking-tight">
                 One plan. $15 a month. Everything included.
               </h2>
-              <p className="text-xl text-gray-medium">One arrangement a month covers it.</p>
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>
