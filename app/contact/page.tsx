@@ -7,7 +7,7 @@ import { ScrollReveal } from '@/components/ui/ScrollAnimations';
 export const metadata: Metadata = {
   title: 'Book a Call — RevWise for Flower Shops',
   description:
-    'Email Sam about your flower shop and he replies by end of day. $25/mo, everything included, done-for-you setup.',
+    'A note from Sam: email me about your flower shop and I reply the same day. $25/mo, everything included.',
 };
 
 const EMAIL_CTA =
@@ -18,8 +18,8 @@ const included = [
   'Direct Google review links (one tap)',
   'Friendly follow-ups',
   'Weekly review digest',
-  'Done-for-you setup — live in 48 hours',
-  'Direct line to Sam, the founder',
+  'Done-for-you setup, live in 48 hours',
+  'A direct line to me',
   'No contract. Cancel anytime.',
 ];
 
@@ -32,62 +32,43 @@ const comparisons = [
 export default function ContactPage() {
   return (
     <>
-      {/* Hero — the one CTA */}
+      {/* A note from Sam — headshot, intro, the one CTA */}
       <section className="relative bg-cream overflow-hidden">
         <div className="absolute top-6 right-[6%] w-28 text-sage opacity-40 pointer-events-none hidden md:block">
           <Stem />
         </div>
 
-        <div className="container-custom relative z-10 py-20 md:py-24 text-center">
-          <ScrollReveal>
+        <div className="container-custom relative z-10 py-20 md:py-24">
+          <ScrollReveal className="max-w-2xl mx-auto text-center">
+            <Image
+              src="/sam-headshot.jpg"
+              alt="Sam Madura, founder of RevWise"
+              width={160}
+              height={160}
+              priority
+              className="rounded-full border-4 border-white shadow-lg mx-auto mb-8"
+            />
             <h1 className="text-4xl md:text-6xl font-heading font-semibold mb-6 tracking-tight">
-              Book a call with Sam
+              Hi, I&apos;m Sam.
             </h1>
-            <p className="text-xl text-gray-medium max-w-xl mx-auto mb-10">
-              One email. He replies by end of day and finds a time that works
-              for your shop.
+            <p className="text-xl text-gray-medium leading-relaxed mb-10">
+              I run RevWise, and it&apos;s just me. No sales team, no call
+              center. If you run a flower shop, I&apos;d love 15 minutes to
+              hear how reviews are going for you. And if RevWise isn&apos;t
+              right for your shop, I&apos;ll tell you that too.
             </p>
             <Button href={EMAIL_CTA} variant="primary" className="text-lg px-10 py-5 font-bold">
-              Email Sam
+              Email me
             </Button>
             <p className="text-sm text-gray-medium mt-4">
-              sam@getrevwise.com — a real person, not a ticket queue.
+              sam@getrevwise.com. I read every message and reply the same day.
             </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* About Sam */}
-      <section className="section bg-paper relative overflow-hidden">
-        <div className="container-custom">
-          <ScrollReveal>
-            <div className="max-w-2xl mx-auto flex flex-col sm:flex-row items-center gap-8">
-              <Image
-                src="/sam-headshot.jpg"
-                alt="Sam Madura, founder of RevWise"
-                width={160}
-                height={160}
-                priority
-                className="rounded-full border-4 border-white shadow-lg flex-shrink-0"
-              />
-              <div className="text-center sm:text-left">
-                <h2 className="font-heading font-semibold text-2xl mb-3 text-dark">
-                  Hi, I&apos;m Sam.
-                </h2>
-                <p className="text-gray-medium leading-relaxed">
-                  RevWise is just me — no sales team, no call center. Every
-                  flower shop works with me directly, from the first email to
-                  the setup call. If RevWise isn&apos;t right for your shop,
-                  I&apos;ll tell you that too.
-                </p>
-              </div>
-            </div>
           </ScrollReveal>
         </div>
       </section>
 
       {/* Price card */}
-      <section className="section bg-cream relative">
+      <section className="section bg-paper relative">
         <div className="container-custom">
           <ScrollReveal className="max-w-xl mx-auto">
             <div className="relative bg-white rounded-[2rem] shadow-2xl border border-gray-border overflow-hidden">
@@ -121,7 +102,7 @@ export default function ContactPage() {
 
                 <div className="mt-10">
                   <Button href={EMAIL_CTA} variant="primary" className="w-full text-lg py-5 font-bold">
-                    Email Sam to get started
+                    Email me to get started
                   </Button>
                 </div>
               </div>
@@ -129,7 +110,7 @@ export default function ContactPage() {
 
             <div className="mt-8 bg-moss/60 border border-sage/30 rounded-2xl p-6 text-center">
               <p className="text-primary font-semibold text-lg">
-                70 new Google reviews in 74 days — one Bronx flower shop&apos;s
+                70 new Google reviews in 74 days. One Bronx flower shop&apos;s
                 real count on RevWise.
               </p>
             </div>
@@ -138,7 +119,7 @@ export default function ContactPage() {
       </section>
 
       {/* Comparison */}
-      <section className="section bg-paper relative overflow-hidden">
+      <section className="section bg-cream relative overflow-hidden">
         <div className="absolute top-6 left-[4%] w-28 text-sage opacity-25 pointer-events-none hidden lg:block">
           <Sprig />
         </div>
@@ -197,15 +178,18 @@ export default function ContactPage() {
         <div className="container-custom relative z-10 text-center">
           <ScrollReveal>
             <h2 className="text-3xl md:text-5xl font-heading font-semibold mb-6 tracking-tight">
-              Fifteen minutes,{' '}
-              <em className="italic font-normal text-petal">no pitch deck.</em>
+              Give me 15 minutes.
             </h2>
+            <p className="text-xl text-moss/90 max-w-xl mx-auto mb-10">
+              Happy to work around your schedule. I know your weekends belong
+              to weddings.
+            </p>
             <Button
               href={EMAIL_CTA}
               variant="primary"
               className="bg-secondary hover:bg-secondary-dark text-lg px-10 py-5 font-bold"
             >
-              Email Sam
+              Email me
             </Button>
           </ScrollReveal>
         </div>

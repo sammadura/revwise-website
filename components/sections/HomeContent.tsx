@@ -282,7 +282,7 @@ export default function HomeContent() {
         <ScrollReveal className="container-custom text-center relative z-10">
           <h2 className="font-heading font-semibold text-4xl md:text-6xl mb-6 tracking-tight">
             Talk to Sam. Fifteen minutes,{' '}
-            <em className="italic font-normal text-petal">no pitch deck.</em>
+            <em className="italic font-normal text-petal">whenever works.</em>
           </h2>
           <p className="text-xl md:text-2xl mb-10 text-moss/90 max-w-2xl mx-auto leading-relaxed">
             If RevWise isn&apos;t right for your shop, he&apos;ll tell you.
