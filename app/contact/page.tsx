@@ -1,93 +1,215 @@
 import { Metadata } from 'next';
-import ContactForm from '@/components/ui/ContactForm';
+import Image from 'next/image';
+import Button from '@/components/ui/Button';
+import { Sprig, Stem } from '@/components/ui/BotanicalAccents';
+import { ScrollReveal } from '@/components/ui/ScrollAnimations';
 
 export const metadata: Metadata = {
   title: 'Book a Call — RevWise for Flower Shops',
   description:
-    'Tell Sam a little about your flower shop and he’ll email you by the end of the day to set up a 15-minute call. No pitch deck, no pressure.',
+    'Email Sam about your flower shop and he replies by end of day. $25/mo, everything included, done-for-you setup.',
 };
+
+const EMAIL_CTA =
+  'mailto:sam@getrevwise.com?subject=Book%20a%20call%20about%20my%20flower%20shop';
+
+const included = [
+  'Texts + emails after every order',
+  'Direct Google review links (one tap)',
+  'Friendly follow-ups',
+  'Weekly review digest',
+  'Done-for-you setup — live in 48 hours',
+  'Direct line to Sam, the founder',
+  'No contract. Cancel anytime.',
+];
+
+const comparisons = [
+  { name: 'RevWise', price: '$25/mo', setup: 'Done for you (48 hrs)', contract: 'Month-to-month', highlight: true },
+  { name: 'Podium', price: '$399/mo', setup: 'Self-serve', contract: 'Annual', highlight: false },
+  { name: 'Birdeye', price: '$349/mo', setup: 'Self-serve', contract: 'Annual', highlight: false },
+];
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-light to-white py-16">
-      <div className="container-custom">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Book a call with Sam</h1>
-            <p className="text-lg text-gray-medium max-w-xl mx-auto">
-              Tell me a little about your shop and I&apos;ll email you by the end of the
-              day to set up a 15-minute call. If RevWise isn&apos;t right for you,
-              I&apos;ll tell you that too.
-            </p>
-          </div>
+    <>
+      {/* Hero — the one CTA */}
+      <section className="relative bg-cream overflow-hidden">
+        <div className="absolute top-6 right-[6%] w-28 text-sage opacity-40 pointer-events-none hidden md:block">
+          <Stem />
+        </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Form — swap this column for a scheduler embed (Calendly/Cal.com)
-                if one is ever set up; the form is self-contained. */}
-            <div className="lg:col-span-2">
-              <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 md:p-10">
-                <ContactForm />
+        <div className="container-custom relative z-10 py-20 md:py-24 text-center">
+          <ScrollReveal>
+            <h1 className="text-4xl md:text-6xl font-heading font-semibold mb-6 tracking-tight">
+              Book a call with Sam
+            </h1>
+            <p className="text-xl text-gray-medium max-w-xl mx-auto mb-10">
+              One email. He replies by end of day and finds a time that works
+              for your shop.
+            </p>
+            <Button href={EMAIL_CTA} variant="primary" className="text-lg px-10 py-5 font-bold">
+              Email Sam
+            </Button>
+            <p className="text-sm text-gray-medium mt-4">
+              sam@getrevwise.com — a real person, not a ticket queue.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* About Sam */}
+      <section className="section bg-paper relative overflow-hidden">
+        <div className="container-custom">
+          <ScrollReveal>
+            <div className="max-w-2xl mx-auto flex flex-col sm:flex-row items-center gap-8">
+              <Image
+                src="/sam-headshot.jpg"
+                alt="Sam Madura, founder of RevWise"
+                width={160}
+                height={160}
+                priority
+                className="rounded-full border-4 border-white shadow-lg flex-shrink-0"
+              />
+              <div className="text-center sm:text-left">
+                <h2 className="font-heading font-semibold text-2xl mb-3 text-dark">
+                  Hi, I&apos;m Sam.
+                </h2>
+                <p className="text-gray-medium leading-relaxed">
+                  RevWise is just me — no sales team, no call center. Every
+                  flower shop works with me directly, from the first email to
+                  the setup call. If RevWise isn&apos;t right for your shop,
+                  I&apos;ll tell you that too.
+                </p>
               </div>
             </div>
+          </ScrollReveal>
+        </div>
+      </section>
 
-            {/* Sidebar */}
-            <div className="space-y-6">
-              {/* Direct contact */}
-              <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6">
-                <h3 className="font-bold text-lg mb-4">Prefer email?</h3>
-                <a
-                  href="mailto:sam@getrevwise.com?subject=Book%20a%20call%20about%20my%20flower%20shop"
-                  className="flex items-center gap-3 text-gray-600 hover:text-primary transition-colors group"
-                >
-                  <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Email Sam directly</p>
-                    <p className="font-medium text-sm">sam@getrevwise.com</p>
-                  </div>
-                </a>
+      {/* Price card */}
+      <section className="section bg-cream relative">
+        <div className="container-custom">
+          <ScrollReveal className="max-w-xl mx-auto">
+            <div className="relative bg-white rounded-[2rem] shadow-2xl border border-gray-border overflow-hidden">
+              <div className="bg-footer-green text-white p-10 text-center relative overflow-hidden">
+                <div className="absolute -right-6 -bottom-10 w-32 text-moss opacity-20 pointer-events-none">
+                  <Stem />
+                </div>
+                <p className="relative text-sm font-medium uppercase tracking-widest mb-2 text-moss/80">
+                  One plan, everything included
+                </p>
+                <div className="relative flex items-baseline justify-center gap-1">
+                  <span className="text-6xl md:text-7xl font-heading font-semibold">$25</span>
+                  <span className="text-2xl text-moss/80">/month</span>
+                </div>
+                <p className="relative mt-4 text-moss/80">One arrangement a month covers it.</p>
               </div>
 
-              {/* What we'll cover */}
-              <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6">
-                <h3 className="font-bold text-lg mb-4">What we&apos;ll cover</h3>
-                <ul className="space-y-3">
-                  {[
-                    'Where your Google profile stands today',
-                    'How the review texting works for your orders',
-                    'The one 45-minute setup call, if it’s a fit',
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm text-gray-600">
-                      <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                      {item}
+              <div className="p-10">
+                <ul className="space-y-4">
+                  {included.map((feature) => (
+                    <li key={feature} className="flex items-center gap-4">
+                      <div className="w-7 h-7 bg-moss rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <span className="text-gray-medium font-medium">{feature}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
 
-              {/* Response time */}
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border border-green-200 p-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center">
-                    <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-bold text-green-800">A real person replies</p>
-                    <p className="text-sm text-green-600">Sam emails back by end of day</p>
-                  </div>
+                <div className="mt-10">
+                  <Button href={EMAIL_CTA} variant="primary" className="w-full text-lg py-5 font-bold">
+                    Email Sam to get started
+                  </Button>
                 </div>
               </div>
             </div>
-          </div>
+
+            <div className="mt-8 bg-moss/60 border border-sage/30 rounded-2xl p-6 text-center">
+              <p className="text-primary font-semibold text-lg">
+                70 new Google reviews in 74 days — one Bronx flower shop&apos;s
+                real count on RevWise.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
-      </div>
-    </div>
+      </section>
+
+      {/* Comparison */}
+      <section className="section bg-paper relative overflow-hidden">
+        <div className="absolute top-6 left-[4%] w-28 text-sage opacity-25 pointer-events-none hidden lg:block">
+          <Sprig />
+        </div>
+
+        <div className="container-custom relative">
+          <ScrollReveal className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
+              How RevWise Compares
+            </h2>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1} className="max-w-3xl mx-auto overflow-x-auto">
+            <table className="w-full text-left">
+              <thead>
+                <tr className="border-b-2 border-gray-border">
+                  <th className="py-4 pr-6 text-gray-medium font-medium text-sm uppercase tracking-wide">Platform</th>
+                  <th className="py-4 px-4 text-gray-medium font-medium text-sm uppercase tracking-wide">Price</th>
+                  <th className="py-4 px-4 text-gray-medium font-medium text-sm uppercase tracking-wide">Setup</th>
+                  <th className="py-4 px-4 text-gray-medium font-medium text-sm uppercase tracking-wide">Contract</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisons.map((comp) => (
+                  <tr
+                    key={comp.name}
+                    className={`border-b border-gray-border ${comp.highlight ? 'bg-moss/40' : ''}`}
+                  >
+                    <td className={`py-5 pr-6 font-semibold ${comp.highlight ? 'text-primary' : 'text-dark'}`}>
+                      {comp.name}
+                      {comp.highlight && (
+                        <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-secondary text-white">
+                          Built for florists
+                        </span>
+                      )}
+                    </td>
+                    <td className={`py-5 px-4 font-bold ${comp.highlight ? 'text-primary' : 'text-dark'}`}>{comp.price}</td>
+                    <td className="py-5 px-4 text-gray-medium">{comp.setup}</td>
+                    <td className="py-5 px-4 text-gray-medium">{comp.contract}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p className="text-sm text-gray-medium mt-4 text-center">
+              Published starting prices.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="section bg-footer-green text-white relative overflow-hidden">
+        <div className="absolute -top-8 right-[8%] w-36 text-moss opacity-15 pointer-events-none rotate-12">
+          <Stem />
+        </div>
+
+        <div className="container-custom relative z-10 text-center">
+          <ScrollReveal>
+            <h2 className="text-3xl md:text-5xl font-heading font-semibold mb-6 tracking-tight">
+              Fifteen minutes,{' '}
+              <em className="italic font-normal text-petal">no pitch deck.</em>
+            </h2>
+            <Button
+              href={EMAIL_CTA}
+              variant="primary"
+              className="bg-secondary hover:bg-secondary-dark text-lg px-10 py-5 font-bold"
+            >
+              Email Sam
+            </Button>
+          </ScrollReveal>
+        </div>
+      </section>
+    </>
   );
 }
