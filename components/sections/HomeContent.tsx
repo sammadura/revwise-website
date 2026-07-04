@@ -67,16 +67,12 @@ export default function HomeContent() {
         <div className="container-custom relative">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
-              <span className="accent-text text-lg">The wire order problem</span>
-              <h2 className="text-3xl md:text-5xl font-semibold mt-3 mb-8 tracking-tight leading-[1.1]">
-                You do the arranging. You do the delivery. They take the cut.
+              <h2 className="text-3xl md:text-5xl font-semibold mb-8 tracking-tight leading-[1.1]">
+                Wire orders pay you cents on the dollar.
               </h2>
               <p className="text-lg text-gray-medium leading-relaxed">
-                Wire orders pay you cents on the dollar.{' '}
-                <strong className="text-dark font-semibold">
-                  RevWise builds the reviews that make customers order from you
-                  directly — full price.
-                </strong>
+                RevWise builds the reviews that make customers order from you
+                directly - full price.
               </p>
             </ScrollReveal>
           </div>
@@ -137,7 +133,7 @@ export default function HomeContent() {
               </h2>
               <p className="text-xl text-gray-medium leading-relaxed">
                 One Bronx flower shop, 431 to 501. That&apos;s 70 customers
-                who&apos;ll order direct next time —{' '}
+                who&apos;ll order direct next time -{' '}
                 <a href="/contact" className="text-primary font-semibold hover:text-secondary transition-colors">
                   no middleman&apos;s cut.
                 </a>
