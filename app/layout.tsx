@@ -24,8 +24,8 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://getrevwise.com'),
-  title: 'RevWise — Google Review Automation for Flower Shops | $25/mo',
-  description: 'RevWise texts your customers after every order and turns them into Google reviews. Built for florists. Done-for-you setup, $25/mo, 14-day free trial.',
+  title: 'RevWise — Google Review Automation for Flower Shops | $15/mo',
+  description: 'RevWise texts your customers after every order and turns them into Google reviews. Built for florists. Done-for-you setup, $15/mo, 14-day free trial.',
   keywords: 'florist Google reviews, flower shop reviews, review automation for florists, florist marketing, Google reviews for flower shops',
   authors: [{ name: 'RevWise' }],
   alternates: {
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'RevWise — Google Review Automation for Flower Shops',
-    description: 'RevWise texts your customers after every order and turns them into Google reviews. Built for florists. $25/mo, everything included.',
+    description: 'RevWise texts your customers after every order and turns them into Google reviews. Built for florists. $15/mo, everything included.',
     type: 'website',
     url: 'https://getrevwise.com',
     siteName: 'RevWise',
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'RevWise — Google Review Automation for Flower Shops',
-    description: 'Automatic Google review requests for florists. $25/mo, done for you.',
+    description: 'Automatic Google review requests for florists. $15/mo, done for you.',
     images: ['/og-image.png'],
   },
 };
@@ -81,9 +81,9 @@ const jsonLd = {
   },
   offers: {
     '@type': 'Offer',
-    price: '25',
+    price: '15',
     priceCurrency: 'USD',
-    description: '$25/month, everything included, 14-day free trial',
+    description: '$15/month, everything included, 14-day free trial',
   },
   provider: {
     '@type': 'Organization',

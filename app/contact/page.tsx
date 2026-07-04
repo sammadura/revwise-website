@@ -7,7 +7,7 @@ import { ScrollReveal } from '@/components/ui/ScrollAnimations';
 export const metadata: Metadata = {
   title: 'Book a Call — RevWise for Flower Shops',
   description:
-    'A note from Sam: email me about your flower shop and I reply the same day. $25/mo, everything included.',
+    'A note from Sam: email me about your flower shop and I reply the same day. $15/mo, everything included.',
 };
 
 const EMAIL_CTA =
@@ -24,7 +24,7 @@ const included = [
 ];
 
 const comparisons = [
-  { name: 'RevWise', price: '$25/mo', setup: 'Done for you (48 hrs)', contract: 'Month-to-month', highlight: true },
+  { name: 'RevWise', price: '$15/mo', setup: 'Done for you (48 hrs)', contract: 'Month-to-month', highlight: true },
   { name: 'Podium', price: '$399/mo', setup: 'Self-serve', contract: 'Annual', highlight: false },
   { name: 'Birdeye', price: '$349/mo', setup: 'Self-serve', contract: 'Annual', highlight: false },
 ];
@@ -80,7 +80,7 @@ export default function ContactPage() {
                   One plan, everything included
                 </p>
                 <div className="relative flex items-baseline justify-center gap-1">
-                  <span className="text-6xl md:text-7xl font-heading font-semibold">$25</span>
+                  <span className="text-6xl md:text-7xl font-heading font-semibold">$15</span>
                   <span className="text-2xl text-moss/80">/month</span>
                 </div>
                 <p className="relative mt-4 text-moss/80">One arrangement a month covers it.</p>
