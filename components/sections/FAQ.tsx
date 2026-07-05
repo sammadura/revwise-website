@@ -11,40 +11,40 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: 'What do reviews have to do with beating wire services?',
-    answer: 'Wire services pour money into the top search ads and take a cut of orders that were really yours. The place you can beat them is the map results: the local listings customers actually trust and click, ranked largely by Google reviews. Fresh, genuine reviews are one of the biggest factors there, so the more you have, the easier you are to find and order from directly, at full price. RevWise builds that steady stream of reviews for you.',
+    question: 'What do reviews have to do with beating order gatherers?',
+    answer: 'Order gatherers buy the top search ads and take a cut of orders that were yours. The place you can beat them is the map results - local listings ranked largely by reviews, which customers trust more than ads. The more you have, the easier you are to find and order direct, at full price. RevWise builds the reviews.',
   },
   {
     question: 'Will this actually move my ranking?',
-    answer: 'We won\'t promise you a specific ranking, because Google weighs dozens of factors and nobody honestly can. What we can tell you is that review volume and freshness are among the factors you can actually influence, and most shops are sitting on hundreds of past customers who were never asked. One Bronx flower shop went from 431 to 501 reviews in 74 days with RevWise. Getting those reviews flowing is the part we handle.',
+    answer: 'Fair question. We won\'t promise a ranking - Google weighs dozens of factors nobody can honestly guarantee. Volume and freshness are ones you can influence, and most shops have hundreds of past customers never asked. Getting them flowing is our job.',
   },
   {
     question: 'Is this legit, or will Google penalize me?',
-    answer: 'It stays fully within Google\'s rules. What Google penalizes is review gating: filtering so only happy customers get asked. RevWise never does that. Every eligible customer gets the same friendly request, which is exactly what keeps you compliant. No fake reviews, no incentives, no filtering - just asking the customers you already served.',
+    answer: 'Fair worry. Google penalizes review gating: filtering so only happy customers get asked. RevWise never does that. Every eligible customer gets the same request. No fake reviews, no incentives, no filtering.',
   },
   {
     question: 'How much work is this for me?',
-    answer: 'Almost none. We set everything up on one onboarding call - connecting your system, writing the messages in your shop\'s voice, and setting the timing. You\'re live within 48 hours. After that it runs on its own: every order triggers the ask automatically, follow-ups included. You never have to remember it, you never touch it during a rush, and there\'s no technical skill required on your end.',
+    answer: 'We set everything up on one onboarding call: connecting your system, writing your messages, setting the timing. You\'re live within 48 hours, then it runs itself, every order triggering the ask, follow-ups included.',
   },
   {
     question: 'Why can\'t I just ask for reviews myself?',
-    answer: 'You can, and most owners mean to. The problem is timing - the ask gets dropped exactly when you\'re slammed, which is also when you\'re serving the most customers. RevWise asks every single one, automatically, right after their order. By text, not just email, because that\'s where people actually respond, then a friendly follow-up for the ones who meant to and forgot. It\'s the difference between a handful of reviews a year and a steady stream.',
+    answer: 'You can. The problem is timing: the ask gets dropped when you\'re slammed, exactly when you\'re serving the most customers. RevWise asks every one automatically, right after the order, by text and email, then follows up.',
   },
   {
     question: 'What does it cost, and what if it doesn\'t work?',
-    answer: '$15 a month, everything included, no contract, cancel anytime. There\'s a 14-day free trial, and reactivating your past customers is free too - the $15 doesn\'t start until that\'s done. Not seeing results? Full refund. The pricing is built so the risk sits with us, not you.',
+    answer: '$15 a month, everything included, no contract, cancel anytime. 14-day free trial, and reactivating past customers is free - the $15 starts only after. No results, full refund.',
   },
   {
     question: 'Does it work with the software I already use?',
-    answer: 'Almost always, yes. We connect to pretty much whatever you run. Most point-of-sale systems, CRMs, and databases let apps talk to each other, and when yours does, we build the integration for it. A few older or walled-off platforms don\'t allow it, which is the one thing we confirm on your setup call. Either way, we can reactivate your past customers from day one.',
+    answer: 'Most point-of-sale systems, CRMs, and databases connect through their APIs, and when yours does, we build the integration. The rare exception is an older or walled-off platform, flagged on your setup call. We reactivate your past customers regardless.',
   },
   {
     question: 'How will I know it\'s working?',
-    answer: 'You get a live dashboard. It shows review-page clicks as they happen, your recent wins, and how much you\'ve grown since you last checked. Connect your Google Business Profile (optional) and it goes further, tracking your review growth over time and matching new reviewers back to the customers RevWise reached out to. No guessing, no waiting on a monthly report.',
+    answer: 'You get a live dashboard: review-page clicks as they happen, your recent wins, growth since you last checked. Connect your Google Business Profile (optional) and it tracks review growth and matches new reviewers to customers you reached.',
   },
   {
     question: 'What if I get a bad review?',
-    answer: 'It happens to every shop, and it matters less than you\'d think. Because RevWise keeps a steady stream of genuine reviews coming in, the occasional negative one gets buried under dozens of positives. When one does show up, respond professionally and take it offline - future customers judge you more by how you handle a complaint than by the complaint itself.',
+    answer: 'It happens to every shop, and matters less than you think. With a steady stream of genuine reviews coming in, one negative sits among many positives. When one appears, respond professionally and take it offline.',
   },
 ];
 
