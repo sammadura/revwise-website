@@ -11,40 +11,40 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: 'Will this run itself during Valentine\'s and Mother\'s Day week?',
-    answer: 'Yes — that\'s the point. The rushes are exactly when review requests matter most and when you have the least time to send them. RevWise is set up once, then keeps asking after every order, whether it\'s a quiet Tuesday or the Saturday before Mother\'s Day. You never touch it during a rush.',
+    question: 'What do reviews have to do with beating wire services?',
+    answer: 'Wire services pour money into the top search ads and take a cut of orders that were really yours. The place you can beat them is the map results: the local listings customers actually trust and click, ranked largely by Google reviews. Fresh, genuine reviews are one of the biggest factors there, so the more you have, the easier you are to find and order from directly, at full price. RevWise builds that steady stream of reviews for you.',
   },
   {
-    question: 'What about wedding and sympathy orders?',
-    answer: 'Every eligible customer gets the same friendly request — that\'s what keeps it compliant with Google\'s policies. But you stay in control of who\'s eligible: if there are customers you\'d rather we never text, sympathy orders for example, we can mark them do-not-contact during setup or any time after.',
+    question: 'Will this actually move my ranking?',
+    answer: 'We won\'t promise you a specific ranking, because Google weighs dozens of factors and nobody honestly can. What we can tell you is that review volume and freshness are among the factors you can actually influence, and most shops are sitting on hundreds of past customers who were never asked. One Bronx flower shop went from 431 to 501 reviews in 74 days with RevWise. Getting those reviews flowing is the part we handle.',
   },
   {
-    question: 'How quickly will I start seeing new reviews?',
-    answer: 'Most shops see their first new reviews within the first week after onboarding. We reach customers via text and email (52% email open rate), and 8-12% click through to leave a review. Most reviews come in within 24-48 hours of the request.',
+    question: 'Is this legit, or will Google penalize me?',
+    answer: 'It stays fully within Google\'s rules. What Google penalizes is review gating: filtering so only happy customers get asked. RevWise never does that. Every eligible customer gets the same friendly request, which is exactly what keeps you compliant. No fake reviews, no incentives, no filtering - just asking the customers you already served.',
   },
   {
-    question: 'What happens if a customer leaves a negative review?',
-    answer: 'Every eligible customer gets the same review request — we don\'t filter who gets asked, because review gating violates Google\'s policies and the businesses that get caught lose trust fast. The honest strategy works better anyway: a steady stream of genuine reviews means the occasional negative one disappears under dozens of positives. When a negative review does appear, respond professionally and take the conversation offline — future customers judge you more by how you handle a complaint than by the complaint itself.',
+    question: 'How much work is this for me?',
+    answer: 'Almost none. We set everything up on one onboarding call - connecting your system, writing the messages in your shop\'s voice, and setting the timing. You\'re live within 48 hours. After that it runs on its own: every order triggers the ask automatically, follow-ups included. You never have to remember it, you never touch it during a rush, and there\'s no technical skill required on your end.',
   },
   {
-    question: 'Do I need any technical skills to set up RevWise?',
-    answer: 'None at all. We handle everything during a 45-minute onboarding call — connecting your Google Business Profile, configuring automations, and writing the messages in your shop\'s voice. You just show up, and you\'re live within 48 hours.',
+    question: 'Why can\'t I just ask for reviews myself?',
+    answer: 'You can, and most owners mean to. The problem is timing - the ask gets dropped exactly when you\'re slammed, which is also when you\'re serving the most customers. RevWise asks every single one, automatically, right after their order. By text, not just email, because that\'s where people actually respond, then a friendly follow-up for the ones who meant to and forgot. It\'s the difference between a handful of reviews a year and a steady stream.',
   },
   {
-    question: 'How is RevWise different from other review tools?',
-    answer: 'It\'s built for flower shops, and it\'s done for you. Texts, not just email — your customers are on their phones. Friendly follow-ups that catch busy people a few days later. A white-glove setup so you never have to figure software out alone. And every request is policy-safe: no gating, no filtering, fully compliant with Google\'s review policies.',
+    question: 'What does it cost, and what if it doesn\'t work?',
+    answer: '$15 a month, everything included, no contract, cancel anytime. There\'s a 14-day free trial, and reactivating your past customers is free too - the $15 doesn\'t start until that\'s done. Not seeing results? Full refund. The pricing is built so the risk sits with us, not you.',
   },
   {
-    question: 'How much time will RevWise save me?',
-    answer: 'Manually asking for reviews and chasing follow-ups eats hours every month — and it\'s the first thing that gets dropped when you\'re busy. RevWise automates all of it: the first request, the friendly follow-up, and the timing. Review collection runs itself while you run the shop.',
+    question: 'Does it work with the software I already use?',
+    answer: 'Almost always, yes. We connect to pretty much whatever you run. Most point-of-sale systems, CRMs, and databases let apps talk to each other, and when yours does, we build the integration for it. A few older or walled-off platforms don\'t allow it, which is the one thing we confirm on your setup call. Either way, we can reactivate your past customers from day one.',
   },
   {
-    question: 'Can I cancel anytime?',
-    answer: 'Yes. There are no long-term contracts. You can cancel your subscription at any time with no penalties or hidden fees. We also offer a 14-day free trial so you can see the results before committing.',
+    question: 'How will I know it\'s working?',
+    answer: 'You get a live dashboard. It shows review-page clicks as they happen, your recent wins, and how much you\'ve grown since you last checked. Connect your Google Business Profile (optional) and it goes further, tracking your review growth over time and matching new reviewers back to the customers RevWise reached out to. No guessing, no waiting on a monthly report.',
   },
   {
-    question: 'Do you have a dashboard to track my reviews?',
-    answer: 'We\'re building a live dashboard that will give you real-time analytics — track new reviews, response rates, and your Google ranking progress all in one place. It\'s coming soon. In the meantime, you\'ll receive regular email reports and can always reach Sam directly for updates.',
+    question: 'What if I get a bad review?',
+    answer: 'It happens to every shop, and it matters less than you\'d think. Because RevWise keeps a steady stream of genuine reviews coming in, the occasional negative one gets buried under dozens of positives. When one does show up, respond professionally and take it offline - future customers judge you more by how you handle a complaint than by the complaint itself.',
   },
 ];
 
