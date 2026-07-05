@@ -12,7 +12,7 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     question: 'What do reviews have to do with beating wire services?',
-    answer: 'Wire services win because they show up first when someone Googles a florist in your area, then take a cut of an order that was really yours. Reviews are how you outrank them. Fresh, genuine Google reviews are one of the biggest factors in local search, so the more you have, the higher your shop sits when someone searches "florist near me." They find you and order direct, at full price, instead of going through a middleman. RevWise builds that steady stream of reviews for you.',
+    answer: 'Wire services pour money into the top search ads and take a cut of orders that were really yours. The place you can beat them is the map results: the local listings customers actually trust and click, ranked largely by Google reviews. Fresh, genuine reviews are one of the biggest factors there, so the more you have, the easier you are to find and order from directly, at full price. RevWise builds that steady stream of reviews for you.',
   },
   {
     question: 'Will this actually move my ranking?',
