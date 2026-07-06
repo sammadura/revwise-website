@@ -5,6 +5,7 @@ import Script from 'next/script';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import MetaPixel from '@/components/MetaPixel';
 import { Analytics } from '@vercel/analytics/next';
 
 const satoshi = localFont({
@@ -131,6 +132,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+        <MetaPixel />
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
