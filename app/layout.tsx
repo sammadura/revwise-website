@@ -26,7 +26,7 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL('https://getrevwise.com'),
   title: 'RevWise — Google Review Automation for Flower Shops | $15/mo',
-  description: 'RevWise texts your customers after every order and turns them into Google reviews. Built for florists. Done-for-you setup, $15/mo, 14-day free trial.',
+  description: 'RevWise asks your customers for a Google review after every order, automatically. Built for florists. 10-minute self-serve setup, $15/mo, 60 days free for founding shops.',
   keywords: 'florist Google reviews, flower shop reviews, review automation for florists, florist marketing, Google reviews for flower shops',
   authors: [{ name: 'RevWise' }],
   alternates: {
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'RevWise — Google Review Automation for Flower Shops',
-    description: 'RevWise texts your customers after every order and turns them into Google reviews. Built for florists. $15/mo, everything included.',
+    description: 'RevWise asks your customers for a Google review after every order, automatically. Built for florists. $15/mo, everything included.',
     type: 'website',
     url: 'https://getrevwise.com',
     siteName: 'RevWise',
@@ -84,7 +84,7 @@ const jsonLd = {
     '@type': 'Offer',
     price: '15',
     priceCurrency: 'USD',
-    description: '$15/month, everything included, 14-day free trial',
+    description: '$15/month, everything included, 60 days free for founding shops',
   },
   provider: {
     '@type': 'Organization',

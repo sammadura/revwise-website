@@ -58,8 +58,8 @@ export default function Header() {
                 </li>
               ))}
             </ul>
-            <Button href="/contact" variant="primary">
-              Book a call with Sam
+            <Button href="https://app.revwise.us/signup" variant="primary">
+              Start free
             </Button>
           </div>
 
@@ -113,8 +113,8 @@ export default function Header() {
                 ))}
               </ul>
               <div className="pb-4 pt-2 border-t border-gray-border">
-                <Button href="/contact" variant="primary" className="w-full justify-center">
-                  Book a call with Sam
+                <Button href="https://app.revwise.us/signup" variant="primary" className="w-full justify-center">
+                  Start free
                 </Button>
               </div>
             </motion.div>

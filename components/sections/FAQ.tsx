@@ -24,7 +24,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: 'How much work is this for me?',
-    answer: 'We set everything up on one onboarding call: connecting your system, writing your messages, setting the timing. You\'re live within 48 hours, then it runs itself, every order triggering the ask, follow-ups included.',
+    answer: 'You set it up yourself in about 10 minutes: connect Square or upload your customer list, check the message, press start. Then it runs itself, every order triggering the ask, follow-ups included. Stuck? Email Sam and he\'ll sort it out.',
   },
   {
     question: 'Why can\'t I just ask for reviews myself?',
@@ -32,7 +32,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: 'What does it cost, and what if it doesn\'t work?',
-    answer: '$15 a month, everything included, no contract, cancel anytime. 14-day free trial, and reactivating past customers is free - the $15 starts only after. No results, full refund.',
+    answer: '$15 a month, everything included, no contract, cancel anytime. The first 25 shops get 60 days free (14 days after that), and reactivating past customers is free - the $15 starts only after. No results, full refund.',
   },
   {
     question: 'Does it work with the software I already use?',
