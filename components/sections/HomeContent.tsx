@@ -33,8 +33,8 @@ export default function HomeContent() {
               </h1>
 
               <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                <Button href="/contact" variant="primary" className="text-lg px-8 py-4">
-                  Book a call with Sam
+                <Button href="https://app.revwise.us/signup" variant="primary" className="text-lg px-8 py-4">
+                  Start free - 60 days on us
                 </Button>
                 <a
                   href="#how-it-works"
@@ -91,7 +91,7 @@ export default function HomeContent() {
               {
                 step: '1',
                 title: 'First, we reach out to your past customers',
-                body: 'Live within 48 hours. Every past customer who was never asked gets a friendly review request.',
+                body: 'Live in about 10 minutes. Every past customer who was never asked gets a friendly review request.',
               },
               {
                 step: '2',
@@ -134,7 +134,7 @@ export default function HomeContent() {
               <p className="text-xl text-gray-medium leading-relaxed">
                 One Bronx flower shop, 431 to 501. That&apos;s 70 customers
                 who&apos;ll order direct next time -{' '}
-                <a href="/contact" className="text-primary font-semibold hover:text-secondary transition-colors">
+                <a href="https://app.revwise.us/signup" className="text-primary font-semibold hover:text-secondary transition-colors">
                   no middleman&apos;s cut.
                 </a>
               </p>
@@ -179,7 +179,7 @@ export default function HomeContent() {
               </div>
               <div>
                 <h3 className="font-semibold text-lg text-dark">White-glove onboarding</h3>
-                <p className="text-sm text-gray-medium">One setup call. Live in 48 hours.</p>
+                <p className="text-sm text-gray-medium">A 10-minute setup. Live today.</p>
               </div>
             </StaggerItem>
 
@@ -252,10 +252,10 @@ export default function HomeContent() {
               <div className="bg-white rounded-2xl border border-gray-border shadow-lg p-8">
                 <ul className="space-y-4 mb-6">
                   {[
-                    'Texts + emails after every order',
+                    'Email review asks after every order - texting is coming',
                     'Messages in your shop’s voice',
                     'Friendly follow-ups',
-                    'Done-for-you setup - live in 48 hours',
+                    'Set it up yourself in about 10 minutes',
                     'No contract. Cancel anytime.',
                   ].map((feature) => (
                     <li key={feature} className="flex items-start gap-3 text-gray-medium">
@@ -268,20 +268,20 @@ export default function HomeContent() {
                 </ul>
                 <div className="rounded-xl bg-moss/50 p-5 text-center mb-6">
                   <p className="font-heading font-semibold text-2xl text-dark">
-                    14-day free trial
+                    60 days free for the first 25 shops
                   </p>
                   <p className="text-gray-medium leading-relaxed mt-2">
                     Reactivating your past customers is free too - the $15 a
-                    month doesn&apos;t start until it&apos;s done. Not seeing
-                    results? Full refund.
+                    month doesn&apos;t start until your free days end. Not
+                    seeing results? Full refund.
                   </p>
                 </div>
-                <Button href="/contact" variant="primary" className="w-full text-lg py-4 font-bold">
-                  Book a call with Sam
+                <Button href="https://app.revwise.us/signup" variant="primary" className="w-full text-lg py-4 font-bold">
+                  Start my 60 free days
                 </Button>
                 <p className="text-center mt-4">
                   <a href="/contact" className="text-sm text-gray-medium underline underline-offset-4 hover:text-primary transition-colors">
-                    Questions? Talk to Sam first
+                    Questions? Email Sam first
                   </a>
                 </p>
               </div>
@@ -316,29 +316,30 @@ export default function HomeContent() {
 
         <ScrollReveal className="container-custom text-center relative z-10">
           <h2 className="font-heading font-semibold text-4xl md:text-6xl mb-6 tracking-tight">
-            Talk to Sam. Fifteen minutes,{' '}
+            Start tonight. Ten minutes,{' '}
             <em className="italic font-normal text-petal">whenever works.</em>
           </h2>
           <p className="text-xl md:text-2xl mb-10 text-moss/90 max-w-2xl mx-auto leading-relaxed">
-            If RevWise isn&apos;t right for your shop, he&apos;ll tell you.
+            Sixty days free, no call needed. And if RevWise isn&apos;t right for
+            your shop, Sam will tell you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <Button
-              href="/contact"
+              href="https://app.revwise.us/signup"
               variant="primary"
               className="bg-secondary hover:bg-secondary-dark text-lg px-10 py-5 font-bold"
             >
-              Book a call with Sam
+              Start free - 60 days on us
             </Button>
             <a
-              href="mailto:sam@getrevwise.com?subject=Book%20a%20call%20about%20my%20flower%20shop"
+              href="mailto:sam@getrevwise.com?subject=Question%20about%20RevWise"
               className="text-moss/90 hover:text-white transition-colors font-medium underline underline-offset-4"
             >
               or email sam@getrevwise.com
             </a>
           </div>
           <p className="text-moss/70 text-sm">
-            14-day free trial · No contract · Cancel anytime
+            60 days free for founding shops · No contract · Cancel anytime
           </p>
         </ScrollReveal>
       </section>

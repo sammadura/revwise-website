@@ -68,10 +68,10 @@ export default function Footer() {
               Ready to get more Google reviews?
             </p>
             <Link
-              href="/contact"
+              href="https://app.revwise.us/signup"
               className="inline-block bg-secondary hover:bg-secondary-dark text-white px-6 py-2 rounded-lg text-sm font-semibold transition-colors"
             >
-              Book a call with Sam
+              Start free
             </Link>
           </div>
         </div>

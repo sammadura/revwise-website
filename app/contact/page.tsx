@@ -11,14 +11,14 @@ export const metadata: Metadata = {
 };
 
 const EMAIL_CTA =
-  'mailto:sam@getrevwise.com?subject=Book%20a%20call%20about%20my%20flower%20shop';
+  'mailto:sam@getrevwise.com?subject=Question%20about%20RevWise';
 
 const included = [
-  'Texts + emails after every order',
+  'Email review asks after every order - texting is coming',
   'Direct Google review links (one tap)',
   'Friendly follow-ups',
   'Weekly review digest',
-  'Done-for-you setup, live in 48 hours',
+  'Set it up yourself in about 10 minutes',
   'A direct line to me',
   'No contract. Cancel anytime.',
 ];
@@ -53,9 +53,10 @@ export default function ContactPage() {
             </h1>
             <p className="text-xl text-gray-medium leading-relaxed mb-10">
               I run RevWise, and it&apos;s just me. No sales team, no call
-              center. If you run a flower shop, I&apos;d love 15 minutes to
-              introduce myself and hear how reviews are going for you. Shoot
-              me an email.
+              center. You don&apos;t need to talk to me to start - setup is
+              self-serve and takes about 10 minutes. But if you have questions
+              first, email me. I&apos;ll give you an honest read, and if
+              RevWise isn&apos;t right for your shop I&apos;ll say so.
             </p>
             <Button href={EMAIL_CTA} variant="primary" className="text-lg px-10 py-5 font-bold">
               Email me
@@ -100,8 +101,8 @@ export default function ContactPage() {
                 </ul>
 
                 <div className="mt-10">
-                  <Button href={EMAIL_CTA} variant="primary" className="w-full text-lg py-5 font-bold">
-                    Email me to get started
+                  <Button href="https://app.revwise.us/signup" variant="primary" className="w-full text-lg py-5 font-bold">
+                    Start my 60 free days
                   </Button>
                 </div>
               </div>
