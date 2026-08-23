@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from '../ui/Button';
 import Logo from '../ui/Logo';
+import { CTA_LABEL, SIGNUP_URL } from '@/lib/offer';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -22,7 +23,7 @@ export default function Header() {
     { label: 'Home', href: '/' },
     { label: 'How It Works', href: '/#how-it-works' },
     { label: 'Results', href: '/#results' },
-    { label: 'Pricing', href: '/#pricing' },
+    { label: 'Pricing', href: '/pricing' },
     { label: 'Free Audit', href: '/audit' },
   ];
 
@@ -58,8 +59,8 @@ export default function Header() {
                 </li>
               ))}
             </ul>
-            <Button href="https://app.revwise.us/signup" variant="primary">
-              Start free
+            <Button href={SIGNUP_URL} variant="primary">
+              {CTA_LABEL}
             </Button>
           </div>
 
@@ -113,8 +114,8 @@ export default function Header() {
                 ))}
               </ul>
               <div className="pb-4 pt-2 border-t border-gray-border">
-                <Button href="https://app.revwise.us/signup" variant="primary" className="w-full justify-center">
-                  Start free
+                <Button href={SIGNUP_URL} variant="primary" className="w-full justify-center">
+                  {CTA_LABEL}
                 </Button>
               </div>
             </motion.div>

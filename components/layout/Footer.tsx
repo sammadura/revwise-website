@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Stem } from '../ui/BotanicalAccents';
 import Logo from '../ui/Logo';
+import { CTA_LABEL, SIGNUP_URL } from '@/lib/offer';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -20,7 +21,7 @@ export default function Footer() {
               <Logo variant="dark" markClassName="h-8 w-8" textClassName="text-xl" />
             </div>
             <p className="text-moss/80 text-sm leading-relaxed">
-              Automatic Google review requests for flower shops. Done for you.
+              Automatic Google review requests for flower shops. One step after every order.
             </p>
           </div>
 
@@ -39,7 +40,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/#pricing" className="text-moss/80 hover:text-white transition-colors text-sm">
+                <Link href="/pricing" className="text-moss/80 hover:text-white transition-colors text-sm">
                   Pricing
                 </Link>
               </li>
@@ -68,10 +69,10 @@ export default function Footer() {
               Ready to get more Google reviews?
             </p>
             <Link
-              href="https://app.revwise.us/signup"
+              href={SIGNUP_URL}
               className="inline-block bg-secondary hover:bg-secondary-dark text-white px-6 py-2 rounded-lg text-sm font-semibold transition-colors"
             >
-              Start free
+              {CTA_LABEL}
             </Link>
           </div>
         </div>

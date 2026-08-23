@@ -23,8 +23,12 @@ const faqs: FAQItem[] = [
     answer: 'Fair worry. Google penalizes review gating: filtering so only happy customers get asked. RevWise never does that. Every eligible customer gets the same request. No fake reviews, no incentives, no filtering.',
   },
   {
+    question: 'Who is this for?',
+    answer: 'Flower shops whose new website or wire orders already email them. Not walk-in or paper-only shops.',
+  },
+  {
     question: 'How much work is this for me?',
-    answer: 'You set it up yourself in about 10 minutes: connect Square or upload your customer list, check the message, press start. Then it runs itself, every order triggering the ask, follow-ups included. Stuck? Email Sam and he\'ll sort it out.',
+    answer: 'One step. We give you a unique email address. Add it as a staff or order-notification recipient on the system that already emails you new orders. Then it runs itself, every order triggering the ask, follow-ups included. Stuck? Email Sam and he\'ll sort it out.',
   },
   {
     question: 'Why can\'t I just ask for reviews myself?',
@@ -32,11 +36,11 @@ const faqs: FAQItem[] = [
   },
   {
     question: 'What does it cost, and what if it doesn\'t work?',
-    answer: '$15 a month, everything included, no contract, cancel anytime. The first 25 shops get 60 days free (14 days after that), and reactivating past customers is free - the $15 starts only after. No results, full refund.',
+    answer: 'One plan. $49 a month. About a dollar an order. Never more than $49 a month. Add a card after you copy your shop address. Charged on the first captured order, or day 7. If you don\'t get a new Google review, we refund the first month. Cancel anytime. No contract. Shops already on the founding $15 / 60-day terms keep them.',
   },
   {
     question: 'Does it work with the software I already use?',
-    answer: 'Most point-of-sale systems, CRMs, and databases connect through their APIs, and when yours does, we build the integration. The rare exception is an older or walled-off platform, flagged on your setup call. We reactivate your past customers regardless.',
+    answer: 'If your website or wire orders already email you, add our unique address as a staff or order-notification recipient. That works with Floranext, Shopify (staff new-order notifications), Square Online (not register-only), BloomNation, FTD Mercury (BCC on the Email screen, not WOI), WooCommerce, Wix Stores, and Ecwid / GoDaddy Online Store. Square or a customer-list upload is a fallback, not the usual path.',
   },
   {
     question: 'How will I know it\'s working?',

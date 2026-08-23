@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import { CTA_LABEL, SIGNUP_URL } from '@/lib/offer';
 
 interface AuditResult {
   business: {
@@ -417,10 +418,10 @@ export default function AuditPage() {
               {/* CTA */}
               <div className="bg-footer-green rounded-2xl p-8 md:p-10 text-white text-center print:hidden">
                 <h3 className="text-2xl md:text-3xl font-bold mb-8">Close the Gap - Automatically</h3>
-                <Link href="https://app.revwise.us/signup" className="btn-primary inline-block px-10 py-4 text-lg rounded-xl font-semibold">
-                  Start free - 60 days on us
+                <Link href={SIGNUP_URL} className="btn-primary inline-block px-10 py-4 text-lg rounded-xl font-semibold">
+                  {CTA_LABEL}
                 </Link>
-                <p className="text-moss/70 text-sm mt-4">60 days free for the first 25 shops. Cancel anytime.</p>
+                <p className="text-moss/70 text-sm mt-4">One plan. $49 a month. Cancel anytime.</p>
               </div>
             </div>
           )}
