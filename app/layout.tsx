@@ -25,8 +25,8 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://getrevwise.com'),
-  title: 'RevWise — Google Review Automation for Flower Shops | $15/mo',
-  description: 'RevWise asks your customers for a Google review after every order, automatically. Built for florists. 10-minute self-serve setup, $15/mo, 60 days free for founding shops.',
+  title: 'RevWise — Google Review Automation for Flower Shops | $49/mo',
+  description: 'RevWise asks your customers for a Google review after every order, automatically. Built for florists. One-step setup: copy your shop address. $49/mo. Cancel anytime.',
   keywords: 'florist Google reviews, flower shop reviews, review automation for florists, florist marketing, Google reviews for flower shops',
   authors: [{ name: 'RevWise' }],
   alternates: {
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'RevWise — Google Review Automation for Flower Shops',
-    description: 'RevWise asks your customers for a Google review after every order, automatically. Built for florists. $15/mo, everything included.',
+    description: 'RevWise asks your customers for a Google review after every order, automatically. Built for florists. $49/mo. Copy your shop address to start.',
     type: 'website',
     url: 'https://getrevwise.com',
     siteName: 'RevWise',
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'RevWise — Google Review Automation for Flower Shops',
-    description: 'Automatic Google review requests for florists. $15/mo, done for you.',
+    description: 'Automatic Google review requests for florists. $49/mo. One-step setup.',
     images: ['/og-image.png'],
   },
 };
@@ -82,9 +82,9 @@ const jsonLd = {
   },
   offers: {
     '@type': 'Offer',
-    price: '15',
+    price: '49',
     priceCurrency: 'USD',
-    description: '$15/month, everything included, 60 days free for founding shops',
+    description: '$49/month. Charged on the first captured order, or day 7. Cancel anytime.',
   },
   provider: {
     '@type': 'Organization',

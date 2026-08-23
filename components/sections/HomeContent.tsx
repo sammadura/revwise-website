@@ -3,12 +3,15 @@
 import Button from '@/components/ui/Button';
 import SMSDemoV2 from '@/components/ui/SMSDemoV2';
 import FAQ from '@/components/sections/FAQ';
+import PricingCard from '@/components/sections/PricingCard';
+import SupportedSystems from '@/components/sections/SupportedSystems';
 import { Stem, Sprig, Petals } from '@/components/ui/BotanicalAccents';
 import {
   ScrollReveal,
   StaggerContainer,
   StaggerItem,
 } from '@/components/ui/ScrollAnimations';
+import { CTA_LABEL, PRICE_HEADLINE, SIGNUP_URL } from '@/lib/offer';
 
 export default function HomeContent() {
   return (
@@ -33,8 +36,8 @@ export default function HomeContent() {
               </h1>
 
               <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                <Button href="https://app.revwise.us/signup" variant="primary" className="text-lg px-8 py-4">
-                  Start free - 60 days on us
+                <Button href={SIGNUP_URL} variant="primary" className="text-lg px-8 py-4">
+                  {CTA_LABEL}
                 </Button>
                 <a
                   href="#how-it-works"
@@ -90,13 +93,13 @@ export default function HomeContent() {
             {[
               {
                 step: '1',
-                title: 'First, we reach out to your past customers',
-                body: 'Live in about 10 minutes. Every past customer who was never asked gets a friendly review request.',
+                title: 'Copy your shop address',
+                body: 'We give you a unique email. Add it as a staff or order-notification recipient on the system that already emails you new orders.',
               },
               {
                 step: '2',
-                title: 'Every new customer, automatically',
-                body: 'After each order, a one-tap link to your Google review page. Email too (52% open rate).',
+                title: 'Every new order, automatically',
+                body: 'When that order email has a phone number, the review text goes out. Email too (52% open rate).',
               },
               {
                 step: '3',
@@ -119,6 +122,8 @@ export default function HomeContent() {
         </div>
       </section>
 
+      <SupportedSystems />
+
       {/* S4 — Proof strip (unnamed, factual) */}
       <section id="results" className="section bg-petal/60 relative overflow-hidden">
         <div className="absolute -bottom-10 left-[4%] w-32 text-secondary opacity-15 pointer-events-none hidden md:block">
@@ -134,7 +139,7 @@ export default function HomeContent() {
               <p className="text-xl text-gray-medium leading-relaxed">
                 One Bronx flower shop, 431 to 501. That&apos;s 70 customers
                 who&apos;ll order direct next time -{' '}
-                <a href="https://app.revwise.us/signup" className="text-primary font-semibold hover:text-secondary transition-colors">
+                <a href={SIGNUP_URL} className="text-primary font-semibold hover:text-secondary transition-colors">
                   no middleman&apos;s cut.
                 </a>
               </p>
@@ -170,7 +175,7 @@ export default function HomeContent() {
               </div>
             </StaggerItem>
 
-            {/* White-glove */}
+            {/* One-step setup */}
             <StaggerItem className="flex items-center gap-4 bg-white rounded-xl border border-gray-border p-5 shadow-sm">
               <div className="w-10 h-10 bg-petal rounded-lg flex items-center justify-center flex-shrink-0">
                 <svg className="w-5 h-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -178,8 +183,8 @@ export default function HomeContent() {
                 </svg>
               </div>
               <div>
-                <h3 className="font-semibold text-lg text-dark">White-glove onboarding</h3>
-                <p className="text-sm text-gray-medium">A 10-minute setup. Live today.</p>
+                <h3 className="font-semibold text-lg text-dark">One-step setup</h3>
+                <p className="text-sm text-gray-medium">Copy your unique shop address. That&apos;s it.</p>
               </div>
             </StaggerItem>
 
@@ -244,47 +249,12 @@ export default function HomeContent() {
             <ScrollReveal className="text-center mb-10">
               <span className="accent-text text-lg">Pricing</span>
               <h2 className="text-3xl md:text-5xl font-semibold mt-3 mb-4 tracking-tight">
-                One plan. $15 a month. Everything included.
+                {PRICE_HEADLINE}
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>
-              <div className="bg-white rounded-2xl border border-gray-border shadow-lg p-8">
-                <ul className="space-y-4 mb-6">
-                  {[
-                    'Email review asks after every order - texting is coming',
-                    'Messages in your shop’s voice',
-                    'Friendly follow-ups',
-                    'Set it up yourself in about 10 minutes',
-                    'No contract. Cancel anytime.',
-                  ].map((feature) => (
-                    <li key={feature} className="flex items-start gap-3 text-gray-medium">
-                      <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <div className="rounded-xl bg-moss/50 p-5 text-center mb-6">
-                  <p className="font-heading font-semibold text-2xl text-dark">
-                    60 days free for the first 25 shops
-                  </p>
-                  <p className="text-gray-medium leading-relaxed mt-2">
-                    Reactivating your past customers is free too - the $15 a
-                    month doesn&apos;t start until your free days end. Not
-                    seeing results? Full refund.
-                  </p>
-                </div>
-                <Button href="https://app.revwise.us/signup" variant="primary" className="w-full text-lg py-4 font-bold">
-                  Start my 60 free days
-                </Button>
-                <p className="text-center mt-4">
-                  <a href="/contact" className="text-sm text-gray-medium underline underline-offset-4 hover:text-primary transition-colors">
-                    Questions? Email Sam first
-                  </a>
-                </p>
-              </div>
+              <PricingCard />
             </ScrollReveal>
           </div>
         </div>
@@ -316,20 +286,20 @@ export default function HomeContent() {
 
         <ScrollReveal className="container-custom text-center relative z-10">
           <h2 className="font-heading font-semibold text-4xl md:text-6xl mb-6 tracking-tight">
-            Start tonight. Ten minutes,{' '}
+            Start tonight. One step,{' '}
             <em className="italic font-normal text-petal">whenever works.</em>
           </h2>
           <p className="text-xl md:text-2xl mb-10 text-moss/90 max-w-2xl mx-auto leading-relaxed">
-            Sixty days free, no call needed. And if RevWise isn&apos;t right for
-            your shop, Sam will tell you.
+            Copy your shop address. No call needed. And if RevWise isn&apos;t
+            right for your shop, Sam will tell you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <Button
-              href="https://app.revwise.us/signup"
+              href={SIGNUP_URL}
               variant="primary"
               className="bg-secondary hover:bg-secondary-dark text-lg px-10 py-5 font-bold"
             >
-              Start free - 60 days on us
+              {CTA_LABEL}
             </Button>
             <a
               href="mailto:sam@getrevwise.com?subject=Question%20about%20RevWise"
@@ -339,7 +309,7 @@ export default function HomeContent() {
             </a>
           </div>
           <p className="text-moss/70 text-sm">
-            60 days free for founding shops · No contract · Cancel anytime
+            No contract · Cancel anytime
           </p>
         </ScrollReveal>
       </section>

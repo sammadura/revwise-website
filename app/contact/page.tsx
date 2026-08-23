@@ -3,28 +3,34 @@ import Image from 'next/image';
 import Button from '@/components/ui/Button';
 import { Sprig, Stem } from '@/components/ui/BotanicalAccents';
 import { ScrollReveal } from '@/components/ui/ScrollAnimations';
+import {
+  CHARGE_COPY,
+  CTA_LABEL,
+  FOUNDING_NOTE,
+  PLAN_FEATURES,
+  PRICE_PITCH,
+  SIGNUP_URL,
+} from '@/lib/offer';
 
 export const metadata: Metadata = {
-  title: 'Book a Call — RevWise for Flower Shops',
+  title: 'Talk to Sam — RevWise for Flower Shops',
   description:
-    'A note from Sam: email me about your flower shop. $15/mo, everything included.',
+    'A note from Sam: email me about your flower shop. One plan, $49 a month.',
 };
 
 const EMAIL_CTA =
   'mailto:sam@getrevwise.com?subject=Question%20about%20RevWise';
 
 const included = [
-  'Email review asks after every order - texting is coming',
+  ...PLAN_FEATURES.slice(0, 3),
   'Direct Google review links (one tap)',
-  'Friendly follow-ups',
   'Weekly review digest',
-  'Set it up yourself in about 10 minutes',
+  ...PLAN_FEATURES.slice(3),
   'A direct line to me',
-  'No contract. Cancel anytime.',
 ];
 
 const comparisons = [
-  { name: 'RevWise', price: '$15/mo', setup: 'Done for you (48 hrs)', contract: 'Month-to-month', highlight: true },
+  { name: 'RevWise', price: '$49/mo', setup: 'Copy your shop address', contract: 'No contract', highlight: true },
   { name: 'Podium', price: '$399/mo', setup: 'Self-serve', contract: 'Annual', highlight: false },
   { name: 'Birdeye', price: '$349/mo', setup: 'Self-serve', contract: 'Annual', highlight: false },
 ];
@@ -54,7 +60,7 @@ export default function ContactPage() {
             <p className="text-xl text-gray-medium leading-relaxed mb-10">
               I run RevWise, and it&apos;s just me. No sales team, no call
               center. You don&apos;t need to talk to me to start - setup is
-              self-serve and takes about 10 minutes. But if you have questions
+              one step: copy your shop address. But if you have questions
               first, email me. I&apos;ll give you an honest read, and if
               RevWise isn&apos;t right for your shop I&apos;ll say so.
             </p>
@@ -78,12 +84,15 @@ export default function ContactPage() {
                   <Stem />
                 </div>
                 <p className="relative text-sm font-medium uppercase tracking-widest mb-2 text-moss/80">
-                  One plan, everything included
+                  One plan. $49 a month.
                 </p>
                 <div className="relative flex items-baseline justify-center gap-1">
-                  <span className="text-6xl md:text-7xl font-heading font-semibold">$15</span>
+                  <span className="text-6xl md:text-7xl font-heading font-semibold">$49</span>
                   <span className="text-2xl text-moss/80">/month</span>
                 </div>
+                <p className="relative mt-4 text-moss/90 leading-relaxed">
+                  {PRICE_PITCH}
+                </p>
               </div>
 
               <div className="p-10">
@@ -91,7 +100,7 @@ export default function ContactPage() {
                   {included.map((feature) => (
                     <li key={feature} className="flex items-center gap-4">
                       <div className="w-7 h-7 bg-moss rounded-full flex items-center justify-center flex-shrink-0">
-                        <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                       </div>
@@ -100,11 +109,18 @@ export default function ContactPage() {
                   ))}
                 </ul>
 
-                <div className="mt-10">
-                  <Button href="https://app.revwise.us/signup" variant="primary" className="w-full text-lg py-5 font-bold">
-                    Start my 60 free days
+                <p className="mt-8 text-gray-medium leading-relaxed text-center">
+                  {CHARGE_COPY}
+                </p>
+
+                <div className="mt-8">
+                  <Button href={SIGNUP_URL} variant="primary" className="w-full text-lg py-5 font-bold">
+                    {CTA_LABEL}
                   </Button>
                 </div>
+                <p className="text-center text-sm text-gray-medium mt-5 leading-relaxed">
+                  {FOUNDING_NOTE}
+                </p>
               </div>
             </div>
 
