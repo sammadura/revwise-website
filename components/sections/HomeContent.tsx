@@ -15,44 +15,46 @@ import { CTA_LABEL, PRICE_HEADLINE, SIGNUP_URL } from '@/lib/offer';
 
 interface ShopProof {
   name: string;
-  location: string;
   stat: string;
-  range: string;
-  address?: string;
+  detail: string;
 }
 
-/** Attributed, already-published result only. Do not add post-churn counts. */
-const BELLAS_PROOF: ShopProof = {
-  name: "Bella's Flower Shop",
-  location: 'Bronx',
-  stat: '70 new Google reviews\nin 74 days',
-  range: '431 to 501',
-  address: '288 W Fordham Rd',
-};
-
 /**
- * Second proof slot — The Flower Shop of Lake Charles (Austin Ramos).
- * Leave empty until a verified new-review count is provided. Do not invent numbers.
+ * Named proof only. Do not add Maps totals or invented deltas.
+ * Forbidden on this page: 539 (Bella's live total after churn),
+ * 331 (Lake Charles Maps total — no honest start), 262, 1,087
+ * (customers reached, not reviews).
  */
-const EXTRA_PROOFS: ShopProof[] = [];
+const NAMED_PROOFS: ShopProof[] = [
+  {
+    name: "Bella's Flower Shop, Bronx",
+    stat: '70 new Google reviews in 74 days',
+    detail: '431 to 501 · 288 W Fordham Rd',
+  },
+  {
+    // Austin Ramos — first ask July 21, 2026. Count Sam sent 2026-08-25.
+    name: 'The Flower Shop of Lake Charles',
+    stat: '16 new Google reviews since July 21',
+    detail: '',
+  },
+];
 
 function ProofLines({ proofs }: { proofs: ShopProof[] }) {
   return (
     <div id="results" className="space-y-5 scroll-mt-28">
       {proofs.map((proof) => (
         <div key={proof.name}>
-          <p className="font-heading font-semibold text-2xl md:text-[1.85rem] text-dark tracking-tight leading-snug whitespace-pre-line">
+          <p className="font-heading font-semibold text-xl md:text-2xl text-dark tracking-tight leading-snug text-pretty">
             {proof.stat}
           </p>
-          <p className="mt-2 text-gray-medium leading-relaxed">
-            {proof.name}, {proof.location}
-            {proof.address ? ` · ${proof.address}` : ''}
-          </p>
-          <p className="text-sm text-gray-medium leading-relaxed">{proof.range}</p>
+          <p className="mt-1 text-gray-medium leading-relaxed">{proof.name}</p>
+          {proof.detail ? (
+            <p className="text-sm text-gray-medium leading-relaxed">{proof.detail}</p>
+          ) : null}
         </div>
       ))}
       <p className="text-sm text-gray-medium leading-relaxed">
-        That&apos;s 70 customers who&apos;ll order direct next time —{' '}
+        Customers who&apos;ll order direct next time —{' '}
         <a href={SIGNUP_URL} className="text-primary font-semibold hover:text-secondary transition-colors">
           no middleman&apos;s cut.
         </a>
@@ -62,7 +64,7 @@ function ProofLines({ proofs }: { proofs: ShopProof[] }) {
 }
 
 export default function HomeContent() {
-  const proofs = [BELLAS_PROOF, ...EXTRA_PROOFS];
+  const proofs = NAMED_PROOFS;
 
   return (
     <>
@@ -97,7 +99,7 @@ export default function HomeContent() {
               </p>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.1} className="flex flex-col gap-10">
+            <ScrollReveal delay={0.1} className="flex flex-col gap-6">
               <ProofLines proofs={proofs} />
               <div className="pt-2">
                 <SMSDemoV2 compact />
