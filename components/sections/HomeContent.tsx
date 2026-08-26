@@ -21,9 +21,8 @@ interface ShopProof {
 
 /**
  * Named proof only. Do not add Maps totals or invented deltas.
- * Forbidden on this page: 539 (Bella's live total after churn),
- * 331 (Lake Charles Maps total — no honest start), 262, 1,087
- * (customers reached, not reviews).
+ * Bella's: the already-published 431→501 jump only (not a later live total).
+ * Lake Charles: new-review count since first ask only — no Maps start/end.
  */
 const NAMED_PROOFS: ShopProof[] = [
   {
