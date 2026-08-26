@@ -17,7 +17,8 @@ interface ShopProof {
   name: string;
   location: string;
   stat: string;
-  detail: string;
+  range: string;
+  address?: string;
 }
 
 /** Attributed, already-published result only. Do not add post-churn counts. */
@@ -25,7 +26,8 @@ const BELLAS_PROOF: ShopProof = {
   name: "Bella's Flower Shop",
   location: 'Bronx',
   stat: '70 new Google reviews in 74 days',
-  detail: '431 to 501 · 288 W Fordham Rd',
+  range: '431 to 501',
+  address: '288 W Fordham Rd',
 };
 
 /**
@@ -44,8 +46,9 @@ function ProofLines({ proofs }: { proofs: ShopProof[] }) {
           </p>
           <p className="mt-2 text-gray-medium leading-relaxed">
             {proof.name}, {proof.location}
+            {proof.address ? ` · ${proof.address}` : ''}
           </p>
-          <p className="text-sm text-gray-medium leading-relaxed">{proof.detail}</p>
+          <p className="text-sm text-gray-medium leading-relaxed">{proof.range}</p>
         </div>
       ))}
       <p className="text-sm text-gray-medium leading-relaxed">
@@ -95,9 +98,11 @@ export default function HomeContent() {
               </p>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.1} className="flex flex-col gap-8">
+            <ScrollReveal delay={0.1} className="flex flex-col gap-10">
               <ProofLines proofs={proofs} />
-              <SMSDemoV2 compact />
+              <div className="pt-2">
+                <SMSDemoV2 compact />
+              </div>
             </ScrollReveal>
           </div>
         </div>
