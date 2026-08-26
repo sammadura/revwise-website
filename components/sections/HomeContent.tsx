@@ -25,7 +25,7 @@ interface ShopProof {
 const BELLAS_PROOF: ShopProof = {
   name: "Bella's Flower Shop",
   location: 'Bronx',
-  stat: '70 new Google reviews in 74 days',
+  stat: '70 new Google reviews\nin 74 days',
   range: '431 to 501',
   address: '288 W Fordham Rd',
 };
@@ -38,10 +38,10 @@ const EXTRA_PROOFS: ShopProof[] = [];
 
 function ProofLines({ proofs }: { proofs: ShopProof[] }) {
   return (
-    <div id="results" className="space-y-5">
+    <div id="results" className="space-y-5 scroll-mt-28">
       {proofs.map((proof) => (
         <div key={proof.name}>
-          <p className="font-heading font-semibold text-2xl md:text-3xl text-dark tracking-tight text-balance">
+          <p className="font-heading font-semibold text-2xl md:text-[1.85rem] text-dark tracking-tight leading-snug whitespace-pre-line">
             {proof.stat}
           </p>
           <p className="mt-2 text-gray-medium leading-relaxed">
@@ -71,9 +71,8 @@ export default function HomeContent() {
         <div className="container-custom relative pt-12 pb-12 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 lg:items-center">
             <ScrollReveal>
-              <h1 className="heading-xl mb-8 md:mb-10">
-                You arrange the flowers.
-                <br className="hidden sm:block" />{' '}
+              <h1 className="font-heading font-semibold tracking-tight leading-[1.1] text-[1.7rem] sm:text-4xl md:text-5xl mb-8 md:mb-10">
+                <span className="block">You arrange the flowers.</span>
                 <em className="italic font-normal text-primary">We ask for the review.</em>
               </h1>
 
