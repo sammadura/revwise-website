@@ -38,7 +38,11 @@ const messages: Message[] = [
   },
 ];
 
-export default function SMSDemoV2() {
+interface SMSDemoV2Props {
+  compact?: boolean;
+}
+
+export default function SMSDemoV2({ compact = false }: SMSDemoV2Props) {
   const [visibleMessages, setVisibleMessages] = useState<number[]>([]);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -86,9 +90,13 @@ export default function SMSDemoV2() {
   }, [isPlaying, visibleMessages.length]);
 
   return (
-    <div className="relative max-w-sm mx-auto">
+    <div className={`relative mx-auto ${compact ? 'max-w-[20rem]' : 'max-w-sm'}`}>
       {/* Glow effect behind phone */}
-      <div className="absolute -inset-4 bg-gradient-to-r from-sage/40 via-petal/60 to-sage/40 rounded-[4rem] blur-2xl opacity-70" />
+      <div
+        className={`absolute bg-gradient-to-r from-sage/40 via-petal/60 to-sage/40 rounded-[4rem] blur-2xl opacity-70 ${
+          compact ? 'inset-0' : '-inset-4'
+        }`}
+      />
 
       {/* Phone frame */}
       <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] p-3 shadow-2xl ring-1 ring-white/10">
@@ -131,7 +139,7 @@ export default function SMSDemoV2() {
           </div>
 
           {/* Messages area - FIXED HEIGHT */}
-          <div className="h-80 bg-gradient-to-b from-gray-50 to-gray-100 px-4 py-4 flex flex-col">
+          <div className={`${compact ? 'h-64' : 'h-80'} bg-gradient-to-b from-gray-50 to-gray-100 px-4 py-4 flex flex-col`}>
             <div className="space-y-3 flex-1">
               {/* Message 1 */}
               <div
@@ -203,9 +211,13 @@ export default function SMSDemoV2() {
         Live Demo
       </div>
 
-      {/* Decorative elements */}
-      <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-petal rounded-full blur-xl" />
-      <div className="absolute -top-8 -right-8 w-16 h-16 bg-moss rounded-full blur-xl" />
+      {/* Decorative blurs — skip the upward ones in the hero so they don't cover proof copy */}
+      {!compact && (
+        <>
+          <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-petal rounded-full blur-xl" />
+          <div className="absolute -top-8 -right-8 w-16 h-16 bg-moss rounded-full blur-xl" />
+        </>
+      )}
     </div>
   );
 }
