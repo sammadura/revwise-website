@@ -125,12 +125,12 @@ export default function HomeContent() {
               {
                 step: '2',
                 title: 'Every new order, automatically',
-                body: 'When that order email has a phone number, the review text goes out. Email too (52% open rate).',
+                body: 'When that order email has a phone number, the review text goes out. Email too.',
               },
               {
                 step: '3',
                 title: 'Reviews roll in, even during the rush',
-                body: 'Friendly follow-ups catch busy customers. Same polite ask to everyone — policy-safe.',
+                body: 'Friendly follow-ups catch busy customers. Same polite ask to everyone.',
               },
             ].map((item) => (
               <StaggerItem
@@ -150,11 +150,6 @@ export default function HomeContent() {
             <p className="text-lg text-gray-medium leading-relaxed text-pretty">
               Your busiest weeks are exactly when nobody asks. RevWise asks every
               customer — even when the shop is slammed.
-            </p>
-            <p className="mt-5 text-sm text-gray-medium">
-              <span className="font-semibold text-primary">8–12%</span> click-through
-              {' · '}
-              <span className="font-semibold text-secondary">52%</span> email opens
             </p>
           </ScrollReveal>
         </div>
@@ -198,7 +193,7 @@ export default function HomeContent() {
 
         <ScrollReveal className="container-custom text-center relative z-10">
           <h2 className="font-heading font-semibold text-4xl md:text-6xl mb-6 tracking-tight text-balance">
-            Start tonight. One step,{' '}
+            One step,{' '}
             <em className="italic font-normal text-petal">whenever works.</em>
           </h2>
           <p className="text-xl md:text-2xl mb-10 text-moss/90 max-w-2xl mx-auto leading-relaxed">

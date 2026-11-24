@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   title: 'Talk to Sam — RevWise for Flower Shops',
   description:
     'A note from Sam: email me about your flower shop. One plan, $49 a month.',
+  alternates: { canonical: '/contact' },
 };
 
 const EMAIL_CTA =

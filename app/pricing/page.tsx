@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: 'Pricing — $49/mo for Flower Shops | RevWise',
   description:
     'One plan. $49 a month. About a dollar an order. Never more than $49 a month. Copy your shop address, add a card, cancel anytime.',
+  alternates: { canonical: '/pricing' },
 };
 
 export default function PricingPage() {

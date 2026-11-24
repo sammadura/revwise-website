@@ -29,9 +29,6 @@ export const metadata: Metadata = {
   description: 'RevWise asks your customers for a Google review after every order, automatically. Built for florists. One-step setup: copy your shop address. $49/mo. Cancel anytime.',
   keywords: 'florist Google reviews, flower shop reviews, review automation for florists, florist marketing, Google reviews for flower shops',
   authors: [{ name: 'RevWise' }],
-  alternates: {
-    canonical: '/',
-  },
   robots: {
     index: true,
     follow: true,

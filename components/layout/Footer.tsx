@@ -88,7 +88,11 @@ export default function Footer() {
               Terms and Conditions
             </Link>
           </div>
-          <p>© {currentYear} RevWise. All rights reserved.</p>
+          <p>
+            © {currentYear} RevWise. All rights reserved. RevWise is part of{' '}
+            <a href="https://openflower.co/reviews" className="underline underline-offset-2">Openflower</a>, Sam Madura's services for
+            independent flower shops.
+          </p>
         </div>
       </div>
     </footer>

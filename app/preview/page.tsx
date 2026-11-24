@@ -1,4 +1,8 @@
+import type { Metadata } from 'next';
 import HomeContent from '@/components/sections/HomeContent';
+
+// A working copy of the home page: kept out of search.
+export const metadata: Metadata = { title: 'Preview', robots: { index: false, follow: false } };
 
 export default function PreviewPage() {
   return (
