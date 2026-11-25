@@ -26,7 +26,7 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL('https://getrevwise.com'),
   title: 'RevWise — Google Review Automation for Flower Shops',
-  description: 'RevWise asks your customers for a Google review after every order, automatically. Built for florists. One-step setup: copy your shop address. Free for now.',
+  description: 'RevWise asks your customers for a Google review after every order, automatically. Built for florists. One-step setup: copy your shop address. Free.',
   keywords: 'florist Google reviews, flower shop reviews, review automation for florists, florist marketing, Google reviews for flower shops',
   authors: [{ name: 'RevWise' }],
   robots: {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'RevWise — Google Review Automation for Flower Shops',
-    description: 'RevWise asks your customers for a Google review after every order, automatically. Built for florists. Free for now. Copy your shop address to start.',
+    description: 'RevWise asks your customers for a Google review after every order, automatically. Built for florists. Free. Copy your shop address to start.',
     type: 'website',
     url: 'https://getrevwise.com',
     siteName: 'RevWise',
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'RevWise — Google Review Automation for Flower Shops',
-    description: 'Automatic Google review requests for florists. Free for now. One-step setup.',
+    description: 'Automatic Google review requests for florists. Free. One-step setup.',
     images: ['/og-image.png'],
   },
 };
@@ -81,7 +81,7 @@ const jsonLd = {
     '@type': 'Offer',
     price: '0',
     priceCurrency: 'USD',
-    description: 'Free for now. No card.',
+    description: 'Free. No card.',
   },
   provider: {
     '@type': 'Organization',
