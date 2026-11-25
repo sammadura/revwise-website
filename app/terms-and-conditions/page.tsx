@@ -104,14 +104,14 @@ export default function TermsAndConditionsPage() {
               <h2 className="text-2xl font-bold mb-4">6. Subscription and Payment Terms</h2>
 
               <h3 className="text-xl font-semibold mb-3">Billing</h3>
-              <p>New shops are on one plan: $49 a month. You add a card after you copy your shop address. We charge that card on the first captured order, or on day 7, then monthly. You authorize us to charge your payment method for all fees.</p>
+              <p>RevWise is free for now for new shops. We do not ask for a card and we charge nothing.</p>
               <p className="mt-4">Shops already on the founding $15 / 60-day terms keep those terms. This page does not change them.</p>
 
               <h3 className="text-xl font-semibold mb-3 mt-6">Price Changes</h3>
-              <p>We reserve the right to modify our pricing with 30 days' notice. Continued use of the Service after price changes constitutes acceptance. Founding shops already on the $15 / 60-day terms keep those terms.</p>
+              <p>If we start charging for the Service, we will tell you at least 60 days ahead. You are charged nothing unless you choose to stay and give us a payment method. Founding shops already on the $15 / 60-day terms keep those terms.</p>
 
               <h3 className="text-xl font-semibold mb-3 mt-6">Refunds</h3>
-              <p>If you do not get a new Google review, we refund the first month. Other refunds are handled on a case-by-case basis. Please contact us at <a href="mailto:sam@getrevwise.com" className="text-primary hover:text-blue-600">sam@getrevwise.com</a> to discuss refund requests.</p>
+              <p>Refunds for shops that have paid are handled on a case-by-case basis. Please contact us at <a href="mailto:sam@getrevwise.com" className="text-primary hover:text-blue-600">sam@getrevwise.com</a> to discuss refund requests.</p>
             </section>
 
             {/* Section 7 */}
